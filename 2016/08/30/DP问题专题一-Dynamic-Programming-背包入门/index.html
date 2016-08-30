@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147105616623.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147105616656.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14710561669.png">
-<meta property="og:updated_time" content="2016-08-30T15:53:39.468Z">
+<meta property="og:updated_time" content="2016-08-30T16:00:10.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DP问题专题一(Dynamic Programming) 背包入门">
 <meta name="twitter:description" content="经典DP 背包问题三种基本背包问题的概念01背包(Zero one pack)：有N件物品和一个容量为V的背包， 每种物品均只有一件。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。完全背包(Complete Pack)：有N种物品和一个容量为V的背包，每种物品都有无限件可用。第i种物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总">
@@ -166,13 +166,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -304,7 +304,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-DP问题专题一-Dynamic-Programming-背包入门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -369,7 +369,7 @@
 <p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147133964245.png" alt=""></p>
 <h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int cmp(int a,int b)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> a&lt;b;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n;</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;n &amp;&amp; n!=0)</div><div class="line">	&#123;</div><div class="line">		int price[1050]=&#123;0&#125;,m,dp[1050]=&#123;0&#125;;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;price[i];</div><div class="line">		cin&gt;&gt;m;</div><div class="line">		<span class="keyword">if</span>(m&lt;5)</div><div class="line">		&#123;</div><div class="line">			cout&lt;&lt;m&lt;&lt;endl;</div><div class="line">			<span class="built_in">continue</span>;</div><div class="line">		&#125;</div><div class="line">		sort(price+1,price+1+n,cmp);</div><div class="line">		int Max=price[n];</div><div class="line">		m-=5;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=m;j&gt;=price[i];j--)</div><div class="line">				dp[j]=max(dp[j],dp[j-price[i]]+price[i]);</div><div class="line">		cout&lt;&lt;(m-dp[m])+(5-Max)&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>典型的01背包问题。但在使用状态方程前应先做如下操作：由于卡里的余额必须要大于5，所以可以做先拿5元买最贵的菜，接着卡里剩余m-5使用01背包问题求出最大价<br>值（这是逆向思维，若换成正序的情形更容易理解，相当于先买除了最贵以外的菜，确保买完后卡里的钱大于5元而且最少，最接近5元，接着用这5元去买最贵的菜，卡<br>里剩下的负值就是最小的余额）。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>虽然题目类型是典型的01背包问题，但是不代表可以直接使用状态方程求解，在经过一系列的操作后才可以使用。如本题在使用状态方程前需先用5元去买最贵的物品。<br>至于为什么要排序，详见DP专题三————ACM-HDOJ 3466题思路</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>虽然题目类型是典型的01背包问题，但是不代表可以直接使用状态方程求解，在经过一系列的操作后才可以使用。如本题在使用状态方程前需先用5元去买最贵的物品。<br>至于为什么要排序，详见DP专题二————ACM-HDOJ 3466题思路</p>
 <h2 id="ACM-HDOJ-1963-完全背包"><a href="#ACM-HDOJ-1963-完全背包" class="headerlink" title="ACM-HDOJ 1963(完全背包)"></a>ACM-HDOJ 1963(完全背包)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147135793769.png" alt=""></p>
 <p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147135793825.png" alt=""></p>
 <p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147135793857.png" alt=""></p>
@@ -395,17 +395,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
-        <p><span>发布时间:</span>2016-08-30, 21:33:28</p>
-        <p><span>最后更新:</span>2016-08-30, 23:53:39</p>
+        <p><span>Title:</span><a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey XBM</a></p>
+        <p><span>Created:</span>2016-08-30, 21:33:28</p>
+        <p><span>Updated:</span>2016-08-31, 00:00:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/" title="DP问题专题一(Dynamic Programming) 背包入门">http://xuboming8.github.io/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/" title="DP问题专题一(Dynamic Programming) 背包入门">http://xuboming8.github.io/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/　　By Hippopmonkey XBM" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -433,7 +433,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#经典DP-背包问题"><span class="toc-number">1.</span> <span class="toc-text">经典DP 背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三种基本背包问题的概念"><span class="toc-number">1.1.</span> <span class="toc-text">三种基本背包问题的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01背包"><span class="toc-number">1.2.</span> <span class="toc-text">01背包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完全背包"><span class="toc-number">1.3.</span> <span class="toc-text">完全背包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多重背包"><span class="toc-number">1.4.</span> <span class="toc-text">多重背包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制优化"><span class="toc-number">1.5.</span> <span class="toc-text">二进制优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维划为一维数组的正逆序问题"><span class="toc-number">1.5.1.</span> <span class="toc-text">二维划为一维数组的正逆序问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-2546-01背包"><span class="toc-number">1.6.</span> <span class="toc-text">ACM-HDOJ 2546(01背包)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.6.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.6.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.6.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-1963-完全背包"><span class="toc-number">1.7.</span> <span class="toc-text">ACM-HDOJ 1963(完全背包)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.7.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-1"><span class="toc-number">1.7.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-1059-多重背包"><span class="toc-number">1.8.</span> <span class="toc-text">ACM-HDOJ 1059(多重背包)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.8.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.8.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.8.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-2"><span class="toc-number">1.8.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol>
         
@@ -449,10 +449,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -510,15 +510,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/30/DP问题专题二-01背包专题/" title="上一篇: DP问题专题二 01背包专题">
+            <a href="/2016/08/30/DP问题专题二-01背包专题/" title="Pre: DP问题专题二 01背包专题">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/30/经典的搜索类游戏/" title="下一篇: 经典的搜索类游戏">
+            <a href="/2016/08/30/经典的搜索类游戏/" title="Next: 经典的搜索类游戏">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -541,14 +541,14 @@
                 2016 Hippopmonkey XBM
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -557,7 +557,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -590,9 +590,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
