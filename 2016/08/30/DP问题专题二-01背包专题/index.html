@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey XBM" />
+
+
+
+<meta name="description" content="01背包巧用与强化ACM-HDOJ 2602(01背包水题)Problem Description
+Input">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DP问题专题二 01背包专题">
+<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/DP问题专题二-01背包专题/index.html">
+<meta property="og:site_name" content="似水年华">
+<meta property="og:description" content="01背包巧用与强化ACM-HDOJ 2602(01背包水题)Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141259952.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260004.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260041.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714126008.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260113.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714290374.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903796.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903836.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903872.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903905.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086533.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086591.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714508672.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086628.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086676.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959198.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959256.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14715095929.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959324.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959358.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839619.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839674.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839708.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14715783975.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839789.png">
+<meta property="og:updated_time" content="2016-08-30T14:18:59.354Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DP问题专题二 01背包专题">
+<meta name="twitter:description" content="01背包巧用与强化ACM-HDOJ 2602(01背包水题)Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141259952.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="似水年华" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>DP问题专题二 01背包专题 | 似水年华</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey XBM</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-DP问题专题二-01背包专题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/DP问题专题二-01背包专题/" class="article-date">
+      <time datetime="2016-08-30T14:08:10.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DP问题专题二 01背包专题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="01背包巧用与强化"><a href="#01背包巧用与强化" class="headerlink" title="01背包巧用与强化"></a>01背包巧用与强化</h1><h2 id="ACM-HDOJ-2602-01背包水题"><a href="#ACM-HDOJ-2602-01背包水题" class="headerlink" title="ACM-HDOJ 2602(01背包水题)"></a>ACM-HDOJ 2602(01背包水题)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141259952.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260004.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260041.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714126008.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141260113.png" alt=""></p>
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>01背包水题。只是把物品变成了骨头。</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int value[1050],cost[1050],dp[1050],bag,n;</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		cin&gt;&gt;n&gt;&gt;bag;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;value[i];</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;cost[i];</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			<span class="keyword">for</span>(int v=bag;v&gt;=cost[i];v--)</div><div class="line">				dp[v]=max(dp[v],dp[v-cost[i]]+value[i]);</div><div class="line">		cout&lt;&lt;dp[bag]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>参考DP专题一的01背包介绍，此题完全套状态方程。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>内循环逆序。</p>
+<h2 id="ACM-HDOJ-2639-01背包第k优解"><a href="#ACM-HDOJ-2639-01背包第k优解" class="headerlink" title="ACM-HDOJ 2639(01背包第k优解)"></a>ACM-HDOJ 2639(01背包第k优解)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714290374.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903796.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903836.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903872.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147142903905.png" alt=""></p>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>在2602题的基础上求第k优解。</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct Node</div><div class="line">&#123;</div><div class="line">	int value,cost;</div><div class="line">&#125;node[1005];</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int n,k,v,dp[1005][31]=&#123;0&#125;,a[31],b[31];</div><div class="line">		cin&gt;&gt;n&gt;&gt;v&gt;&gt;k;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;node[i].value;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;node[i].cost;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=v;j&gt;=node[i].cost;j--)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">for</span>(int d=1;d&lt;=k;d++)</div><div class="line">				&#123;</div><div class="line">					a[d]=dp[j-node[i].cost][d]+node[i].value;</div><div class="line">					b[d]=dp[j][d];</div><div class="line">				&#125;</div><div class="line">				int x,y,z;</div><div class="line">				x=y=z=1;</div><div class="line">				int a[d]=b[d]=-1;</div><div class="line">				<span class="keyword">while</span>(z&lt;=k &amp;&amp; (a[x]!=-1 || b[y]!=-1))</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">if</span>(a[x]&gt;b[y])</div><div class="line">						dp[j][z]=a[x++];</div><div class="line">					<span class="keyword">else</span></div><div class="line">						dp[j][z]=b[y++];</div><div class="line">					<span class="keyword">if</span>(dp[j][z]!=dp[j][z-1])</div><div class="line">						z++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		cout&lt;&lt;dp[v][k]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>　　对于求次优解、第K优解类的问题，如果相应的最优解问题能写出状态转移方程、用动态规划解决，那么求次优解往往可以相同的复杂度解决，第K优解则比求最优解的复<br>杂度上多一个系数K。其基本思想是将每个状态都表示成有序队列，将状态转移方程中的max/min转化成有序队列的合并。这里仍然以01背包为例讲解一下。首先看01背包求<br>最优解的状态转移方程：f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}。如果要求第K优解，那么状态f[i][v]就应该是一个大小为K的数组f[i][v][1..K]。其中f[i][v][k]表<br>示前i个物品、背包大小为 v时，第k优解的值。“f[i][v]是一个大小为K的数组”这一句，熟悉C语言的同学可能比较好理解，或者也可以简单地理解为在原来的方程中加了一维。<br>显然f[i][v][1..K]这K个数是由大到小排列的，所以我们把它认为是一个有序队列。然后原方程就可以解释为：f[i][v]这个有序队列是由f[i-1][v]和f[i-1][v-c[i]]+w[i]这两<br>个有序队列合并得到的。有序队列f[i-1][v]即f[i-1][v][1..K]，f[i-1][v-c[i]]+w[i]则理解为在f[i-1][v-c[i]] [1..K]的每个数上加上w[i]后得到的有序队列.合并这两个有<br>序队列并将结果的前K项储存到f[i][v][1..K]中的复杂度是O(K)。最后的答案是f[N][V][K]。总的复杂度是O(VNK)。<br>　　为什么这个方法正确呢？实际上，一个正确的状态转移方程的求解过程遍历了所有可用的策略，也就覆盖了问题的所有方案。只不过由于是求最优解，所以其 它在任何一<br>个策略上达不到最优的方案都被忽略了。如果把每个状态表示成一个大小为K的数组，并在这个数组中有序的保存该状态可取到的前K个最优值。那么， 对于任两个状态的max<br>运算等价于两个由大到小的有序队列的合并。另外还要注意题目对于“第K优解”的定义，将策略不同但权值相同的两个方案是看作同一个解还是不同的解。如果是前者，则维护<br>有序队列时要保证队列里的数没有重复的。<br>　　用个形象的比喻吧：如果我想知道学年最高分，那么，我只要知道每个班级的最高分，然后统计一遍就可以了。如果我想知道学年前十呢？我必须要知道每个班的前十名。<br>大家在心里模拟一下，对，这就是本题核心的算法。两种决策，就可以看作这个学年只有两个班。<br>　　根据以上思路，将原来的dp[i]扩展成dp[i][j]表示背包容量用了i的第j优解。</p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><p>分别使用a，b两个数组存储两种状态，再合并求最大值。</p>
+<h2 id="ACM-HDOJ-2955-01背包巧用"><a href="#ACM-HDOJ-2955-01背包巧用" class="headerlink" title="ACM-HDOJ 2955(01背包巧用)"></a>ACM-HDOJ 2955(01背包巧用)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086533.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086591.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14714508672.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086628.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147145086676.png" alt=""></p>
+<h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>小偷抢银行，给出银行的个数，每个银行中的存款和每个银行中被抓的概率，求出在小于给定概率的情况下抢得的最大值。</p>
+<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int money;</div><div class="line">	double caught;</div><div class="line">&#125;bank[105];</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int n,sum=0;</div><div class="line">		double p,dp[10005];</div><div class="line">		cin&gt;&gt;p&gt;&gt;n;</div><div class="line">		p=1-p;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;bank[i].money&gt;&gt;bank[i].caught;</div><div class="line">			bank[i].caught=1-bank[i].caught;</div><div class="line">			sum+=bank[i].money;</div><div class="line">		&#125;</div><div class="line">		memset(dp,0.0,sizeof(dp));</div><div class="line">		dp[0]=1.0;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=sum;j&gt;=bank[i].money;j--)</div><div class="line">				dp[j]=max(dp[j],dp[j-bank[i].money]*bank[i].caught);</div><div class="line">		<span class="keyword">for</span>(int i=sum;i&gt;=0;i--)</div><div class="line">			<span class="keyword">if</span>(dp[i]&gt;p)</div><div class="line">			&#123;</div><div class="line">				cout&lt;&lt;i&lt;&lt;endl;</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>1、抢n个银行，不被抓，是每次都不被抓，用乘法原理处理每次不被抓的概率。<br>2、转化为01背包：将所有银行的总钱数当做背包的容积v，将不被抓的概率当做cost[i]，<br>在一般的01背包中都是加上cost[i] ，这里由于是乘法原理，所以应该是转化为乘法。<br>这样，传统的01背包累加问题变成了垒乘。<br>3、状态转移方程：dp[j]=max(dp[j],dp[j-bank[i].money]*bank[i].caught)<br>dp[j]表示抢j钱时的最大不被抓概率。</p>
+<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><p>此题乍看与背包问题无关，其实是变相的01背包问题。由于dp求得的是最大的不被抓概率，所以程序中的p和bank[i].caught必须转化为不被抓的概率，即用1减去本身。<br>最后在判断的时候需注意i从sum开始，即从最大背包容量开始判断，每个容量对应的最大不被抓概率是否满足小于给定的概率，若满足则立刻输出并结束循环，保证输出<br>的是最优化值。dp的初始化也要注意给dp[0]赋为1，因为当抢钱数为0是不会被抓。</p>
+<h2 id="ACM-HDOJ-3466-01背包排序"><a href="#ACM-HDOJ-3466-01背包排序" class="headerlink" title="ACM-HDOJ 3466(01背包排序)"></a>ACM-HDOJ 3466(01背包排序)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959198.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959256.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14715095929.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959324.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147150959358.png" alt=""></p>
+<h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>用钱买商品，每件物品只有在大于特定资金才能进行交易，在总资金一定的情况下求获得的最大价值。</p>
+<h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int p,q,v,cha;</div><div class="line">&#125;a[550];</div><div class="line">int cmp(node A,node B)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> A.cha&lt;B.cha;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n,m,dp[5050];</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;n&gt;&gt;m)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i].p&gt;&gt;a[i].q&gt;&gt;a[i].v;</div><div class="line">			a[i].cha=a[i].q<span class="_">-a</span>[i].p;</div><div class="line">		&#125;</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		sort(a,a+n,cmp);</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=m;j&gt;=a[i].q;j--)</div><div class="line">				dp[j]=max(dp[j],dp[j<span class="_">-a</span>[i].p]+a[i].v);</div><div class="line">		cout&lt;&lt;dp[m]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>此道01背包问题需要sort排序，理由如下：<br>有两个物品(p1,q1,v1),(p2,q2,v2)，然后物品1先放的话，物品2就可以借助物品1产生的各种状态来进行下一步转移，而如果物品2的q2值过高，在这个[q2,m]的区间内都<br>不存在物品1造成的新状态的话，那么物品1的状态就没有得到利用。而如果交换顺序，先放了物品2，那么显然物品1就可以利用物品2产生的新状态。<br>所以物品1能从物品2转移的状态区间其实是[min(q1+p2,m),m]，物品2能从物品1转移的状态区间是[min(q2+p1,m),m]。所以尽可能地复用这个区间，让区间小的先来，<br>区间大的后来，这样排序之后所有物品都能从前面的物品得到新状态进行转移。<br>先买A，至少需要p1+q2，先买B，至少需要p2+q1;若A q2-p2;即差值大的先买，所以先买的应排到后面。<br>而普通的01背包之所以不需要排序,是因为p1==q1,p2==q2,排序跟不排是一回事。这一类的dp题要注意后效性是否存在，如果存在通过改变顺序之类的办法来取消后效性。<br>在ACM-HDOJ 2546题中，qi恒定为5，所以也是需要排序的。</p>
+<h3 id="注意事项-3"><a href="#注意事项-3" class="headerlink" title="注意事项"></a>注意事项</h3><p>因为01背包的内循环是逆序，所以在先买差值大的情况下，a数组应从小到大进行排列，确保在循环中先从末尾的最大买起。</p>
+<h2 id="ACM-HDOJ-1864-01背包变形"><a href="#ACM-HDOJ-1864-01背包变形" class="headerlink" title="ACM-HDOJ 1864(01背包变形)"></a>ACM-HDOJ 1864(01背包变形)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839619.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839674.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839708.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14715783975.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147157839789.png" alt=""></p>
+<h3 id="参考AC代码-4"><a href="#参考AC代码-4" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line">using namespace std;</div><div class="line">int dp[3000050];</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int money[31],fund2;</div><div class="line">	int num1,num2;</div><div class="line">	double sum1,fund;</div><div class="line">	char ch;</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%lf%d"</span>,&amp;sum1,&amp;num1)&amp;&amp;num1)</div><div class="line">	&#123;</div><div class="line">		int sum=int(sum1*100);</div><div class="line">		memset(money,0,sizeof(money));</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		int l=0;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;num1;i++)</div><div class="line">		&#123;</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;num2);</div><div class="line">			int a=0,b=0,c=0,flag=1;</div><div class="line">			<span class="keyword">while</span>(num2--)</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">" %c:%lf"</span>,&amp;ch,&amp;fund);</div><div class="line">				fund2=int(fund*100);</div><div class="line">				<span class="keyword">if</span>(ch==<span class="string">'A'</span>&amp;&amp;a+fund2&lt;=60000)</div><div class="line">					a+=fund2;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'B'</span>&amp;&amp;b+fund2&lt;=60000)</div><div class="line">					b+=fund2;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'C'</span>&amp;&amp;c+fund2&lt;=60000)</div><div class="line">					c+=fund2;</div><div class="line">				<span class="keyword">else</span></div><div class="line">					flag=0;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(a+b+c&lt;=100000 &amp;&amp; a&lt;=60000 &amp;&amp; b&lt;=60000 &amp;&amp; c&lt;=60000 &amp;&amp; flag)</div><div class="line">				money[l++]=a+b+c;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;=l;i++)</div><div class="line">			<span class="keyword">for</span>(int j=sum;j&gt;=money[i];j--)</div><div class="line">				dp[j]=max(dp[j],dp[j-money[i]]+money[i]);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,dp[sum]/100.0);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>依次搜索每张发票的信息，判断是否满足题给的三个条件：只有ABC三类，ABC单项小于600，ABC和小于1000.若均满足后存入money数组，之后对该数组进行01背包的<br>操作后即可得出结果。</p>
+<h3 id="注意事项-4"><a href="#注意事项-4" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于该题要求有关数据均要保留两位小数，所以为了简化操作，把所有的小数均扩大100倍后进行整型操作，最后只需要把结果在除以100.0即可。注意l的定义要在for循环之<br>外，因为money数组存放的是所有满足条件发票的总资金。只要有一个不是ABC类型的flag=0，不满足if判断直接进行下一张发票的判断。dp数组应该开到30×1000×100的<br>大小，防止数组越界。(多乘的100是因为扩大了100倍)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
+        <p><span>发布时间:</span>2016-08-30, 22:08:10</p>
+        <p><span>最后更新:</span>2016-08-30, 22:18:59</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/30/DP问题专题二-01背包专题/" title="DP问题专题二 01背包专题">http://xuboming8.github.io/2016/08/30/DP问题专题二-01背包专题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/DP问题专题二-01背包专题/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">
+                    DP问题专题三 完全·分组背包巩固
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">
+                    DP问题专题一(Dynamic Programming) 背包入门
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#01背包巧用与强化"><span class="toc-number">1.</span> <span class="toc-text">01背包巧用与强化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-2602-01背包水题"><span class="toc-number">1.1.</span> <span class="toc-text">ACM-HDOJ 2602(01背包水题)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.1.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-2639-01背包第k优解"><span class="toc-number">1.2.</span> <span class="toc-text">ACM-HDOJ 2639(01背包第k优解)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-2955-01背包巧用"><span class="toc-number">1.3.</span> <span class="toc-text">ACM-HDOJ 2955(01背包巧用)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-2"><span class="toc-number">1.3.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-3466-01背包排序"><span class="toc-number">1.4.</span> <span class="toc-text">ACM-HDOJ 3466(01背包排序)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-3"><span class="toc-number">1.4.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-1864-01背包变形"><span class="toc-number">1.5.</span> <span class="toc-text">ACM-HDOJ 1864(01背包变形)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.5.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.5.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-4"><span class="toc-number">1.5.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"DP问题专题二 01背包专题　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/30/DP问题专题二-01背包专题/" data-title="DP问题专题二 01背包专题" data-url="http://xuboming8.github.io/2016/08/30/DP问题专题二-01背包专题/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"hhmy"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/30/DP问题专题三-完全·分组背包巩固/" title="上一篇: DP问题专题三 完全·分组背包巩固">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/" title="下一篇: DP问题专题一(Dynamic Programming) 背包入门">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/hello-world/">First article about hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Hippopmonkey XBM
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

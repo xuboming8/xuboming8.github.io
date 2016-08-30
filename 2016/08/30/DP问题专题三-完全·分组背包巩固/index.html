@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey XBM" />
+
+
+
+<meta name="description" content="完全背包 分组背包巩固与强化ACM-HDOJ 1171(多重背包水题)Problem Description
+Input">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DP问题专题三 完全·分组背包巩固">
+<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/DP问题专题三-完全·分组背包巩固/index.html">
+<meta property="og:site_name" content="似水年华">
+<meta property="og:description" content="完全背包 分组背包巩固与强化ACM-HDOJ 1171(多重背包水题)Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028211.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028252.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028293.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028328.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028369.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259497.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259541.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259577.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14716625961.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259644.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660465.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660514.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660554.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660588.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660627.png">
+<meta property="og:updated_time" content="2016-08-30T14:46:45.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DP问题专题三 完全·分组背包巩固">
+<meta name="twitter:description" content="完全背包 分组背包巩固与强化ACM-HDOJ 1171(多重背包水题)Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028211.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="似水年华" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>DP问题专题三 完全·分组背包巩固 | 似水年华</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey XBM</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-DP问题专题三-完全·分组背包巩固" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/DP问题专题三-完全·分组背包巩固/" class="article-date">
+      <time datetime="2016-08-30T14:19:41.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DP问题专题三 完全·分组背包巩固
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="完全背包-分组背包巩固与强化"><a href="#完全背包-分组背包巩固与强化" class="headerlink" title="完全背包 分组背包巩固与强化"></a>完全背包 分组背包巩固与强化</h1><h2 id="ACM-HDOJ-1171-多重背包水题"><a href="#ACM-HDOJ-1171-多重背包水题" class="headerlink" title="ACM-HDOJ 1171(多重背包水题)"></a>ACM-HDOJ 1171(多重背包水题)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028211.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028252.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028293.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028328.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147141028369.png" alt=""></p>
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>与1059题类似，只是输出变成了平分的结果，若不能平分则前者必须不小于后者。</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int value,num;</div><div class="line">&#125;a[55];</div><div class="line">int dp[250050];</div><div class="line">int m;</div><div class="line">void ZeroOnePack(int value,int weight)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int v=m;v&gt;=value;v--)</div><div class="line">		dp[v]=max(dp[v],dp[v-value]+weight);</div><div class="line">&#125;</div><div class="line">void CompletePack(int value,int weight)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int v=value;v&lt;=m;v++)</div><div class="line">		dp[v]=max(dp[v],dp[v-value]+weight);</div><div class="line">&#125;</div><div class="line">void MultiPack(int value,int weight,int amount)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(value*amount&gt;=m)</div><div class="line">	&#123;</div><div class="line">		CompletePack(value,weight);</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int k=1;k&lt;amount;k*=2)</div><div class="line">	&#123;</div><div class="line">		ZeroOnePack(k*value,k*weight);</div><div class="line">		amount-=k;</div><div class="line">	&#125;</div><div class="line">	ZeroOnePack(amount*value,amount*weight);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n;</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;n &amp;&amp; n&gt;=0)</div><div class="line">	&#123;</div><div class="line">		int sum=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i].value&gt;&gt;a[i].num;</div><div class="line">			sum+=a[i].value*a[i].num;</div><div class="line">		&#125;</div><div class="line">		m=sum&gt;&gt;1;</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			MultiPack(a[i].value,a[i].value,a[i].num);</div><div class="line">		<span class="keyword">if</span>(dp[m]==m)</div><div class="line">			cout&lt;&lt;m&lt;&lt;<span class="string">" "</span>&lt;&lt;m&lt;&lt;endl;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			cout&lt;&lt;sum-dp[m]&lt;&lt;<span class="string">" "</span>&lt;&lt;dp[m]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>依旧运用背包模版进行解答，具体思路参考ACM-HDOJ 1059题。<br>多重背包模版的思路：若该物品价值大于背包最大容量则进入完全背包求解，否则进行01背包求解，其中可以进行二进制优化减少运算时间。(比如有价值为20的物品2个<br>，可以看成价值为20的物品和价值为20的物品，以此类推就转化为01背包问题了。)<br><a href="">转跳ACM-HDOJ 1059</a></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>输出的前者必须大于等于后者，注意dp数组的大小是50×50×100.由于dp[m]是最优解，所以sum-dp[m]必然大于dp[m]。<br>其余参考ACM-HDOJ 1059题。</p>
+<h2 id="ACM-HDOJ-2191-多重背包水题"><a href="#ACM-HDOJ-2191-多重背包水题" class="headerlink" title="ACM-HDOJ 2191(多重背包水题)"></a>ACM-HDOJ 2191(多重背包水题)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259497.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259541.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259577.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14716625961.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147166259644.png" alt=""></p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int dp[105],n;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int v,w,num;</div><div class="line">&#125;a[105];</div><div class="line">void ZeroOnePack(int value,int weight)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int v=n;v&gt;=value;v--)</div><div class="line">		dp[v]=max(dp[v],dp[v-value]+weight);</div><div class="line">&#125;</div><div class="line">void CompletePack(int value,int weight)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int v=value;v&lt;=n;v++)</div><div class="line">		dp[v]=max(dp[v],dp[v-value]+weight);</div><div class="line">&#125;</div><div class="line">void MultiPack(int value,int weight,int amount)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(value*amount&gt;=n)</div><div class="line">	&#123;</div><div class="line">		CompletePack(value,weight);</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int k=1;k&lt;amount;k*=2)</div><div class="line">	&#123;</div><div class="line">		ZeroOnePack(k*value,k*weight);</div><div class="line">		amount-=k;</div><div class="line">	&#125;</div><div class="line">	ZeroOnePack(amount*value,amount*weight);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int m;</div><div class="line">		cin&gt;&gt;n&gt;&gt;m;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++)</div><div class="line">			cin&gt;&gt;a[i].v&gt;&gt;a[i].w&gt;&gt;a[i].num;</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++)</div><div class="line">			MultiPack(a[i].v,a[i].w,a[i].num);</div><div class="line">		cout&lt;&lt;dp[n]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>使用多重背包模版</p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><p>注意dp数组的大小。</p>
+<h2 id="ACM-HDOJ-1114-完全背包变形"><a href="#ACM-HDOJ-1114-完全背包变形" class="headerlink" title="ACM-HDOJ 1114(完全背包变形)"></a>ACM-HDOJ 1114(完全背包变形)</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660465.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660514.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660554.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660588.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147159660627.png" alt=""></p>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>完全背包变形。只是把求最优解变成了求装满背包的最小值。</p>
+<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment"># define Inf 0x7FFFFFF</span></div><div class="line">using namespace std;</div><div class="line">int dp[10005];</div><div class="line">int sum;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int p,w;</div><div class="line">&#125;coin[550];</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int E,F,n;</div><div class="line">		cin&gt;&gt;E&gt;&gt;F;</div><div class="line">		sum=F-E;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">			cin&gt;&gt;coin[i].p&gt;&gt;coin[i].w;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;100005;i++)</div><div class="line">			dp[i]=Inf;</div><div class="line">		dp[0]=0;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=coin[i].w;j&lt;=sum;j++)</div><div class="line">				dp[j]=min(dp[j],dp[j-coin[i].w]+coin[i].p);</div><div class="line">		<span class="keyword">if</span>(dp[sum]!=Inf)</div><div class="line">			cout&lt;&lt;<span class="string">"The minimum amount of money in the piggy-bank is "</span>&lt;&lt;dp[sum]&lt;&lt;<span class="string">"."</span>&lt;&lt;endl;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			cout&lt;&lt;<span class="string">"This is impossible."</span>&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>与完全背包类似。dp的初始化为long int的最大值，dp[0]需初始化为0.另外把状态方程中的max换成min。最后判断dp[sum]的值是否为Inf，若等于则说明没有这样的最小<br>值。</p>
+<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于把最优解变成了求最小值，所以dp的初始化一定注意，要初始化为一个很大的数才行。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
+        <p><span>发布时间:</span>2016-08-30, 22:19:41</p>
+        <p><span>最后更新:</span>2016-08-30, 22:46:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/" title="DP问题专题三 完全·分组背包巩固">http://xuboming8.github.io/2016/08/30/DP问题专题三-完全·分组背包巩固/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/DP问题专题三-完全·分组背包巩固/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/30/DP问题专题四-背包延伸/">
+                    DP问题专题四 背包延伸
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/30/DP问题专题二-01背包专题/">
+                    DP问题专题二 01背包专题
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#完全背包-分组背包巩固与强化"><span class="toc-number">1.</span> <span class="toc-text">完全背包 分组背包巩固与强化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-1171-多重背包水题"><span class="toc-number">1.1.</span> <span class="toc-text">ACM-HDOJ 1171(多重背包水题)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.1.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-2191-多重背包水题"><span class="toc-number">1.2.</span> <span class="toc-text">ACM-HDOJ 2191(多重背包水题)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACM-HDOJ-1114-完全背包变形"><span class="toc-number">1.3.</span> <span class="toc-text">ACM-HDOJ 1114(完全背包变形)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-2"><span class="toc-number">1.3.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"DP问题专题三 完全·分组背包巩固　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/30/DP问题专题三-完全·分组背包巩固/" data-title="DP问题专题三 完全·分组背包巩固" data-url="http://xuboming8.github.io/2016/08/30/DP问题专题三-完全·分组背包巩固/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"hhmy"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/30/DP问题专题四-背包延伸/" title="上一篇: DP问题专题四 背包延伸">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/08/30/DP问题专题二-01背包专题/" title="下一篇: DP问题专题二 01背包专题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/hello-world/">First article about hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Hippopmonkey XBM
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey XBM" />
+
+
+
+<meta name="description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈LIS算法(Longest Increasing Subsequence)">
+<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/index.html">
+<meta property="og:site_name" content="似水年华">
+<meta property="og:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
+<meta property="og:updated_time" content="2016-08-30T13:20:33.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈LIS算法(Longest Increasing Subsequence)">
+<meta name="twitter:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="似水年华" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>浅谈LIS算法(Longest Increasing Subsequence) | 似水年华</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey XBM</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-浅谈LIS算法-Longest-Increasing-Subsequence" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" class="article-date">
+      <time datetime="2016-08-30T13:12:32.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈LIS算法(Longest Increasing Subsequence)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LIS/">LIS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果<br>需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循<br>环和二分法，算法的复杂度为O(nlogn)。此算法虽稍微复杂，但是复杂度降了下来，在需要运算时间的情况下优先选择第二种算法。</p>
+<h2 id="思路以及代码详解"><a href="#思路以及代码详解" class="headerlink" title="思路以及代码详解"></a>思路以及代码详解</h2><a id="more"></a>
+<p><strong>算法（nlogn）</strong></p>
+<h3 id="思路（一）"><a href="#思路（一）" class="headerlink" title="思路（一）"></a>思路（一）</h3><p>假定存在一个序列d[1…9]=2 1 5 3 6 4 8 9 7，可以看出LIS长度为5。现在开始一步一步的找出来最终的结果。<br>　　定义序列B，令i=1…9来逐个考察。此外用变量len来记录现在最长算到了多少了。<br>　　首先，把d[1]放到B里，即B[1]=d[1]，就是说长度为1的LIS的最小末尾是2，这时len=1，然后把d[2]有序的放到B里，令B[1]=1（d[2]），就是说长度为1的LIS最<br>小末尾是1，d[1]=2已经没有用了，这时len=1不变。接着d[3]=5，5&gt;1，所以令B[1+1]=d[3]=5，就是说长度为2的LIS的最小末尾是5，此时的B[1…2]=1,5，len=2。<br>　　再来，d[4]=3，它正好在1和5之间，当然放在1的位置上不合适，因为1<3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。 　　继续d[5]="6，它在3后边，所以B[3]=4，B[1...3]=1,3,6，len=3。" 　　第6个，d[6]="4，它加在3和6之间，所以我们把6换掉，这样B[1...3]=1,3,4，len=3。" 　　第7个，d[7]="8，8">4，所以B[4]=8，B[1…4]=1,3,4,8，len=4。<br>　　第8个，d[8]=9，B[1…5]=1,3,4,8,9，len=5。<br>　　最后一个，d[9]=7，所以B[1…5]=1,3,4,7,9，len=5。<br>　　注意这里的B并不是LIS，而是对应长度的LIS的最小末尾。<br>　　总结下：若后一个数比前一个数大，那么直接此数的后面，若后一个数比前一个数小，那么覆盖掉该数。最后得到的len就是LIS长度。</3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。></p>
+<h3 id="代码-一"><a href="#代码-一" class="headerlink" title="代码(一)"></a>代码(一)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std; </div><div class="line">int  num[100];</div><div class="line">int  ans[100]=&#123;0&#125;;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;  </div><div class="line">    int n;  </div><div class="line">    int len,low,heigh,mid;  </div><div class="line">	cin&gt;&gt;n;                //输入数组长度</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)	</div><div class="line">		cin&gt;&gt;num[i];       //输入数组</div><div class="line">	ans[1]=num[1];  </div><div class="line">	len=1;  </div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;=n;i++)    //使用一个<span class="keyword">for</span>循环和二分法进行计算</div><div class="line">	&#123;  </div><div class="line">		low=1;  </div><div class="line">		heigh=len;  </div><div class="line">		<span class="keyword">while</span>(low&lt;=heigh)  </div><div class="line">		&#123;  </div><div class="line">			mid=(low+heigh)/2;  </div><div class="line">			<span class="keyword">if</span>(ans[mid]&lt;num[i])  </div><div class="line">				low=mid+1;  </div><div class="line">			<span class="keyword">else</span>  </div><div class="line">				heigh=mid-1;  </div><div class="line">		&#125;  </div><div class="line">		ans[low]=num[i];  </div><div class="line">		<span class="keyword">if</span>(low&gt;len)  </div><div class="line">			len++;  </div><div class="line">	&#125;  </div><div class="line">	cout&lt;&lt;<span class="string">"LIS长度为："</span>&lt;&lt;len&lt;&lt;endl; </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>算法（n^2）</strong></p>
+<h3 id="思路（二）"><a href="#思路（二）" class="headerlink" title="思路（二）"></a>思路（二）</h3><p>再以数组a[0~8]={2,1,5,3,6,4,8,9,7}为例，先定义d[0]=1来存放LIS长度，接着从数组的第二个元素开始,每次都把d[i]定义为1，接着拿该元素之前的所有元素与它比较<br>，由于1<2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于 1和2都小于3，所以d[3]="d[0]+1=d[1]+1=2，但是5">3,所以最后的d[3]=2。接下来轮到元素6，由于之前的所有元素均小于6，所以d[4]=d[0]+1=d[1]+1=2，接着<br>d[4]=d[2]+1=d[3]+1=3，所以最后的d[4]为3。下面的元素为4，由于最多只轮到3&lt;4，所以d[5]=d[3]+1=3。接下来同理d[6]=4,d[7]=5,d[8]=4。最后寻找数组d的<br>最大值，为5，所以LIS长度为5。<br>总结：用2个for循环，第一个for循环用来依次移动需要比较的元素，第二个for循环用来把该元素与之前的所有元素进行比较，d在该位置存放的长度为之前所有元素中最后一<br>个小于该元素的d存放的长度+1（表现出来的形式为该元素只要大于前面某个元素，那么d[j]立刻变为d[i]+1），若该元素小于之前所有的元素，那么该位置存放的位置保持为<br>1。</2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于></p>
+<h3 id="代码（二）"><a href="#代码（二）" class="headerlink" title="代码（二）"></a>代码（二）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int a[9]=&#123;2,1,5,3,6,4,8,9,7&#125;;</div><div class="line">	int d[9],max=0;</div><div class="line">	d[0]=1;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;9;i++)</div><div class="line">	&#123;</div><div class="line">		d[i]=1;</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;i;j++)</div><div class="line">			<span class="keyword">if</span>(a[i]&gt;a[j]&amp;&amp;d[i]+1&gt;d[j])</div><div class="line">				d[i]=d[j]+1;</div><div class="line">		max=d[i]&gt;max?d[i]:max;</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;<span class="string">"LIS长度："</span>&lt;&lt;max&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>链接：<a href="">ACM-HDOJ 1024题</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
+        <p><span>发布时间:</span>2016-08-30, 21:12:32</p>
+        <p><span>最后更新:</span>2016-08-30, 21:20:33</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" title="浅谈LIS算法(Longest Increasing Subsequence)">http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">
+                    深度优先搜索(DFS)与广度优先搜索(BFS)
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/30/Talking-with-Catalan/">
+                    Talking with Catalan
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路以及代码详解"><span class="toc-number">1.1.</span> <span class="toc-text">思路以及代码详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（一）"><span class="toc-number">1.1.1.</span> <span class="toc-text">思路（一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-一"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码(一)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（二）"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路（二）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（二）"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码（二）</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"浅谈LIS算法(Longest Increasing Subsequence)　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" data-title="浅谈LIS算法(Longest Increasing Subsequence)" data-url="http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"hhmy"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/" title="上一篇: 深度优先搜索(DFS)与广度优先搜索(BFS)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/08/30/Talking-with-Catalan/" title="下一篇: Talking with Catalan">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/hello-world/">First article about hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Hippopmonkey XBM
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

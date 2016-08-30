@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey XBM" />
+
+
+
+<meta name="description" content="连连看 推箱子 蜘蛛纸牌连连看ACM-HDOJ 1175
+Problem Description
+Input">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典的搜索类游戏">
+<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/经典的搜索类游戏/index.html">
+<meta property="og:site_name" content="似水年华">
+<meta property="og:description" content="连连看 推箱子 蜘蛛纸牌连连看ACM-HDOJ 1175
+Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014848.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014895.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014932.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014964.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076015004.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340477.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340537.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14708134057.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340603.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340639.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961577.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961617.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961654.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961686.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14709096172.png">
+<meta property="og:updated_time" content="2016-08-30T13:32:40.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典的搜索类游戏">
+<meta name="twitter:description" content="连连看 推箱子 蜘蛛纸牌连连看ACM-HDOJ 1175
+Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014848.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="似水年华" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>经典的搜索类游戏 | 似水年华</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey XBM</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey XBM</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-经典的搜索类游戏" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/经典的搜索类游戏/" class="article-date">
+      <time datetime="2016-08-30T13:25:41.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      经典的搜索类游戏
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="连连看-推箱子-蜘蛛纸牌"><a href="#连连看-推箱子-蜘蛛纸牌" class="headerlink" title="连连看 推箱子 蜘蛛纸牌"></a>连连看 推箱子 蜘蛛纸牌</h1><h2 id="连连看"><a href="#连连看" class="headerlink" title="连连看"></a>连连看</h2><p><strong>ACM-HDOJ 1175</strong></p>
+<p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014848.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014895.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014932.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076014964.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147076015004.png" alt=""></p>
+<h3 id="参考AC代码（1）：深搜-剪枝"><a href="#参考AC代码（1）：深搜-剪枝" class="headerlink" title="参考AC代码（1）：深搜+剪枝"></a>参考AC代码（1）：深搜+剪枝</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include &lt;cstring&gt;  </span></div><div class="line">using namespace std;   </div><div class="line">const int MAX = 1003;  </div><div class="line">const int dirx[5] = &#123;0,0,1,0,-1&#125;;</div><div class="line">const int diry[5] = &#123;0,1,0,-1,0&#125;;  </div><div class="line">int map[MAX][MAX],flag[MAX][MAX];</div><div class="line">int n,m,bx,by;  </div><div class="line">bool mark;   </div><div class="line">void dfs(int x,int y,int cnt,int dir)</div><div class="line">&#123;  </div><div class="line">    int i,tx,ty;</div><div class="line">    <span class="keyword">if</span>(x&lt;1 || y&lt;1 || x&gt;n || y&gt;m || cnt&gt;2)</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">    //注意下面几个剪枝的顺序，顺序搞错了就会出错，因为最后一个元素非0  </div><div class="line">    <span class="keyword">if</span>(x==bx &amp;&amp; y==by)</div><div class="line">	&#123; </div><div class="line">        mark = <span class="literal">true</span>;  </div><div class="line">        <span class="built_in">return</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">if</span>(map[x][y]!=0)</div><div class="line">		<span class="built_in">return</span>;  </div><div class="line">    <span class="keyword">if</span>(flag[x][y]!=-1 &amp;&amp; flag[x][y]&lt;cnt)</div><div class="line">		<span class="built_in">return</span>;  </div><div class="line">    flag[x][y] = cnt;  </div><div class="line">    <span class="keyword">for</span>(i=1;i&lt;=4;i++)</div><div class="line">	&#123;  </div><div class="line">        tx = x + dirx[i];  </div><div class="line">        ty = y + diry[i];  </div><div class="line">        <span class="keyword">if</span>(dir!=i) </div><div class="line">            dfs(tx,ty,cnt+1,i);  </div><div class="line">		<span class="keyword">else</span></div><div class="line">            dfs(tx,ty,cnt,i);   </div><div class="line">    &#125;  </div><div class="line">&#125;    </div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;  </div><div class="line">    int i,j,t,ax,ay;  </div><div class="line">    <span class="keyword">while</span>(scanf(<span class="string">"%d %d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">	&#123;  </div><div class="line">        <span class="keyword">if</span>(n==0 &amp;&amp; m==0)</div><div class="line">			<span class="built_in">break</span>;  </div><div class="line">        <span class="keyword">for</span>(i=1;i&lt;=n;++i) </div><div class="line">            <span class="keyword">for</span>(j=1;j&lt;=m;++j)</div><div class="line">                scanf(<span class="string">"%d"</span>,&amp;map[i][j]);  </div><div class="line">        scanf(<span class="string">"%d"</span>,&amp;t);  </div><div class="line">        <span class="keyword">while</span>(t--)</div><div class="line">		&#123;  </div><div class="line">            memset(flag,-1,sizeof(flag));  </div><div class="line">            scanf(<span class="string">"%d %d %d %d"</span>,&amp;ax,&amp;ay,&amp;bx,&amp;by);  </div><div class="line">            mark = <span class="literal">false</span>;  </div><div class="line">            <span class="keyword">if</span>(map[ax][ay]!=map[bx][by] || map[ax][ay]==0 || map[bx][by]==0)     //剪枝</div><div class="line">			&#123;  </div><div class="line">                <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);  </div><div class="line">                <span class="built_in">continue</span>;  </div><div class="line">            &#125;  </div><div class="line">            flag[ax][ay] = 0;  </div><div class="line">            <span class="keyword">for</span>(i=1;i&lt;=4;i++) </div><div class="line">                dfs(ax+dirx[i],ay+diry[i],0,i); </div><div class="line">            <span class="keyword">if</span>(mark)</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);  </div><div class="line">			<span class="keyword">else</span></div><div class="line">                <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);   </div><div class="line">        &#125;  </div><div class="line">    &#125;   </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参考AC代码（2）：广搜-优化队列"><a href="#参考AC代码（2）：广搜-优化队列" class="headerlink" title="参考AC代码（2）：广搜+优化队列"></a>参考AC代码（2）：广搜+优化队列</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;cstring&gt;</span></div><div class="line"><span class="comment">#include &lt;queue&gt;</span></div><div class="line">using namespace std;</div><div class="line">const int S = 1010;</div><div class="line">int n,m;</div><div class="line">int q,sx,sy,dx,dy;</div><div class="line">int map[S][S],flag[S][S];</div><div class="line">const int dirx[4]=&#123;-1,1,0,0&#125;,diry[4]=&#123;0,0,-1,1&#125;;</div><div class="line">typedef struct </div><div class="line">&#123;</div><div class="line">    int x,y,dir,turn;</div><div class="line">&#125;point;</div><div class="line">queue&lt;point&gt;que;</div><div class="line">inline bool check(point &amp;P)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(P.x&gt;=1&amp;&amp;P.x&lt;=n&amp;&amp;P.y&gt;=1&amp;&amp;P.y&lt;=m) </div><div class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">    <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">bool <span class="function"><span class="title">bfs</span></span>()</div><div class="line">&#123;</div><div class="line">    point cur,next;</div><div class="line">    <span class="keyword">while</span>(que.size())</div><div class="line">	&#123;</div><div class="line">        cur = que.front();</div><div class="line">        que.pop();</div><div class="line">        <span class="keyword">if</span>(cur.x==dx&amp;&amp;cur.y==dy) </div><div class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span>(int i=0;i&lt;4;i++)</div><div class="line">		&#123;</div><div class="line">            <span class="keyword">if</span>(cur.dir!=i)</div><div class="line">			&#123;</div><div class="line">                next.dir=i;</div><div class="line">                next.turn=cur.turn+1;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">			&#123;</div><div class="line">                next.dir=cur.dir;</div><div class="line">                next.turn=cur.turn;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(next.turn&gt;2) </div><div class="line">				<span class="built_in">continue</span>;                </div><div class="line">            next.x=cur.x+dirx[i],next.y=cur.y+diry[i];</div><div class="line">            <span class="keyword">if</span>(check(next)&amp;&amp;(!map[next.x][next.y]||(next.x==dx&amp;&amp;next.y==dy))&amp;&amp;flag[next.x][next.y]&gt;=next.turn)</div><div class="line">			&#123;</div><div class="line">                que.push(next);</div><div class="line">                flag[next.x][next.y]=next.turn;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">    <span class="keyword">while</span>(scanf(<span class="string">"%d %d"</span>,&amp;n,&amp;m)&amp;&amp;(n||m))</div><div class="line">	&#123;</div><div class="line">        <span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">            <span class="keyword">for</span>(int j=1;j&lt;=m;j++) </div><div class="line">				scanf(<span class="string">"%d"</span>,&amp;map[i][j]);</div><div class="line">        scanf(<span class="string">"%d"</span>,&amp;q);</div><div class="line">        <span class="keyword">while</span>(q--)</div><div class="line">		&#123;</div><div class="line">            scanf(<span class="string">"%d %d %d %d"</span>,&amp;sx,&amp;sy,&amp;dx,&amp;dy);</div><div class="line">            <span class="keyword">if</span>((map[sx][sy]!=map[dx][dy])||!map[sx][sy]||!map[dx][dy]||(sx==dx&amp;&amp;sy==dy))</div><div class="line">			&#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</div><div class="line">                <span class="built_in">continue</span>;</div><div class="line">			&#125;</div><div class="line">            <span class="keyword">while</span>(que.size()) </div><div class="line">				que.pop();</div><div class="line">            memset(flag,1,sizeof(flag));</div><div class="line">            point start;</div><div class="line">            start.x=sx,start.y=sy,start.turn=0;</div><div class="line">            <span class="keyword">for</span>(int i=0;i&lt;4;i++)</div><div class="line">			&#123;</div><div class="line">                start.dir=i;</div><div class="line">                que.push(start);</div><div class="line">            &#125;</div><div class="line">            flag[sx][sy]=0;</div><div class="line">            <span class="keyword">if</span>(bfs()) </div><div class="line">				<span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</div><div class="line">            <span class="keyword">else</span> </div><div class="line">				<span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>此类型为典型的搜索类题型，使用DFS或BFS均可以解决问题，再搭配优化队列或剪枝可以避免超时，超内存，减少运算复杂度。<br>方法一使用了深搜+剪枝：<br>使用数组map来储存每个位置，0代表该位置为空。数组flag作为标志数组，用来判断每个位置是否走过，用来存放到达每个点的最优化拐弯次数，并且初始化为-1。<br>如果进行判断的2个点不相等，或者2个点中任何一个点为空，或者2个点在同一个位置，那么直接剪枝输出NO。flag在第一个点位置的值设为0。接着开始移动起点<br>并进入dfs。首先如果越界或者cnt（记录转弯次数）大于2，直接剪枝，若到达终点直接返回true，如果map中该位置不为0，剪枝（空位才能走，若下一步是终点的<br>情况已经在上一步返回true结束循环了），若flag中存放的值不为-1（不等于-1说明该点已经走过，需要进行下一步判断）并且flag在改点的值小于cnt（flag记录<br>的是最优化拐弯次数，如果都小于当前可以进行的拐弯次数，那么不满足题意），剪枝。把cnt的值赋给该位置的flag。接下来继续进行移动，若dir（记录该点的方<br>向）和i（下一步的方向）相等，那么继续进入dfs进行下一步判断，此时代入的参数cnt不变（拐弯字数未变），i（下一步的方向）。若dir！=i，说明该点进行了拐<br>弯操作，那么代入的参数中cnt需要+1，继续进入dfs循环。如果第一个方向没有找到结果，那么回到主函数的for循环进行第二个方向的判断。<br>方法二使用了广搜+优化队列：<br>与方法一类似，下面只叙述不一样的部分。该方法采用了优化队列，开始是先把4个方向的结构体变量start存入队列，进入bfs进行判断，与方法一的的for循环类似，都<br>是可以保证在一个方向无法满足题意的情况下可以从起点开始进行下一方向的判断。接着把队列顶端的元素赋给cur，接着出队列，接着再用一个for循环进行移动，此时<br>判断i与que.dir是否相等，若相等则说明为拐弯，next.dir等于cur.dir，next.turn等于cur.turn，若不相等说明进行了拐弯，next.dir与目前的i保持一致，next.turn<br>变为cur.turn+1。接着进行一系列的判断（与方法一类似 首先保证未越界，其次地图上该点等于0可走，或者下一步已经到了终点，最后flag存放的最优化拐弯次数要大<br>于等于目前可以进行的拐弯次数turn）后若next满足题意，则next进队列，flag存放这一位置的最优化拐弯次数。</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
+<p>由于方法略有不同，而且剪枝的顺序也不同，所以两段代码在有些方面需要注意：<br>第一段代码不需要判断flag存放的拐弯数是否大于2剪枝，因为在第一步的时候已经判断cnt如果大于2剪枝。并且在21行的代码中不需要判断下一个步是否到达终点。有<br>人可能会问，地图上除了为0的点可以走之外，如果下一步到了终点的话也是可行的，这个判断是对的，但是在前面的剪枝中已经判断如果到达了终点后直接返回true，<br>并不会执行下一步，换言之，如果程序执行到了第21行，那么下一步必然不可能到终点。第二段代码中也并不需要额外判断flag大于2剪枝，因为在for循环中已经判断<br>若turn大于2后直接continue进入下一循环。并且在这一段代码中必须判断下一步map的点为0或者是否为终点，这是由于该代码是在进行了移动后再进行判断的，没有<br>像第一段代码是先判断后移动，必须要注意，否则会WA。</p>
+</blockquote>
+<h2 id="推箱子"><a href="#推箱子" class="headerlink" title="推箱子"></a>推箱子</h2><p><strong>ACM-HDOJ 1254</strong></p>
+<p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340477.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340537.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14708134057.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340603.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147081340639.png" alt=""></p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;  </span></div><div class="line"><span class="comment">#include&lt;cstring&gt;  </span></div><div class="line"><span class="comment">#include&lt;queue&gt;  </span></div><div class="line">using namespace std;   </div><div class="line">int Map[8][8];  </div><div class="line">bool vis[8][8][4],us[8][8];//标记箱子推过的方向  人走过的点  </div><div class="line">int dir[4][2]=&#123;0,1,0,-1,1,0,-1,0&#125;;  </div><div class="line">struct node  </div><div class="line">&#123;  </div><div class="line">    int x,y;  </div><div class="line">    int xx,yy;  </div><div class="line">    int t;  </div><div class="line">&#125;st,ed;  </div><div class="line">struct edg  </div><div class="line">&#123;  </div><div class="line">    int x,y;  </div><div class="line">&#125;a,b;  </div><div class="line">int n,m;  </div><div class="line">queue&lt;node&gt;q;   </div><div class="line">void Bfs()  //对于箱子  广搜人能将箱子像哪个方向推  </div><div class="line">&#123;  </div><div class="line">    queue&lt;edg&gt;qq;  </div><div class="line">    memset(us,<span class="literal">false</span> ,sizeof(us));  </div><div class="line">    qq.push(a);  </div><div class="line">    <span class="keyword">while</span>(qq.size())  </div><div class="line">    &#123;  </div><div class="line">        a=qq.front();  </div><div class="line">        qq.pop();  </div><div class="line">        <span class="keyword">for</span>(int i=0;i&lt;4;i++)  </div><div class="line">        &#123;  </div><div class="line">            int xx,yy;  </div><div class="line">            xx=a.x+dir[i][0];  </div><div class="line">            yy=a.y+dir[i][1];  </div><div class="line">            <span class="keyword">if</span>(xx&gt;=0&amp;&amp;xx&lt;n&amp;&amp;yy&gt;=0&amp;&amp;yy&lt;m)  </div><div class="line">            &#123;  </div><div class="line">                <span class="keyword">if</span>(xx==st.x&amp;&amp;yy==st.y)  </div><div class="line">                &#123;  </div><div class="line">                    int x=st.x+dir[i][0],y=st.y+dir[i][1];  </div><div class="line">                    <span class="keyword">if</span>(x&gt;=0&amp;&amp;x&lt;n&amp;&amp;y&gt;=0&amp;&amp;y&lt;m)  </div><div class="line">                    &#123;  </div><div class="line">                        <span class="keyword">if</span>(!vis[x][y][i]&amp;&amp;Map[x][y]!=1)  //能推且到达的点不是墙  </div><div class="line">                        &#123;  </div><div class="line">                            ed.x=x;  </div><div class="line">                            ed.y=y;  </div><div class="line">                            ed.xx=xx;  </div><div class="line">                            ed.yy=yy;  </div><div class="line">                            ed.t=st.t+1;  </div><div class="line">                            q.push(ed);  </div><div class="line">                            vis[x][y][i]=<span class="literal">true</span> ;  </div><div class="line">                        &#125;  </div><div class="line">                    &#125;  </div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(!us[xx][yy]&amp;&amp;Map[xx][yy]!=1)  </div><div class="line">                &#123;  </div><div class="line">                    us[xx][yy]=<span class="literal">true</span> ;  </div><div class="line">                    b.x=xx;  </div><div class="line">                    b.y=yy;  </div><div class="line">                    qq.push(b);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> ;  </div><div class="line">&#125;   </div><div class="line">void <span class="function"><span class="title">bfs</span></span>()  </div><div class="line">&#123;  </div><div class="line">    <span class="keyword">while</span>(q.size()) q.pop();  </div><div class="line">    q.push(st);  </div><div class="line">    <span class="keyword">while</span>(q.size())  </div><div class="line">    &#123;  </div><div class="line">        st=q.front();  </div><div class="line">        q.pop();  </div><div class="line">        <span class="keyword">if</span>(Map[st.x][st.y]==3)  </div><div class="line">        &#123;  </div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,st.t);  </div><div class="line">            <span class="built_in">return</span> ;  </div><div class="line">        &#125;  </div><div class="line">        a.x=st.xx;  </div><div class="line">        a.y=st.yy;  </div><div class="line">        Bfs();  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);  </div><div class="line">    <span class="built_in">return</span> ;  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">    int t;  </div><div class="line">    scanf(<span class="string">"%d"</span>,&amp;t);  </div><div class="line">    <span class="keyword">while</span>(t--&amp;&amp;scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m))  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">        &#123;  </div><div class="line">            <span class="keyword">for</span>(int j=0;j&lt;m;j++)  </div><div class="line">            &#123;  </div><div class="line">                scanf(<span class="string">"%d"</span>,&amp;Map[i][j]);  </div><div class="line">                <span class="keyword">if</span>(Map[i][j]==2)  </div><div class="line">                    st.x=i,st.y=j;  </div><div class="line">                <span class="keyword">if</span>(Map[i][j]==4)  </div><div class="line">                    st.xx=i,st.yy=j;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        st.t=0;  </div><div class="line">        memset(vis,<span class="literal">false</span> ,sizeof(vis));  </div><div class="line">        bfs();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>由于此题存在判断人推箱子和箱子是否到终点两个状态，所以需要使用两个广搜互相嵌套，分别用来表示箱子的状态和人推箱子的状态，配上2个优化队列，可以确保人<br>走的路线和箱子走的路线为最优路线，符合题目所要求的最小移动次数。在主函数中分别把箱子的起点和人的起点用st记录下来，开始的移动次数为0，接着进入第一个<br>dfs函数。该函数是用来判断箱子是否达到了终点。若未到达终点则把现在人的位置赋给a，接着进入二个BFS函数。该函数是用来判断人推箱子的状态。先移动人，确保<br>把人移到箱子的位置，若未走到箱子的位置，那么根据数组us（初始化为false）存放元素的情况和不能走到墙上继续走下一步，接着把此时人的位置赋给b，并且压入队<br>列qq，直到人走到目前箱子的位置，记录下元素i的值，此时的箱子只能向i方向进行移动（推箱子的游戏中箱子只能和人的运动方向一致）。箱子移动的时候需判断vis<br>数组中存放的元素和移动的位置是否为墙。若箱子成功走出下一步，那么把此时人和箱子的位置情况全部赋给ed，接着把ed压入队列q，接着进入第一个bfs函数判断此<br>时的箱子是否到达了终点，若未到达继续进入第二个BFS函数进行下一步移动。</p>
+</blockquote>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
+<p>此题中的判断数组vis需要设置为三维数组，因为每个点都可以走1次以上，只有每个点都走过4个方向后该点才不能走。写出代码后可以用推到墙上只能顺着墙移动和推<br>到拐角后不能移动2个特殊情况进行验证。此题最关键的是要分清2个bfs的状态以及箱子只能和人的运动方向一致，所以先移动人后移动箱子。</p>
+</blockquote>
+<h2 id="蜘蛛纸牌"><a href="#蜘蛛纸牌" class="headerlink" title="蜘蛛纸牌"></a>蜘蛛纸牌</h2><p><strong>ACM-HDOJ 1584</strong></p>
+<p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961577.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961617.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961654.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147090961686.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14709096172.png" alt=""></p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;math.h&gt;</span></div><div class="line"><span class="comment">#include &lt;string.h&gt;    </span></div><div class="line">int a[15],vis[15],ans;   </div><div class="line">void dfs(int cnt,int sum)  </div><div class="line">&#123;  </div><div class="line">    int i,j;  </div><div class="line">    <span class="keyword">if</span>(sum&gt;=ans)  </div><div class="line">		 <span class="built_in">return</span> ;  </div><div class="line">    <span class="keyword">if</span>(cnt == 9)  </div><div class="line">    &#123;  </div><div class="line">        ans = sum;  </div><div class="line">        <span class="built_in">return</span> ;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">for</span>(i = 1;i&lt;10;i++)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">if</span>(!vis[i])  </div><div class="line">        &#123;  </div><div class="line">            vis[i] = 1;  </div><div class="line">            <span class="keyword">for</span>(j = i+1;j&lt;=10;j++)  </div><div class="line">            &#123;  </div><div class="line">                <span class="keyword">if</span>(!vis[j])  </div><div class="line">                &#123;  </div><div class="line">                    dfs(cnt+1,sum+abs(a[i]<span class="_">-a</span>[j]));  </div><div class="line">                    <span class="built_in">break</span>;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            vis[i] = 0;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;    </div><div class="line">int <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">    int t,i,x;  </div><div class="line">    scanf(<span class="string">"%d"</span>,&amp;t);  </div><div class="line">    <span class="keyword">while</span>(t--)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">for</span>(i = 1;i&lt;=10;i++)  </div><div class="line">        &#123;  </div><div class="line">            scanf(<span class="string">"%d"</span>,&amp;x);  </div><div class="line">            a[x] = i;              //牌面为x的牌在第i个位置  </div><div class="line">        &#125;  </div><div class="line">        memset(vis,0,sizeof(vis));  </div><div class="line">        ans = 10000000;  </div><div class="line">        dfs(0,0);  </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>使用深搜算法，判断所有的情况。首先在输入数据的时候把牌面为x的数放在数组a的第i个位置，最后使用数组a的时候就是按照从1-10的顺序来显示它们所在的位置，进<br>入dfs函数中后，cnt代表的是已经完成了1-9步中的第几步操作（无论如何移动，9步操作是上限），sum用来存放移动的距离。由于是遍布了所有的情况，所以每一种<br>情况都会对应一个sum，如果下一步的sum大于等于上一步的sum（实为第一步的sum，之后逐渐变为最小的移动数值），那么结束函数回到上一步的函数的循环中。<br>如果cnt已经执行了9次，而且执行到了这步说明这一步的sum小于之前的最小移动距离ans，那么把最新的sum赋给ans后结束本次函数返回上一函数的循环中。接着第<br>2个for循环进行遍布所有的情况。vis数组是用来判断每个位置是否使用过，未使用过为0，使用过为1。第一个for循环中如果该位置未被访问过，那么该位置赋给1后<br>进入第二个for循环，从i+1开始判断，if这一位置也未访问过，那么进入dfs递归，带入的参数cnt需要+1，sum为当前的sum加上2个位置差的绝对值，以此找到最小移<br>动距离。若未满足当前情况或已经找到目前的最短距离而退出循环后，该位置需要重新赋为0（实际运算顺序为从最后开始逆向把前面的每一个位置重新赋为0，全部赋<br>为0后进行新的移动和判断）。</p>
+</blockquote>
+<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
+<p>把牌面为x的数放在数组a的第i个位置直接简化了操作。由于数组a是按照顺序排好的，所以第二个for循环就可以直接从i+1开始判断。第二个for循环的break语句也用的<br>很好，因为在寻找最小距离的时候，1只能放在2上，2只能放在3上······以此类推。若1放在了3上，那么为了把2加进去，必须还要把1移走，必然不可能是最短距离了。<br>所以需要用break语句结束循环并把该位置的vis重新定义为0。并且第二个for循环只是找到该步的移动方向，仅此一步，下一步的移动要进行下一个dfs进行判断。第一<br>个for循环的i是小于10，而第二个的for循环的j为小于等于10。因为10张牌只需要进行9次操作，所以i的位置到9即可，j=i+1=10，即可进行最后一步移动。</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
+        <p><span>发布时间:</span>2016-08-30, 21:25:41</p>
+        <p><span>最后更新:</span>2016-08-30, 21:32:40</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/30/经典的搜索类游戏/" title="经典的搜索类游戏">http://xuboming8.github.io/2016/08/30/经典的搜索类游戏/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/经典的搜索类游戏/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">
+                    DP问题专题一(Dynamic Programming) 背包入门
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">
+                    深度优先搜索(DFS)与广度优先搜索(BFS)
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#连连看-推箱子-蜘蛛纸牌"><span class="toc-number">1.</span> <span class="toc-text">连连看 推箱子 蜘蛛纸牌</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#连连看"><span class="toc-number">1.1.</span> <span class="toc-text">连连看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码（1）：深搜-剪枝"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考AC代码（1）：深搜+剪枝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码（2）：广搜-优化队列"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码（2）：广搜+优化队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.1.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推箱子"><span class="toc-number">1.2.</span> <span class="toc-text">推箱子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#蜘蛛纸牌"><span class="toc-number">1.3.</span> <span class="toc-text">蜘蛛纸牌</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"经典的搜索类游戏　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/30/经典的搜索类游戏/" data-title="经典的搜索类游戏" data-url="http://xuboming8.github.io/2016/08/30/经典的搜索类游戏/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"hhmy"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/" title="上一篇: DP问题专题一(Dynamic Programming) 背包入门">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/" title="下一篇: 深度优先搜索(DFS)与广度优先搜索(BFS)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/hello-world/">First article about hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Hippopmonkey XBM
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
