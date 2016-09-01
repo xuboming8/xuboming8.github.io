@@ -15,28 +15,16 @@
 
 
 
-<meta name="description" content="序言由于卡特兰数在很多公司的面试题中频繁出现，在竞赛中更是多次考察，所以特地总结下卡特兰数的应用。
-定义卡特兰数又称卡塔兰数，是组合数学中一个常出现在各种计数问题中的数列。以比利时的数学家欧仁·查理·卡塔兰 (1814–1894)的名字来命名。
-原理">
+<meta name="description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Talking with Catalan">
-<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/Talking-with-Catalan/index.html">
+<meta property="og:title" content="atoi与itoa函数介绍">
+<meta property="og:url" content="http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="序言由于卡特兰数在很多公司的面试题中频繁出现，在竞赛中更是多次考察，所以特地总结下卡特兰数的应用。
-定义卡特兰数又称卡塔兰数，是组合数学中一个常出现在各种计数问题中的数列。以比利时的数学家欧仁·查理·卡塔兰 (1814–1894)的名字来命名。
-原理">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147005039992.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006099407.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006227873.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006242846.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006275273.png">
-<meta property="og:updated_time" content="2016-08-30T15:38:19.222Z">
+<meta property="og:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
+<meta property="og:updated_time" content="2016-09-01T09:46:11.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Talking with Catalan">
-<meta name="twitter:description" content="序言由于卡特兰数在很多公司的面试题中频繁出现，在竞赛中更是多次考察，所以特地总结下卡特兰数的应用。
-定义卡特兰数又称卡塔兰数，是组合数学中一个常出现在各种计数问题中的数列。以比利时的数学家欧仁·查理·卡塔兰 (1814–1894)的名字来命名。
-原理">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147005039992.png">
+<meta name="twitter:title" content="atoi与itoa函数介绍">
+<meta name="twitter:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -68,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Talking with Catalan | 似水年华</title>
+<title>atoi与itoa函数介绍 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -297,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Talking-with-Catalan" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-atoi与itoa函数介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/30/Talking-with-Catalan/" class="article-date">
-      <time datetime="2016-08-30T12:50:33.000Z" itemprop="datePublished">2016-08-30</time>
+      <a href="/2016/09/01/atoi与itoa函数介绍/" class="article-date">
+      <time datetime="2016-09-01T08:57:59.000Z" itemprop="datePublished">2016-09-01</time>
 </a>
 
 
@@ -316,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Talking with Catalan
+      atoi与itoa函数介绍
     </h1>
   
 
@@ -325,13 +313,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -341,35 +329,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>由于卡特兰数在很多公司的面试题中频繁出现，在竞赛中更是多次考察，所以特地总结下卡特兰数的应用。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>卡特兰数又称卡塔兰数，是组合数学中一个常出现在各种计数问题中的数列。以比利时的数学家欧仁·查理·卡塔兰 (1814–1894)的名字来命名。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><a id="more"></a>
-<p>令h(0)=1,h(1)=1，catalan数满足递推式：h(n)= h(0)h(n-1)+h(1)h(n-2) + … + h(n-1)h(0) (n&gt;=2)<br>另类递推式：<br>h(n)=h(n-1)(4n-2)/(n+1);<br>递推关系的解为：<br>h(n)=C(2n,n)/(n+1)=(2n)!/(n+1)!n! (n=0,1,2,…)　　　　　<strong>C(2n，n)代表从2n个数中取得n个数的组合数</strong><br>递推关系的另类解为：<br>h(n)=C(2n,n)-C(2n,n-1)(n=0,1,2,…)</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="求卡特兰数"><a href="#求卡特兰数" class="headerlink" title="求卡特兰数"></a>求卡特兰数</h3><p><strong>题目要求</strong><br>根据递推式或递归关系求解</p>
-<p><strong>解法</strong><br>任何有关catalan数的题目最后都是要进行求h(n)的运算，大多用h(n)=h(n-1)(4n-2)/(n+1)进行推导。牵涉到大数的乘除。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//数组a存放大数，b为进行乘除的数字。</div><div class="line">void multiply(int a[],int len,int b)</div><div class="line">&#123;  </div><div class="line">    <span class="keyword">for</span>(int i=len-1,carry=0;i&gt;=0;--i)</div><div class="line">    &#123;</div><div class="line">        carry+=b*a[i];  </div><div class="line">        a[i]=carry%BASE;  </div><div class="line">        carry/=BASE;  </div><div class="line">    &#125;   </div><div class="line">&#125;  </div><div class="line">void divide(int a[],int len,int b) </div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0,div=0;i&lt;len;++i)</div><div class="line">    &#123;  </div><div class="line">        div=div*BASE+a[i];  </div><div class="line">        a[i]=div/b;</div><div class="line">        div%=b;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div><div class="line">//具体运算在ACM-HDOJ 1023题已给出</div></pre></td></tr></table></figure></p>
-<h3 id="出栈问题"><a href="#出栈问题" class="headerlink" title="出栈问题"></a>出栈问题</h3><p><strong>题目要求</strong><br>一个栈(无穷大)的进栈序列为1、2、3、…、n，有多少个不同的出栈序列?</p>
-<p><strong>解法</strong><br>此方法在ACM-HDOJ 1023题思路中已给出证明。<a href="http://monkeyxu.cn/2016/08/30/ACM-1023-1027-1058/" target="_blank" rel="external">1023链接</a></p>
-<h3 id="由高到矮排队问题"><a href="#由高到矮排队问题" class="headerlink" title="由高到矮排队问题"></a>由高到矮排队问题</h3><p><strong>题目要求</strong><br>12个高矮不同的人，排成两排，每排必须是从矮到高排列，而且第二排比对应的第一排的人高，问排列方式有多少种？</p>
-<p><strong>解法</strong><br>我们先把这12个人从低到高排列,然后,选择6个人排在第一排,那么剩下的6个肯定是在第二排.<br>用0表示对应的人在第一排,用1表示对应的人在第二排,那么含有6个0,6个1的序列,就对应一种方案.<br>比如000000111111就对应着<br>第一排：0 1 2 3 4 5<br>第二排：6 7 8 9 10 11<br>010101010101就对应着<br>第一排：0 2 4 6 8 10<br>第二排：1 3 5 7 9 11<br>问题转换为，这样的满足条件的01序列有多少个。<br>观察规律我们发现1的出现前边必须有一个相应的0对应，所以从左到右的所有序列中0的个数要一直大于1的个数。那么我们从左往右扫描，第一次出现1的个数<br>等于0的个数是第k位，那么在此之前，0的个数是大于1的个数的。在此之后，0的个数也是大于1的个数的。所以第k位0和1的个数第一次相等的排列有他们这两<br>部分的个数相乘的结果。那么所有的k有多少种，则把它们相加起来，就是最后的排列数。每一项的种类是f（k-1）*f（n-k），求和后便是卡特兰数。<br>如果把0看成入栈操作，1看成出栈操作，等价于给定6个元素，合法的入栈出栈序列有多少个。依旧转换成求卡特兰数的问题。<br>需要注意此题中n个人，那么带入通项的数字应为n/2。</p>
-<h3 id="括号化问题"><a href="#括号化问题" class="headerlink" title="括号化问题"></a>括号化问题</h3><p><strong>题目要求</strong><br>矩阵链乘： P=A1×A2×A3×……×An，依据乘法结合律，不改变其顺序，只用括号表示成对的乘积，试问有几种括号化的方案？</p>
-<p><strong>解法</strong><br>n个矩阵需要连乘(n-1)次，因此需要(n-1)对括号。且这里的括号只是为了使矩阵两两结合，而不是单纯为加括号而加括号，像( (a1) (a2))，这里将两个矩<br>阵分别括起来是不符合要求的。因此这里如果确定了括号的顺序，那么矩阵的结合顺序也会确定，如(()())对应了(( a1 a2) (a3 a4))。注意到是(n-1)<br>对括号，即(n-1)个左括号和(n-1)个右括号，那么应该使用h[n-1]来计算。</p>
-<h2 id="买票找零问题"><a href="#买票找零问题" class="headerlink" title="买票找零问题"></a>买票找零问题</h2><p><strong>题目要求</strong><br>2n个人排队买票，其中n个人持50元，n个人持100元。每张票50元，且一人只买一张票。初始时售票处没有零钱找零。请问这2n个人一共有多少种排队顺序，不至<br>于使售票处找不开钱？</p>
-<p><strong>解法</strong><br>队伍的序号标为0,1,…,2n-1,并把50元看作左括号，100元看作右括号，合法序列即括号能完成配对的序列。对于一个合法的序列，第0个一定是左括号，它必然与<br>某个右括号配对，记其位置为k。那么从1到k-1、k+1到2n-1也分别是两个合法序列。每一项的种类是f（k-1）*f（n-k），求和后便是卡特兰数。也需注意此题中n<br>个人，带入通项的数字应为n/2。</p>
-<h3 id="凸多边形三角划分"><a href="#凸多边形三角划分" class="headerlink" title="凸多边形三角划分"></a>凸多边形三角划分</h3><p><strong>题目要求</strong></p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147005039992.png" alt=""><br></div><br>将一个凸多边形区域分成三角形区域(划分线不交叉)的方法数?</p>
-<p><strong>解法</strong><br>使用卡特兰数通项进行计算。</p>
-<h3 id="圆上点对互连问题"><a href="#圆上点对互连问题" class="headerlink" title="圆上点对互连问题"></a>圆上点对互连问题</h3><p><strong>题目要求</strong></p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006099407.png" alt=""><br></div><br>在圆上选择2n个点，将这些点成对连接起来，且所得n条线段不相交，求可行的方法数。</p>
-<p><strong>解法</strong><br>将圆上的点依次标为P0,P1,…P2n-1。为了避免混淆，使用F(2n)表示2n个点可连成的线段数，选择Pk与P0相连(0&lt;k&lt;n)，同样地可以看出，k必为奇数，否则1至k-1<br>之间有奇数个点，不可能成对连成直线。同样地把k设为2i+1，那么线段P0Pk把剩余的点分为了1…2i和2i+2…2n-1，且新的连线不能与0k相交，它们只能属于0k<br>把园划分出的这两个区域之一。即F(2n) = ∑F(2i)F(2n-1-(2i+2)+1) = ∑F(2i)F(2n-2i-2)，其中i = 0 … n-1。这时，又转化成熟悉的形式了。</p>
-<h3 id="给定节点组成二叉搜索树"><a href="#给定节点组成二叉搜索树" class="headerlink" title="给定节点组成二叉搜索树"></a>给定节点组成二叉搜索树</h3><p><strong>题目要求</strong></p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006227873.png" alt=""><br></div><br>给定N个节点，能构成多少种形状不同的二叉树？</p>
-<p><strong>解法</strong><br>从递推公式出发，记为F3(n)，选出一点为根，k个点作为左子树，n-k-1个点作为右子树。那么F3(n) = ∑F3(k)F3(n-k-1)，k=0,…,n-1。该公式是以F3（0）=1开始的。<br>满足卡特兰数的形式。</p>
-<h3 id="街区对角线问题"><a href="#街区对角线问题" class="headerlink" title="街区对角线问题"></a>街区对角线问题</h3><p><strong>题目要求</strong></p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006242846.png" alt=""><br></div><br>某个城市的某个居民，每天他须要走过2n个街区去上班（他在其住所以北n个街区和以东n个街区处工作）。如果他不跨越（但可以碰到）从家到办公室的对角线，那么有多少<br>条可能的道路？</p>
-<p><strong>解法</strong><br>为了不跨越对角线，向东走的步数时刻要大于等于向北走的步数。可以看出路线序列由n次向东和n次向北组成，且从第一个元素开始的任意子序列中向东次数不少于向北次数此<br>时可以等效为按高矮排队问题。用卡特兰数递推式求解。注意为h(n)。</p>
-<h3 id="n层阶梯切割问题"><a href="#n层阶梯切割问题" class="headerlink" title="n层阶梯切割问题"></a>n层阶梯切割问题</h3><p><strong>题目要求</strong></p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147006275273.png" alt=""><br></div><br>用n个长方形填充一个高度为n的阶梯状图形的方法个数？</p>
-<p><strong>解法</strong><br>使用卡特兰数通项进行计算。</p>
+        <h1 id="atoi函数与itoa函数"><a href="#atoi函数与itoa函数" class="headerlink" title="atoi函数与itoa函数"></a>atoi函数与itoa函数</h1><h2 id="atoi函数"><a href="#atoi函数" class="headerlink" title="atoi函数"></a>atoi函数</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>把字符串转换成整形数<br><a id="more"></a></p>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>int atoi(const char *str);<br>函数的返回值用一个整形变量接受，str表示准备进行转换的字符串。</p>
+<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>atoi( ) 函数会扫描参数str字符串，跳过前面的空白字符（例如空格，tab缩进等），直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时<br>(‘\0’)才结束转换，并将结果返回。如果str不能转换成int或者str为空字符串，那么将返回0。</p>
+<h3 id="简化实例"><a href="#简化实例" class="headerlink" title="简化实例"></a>简化实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int n;</div><div class="line">char *str=<span class="string">"12345.67"</span>;</div><div class="line">n=atoi(str);</div><div class="line">cout&lt;&lt;n&lt;&lt;endl;</div></pre></td></tr></table></figure>
+<p>输出结果为12345</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char a[]=<span class="string">"-100"</span>;</div><div class="line">char b[]=<span class="string">"123"</span>;</div><div class="line">int c;</div><div class="line">c=atoi(a)+atoi(b);</div><div class="line">cout&lt;&lt;c&lt;&lt;endl;</div></pre></td></tr></table></figure>
+<p>输出结果为23</p>
+<h2 id="itoa函数"><a href="#itoa函数" class="headerlink" title="itoa函数"></a>itoa函数</h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>将数字转换为字符串</p>
+<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char <em>itoa(int value,char</em>string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等</p>
+<h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int number=123456;</div><div class="line">char string[25];</div><div class="line">itoa(number,string,10);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -378,13 +347,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/01/atoi与itoa函数介绍/">atoi与itoa函数介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
-        <p><span>发布时间:</span>2016-08-30, 20:50:33</p>
-        <p><span>最后更新:</span>2016-08-30, 23:38:19</p>
+        <p><span>发布时间:</span>2016-09-01, 16:57:59</p>
+        <p><span>最后更新:</span>2016-09-01, 17:46:11</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/30/Talking-with-Catalan/" title="Talking with Catalan">http://xuboming8.github.io/2016/08/30/Talking-with-Catalan/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/Talking-with-Catalan/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/01/atoi与itoa函数介绍/" title="atoi与itoa函数介绍">http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -396,16 +365,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">
-                    浅谈LIS算法(Longest Increasing Subsequence)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/30/ACM-1023-1027-1058/">
-                    ACM 1023-1027 1058
+                <a href="/2016/09/01/九大基础排序算法/">
+                    九大基础排序算法
                 </a>
             </div>
         
@@ -418,7 +381,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-number">1.3.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#求卡特兰数"><span class="toc-number">1.3.1.</span> <span class="toc-text">求卡特兰数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#出栈问题"><span class="toc-number">1.3.2.</span> <span class="toc-text">出栈问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#由高到矮排队问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">由高到矮排队问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#括号化问题"><span class="toc-number">1.3.4.</span> <span class="toc-text">括号化问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#买票找零问题"><span class="toc-number">1.4.</span> <span class="toc-text">买票找零问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#凸多边形三角划分"><span class="toc-number">1.4.1.</span> <span class="toc-text">凸多边形三角划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#圆上点对互连问题"><span class="toc-number">1.4.2.</span> <span class="toc-text">圆上点对互连问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给定节点组成二叉搜索树"><span class="toc-number">1.4.3.</span> <span class="toc-text">给定节点组成二叉搜索树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#街区对角线问题"><span class="toc-number">1.4.4.</span> <span class="toc-text">街区对角线问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n层阶梯切割问题"><span class="toc-number">1.4.5.</span> <span class="toc-text">n层阶梯切割问题</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#atoi函数与itoa函数"><span class="toc-number">1.</span> <span class="toc-text">atoi函数与itoa函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#atoi函数"><span class="toc-number">1.1.</span> <span class="toc-text">atoi函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">1.1.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型"><span class="toc-number">1.1.2.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数介绍"><span class="toc-number">1.1.3.</span> <span class="toc-text">函数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化实例"><span class="toc-number">1.1.4.</span> <span class="toc-text">简化实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itoa函数"><span class="toc-number">1.2.</span> <span class="toc-text">itoa函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单实例"><span class="toc-number">1.2.3.</span> <span class="toc-text">简单实例</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -454,7 +417,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Talking with Catalan　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"atoi与itoa函数介绍　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -470,7 +433,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/30/Talking-with-Catalan/" data-title="Talking with Catalan" data-url="http://xuboming8.github.io/2016/08/30/Talking-with-Catalan/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/01/atoi与itoa函数介绍/" data-title="atoi与itoa函数介绍" data-url="http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/"></div>
     <script>
         var duoshuoQuery = {short_name:"hhmy"};
         var loadComment = function(){
@@ -493,15 +456,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" title="上一篇: 浅谈LIS算法(Longest Increasing Subsequence)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/30/ACM-1023-1027-1058/" title="下一篇: ACM 1023-1027 1058">
+            <a href="/2016/09/01/九大基础排序算法/" title="下一篇: 九大基础排序算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
