@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/index.html">
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
-<meta property="og:updated_time" content="2016-09-01T09:46:11.783Z">
+<meta property="og:updated_time" content="2016-09-01T16:23:17.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="atoi与itoa函数介绍">
 <meta name="twitter:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
@@ -331,13 +331,13 @@
           
         <h1 id="atoi函数与itoa函数"><a href="#atoi函数与itoa函数" class="headerlink" title="atoi函数与itoa函数"></a>atoi函数与itoa函数</h1><h2 id="atoi函数"><a href="#atoi函数" class="headerlink" title="atoi函数"></a>atoi函数</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>把字符串转换成整形数<br><a id="more"></a></p>
 <h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>int atoi(const char *str);<br>函数的返回值用一个整形变量接受，str表示准备进行转换的字符串。</p>
-<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>atoi( ) 函数会扫描参数str字符串，跳过前面的空白字符（例如空格，tab缩进等），直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时<br>(‘\0’)才结束转换，并将结果返回。如果str不能转换成int或者str为空字符串，那么将返回0。</p>
+<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>atoi( ) 函数会扫描参数str字符串，跳过前面的空白字符（例如空格，tab缩进等），直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时<br>(‘\0’)才结束转换，并将结果返回。如果str不能转换成int或者str为空字符串，那么将返回0。需要加入头文件stdlib.h。</p>
 <h3 id="简化实例"><a href="#简化实例" class="headerlink" title="简化实例"></a>简化实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int n;</div><div class="line">char *str=<span class="string">"12345.67"</span>;</div><div class="line">n=atoi(str);</div><div class="line">cout&lt;&lt;n&lt;&lt;endl;</div></pre></td></tr></table></figure>
 <p>输出结果为12345</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char a[]=<span class="string">"-100"</span>;</div><div class="line">char b[]=<span class="string">"123"</span>;</div><div class="line">int c;</div><div class="line">c=atoi(a)+atoi(b);</div><div class="line">cout&lt;&lt;c&lt;&lt;endl;</div></pre></td></tr></table></figure>
 <p>输出结果为23</p>
-<h2 id="itoa函数"><a href="#itoa函数" class="headerlink" title="itoa函数"></a>itoa函数</h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>将数字转换为字符串</p>
-<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char <em>itoa(int value,char</em>string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等</p>
+<h2 id="itoa函数"><a href="#itoa函数" class="headerlink" title="itoa函数"></a>itoa函数</h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>将整形转换为字符串</p>
+<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char <em>itoa(int value,char </em>string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等。使用需加入头文件stdlib.h。</p>
 <h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int number=123456;</div><div class="line">char string[25];</div><div class="line">itoa(number,string,10);</div></pre></td></tr></table></figure>
 
       
@@ -350,7 +350,7 @@
         <p><span>本文标题:</span><a href="/2016/09/01/atoi与itoa函数介绍/">atoi与itoa函数介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
         <p><span>发布时间:</span>2016-09-01, 16:57:59</p>
-        <p><span>最后更新:</span>2016-09-01, 17:46:11</p>
+        <p><span>最后更新:</span>2016-09-02, 00:23:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/01/atoi与itoa函数介绍/" title="atoi与itoa函数介绍">http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
