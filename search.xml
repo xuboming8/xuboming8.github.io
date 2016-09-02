@@ -14,7 +14,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char a[]=<span class="string">"-100"</span>;</div><div class="line">char b[]=<span class="string">"123"</span>;</div><div class="line">int c;</div><div class="line">c=atoi(a)+atoi(b);</div><div class="line">cout&lt;&lt;c&lt;&lt;endl;</div></pre></td></tr></table></figure>
 <p>输出结果为23</p>
 <h2 id="itoa函数"><a href="#itoa函数" class="headerlink" title="itoa函数"></a>itoa函数</h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>将整形转换为字符串</p>
-<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char <em>itoa(int value,char </em>string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等。使用需加入头文件stdlib.h。</p>
+<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char<br>char &#42;itoa(int value,char &#42;string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等。使用需加入头文件stdlib.h。</p>
 <h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int number=123456;</div><div class="line">char string[25];</div><div class="line">itoa(number,string,10);</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
