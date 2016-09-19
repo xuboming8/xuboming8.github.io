@@ -254,11 +254,18 @@
       <title><![CDATA[深度优先搜索(DFS)与广度优先搜索(BFS)]]></title>
       <url>http://xuboming8.github.io/2016/08/30/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS-%E4%B8%8E%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/</url>
       <content type="html"><![CDATA[<h1 id="DFS-depth-first-search-与BFS-breadth-first-search"><a href="#DFS-depth-first-search-与BFS-breadth-first-search" class="headerlink" title="DFS(depth first search)与BFS(breadth first search)"></a>DFS(depth first search)与BFS(breadth first search)</h1><h2 id="深度优先搜索-DFS"><a href="#深度优先搜索-DFS" class="headerlink" title="深度优先搜索(DFS)"></a>深度优先搜索(DFS)</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>深度优先搜索通过栈来实现，一般用来搜索能不能到达目的地之类。深度优先搜索通过栈来实现，一般用来搜索能不能到达目的地之类。<br>面图中的数字显示了深度优先搜索顶点被访问的顺序。<br><a id="more"></a></p>
-<div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147047199947.png" alt=""><br></div><br>它可以被形象的描述为“打破沙锅问到底”，具体一点就是访问一个顶点之后，继而访问它的下一个邻接的顶点，如此往复，直到当前顶点满足条件或者它不存在<br>邻接顶点。<br><br>### 特点<br>占内存少，能找到最优解（一定条件下），但能很快找到接近解（优点），可能不必遍历所有分枝（也就是速度快），一个典型应用是连连看游戏。<br><br>### 应用<br>深度优先搜索用栈（stack）来实现，整个过程可以想象成一个倒立的树形：<br>1、把根节点压入栈中。<br>2、每次从栈中弹出一个元素，搜索所有在它下一级的元素，把这些元素压入栈中。并把这个元素记为它下一级元素的前驱。<br>3、找到所要找的元素时结束程序。<br>4、如果遍历整个树还没有找到，结束程序。<br><br><strong>代码实例</strong><br><a href="http://monkeyxu.cn/2016/08/30/ACM-1008-1012/" target="_blank" rel="external">ACM-HDOJ 1010题(深搜+剪枝实现)</a><br><br>## 广度优先搜索(BFS)<br><br>### 简介<br>广度优先搜索通过队列来实现，一般用来搜索最短路径。<br>下面图中的数字显示了广度优先搜索顶点被访问的顺序。<br><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147047199904.png" alt=""><br></div>
+<div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147047199947.png" alt=""><br></div>
+
+<p>它可以被形象的描述为“打破沙锅问到底”，具体一点就是访问一个顶点之后，继而访问它的下一个邻接的顶点，如此往复，直到当前顶点满足条件或者它不存在<br>邻接顶点。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>占内存少，能找到最优解（一定条件下），但能很快找到接近解（优点），可能不必遍历所有分枝（也就是速度快），一个典型应用是连连看游戏。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>深度优先搜索用栈（stack）来实现，整个过程可以想象成一个倒立的树形：<br>1、把根节点压入栈中。<br>2、每次从栈中弹出一个元素，搜索所有在它下一级的元素，把这些元素压入栈中。并把这个元素记为它下一级元素的前驱。<br>3、找到所要找的元素时结束程序。<br>4、如果遍历整个树还没有找到，结束程序。</p>
+<p><strong>代码实例</strong><br><a href="http://monkeyxu.cn/2016/08/30/ACM-1008-1012/" target="_blank" rel="external">ACM-HDOJ 1010题(深搜+剪枝实现)</a></p>
+<h2 id="广度优先搜索-BFS"><a href="#广度优先搜索-BFS" class="headerlink" title="广度优先搜索(BFS)"></a>广度优先搜索(BFS)</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>广度优先搜索通过队列来实现，一般用来搜索最短路径。<br>下面图中的数字显示了广度优先搜索顶点被访问的顺序。</p>
+<div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147047199904.png" alt=""><br></div>
 
 <p>可以被形象的描述为“浅尝辄止”，具体一点就是每个顶点只访问它的邻接节点（如果它的邻接节点没有被访问）并且记录这个邻接节点，当访问完它的邻接节点之<br>后就结束这个顶点的访问。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>占内存多，能找到最优解，必须遍历所有分枝。</p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：<br>1、把根节点放到队列的末尾。<br>2、每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。<br>3、找到所要找的元素时结束程序。<br>4、如果遍历整个树还没有找到，结束程序。</p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><p>占内存多，能找到最优解，必须遍历所有分枝。</p>
+<h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：<br>1、把根节点放到队列的末尾。<br>2、每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。<br>3、找到所要找的元素时结束程序。<br>4、如果遍历整个树还没有找到，结束程序。</p>
 <p><strong>代码实例</strong><br><a href="http://monkeyxu.cn/2016/08/30/ACM-1023-1027-1058/" target="_blank" rel="external">ACM-HDOJ 1026题(广搜+优化队列实现)</a></p>
 ]]></content>
     </entry>
