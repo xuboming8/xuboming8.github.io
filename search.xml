@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[神奇的树状数组]]></title>
+      <url>http://xuboming8.github.io/2016/10/03/%E7%A5%9E%E5%A5%87%E7%9A%84%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</url>
+      <content type="html"><![CDATA[<h1 id="树状数组的存储原理"><a href="#树状数组的存储原理" class="headerlink" title="树状数组的存储原理"></a>树状数组的存储原理</h1><a id="more"></a>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[atoi与itoa函数介绍]]></title>
       <url>http://xuboming8.github.io/2016/09/01/atoi%E4%B8%8Eitoa%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D/</url>
       <content type="html"><![CDATA[<h1 id="atoi函数与itoa函数"><a href="#atoi函数与itoa函数" class="headerlink" title="atoi函数与itoa函数"></a>atoi函数与itoa函数</h1><h2 id="atoi函数"><a href="#atoi函数" class="headerlink" title="atoi函数"></a>atoi函数</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>把字符串转换成整形数<br><a id="more"></a></p>
