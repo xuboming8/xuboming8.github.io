@@ -15,16 +15,21 @@
 
 
 
-<meta name="description" content="位运算六种基本位运算位运算的实例">
+<meta name="description" content="位运算六种基本位运算
+位运算的实例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="化繁为简：位运算">
 <meta property="og:url" content="http://xuboming8.github.io/2016/11/01/化繁为简：位运算/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="位运算六种基本位运算位运算的实例">
-<meta property="og:updated_time" content="2016-11-01T05:41:00.559Z">
+<meta property="og:description" content="位运算六种基本位运算
+位运算的实例">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147798733019.jpg">
+<meta property="og:updated_time" content="2016-11-01T08:16:43.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="化繁为简：位运算">
-<meta name="twitter:description" content="位运算六种基本位运算位运算的实例">
+<meta name="twitter:description" content="位运算六种基本位运算
+位运算的实例">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147798733019.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -329,11 +334,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="六种基本位运算"><a href="#六种基本位运算" class="headerlink" title="六种基本位运算"></a>六种基本位运算</h2><h2 id="位运算的实例"><a href="#位运算的实例" class="headerlink" title="位运算的实例"></a>位运算的实例</h2><a id="more"></a>
+        <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="六种基本位运算"><a href="#六种基本位运算" class="headerlink" title="六种基本位运算"></a>六种基本位运算</h2><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147798733019.jpg" alt=""></p>
+<h2 id="位运算的实例"><a href="#位运算的实例" class="headerlink" title="位运算的实例"></a>位运算的实例</h2><a id="more"></a>
 <h3 id="数字间交换"><a href="#数字间交换" class="headerlink" title="数字间交换"></a>数字间交换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">void exchange(int a, int b)</div><div class="line">&#123;</div><div class="line">    a = a ^ b;</div><div class="line">    b = a ^ b;</div><div class="line">    a = a ^ b;</div><div class="line">    <span class="built_in">return</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>总结</strong></p>
+<p><strong>总结</strong><br>公式：a^b^b=a<br>这是一种最安全，最高效的方法——利用位运算符（^）异或交换，简单，易记。</p>
 <h3 id="16进制快速转8进制"><a href="#16进制快速转8进制" class="headerlink" title="16进制快速转8进制"></a>16进制快速转8进制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;string&gt;</span></div><div class="line"><span class="comment">#define base 7</span></div><div class="line">using namespace std;</div><div class="line">void HtoO(string hex)</div><div class="line">&#123;</div><div class="line">	int curbit=0;</div><div class="line">	string Oct,tmpOct;</div><div class="line">	int len=hex.size();</div><div class="line">	<span class="keyword">for</span>(int i=len-3;i&gt;=0;i-=3)</div><div class="line">	&#123;</div><div class="line">		int d=0;</div><div class="line">		<span class="keyword">for</span>(int k=0;k&lt;3;k++)</div><div class="line">		&#123;</div><div class="line">			int t=i+k;</div><div class="line">			<span class="keyword">if</span>(hex[t]&gt;=<span class="string">'0'</span>&amp;&amp;hex[t]&lt;=<span class="string">'9'</span>)</div><div class="line">				curbit=hex[t]-<span class="string">'0'</span>;</div><div class="line">			<span class="keyword">if</span>(hex[t]&gt;=<span class="string">'A'</span>&amp;&amp;hex[t]&lt;=<span class="string">'F'</span>)</div><div class="line">				curbit=hex[t]-<span class="string">'A'</span>+10;</div><div class="line">			d=d*16+curbit;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int k=0;k&lt;4;k++)</div><div class="line">		&#123;</div><div class="line">			tmpOct+=<span class="string">'0'</span>+(d&amp;base);</div><div class="line">			d&gt;&gt;=3;</div><div class="line">		&#125;</div><div class="line">		d=0;</div><div class="line">	&#125;</div><div class="line">	int rest=len%3;</div><div class="line">	<span class="keyword">if</span>(rest!=0)</div><div class="line">	&#123;</div><div class="line">		int d=0;</div><div class="line">		<span class="keyword">for</span>(int k=0;k&lt;rest;k++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(hex[k]&gt;=<span class="string">'0'</span>&amp;&amp;hex[k]&lt;=<span class="string">'9'</span>)</div><div class="line">				curbit=hex[k]-<span class="string">'0'</span>;</div><div class="line">			<span class="keyword">if</span>(hex[k]&gt;=<span class="string">'A'</span>&amp;&amp;hex[k]&lt;=<span class="string">'F'</span>)</div><div class="line">				curbit=hex[k]-<span class="string">'A'</span>+10;</div><div class="line">			d=d*16+curbit;</div><div class="line">		&#125;</div><div class="line">		int max=ceil(4.0/3.0*rest);</div><div class="line">		<span class="keyword">for</span>(int k=0;k&lt;max;k++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(k==max-1&amp;&amp;(d&amp;base)!=0 ||k&lt;max-1)</div><div class="line">				tmpOct+=<span class="string">'0'</span>+(d&amp;base);</div><div class="line">			d&gt;&gt;=3;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	int j=tmpOct.size()-1;</div><div class="line">	<span class="keyword">for</span>(;j&gt;=0;j--)</div><div class="line">		Oct+=tmpOct[j];</div><div class="line">	cout&lt;&lt;Oct&lt;&lt;endl;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">    int n;</div><div class="line">    cin&gt;&gt;n;</div><div class="line">    <span class="keyword">while</span>(n--)</div><div class="line">	&#123;</div><div class="line">        string hex;</div><div class="line">		cin&gt;&gt;hex;</div><div class="line">		HtoO(hex);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>总结</strong></p>
+<p><strong>总结</strong><br><a href="http://blog.csdn.net/jiluoxingren/article/details/50478759" target="_blank" rel="external">参考博客</a><br>大体思路：每次取三个十六进制数转换成十进制（实际是以二进制存储），共12位确保可以恰好生成4个八进制数。每次取三个二进制数与7进行与运算后存入tmpOct中，接着<br>d右移三位进行下一个三位二进制数的运算。十六进制数中余下的不足三位的需要额外考虑，ceil是求大于等于x的最小整数，由于tmpOct中是逆序存储，所以正过来存入Oct<br>中并输出。</p>
 
       
     </div>
@@ -345,7 +351,7 @@
         <p><span>Title:</span><a href="/2016/11/01/化繁为简：位运算/">化繁为简：位运算</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey XBM</a></p>
         <p><span>Created:</span>2016-11-01, 13:27:03</p>
-        <p><span>Updated:</span>2016-11-01, 13:41:00</p>
+        <p><span>Updated:</span>2016-11-01, 16:16:43</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2016/11/01/化繁为简：位运算/" title="化繁为简：位运算">http://xuboming8.github.io/2016/11/01/化繁为简：位运算/</a>
             <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/11/01/化繁为简：位运算/　　By Hippopmonkey XBM" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
