@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="阅读 随笔 博客 日记">
+<meta name="description" content="欧几里德算法 &amp;amp; 扩展欧几里德算法概述欧几里德算法又称辗转相除法，给出c语言实现如下：1234int gcd(int a,int b)&amp;#123;	return b?gcd(a,a%b):a;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="扩展欧几里德算法">
 <meta property="og:url" content="http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="阅读 随笔 博客 日记">
-<meta property="og:updated_time" content="2016-11-01T16:04:06.395Z">
+<meta property="og:description" content="欧几里德算法 &amp;amp; 扩展欧几里德算法概述欧几里德算法又称辗转相除法，给出c语言实现如下：1234int gcd(int a,int b)&amp;#123;	return b?gcd(a,a%b):a;&amp;#125;">
+<meta property="og:updated_time" content="2016-11-02T02:48:11.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="扩展欧几里德算法">
-<meta name="twitter:description" content="阅读 随笔 博客 日记">
+<meta name="twitter:description" content="欧几里德算法 &amp;amp; 扩展欧几里德算法概述欧几里德算法又称辗转相除法，给出c语言实现如下：1234int gcd(int a,int b)&amp;#123;	return b?gcd(a,a%b):a;&amp;#125;">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -325,7 +325,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h1 id="欧几里德算法-amp-扩展欧几里德算法"><a href="#欧几里德算法-amp-扩展欧几里德算法" class="headerlink" title="欧几里德算法 &amp; 扩展欧几里德算法"></a>欧几里德算法 &amp; 扩展欧几里德算法</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="欧几里德算法"><a href="#欧几里德算法" class="headerlink" title="欧几里德算法"></a>欧几里德算法</h3><p>又称辗转相除法，给出c语言实现如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int gcd(int a,int b)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> b?gcd(a,a%b):a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h3><p>对于不完全为 0 的非负整数 a，b，gcd（a，b）表示 a，b 的最大公约数，必然存在整数对 x，y ，使得 gcd（a，b）=ax+by。<br>c语言实现如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">int exgcd(int a,int b,int &amp;x,int &amp;y)&#123;</div><div class="line">    <span class="keyword">if</span> (b==0)</div><div class="line">	&#123;</div><div class="line">        x=1,y=0;</div><div class="line">        <span class="built_in">return</span> a;</div><div class="line">    &#125;</div><div class="line">    int q=gcd(b,a%b,y,x);</div><div class="line">    y-=a/b*x;</div><div class="line">    <span class="built_in">return</span> q;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="POJ-1061"><a href="#POJ-1061" class="headerlink" title="POJ-1061"></a>POJ-1061</h2><p><strong>Description</strong><br>两只青蛙在网上相识了，它们聊得很开心，于是觉得很有必要见一面。它们很高兴地发现它们住在同一条纬度线上，于是它们约定各自朝西跳，直到碰面为止。可是它们<br>出发之前忘记了一件很重要的事情，既没有问清楚对方的特征，也没有约定见面的具体位置。不过青蛙们都是很乐观的，它们觉得只要一直朝着某个方向跳下去，总能碰<br>到对方的。但是除非这两只青蛙在同一时间跳到同一点上，不然是永远都不可能碰面的。为了帮助这两只乐观的青蛙，你被要求写一个程序来判断这两只青蛙是否能够碰<br>面，会在什么时候碰面。 我们把这两只青蛙分别叫做青蛙A和青蛙B，并且规定纬度线上东经0度处为原点，由东往西为正方向，单位长度1米，这样我们就得到了一条首尾<br>相接的数轴。设青蛙A的出发点坐标是x，青蛙B的出发点坐标是y。青蛙A一次能跳m米，青蛙B一次能跳n米，两只青蛙跳一次所花费的时间相同。纬度线总长L米。现在要<br>你求出它们跳了几次以后才会碰面。 </p>
+<p><strong>Input</strong><br>输入只包括一行5个整数x，y，m，n，L，其中x≠y &lt; 2000000000，0 &lt; m、n &lt; 2000000000，0 &lt; L &lt; 2100000000。</p>
+<p><strong>Output</strong><br>输出碰面所需要的跳跃次数，如果永远不可能碰面则输出一行”Impossible”</p>
+<p><strong>Sample Input</strong><br>1 2 3 4 5</p>
+<p><strong>Sample Output</strong><br>4</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">此处的方程是：(n - m)*t + L*p = x-y</div><div class="line"><span class="comment">#include &lt;stdio.h&gt;</span></div><div class="line">long long int gcd( long long int x, long long int y )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>( y== 0 )</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> x;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> gcd( y, x% y );</div><div class="line">&#125;</div><div class="line">void exgcd( long long int a, long long int b, long long int &amp;x, long long int &amp;y )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>( b== 0 )</div><div class="line">    &#123;</div><div class="line">        x= 1;</div><div class="line">        y= 0;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">    &#125;</div><div class="line">    exgcd( b, a% b, x, y );</div><div class="line">    long long int t= x;</div><div class="line">    x= y;</div><div class="line">    y= t- a/ b* y;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>(  )</div><div class="line">&#123;</div><div class="line">    long long int x, y, m, n, l;</div><div class="line">    <span class="keyword">while</span>( scanf( <span class="string">"%lld %lld %lld %lld %lld"</span>, &amp;x, &amp;y, &amp;m, &amp;n, &amp;l )!= EOF )</div><div class="line">    &#123;</div><div class="line">        long long int a= n- m, b= l, c= x- y, p, q;</div><div class="line">        long long int d= gcd( a, b );</div><div class="line">        <span class="keyword">if</span>( c% d )</div><div class="line">        &#123;</div><div class="line">            puts( <span class="string">"Impossible"</span> );</div><div class="line">            <span class="built_in">continue</span>;</div><div class="line">        &#125;</div><div class="line">        a/= d, b/= d, c/= d;</div><div class="line">        exgcd( a, b, p, q );</div><div class="line">        p*= c;</div><div class="line">        long long int t= p% b;</div><div class="line">        <span class="keyword">while</span>( t&lt; 0 )</div><div class="line">        &#123;   </div><div class="line">            t+= b; </div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, t );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="NEFU-84"><a href="#NEFU-84" class="headerlink" title="NEFU 84"></a>NEFU 84</h2><p><strong>Description</strong><br>我们假设佛祖的手掌是一个圆圈（所以任凭大圣一个筋斗云十万八千里也是飞不出其手掌心），圆圈的长为n，逆时针记为：0，1，2，…,n-1，而大圣每次飞的距离为d.现<br>在大圣所在的位置记为x,而大圣想去的地方在y。现在要你告诉大圣至少要多少筋斗云才能到达目的地。 </p>
+<p><strong>Input</strong><br>有多组测试数据。<br>第一行是一个正整数T，表示测试数据的组数。<br>每组测试数据包括一行，四个非负整数，n（2 &lt; n &lt; 10^9），表示如来手掌圆圈的长度；d(0 &lt; d &lt; n),筋斗所能飞的距离；x(0 &lt;= x &lt; n),大圣的初始位置；<br>y(0 &lt;= y &lt; n)，大圣想去的地方。<br>注意孙悟空的筋斗云只沿着逆时针方向翻。 </p>
+<p><strong>Output</strong><br>对于每组测试数据，输出一行，给出大圣最少要翻多少个筋斗云才能到达目的地。如果无论翻多少个筋斗云也不能到达，输出“Impossible”. </p>
+<p><strong>Sample Input</strong><br>2<br>3 2 0 2<br>3 2 0 1 </p>
+<p><strong>Sample Output</strong><br>1<br>2 </p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">此处的方程是 sd-tn=x-y.</div><div class="line">带入exgcd函数后实现部分与上题相同</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>若题目能化到ax+by=l的不定方程的形式，那么可以套用ex欧几里德算法，求出d=gcd（a，b）后，abl三数同时除以d后带入exgcd方程，返回的p*=l，在%b后判断是否非<br>负。为负加上b直到为正即可。若l%d！=0则不满足题意。</p>
+
       
     </div>
     
@@ -336,7 +352,7 @@
         <p><span>本文标题:</span><a href="/2016/11/02/扩展欧几里德算法/">扩展欧几里德算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
         <p><span>发布时间:</span>2016-11-02, 00:02:38</p>
-        <p><span>最后更新:</span>2016-11-02, 00:04:06</p>
+        <p><span>最后更新:</span>2016-11-02, 10:48:11</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/02/扩展欧几里德算法/" title="扩展欧几里德算法">http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -367,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#欧几里德算法-amp-扩展欧几里德算法"><span class="toc-number">1.</span> <span class="toc-text">欧几里德算法 & 扩展欧几里德算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#欧几里德算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">欧几里德算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展欧几里得算法"><span class="toc-number">1.1.2.</span> <span class="toc-text">扩展欧几里得算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POJ-1061"><span class="toc-number">1.2.</span> <span class="toc-text">POJ-1061</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NEFU-84"><span class="toc-number">1.3.</span> <span class="toc-text">NEFU 84</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.3.2.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
