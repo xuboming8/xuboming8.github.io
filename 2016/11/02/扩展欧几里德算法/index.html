@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/index.html">
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="欧几里德算法 &amp;amp; 扩展欧几里德算法概述欧几里德算法又称辗转相除法，给出c语言实现如下：1234int gcd(int a,int b)&amp;#123;	return b?gcd(a,a%b):a;&amp;#125;">
-<meta property="og:updated_time" content="2016-11-02T03:51:35.277Z">
+<meta property="og:updated_time" content="2016-11-06T07:09:54.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="扩展欧几里德算法">
 <meta name="twitter:description" content="欧几里德算法 &amp;amp; 扩展欧几里德算法概述欧几里德算法又称辗转相除法，给出c语言实现如下：1234int gcd(int a,int b)&amp;#123;	return b?gcd(a,a%b):a;&amp;#125;">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-扩展欧几里德算法" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -341,7 +341,7 @@
 <p><strong>Sample Output</strong><br>1<br>2 </p>
 <h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">此处的方程是 sd-tn=x-y.</div><div class="line">带入exgcd函数后实现部分与上题相同</div></pre></td></tr></table></figure>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>若题目能化到ax+by=l的不定方程的形式，那么可以套用ex欧几里德算法，求出d=gcd（a，b）后，abl三数同时除以d后带入exgcd方程，返回的p*=l，在%b后判断是否非<br>负。为负加上b直到为正即可。若l%d！=0则不满足题意。</p>
-<h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">int exgcd(int a,int b,int &amp;x,int &amp;y)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (b==0)</div><div class="line">	&#123;</div><div class="line">		x=1,y=0;</div><div class="line">		<span class="built_in">return</span> a;</div><div class="line">	&#125;</div><div class="line">	int q=exgcd(b,a%b,y,x);</div><div class="line">	y-=a/b*x;</div><div class="line">	<span class="built_in">return</span> q;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int p,q,x,y,l;   //px+qy=l</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;x&gt;&gt;y&gt;&gt;l)</div><div class="line">	&#123;</div><div class="line">		int t=exgcd(x,y,p,q);</div><div class="line">		<span class="keyword">if</span>(l%t)</div><div class="line">		&#123;</div><div class="line">            puts(<span class="string">"unsolvable"</span>);</div><div class="line">            <span class="built_in">continue</span>;</div><div class="line">        &#125;</div><div class="line">		t*=l;</div><div class="line">		t=(t%y+y)%y;</div><div class="line">		cout&lt;&lt;t&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">该模版中若求q，则主函数不变，若求p，则主函数中q换成p</div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">void exgcd(int a,int b,int &amp;x,int &amp;y)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(b==0)</div><div class="line">    &#123;</div><div class="line">        x=1;</div><div class="line">        y=0;</div><div class="line">        <span class="built_in">return</span>;</div><div class="line">    &#125;</div><div class="line">    exgcd(b,a%b,x,y);</div><div class="line">    int t=x;</div><div class="line">    x=y;</div><div class="line">    y=t<span class="_">-a</span>/b*y;</div><div class="line">    <span class="built_in">return</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int p,q,x,y,l;   //px+qy=l</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;x&gt;&gt;y&gt;&gt;l)</div><div class="line">	&#123;</div><div class="line">		exgcd(x,y,p,q);</div><div class="line">		<span class="keyword">if</span>(l%q)</div><div class="line">		&#123;</div><div class="line">            puts(<span class="string">"unsolvable"</span>);</div><div class="line">            <span class="built_in">continue</span>;</div><div class="line">        &#125;</div><div class="line">		q*=l;</div><div class="line">		q=(q%y+y)%y;</div><div class="line">		cout&lt;&lt;q&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -349,17 +349,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/02/扩展欧几里德算法/">扩展欧几里德算法</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey XBM</a></p>
-        <p><span>Created:</span>2016-11-02, 00:02:38</p>
-        <p><span>Updated:</span>2016-11-02, 11:51:35</p>
+        <p><span>本文标题:</span><a href="/2016/11/02/扩展欧几里德算法/">扩展欧几里德算法</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey XBM</a></p>
+        <p><span>发布时间:</span>2016-11-02, 00:02:38</p>
+        <p><span>最后更新:</span>2016-11-06, 15:09:54</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/02/扩展欧几里德算法/" title="扩展欧几里德算法">http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/　　By Hippopmonkey XBM" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/02/扩展欧几里德算法/" title="扩展欧几里德算法">http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/11/02/扩展欧几里德算法/　　作者: Hippopmonkey XBM" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -381,7 +381,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#欧几里德算法-amp-扩展欧几里德算法"><span class="toc-number">1.</span> <span class="toc-text">欧几里德算法 & 扩展欧几里德算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#欧几里德算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">欧几里德算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展欧几里得算法"><span class="toc-number">1.1.2.</span> <span class="toc-text">扩展欧几里得算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POJ-1061"><span class="toc-number">1.2.</span> <span class="toc-text">POJ-1061</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NEFU-84"><span class="toc-number">1.3.</span> <span class="toc-text">NEFU 84</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.4.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模版"><span class="toc-number">1.5.</span> <span class="toc-text">模版</span></a></li></ol></li></ol>
         
@@ -397,10 +397,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -458,13 +458,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/02/10-30-热身赛/" title="Next: 10-30 热身赛">
+            <a href="/2016/11/02/10-30-热身赛/" title="下一篇: 10-30 热身赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -487,14 +487,14 @@
                 2016 Hippopmonkey XBM
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -503,7 +503,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -536,9 +536,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
