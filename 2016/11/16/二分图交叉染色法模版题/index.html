@@ -15,20 +15,25 @@
 
 
 
-<meta name="description" content="基础排序算法总结与对比总结与对比1.均按从小到大排序2.k代表数值中的“数位”个数3.n代表数据规模4.m代表数据的最大值减最小值">
+<meta name="description" content="二分图交叉染色法HDU 4751Problem Description
+Input">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基础排序算法">
-<meta property="og:url" content="http://xuboming8.github.io/2016/09/01/九大基础排序算法/index.html">
+<meta property="og:title" content="二分图交叉染色法模版题">
+<meta property="og:url" content="http://xuboming8.github.io/2016/11/16/二分图交叉染色法模版题/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="基础排序算法总结与对比总结与对比1.均按从小到大排序2.k代表数值中的“数位”个数3.n代表数据规模4.m代表数据的最大值减最小值">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147269242105.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147387163491.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147387163504.png">
-<meta property="og:updated_time" content="2016-10-01T09:49:55.735Z">
+<meta property="og:description" content="二分图交叉染色法HDU 4751Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814612.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814658.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814691.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814731.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814765.png">
+<meta property="og:updated_time" content="2016-11-16T09:27:03.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基础排序算法">
-<meta name="twitter:description" content="基础排序算法总结与对比总结与对比1.均按从小到大排序2.k代表数值中的“数位”个数3.n代表数据规模4.m代表数据的最大值减最小值">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147269242105.png">
+<meta name="twitter:title" content="二分图交叉染色法模版题">
+<meta name="twitter:description" content="二分图交叉染色法HDU 4751Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814612.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -60,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>基础排序算法 | 似水年华</title>
+<title>二分图交叉染色法模版题 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +294,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-九大基础排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-二分图交叉染色法模版题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/01/九大基础排序算法/" class="article-date">
-      <time datetime="2016-09-01T01:03:22.000Z" itemprop="datePublished">2016-09-01</time>
+      <a href="/2016/11/16/二分图交叉染色法模版题/" class="article-date">
+      <time datetime="2016-11-16T09:18:48.000Z" itemprop="datePublished">2016-11-16</time>
 </a>
 
 
@@ -308,7 +313,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      基础排序算法
+      二分图交叉染色法模版题
     </h1>
   
 
@@ -323,7 +328,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分图/">二分图</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -333,17 +338,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="基础排序算法总结与对比"><a href="#基础排序算法总结与对比" class="headerlink" title="基础排序算法总结与对比"></a>基础排序算法总结与对比</h1><h2 id="总结与对比"><a href="#总结与对比" class="headerlink" title="总结与对比"></a>总结与对比</h2><p><strong>1.均按从小到大排序</strong><br><strong>2.k代表数值中的“数位”个数</strong><br><strong>3.n代表数据规模</strong><br><strong>4.m代表数据的最大值减最小值</strong><br><a id="more"></a></p>
-<div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147269242105.png" alt=""><br></div>
-
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>冒泡排序通过重复地走访要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来，直到没有再需要交换的元素为止。这个算法的名字由来是因为越小<br>的元素会经由交换慢慢“浮”到数列的顶端。</p>
-<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><p>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。　<br>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。<br>3.针对所有的元素重复以上的步骤，除了最后一个。<br>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
-<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">void Bubble(int a[],int n)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;n;i++)</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;n-i;j++)</div><div class="line">			<span class="keyword">if</span>(a[j]&gt;a[j+1])</div><div class="line">			&#123;</div><div class="line">				int temp;</div><div class="line">				temp=a[j];</div><div class="line">				a[j]=a[j+1];</div><div class="line">				a[j+1]=temp;</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="改进代码实例"><a href="#改进代码实例" class="headerlink" title="改进代码实例"></a>改进代码实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">void Bubble(int a[],int n)</div><div class="line">&#123;</div><div class="line">	bool flag=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">while</span>(flag)</div><div class="line">	&#123;</div><div class="line">		flag=<span class="literal">false</span>;</div><div class="line">		<span class="keyword">for</span>(int i=0;j&lt;n-1;j++)</div><div class="line">			<span class="keyword">if</span>(a[j]&gt;a[j+1])</div><div class="line">			&#123;</div><div class="line">				int temp;</div><div class="line">				temp=a[j];</div><div class="line">				a[j]=a[j+1];</div><div class="line">				a[j+1]=temp;</div><div class="line">				flag=<span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		n--;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//该代码的好处是如果某次交换后后面的元素已经是升序排列，那么将不再进入循环节省了时间。</div></pre></td></tr></table></figure>
-<h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>设所排序序列的记录个数为n，i　取　1,2,…,n-1　。<br>从所有n-i+1个记录（Ri,Ri+1,…,Rn）中找出排序码最小（或最大）的记录，与第i个记录交换。执行n-1趟 后就完成了记录序列的排序。 </p>
-<h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147387163491.png" alt=""><br></div>
-
-<div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147387163504.png" alt=""><br></div>
+        <h1 id="二分图交叉染色法"><a href="#二分图交叉染色法" class="headerlink" title="二分图交叉染色法"></a>二分图交叉染色法</h1><h2 id="HDU-4751"><a href="#HDU-4751" class="headerlink" title="HDU 4751"></a>HDU 4751</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814612.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814658.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814691.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814731.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147928814765.png" alt=""></p>
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>输入互相认识人的编号，问可不可以把人群分成认识和不认识的、</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;string.h&gt;</span></div><div class="line"><span class="comment">#include&lt;vector&gt;</span></div><div class="line">using namespace std;</div><div class="line">vector&lt;int&gt;e[150];</div><div class="line">int u;</div><div class="line">bool flag;</div><div class="line">int color[150],map[150][150];</div><div class="line">bool DFS(int v,int c)</div><div class="line">&#123;   </div><div class="line">    color[v]=c;  </div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e[v].size();i++)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">if</span>(color[e[v][i]]==c)  </div><div class="line">            <span class="built_in">return</span> <span class="literal">false</span>;  </div><div class="line">        <span class="keyword">if</span>(color[e[v][i]]==0&amp;&amp;!DFS(e[v][i],-c))  </div><div class="line">            <span class="built_in">return</span> <span class="literal">false</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int n;</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;n)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++) e[i].clear();  </div><div class="line">		flag=<span class="literal">true</span>;</div><div class="line">		memset(map,0,sizeof(map));</div><div class="line">		memset(color,0,sizeof(color));</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			<span class="keyword">while</span>(cin&gt;&gt;u&amp;&amp;u)</div><div class="line">				map[i][u]=1;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			<span class="keyword">for</span>(int j=1;j&lt;=n;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(j==i)</div><div class="line">					<span class="built_in">continue</span>;</div><div class="line">				<span class="keyword">if</span>(map[i][j]==0)</div><div class="line">				&#123;</div><div class="line">					e[i].push_back(j);</div><div class="line">					e[j].push_back(i);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n&amp;&amp;flag;i++)</div><div class="line">			<span class="keyword">if</span>(color[i]==0)</div><div class="line">				flag=DFS(i,1);</div><div class="line">		<span class="keyword">if</span>(flag)</div><div class="line">			cout&lt;&lt;<span class="string">"YES"</span>&lt;&lt;endl;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			cout&lt;&lt;<span class="string">"NO"</span>&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>使用边集数组map作为过度作用，从而把互不认识的人加入vector前向星中。DFS中使用交叉染色法。</p>
 
       
     </div>
@@ -352,13 +354,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/01/九大基础排序算法/">基础排序算法</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/16/二分图交叉染色法模版题/">二分图交叉染色法模版题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2016-09-01, 09:03:22</p>
-        <p><span>最后更新:</span>2016-10-01, 17:49:55</p>
+        <p><span>发布时间:</span>2016-11-16, 17:18:48</p>
+        <p><span>最后更新:</span>2016-11-16, 17:27:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/01/九大基础排序算法/" title="基础排序算法">http://xuboming8.github.io/2016/09/01/九大基础排序算法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/09/01/九大基础排序算法/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/16/二分图交叉染色法模版题/" title="二分图交叉染色法模版题">http://xuboming8.github.io/2016/11/16/二分图交叉染色法模版题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/11/16/二分图交叉染色法模版题/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -370,16 +372,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/01/atoi与itoa函数介绍/">
-                    atoi与itoa函数介绍
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/30/DP问题专题四-背包延伸/">
-                    DP问题专题四 背包延伸
+                <a href="/2016/11/15/11-13-周赛/">
+                    11-13 周赛
                 </a>
             </div>
         
@@ -392,7 +388,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础排序算法总结与对比"><span class="toc-number">1.</span> <span class="toc-text">基础排序算法总结与对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结与对比"><span class="toc-number">1.1.</span> <span class="toc-text">总结与对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-number">1.2.</span> <span class="toc-text">冒泡排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.2.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验步骤"><span class="toc-number">1.2.2.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实例"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改进代码实例"><span class="toc-number">1.2.4.</span> <span class="toc-text">改进代码实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单选择排序"><span class="toc-number">1.3.</span> <span class="toc-text">简单选择排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图解"><span class="toc-number">1.3.2.</span> <span class="toc-text">图解</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二分图交叉染色法"><span class="toc-number">1.</span> <span class="toc-text">二分图交叉染色法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4751"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 4751</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -428,7 +424,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"基础排序算法　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"二分图交叉染色法模版题　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -444,7 +440,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/01/九大基础排序算法/" data-title="基础排序算法" data-url="http://xuboming8.github.io/2016/09/01/九大基础排序算法/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/16/二分图交叉染色法模版题/" data-title="二分图交叉染色法模版题" data-url="http://xuboming8.github.io/2016/11/16/二分图交叉染色法模版题/"></div>
     <script>
         var duoshuoQuery = {short_name:"hhmy"};
         var loadComment = function(){
@@ -467,15 +463,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/01/atoi与itoa函数介绍/" title="上一篇: atoi与itoa函数介绍">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/30/DP问题专题四-背包延伸/" title="下一篇: DP问题专题四 背包延伸">
+            <a href="/2016/11/15/11-13-周赛/" title="下一篇: 11-13 周赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
