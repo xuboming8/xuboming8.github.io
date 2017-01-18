@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[Machine Learning]]></title>
+      <url>http://xuboming8.github.io/2017/01/18/Marchine-Learning/</url>
+      <content type="html"><![CDATA[<h1 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h1><h2 id="监督学习（supervised-learning）与无监督学习（unsupervised-learning）"><a href="#监督学习（supervised-learning）与无监督学习（unsupervised-learning）" class="headerlink" title="监督学习（supervised learning）与无监督学习（unsupervised learning）"></a>监督学习（supervised learning）与无监督学习（unsupervised learning）</h2><p>监督学习<br>——需要部分数据已经明确给出 来预测一个连续的输出值（例如房价）<br>——回归问题（实际的数据 连续的数值 例如识别出照片上人的年龄）<br>——分类问题（分成少数的离散值 例如0代表良性癌症 1代表恶性癌症）</p>
+<p>无监督学习<br>——聚类算法<br>——数据没有属性或标签这一概念 所有的数据都是一样的<br>——运用：网页 基因判别 分离音频 大型数据中心 社交网络分析 客户信息数据库 天文数据分析<br><a id="more"></a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[12-24 杭电校赛]]></title>
       <url>http://xuboming8.github.io/2016/12/27/12-24-%E6%9D%AD%E7%94%B5%E6%A0%A1%E8%B5%9B/</url>
       <content type="html"><![CDATA[<h1 id="杭电校赛"><a href="#杭电校赛" class="headerlink" title="杭电校赛"></a>杭电校赛</h1><h2 id="递增数"><a href="#递增数" class="headerlink" title="递增数"></a>递增数</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14829002546.png" alt=""></p>
