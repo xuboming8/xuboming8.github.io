@@ -30,7 +30,14 @@
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484024959.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484025032.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484025096.png">
-<meta property="og:updated_time" content="2017-01-19T15:42:16.791Z">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499373334.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600672.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499515318.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600609.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600741.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499653538.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499672303.png">
+<meta property="og:updated_time" content="2017-01-21T11:10:25.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Machine Learning监督学习（supervised learning）与无监督学习（unsupervised learning）监督学习——需要部分数据已经明确给出 来预测一个连续的输出值（例如房价）——回归问题（实际的数据 连续的数值 例如识别出照片上人的年龄）——分类问题（分成少数的离散值 例如0代表良性癌症 1代表恶性癌症）
@@ -345,6 +352,12 @@
 <h3 id="单变量线性回归"><a href="#单变量线性回归" class="headerlink" title="单变量线性回归"></a>单变量线性回归</h3><p><strong>m</strong>   样本数量<br><strong>x</strong>   输入<br><strong>y</strong>   输出<br><strong>假设函数</strong>：hθ（x）=θ0+θ1<em>x<br><strong>代价函数</strong>：J（θ0，θ1）=1/2m</em>Σ（hθ（x）-y（i））²<br>假设函数即为：尽可能拟核所有点的函数（此时为线性函数）<br>代价函数即为：对应每个θ值的函数（预测值）与实际值的误差，具体表现形式为所有的差值求和再求平方乘以1/2m<br><strong>目标</strong>：找出θ0和θ1使J（θ0，θ1）尽可能的小</p>
 <p><strong>令θ0=0</strong><br>即函数为一条过原点的直线<br>这里给出三个点（1，1）（2，2）（3，3）<br>根据不同的θ1来拟核这些点<br>下面给出具体的操作实例以及最后求出的代价方程图像，从中可以清晰看出J最小时的θ1值<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148483987449.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148483987503.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148483987552.png" alt=""></p>
 <p><strong>一并考虑θ0和θ1</strong><br>下面主要采用轮廓图的方式<br>因为当θ0=0时 J的图像近似与一个弓形 所以可以推测出一并考虑两个变量时 画出的3D图形也近似于弓形<br>下面给出画出的3D图形以及使用轮廓图获得最小J的过程 中心点即为J最小值的点 椭圆上任意一点都对应的具体的θ0和θ1<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484025212.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484024959.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484025032.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148484025096.png" alt=""></p>
+<h3 id="梯度下降算法解决线性回归"><a href="#梯度下降算法解决线性回归" class="headerlink" title="梯度下降算法解决线性回归"></a>梯度下降算法解决线性回归</h3><p>何为梯度下降算法：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499373334.png" alt=""><br>其中j=0/1。<br>α称为学习速率 表现为迫近最低点的时候的步数：每次迫近时移动多少<br>当α过小时 每次移动的步长太小 耗费时间<br>当α过大时 可能会导致不再收敛 变为发散<br>直观给出下图<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600672.png" alt=""></p>
+<p>同时我们应注意 θ0和θ1应该是同步更新的 如下图<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499515318.png" alt=""><br>右侧的错误示范 在更新θ1时使用了更新后的θ0值 导致算法出错</p>
+<p>下面给出使用梯度算法是如何迫近最低点的<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600609.png" alt=""><br>偏导数在最低点的右边 表现斜率为正 所以θ值减小 迫近最低点<br>偏导数在最低点的左边 表现效率为负 所以θ值增大 迫近最低点</p>
+<p>当迫近最低点时 偏导数（斜率）会逐渐减少 所以步长会依次减少 使顺利迫近到最低点<br>所以我们无需再改变α的值 直观给出下图<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499600741.png" alt=""></p>
+<p>下面给出利用梯度下降算法实现代价方程最小化的算法<br>(简单偏导数的数学运算即可得出以下结论)<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499653538.png" alt=""><br>再给出利用给算法实现代价方程的图解<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148499672303.png" alt=""></p>
+<p>最后梯度下降算法又称批量梯度下降算法<br>这是因为该算法与训练集m有关</p>
 
       
     </div>
@@ -356,7 +369,7 @@
         <p><span>本文标题:</span><a href="/2017/01/18/Marchine-Learning/">Machine Learning</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
         <p><span>发布时间:</span>2017-01-18, 22:28:34</p>
-        <p><span>最后更新:</span>2017-01-19, 23:42:16</p>
+        <p><span>最后更新:</span>2017-01-21, 19:10:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/01/18/Marchine-Learning/" title="Machine Learning">http://xuboming8.github.io/2017/01/18/Marchine-Learning/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/01/18/Marchine-Learning/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -387,7 +400,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习（supervised-learning）与无监督学习（unsupervised-learning）"><span class="toc-number">1.1.</span> <span class="toc-text">监督学习（supervised learning）与无监督学习（unsupervised learning）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单变量线性回归"><span class="toc-number">1.1.1.</span> <span class="toc-text">单变量线性回归</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习（supervised-learning）与无监督学习（unsupervised-learning）"><span class="toc-number">1.1.</span> <span class="toc-text">监督学习（supervised learning）与无监督学习（unsupervised learning）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单变量线性回归"><span class="toc-number">1.1.1.</span> <span class="toc-text">单变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降算法解决线性回归"><span class="toc-number">1.1.2.</span> <span class="toc-text">梯度下降算法解决线性回归</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
