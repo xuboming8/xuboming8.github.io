@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148585071713.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148600111937.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148600131156.png">
-<meta property="og:updated_time" content="2017-02-02T02:19:27.274Z">
+<meta property="og:updated_time" content="2017-02-04T16:26:15.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="Machine Learning第一周监督学习（supervised learning）与无监督学习（unsupervised learning）监督学习——需要部分数据已经明确给出 来预测一个连续的输出值（例如房价）——回归问题（实际的数据 连续的数值 例如识别出照片上人的年龄）——分类问题（分成少数的离散值 例如0代表良性癌症 1代表恶性癌症）
@@ -171,13 +171,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>Friends</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -309,7 +309,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap"><article id="post-Marchine-Learning" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -374,7 +374,7 @@
 <h3 id="线性回归技巧3：选择合适的函数来拟核训练集"><a href="#线性回归技巧3：选择合适的函数来拟核训练集" class="headerlink" title="线性回归技巧3：选择合适的函数来拟核训练集"></a>线性回归技巧3：选择合适的函数来拟核训练集</h3><p>可以选择一次函数 二次函数 三次函数 或者一次函数与根号x的组合使用等等<br>hθ(x)=θ0+θ1x1<br>hθ(x)=θ0+θ1x1+θ2x21<br>hθ(x)=θ0+θ1x1+θ2x21+θ3x31<br>hθ(x)=θ0+θ1x1+θ2√x1<br>注意点：在这种情况下特征缩放就非常重要 例如x1的范围是1-1000 则x1²的范围和x1³的范围将会非常大</p>
 <h3 id="正规方程求解线性回归"><a href="#正规方程求解线性回归" class="headerlink" title="正规方程求解线性回归"></a>正规方程求解线性回归</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148600111937.png" alt=""><br>正规方程是在特征项多加一项x0=1 把所有的特征项看作矩阵X 把样本输出看作向量Y 则满足：<br>θ=(XTX)−1XTy<br>下面给出梯度下降算法和正规方程的优缺点比较：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148600131156.png" alt=""><br>总结如下：<br>梯度下降算法：需要选择α值 需要迭代 复杂度较正规方程较低 当特征非常大时性能较高<br>正规方程：无需选择α值 不需要迭代 复杂度较高 一般在n≤10000时使用 并且在此算法中无需使用特征缩放</p>
 <h3 id="正规方程注意点"><a href="#正规方程注意点" class="headerlink" title="正规方程注意点"></a>正规方程注意点</h3><p>在Octave中我们更希望使用pinv而非inv 因为pinv在XXT不可逆时也能求出Θ值<br>若XXT不可逆 可能有以下原因：<br>（1）有多余的特征 当两个或多个特征相似时可以删去重复的特征<br>（2）特征过多（n≥m） 可使用正则化（后面会提到）</p>
-
+<h2 id="matlab基础知识"><a href="#matlab基础知识" class="headerlink" title="matlab基础知识"></a>matlab基础知识</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div></pre></td><td class="code"><pre><div class="line">~=  不等于</div><div class="line">disp 输出</div><div class="line">disp(sprintf(<span class="string">'2 decimals: %0.2f'</span>,a))</div><div class="line">format long   						小数点后输出多位</div><div class="line">format short     					正常输出</div><div class="line">v=1:0.1:2     						表示输出以1为首项0.1为公差到2的所有数据</div><div class="line">v=1:6         						输出1~6</div><div class="line">ones（x,y）   						矩阵元素均为1</div><div class="line">zeros（x，y） 						矩阵元素均为0</div><div class="line">eye（x）      						产生x行x列的单位阵</div><div class="line">rand（x，y）  						产生x行y列的随机数</div><div class="line">randn（x，y） 						产生x行y列的高斯分布（正态分布）</div><div class="line">hist（w）     						打印出w的直方图</div><div class="line">hist（w，50）  						直方图分成50份</div><div class="line">quix <span class="built_in">exit</span>     						退出matlab</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">/////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">size（A）     						返回矩阵A的行数和列数</div><div class="line">size（A，1）  						返回矩阵A的行数</div><div class="line">size（A，2）  						返回矩阵A的列数</div><div class="line">length（A）   						返回矩阵A行列数的最大值</div><div class="line"><span class="built_in">pwd</span>           						matlab的原路径</div><div class="line"><span class="built_in">cd</span> <span class="string">'D:\matlab\data'</span>   				修改路径</div><div class="line">load name.dat    					读取name.dat文件</div><div class="line">load name.txt    					读取name.txt文件</div><div class="line">who           						显示工作环境变量</div><div class="line">whos          						进一步详细显示工作变量</div><div class="line">clear name    						输出name文件</div><div class="line">save new_name.mat v     			把v中存储的数据保存在new_name文件中 存入data文件中</div><div class="line">clear         						清除所有变量</div><div class="line">A（3，2）     						读取矩阵A的三行二列元素</div><div class="line">：            						表示取出这一行或这一列的所有元素</div><div class="line">A（2，：）    						读取矩阵A第二行的所有元素</div><div class="line">A（：，2）    						读取矩阵A第二列的所有元素</div><div class="line">A（[1,3],:）  						读取矩阵A第一行和第二行的所有元素</div><div class="line">A（，:2）=[10;11;12]   				给矩阵第二列的所有元素重新赋值</div><div class="line">A=[A,[10;11;12]]   					在矩阵A的右边加入新的一列元素</div><div class="line">A（：）       						把矩阵A的所有元素并为一列</div><div class="line">C=[A B]      						把矩阵A放左边 矩阵B放右边</div><div class="line">C=[A,B]       						与上述表达式效果相同</div><div class="line">C=[A;B]       						把矩阵A放上面　矩阵B放下面</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">A*B           						矩阵A和矩阵B相乘</div><div class="line">A .* B        						矩阵A和矩阵B对应元素相乘</div><div class="line">A .^ 2        						矩阵A对应元素平方</div><div class="line">1 ./ v        						矩阵v的对应元素球倒数</div><div class="line"><span class="built_in">log</span>(v)        						矩阵v的对应元素取对数</div><div class="line">exp（v）      						矩阵v的对应元素取e次幂</div><div class="line">abs（v）     						矩阵v的对应元素取绝对值</div><div class="line">-v            						矩阵v的对应元素取反</div><div class="line">v+1           						矩阵v的对应元素+1</div><div class="line">A<span class="string">'            						矩阵A的转置</span></div><div class="line">（A'）<span class="string">'       						矩阵A的转置的转置 等于A</span></div><div class="line">max（a）      						求出矩阵a对应每一列的最大值 若只有一行那就是这一行的最大值</div><div class="line">[val,ind]=max(a)    				val等于矩阵最大值 ind等于最大值的索引</div><div class="line">a&lt;3           						矩阵a的每个元素会和3比较 若满足返回1 不满足返回0</div><div class="line">find(a&lt;3)    						返回a中小于3的索引</div><div class="line">magic（n）    						输出n阶矩阵 它的每行每列对角线和都相等</div><div class="line">[r,c]=find(A&gt;=7)    				r和c对应起来是存放A中每个大于等于7的元素的行和列</div><div class="line">prod（a）     						对a中的每个元素求积</div><div class="line">floor（a）    						a中的每个元素下取整</div><div class="line">ceil（a）     						a中的每个元素上取整</div><div class="line">max（rand（3），rand（3））   		返回两个3*3的矩阵并且对应位置取出最大值 变为一个矩阵</div><div class="line">max(A,[],1)    						求出A的每一列的最大值（不要[]也可）</div><div class="line">max(A,[],2)    						求出A的每一行的最大值（不要[]也可）</div><div class="line">max（A）       						默认是每一列的最大值</div><div class="line">max（A[:]）   						A中所有元素并为一列求最大值 实际求出矩阵A的最大值</div><div class="line">max（max（A））  					求出矩阵A的最大值</div><div class="line">sum(sum(A .* eye(n)))  				求出矩阵A主对角线的和</div><div class="line">sum(sum(A .* flipud(eye(n))))  		求出矩阵A副对角线的和</div><div class="line">flipud 								表示矩阵上下翻转</div><div class="line">flipud（eye（n））   				副对角线上元素全为1</div><div class="line">pinv（A）       					求矩阵A的逆阵</div><div class="line">A*pinv（A）     					矩阵A*矩阵A的逆阵 等于E</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">t=[0:0.01:0.98]   					表示t为0到0.98公差为0.01的所有元素</div><div class="line">y1=sin（2*pi*4*t）</div><div class="line">plot（t，y1）     					画出y1的图像</div><div class="line">y2=cos（2*pi*4*t）</div><div class="line">plot（t，y2）     					画出y2的图线</div><div class="line">holo on           					表示第二个图像会画在第一个图像之上</div><div class="line">plot（t，y2，'r<span class="string">'）   				表示第二个图像会以红色叠在第一个图像之上</span></div><div class="line">xlabel('time<span class="string">')    					横坐标表示time</span></div><div class="line">ylabel('value<span class="string">')   					纵坐标表示value</span></div><div class="line">ledend('sin<span class="string">','</span>cos<span class="string">')   				图像会显示两种图像的图例</span></div><div class="line">title('my plot<span class="string">')    				图像的名字叫my plot</span></div><div class="line">print -dpng 'my_plot.png<span class="string">'   		保存叫my_plot.png的图像</span></div><div class="line">close             					关闭图像</div><div class="line">figue(1);plot(t,y1);   				表示画出编号为1的图像</div><div class="line">figue(2);plot(t,y2);   				表示画出编号为2的图像 两个图像在两个窗口</div><div class="line">subplot（1，2，1）    				图像分成左右两部分 1显示在左边</div><div class="line">plot（t，y1）         				会在左边画出y1的图像</div><div class="line">subplot（1，2，2）    				右边也会显示出对应图像框</div><div class="line">plot（t，y2）         				会在右边画出y2的图像</div><div class="line">axis([0.5 1 -1 1])    				图像的横坐标改为0.5到1 纵坐标改为-1到1</div><div class="line">clf                   				清空图像</div><div class="line">imagesc（magic（n））   			会为魔术阵A画出一个彩色格</div><div class="line">imagesc（A），colorbar，colormap grey</div><div class="line">									图像表内灰白色 并且会显示颜色条</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">for i:10,</div><div class="line">v(i)=2^i;</div><div class="line">end;                    			v会打印出2到1-10次放的数字</div><div class="line"></div><div class="line">i=1；</div><div class="line">while i&lt;=5,</div><div class="line">v(i)=100;</div><div class="line">i=i+1;</div><div class="line">end;                   				v的前五个元素置为100</div><div class="line"></div><div class="line">i=1;</div><div class="line">while true,</div><div class="line">v(i)=999;</div><div class="line">i=i+1;</div><div class="line">if i==6,</div><div class="line">break;</div><div class="line">end;</div><div class="line">end;                   				v的前五个元素置为999</div><div class="line"></div><div class="line">v(1)=2;</div><div class="line">if v(1)==1,</div><div class="line">disp('the value is one<span class="string">');</span></div><div class="line">elseif v(1)==2</div><div class="line">disp('the value is two<span class="string">');</span></div><div class="line">else</div><div class="line">disp('the value is not one or two<span class="string">');</span></div><div class="line">end;                   				输出the value is two</div><div class="line"></div><div class="line">新建脚本后可以写入函数 并保存到data中 之后可以直接调用函数</div><div class="line">matlab的函数可以返回多个数值 例如：</div><div class="line">function[y1,y2]=squareandcubethisnumber(x)</div><div class="line">y1=x^2;</div><div class="line">y2=x^3;</div><div class="line">costfunctionJ的例子需掌握</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div><div class="line">//////////////////////////////////////////////////////////////////////////////////</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -382,17 +382,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/01/18/Marchine-Learning/">Machine Learning</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey Xu</a></p>
-        <p><span>Created:</span>2017-01-18, 22:28:34</p>
-        <p><span>Updated:</span>2017-02-02, 10:19:27</p>
+        <p><span>本文標題:</span><a href="/2017/01/18/Marchine-Learning/">Machine Learning</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey Xu</a></p>
+        <p><span>發布時間:</span>2017-01-18, 22:28:34</p>
+        <p><span>最後更新:</span>2017-02-05, 00:26:15</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/01/18/Marchine-Learning/" title="Machine Learning">http://xuboming8.github.io/2017/01/18/Marchine-Learning/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/01/18/Marchine-Learning/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2017/01/18/Marchine-Learning/" title="Machine Learning">http://xuboming8.github.io/2017/01/18/Marchine-Learning/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/01/18/Marchine-Learning/　　作者: Hippopmonkey Xu" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -420,9 +420,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目錄</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一周"><span class="toc-number">1.1.</span> <span class="toc-text">第一周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监督学习（supervised-learning）与无监督学习（unsupervised-learning）"><span class="toc-number">1.1.1.</span> <span class="toc-text">监督学习（supervised learning）与无监督学习（unsupervised learning）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单变量线性回归"><span class="toc-number">1.1.2.</span> <span class="toc-text">单变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降算法解决线性回归"><span class="toc-number">1.1.3.</span> <span class="toc-text">梯度下降算法解决线性回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二周"><span class="toc-number">1.2.</span> <span class="toc-text">第二周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归"><span class="toc-number">1.2.1.</span> <span class="toc-text">多变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归的梯度算法"><span class="toc-number">1.2.2.</span> <span class="toc-text">多变量线性回归的梯度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧：特征缩放"><span class="toc-number">1.2.3.</span> <span class="toc-text">线性回归技巧：特征缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧2：学习速率的选择"><span class="toc-number">1.2.4.</span> <span class="toc-text">线性回归技巧2：学习速率的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧3：选择合适的函数来拟核训练集"><span class="toc-number">1.2.5.</span> <span class="toc-text">线性回归技巧3：选择合适的函数来拟核训练集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程求解线性回归"><span class="toc-number">1.2.6.</span> <span class="toc-text">正规方程求解线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程注意点"><span class="toc-number">1.2.7.</span> <span class="toc-text">正规方程注意点</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一周"><span class="toc-number">1.1.</span> <span class="toc-text">第一周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监督学习（supervised-learning）与无监督学习（unsupervised-learning）"><span class="toc-number">1.1.1.</span> <span class="toc-text">监督学习（supervised learning）与无监督学习（unsupervised learning）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单变量线性回归"><span class="toc-number">1.1.2.</span> <span class="toc-text">单变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降算法解决线性回归"><span class="toc-number">1.1.3.</span> <span class="toc-text">梯度下降算法解决线性回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二周"><span class="toc-number">1.2.</span> <span class="toc-text">第二周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归"><span class="toc-number">1.2.1.</span> <span class="toc-text">多变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归的梯度算法"><span class="toc-number">1.2.2.</span> <span class="toc-text">多变量线性回归的梯度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧：特征缩放"><span class="toc-number">1.2.3.</span> <span class="toc-text">线性回归技巧：特征缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧2：学习速率的选择"><span class="toc-number">1.2.4.</span> <span class="toc-text">线性回归技巧2：学习速率的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归技巧3：选择合适的函数来拟核训练集"><span class="toc-number">1.2.5.</span> <span class="toc-text">线性回归技巧3：选择合适的函数来拟核训练集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程求解线性回归"><span class="toc-number">1.2.6.</span> <span class="toc-text">正规方程求解线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程注意点"><span class="toc-number">1.2.7.</span> <span class="toc-text">正规方程注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab基础知识"><span class="toc-number">1.3.</span> <span class="toc-text">matlab基础知识</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -436,10 +436,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
     </script>
 
 
@@ -497,15 +497,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/01/26/数位dp/" title="Pre: 数位dp">
+            <a href="/2017/01/26/数位dp/" title="上一篇: 数位dp">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/27/12-24-杭电校赛/" title="Next: 12-24 杭电校赛">
+            <a href="/2016/12/27/12-24-杭电校赛/" title="下一篇: 12-24 杭电校赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -528,14 +528,14 @@
                 2016-2017 Hippopmonkey Xu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -544,7 +544,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -577,9 +577,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
