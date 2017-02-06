@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey Xu" />
+
+
+
+<meta name="description" content="经典面试之——异或操作例题一题目要求一个整型数组里除了一个数字(奇数次数字)出现1次（奇数次）之外 其他数字都出现了两次 请写出程序找出这个数字要求时间复杂度n 空间复杂度1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典面试之——异或操作">
+<meta property="og:url" content="http://xuboming8.github.io/2017/02/06/经典面试之——异或操作/index.html">
+<meta property="og:site_name" content="似水年华">
+<meta property="og:description" content="经典面试之——异或操作例题一题目要求一个整型数组里除了一个数字(奇数次数字)出现1次（奇数次）之外 其他数字都出现了两次 请写出程序找出这个数字要求时间复杂度n 空间复杂度1">
+<meta property="og:updated_time" content="2017-02-06T06:45:21.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典面试之——异或操作">
+<meta name="twitter:description" content="经典面试之——异或操作例题一题目要求一个整型数组里除了一个数字(奇数次数字)出现1次（奇数次）之外 其他数字都出现了两次 请写出程序找出这个数字要求时间复杂度n 空间复杂度1">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="似水年华" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>经典面试之——异或操作 | 似水年华</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey Xu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜單</li>
+                        <li>標籤</li>
+                        
+                        <li>友情鏈接</li>
+                        
+                        
+                        <li>關於我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RMQ/">RMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST算法/">ST算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVA/">UVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/acm/">acm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/acm-codeforces/">acm & codeforces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cousera/">cousera</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vector/">vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分图/">二分图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/位运算/">位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前向星/">前向星</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀数组/">后缀数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/周赛/">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图论/">图论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异或/">异或</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扩展欧几里德算法/">扩展欧几里德算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数位运算/">数位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/新生赛/">新生赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧几里德算法/">欧几里德算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey Xu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://img.woyaogexing.com/2016/02/11/864ae0c252a9060f!600x600.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey Xu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+</nav>
+      <div class="body-wrap"><article id="post-经典面试之——异或操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/06/经典面试之——异或操作/" class="article-date">
+      <time datetime="2017-02-06T04:24:00.000Z" itemprop="datePublished">2017-02-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      经典面试之——异或操作
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异或/">异或</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="经典面试之——异或操作"><a href="#经典面试之——异或操作" class="headerlink" title="经典面试之——异或操作"></a>经典面试之——异或操作</h1><h2 id="例题一"><a href="#例题一" class="headerlink" title="例题一"></a>例题一</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>一个整型数组里除了一个数字(奇数次数字)出现1次（奇数次）之外 其他数字都出现了两次 请写出程序找出这个数字<br>要求时间复杂度n 空间复杂度1<br><a id="more"></a></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>依次异或 出现两次的数字异或等于0 所以那个出现1次或奇次的数字最后讲浮现出来</p>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">include&lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int T;</div><div class="line">	cin&gt;&gt;T;</div><div class="line">	long long temp,ans;</div><div class="line">	<span class="keyword">while</span>(T--)</div><div class="line">	&#123;</div><div class="line">		int N;</div><div class="line">		cin&gt;&gt;N;</div><div class="line">		N--;</div><div class="line">		cin&gt;&gt;temp;</div><div class="line">		ans=temp;</div><div class="line">		<span class="keyword">while</span>(N--)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;temp;</div><div class="line">			ans^=temp;</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;ans&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="例题二"><a href="#例题二" class="headerlink" title="例题二"></a>例题二</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。<br>要求时间复杂度是O(n)，空间复杂度是O(1)</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>如果能够把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就<br>是分别求出这两个只出现一次的数字了。<br>我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部<br>抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到<br>第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个<br>子数组的每个数字的第N位都为0。<br>现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解<br>决。</p>
+<h3 id="参考代码-1"><a href="#参考代码-1" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int a[1000050];</div><div class="line">void FindNumsAppearOnce(int* data, int length)</div><div class="line">&#123;</div><div class="line">    int OR = 0 ;</div><div class="line">    <span class="keyword">for</span> (int i = 0 ; i &lt; length ; i++)//依次异或数组中的每一个数</div><div class="line">        OR = OR ^ data[i] ;</div><div class="line">    int index = 1 ;</div><div class="line">    <span class="keyword">while</span> ((OR &amp; 1) != 1 &amp;&amp; (index &lt; 32))//从右向左找到异或结果中第一个为1的位的位置</div><div class="line">    &#123;</div><div class="line">        OR = OR&gt;&gt;1;</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line">    int num1 = 0 ;</div><div class="line">    int num2 = 0 ;</div><div class="line">    <span class="keyword">for</span> (int j = 0 ; j &lt; length ;j++)</div><div class="line">    &#123;</div><div class="line">        int temp = data[j];</div><div class="line">        temp = temp &gt;&gt; (index - 1) ;//向右移位到index的位置</div><div class="line">        <span class="keyword">if</span> ((temp &amp; 1) == 1) //判断该位是否为1</div><div class="line">            num1 = num1 ^ data[j];</div><div class="line">        <span class="keyword">else</span></div><div class="line">            num2 = num2 ^ data[j] ;</div><div class="line">    &#125;</div><div class="line">    cout&lt;&lt;min(num1,num2)&lt;&lt;<span class="string">" "</span>&lt;&lt;max(num1,num2)&lt;&lt;endl;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int n;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">		FindNumsAppearOnce(a,n);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="例题三"><a href="#例题三" class="headerlink" title="例题三"></a>例题三</h2><h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>一个数组中有三个数字a、b、c只出现一次，其他数字都出现了两次。请找出三个只出现一次的数字</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>考虑给定数组中有三个单独出现一次的数字，这个会比有两个的稍微复杂。分步分析，设定这三个数为a,b,c:<br>(1)将数组中的数字全部异或，得到的结果x=a^b^c，但是x不是a，b，c中的其中一个，假设x=a，那么b^c=0说明b=c，与题目给定的条件矛盾。<br>(2)设定f(n)可以像2中的那样，从低位开始，找到第一个bit为1的位置，f(x^a),f(x^b),f(x^c)得到的值肯定都不为0，因为x^a,x^b,x^c本身就不为0。<br>f(x^a)^f(x^b)^f(x^c)结果不为0。因为f(x^a)^f(x^b)的结果中可能为0，也可能有两个bit为1。如果假设f(x^c)的结果bit为1的位置与f(x^a)^f(x^b)的<br>其中一个重合，则f(x^a)^f(x^b)^f(x^c)结果中只有1个bit为1，如果不重合的话那么有3个bit位为1。<br>(3)这便可以推断出f(x^a)^f(x^b)^f(x^c)中至少有一个bit位为1。假设从低位到高位的第mbit位为1.那么可以得出结论x^a,x^b,x^c中有一个或者三个的<br>第m位为1（不可能有两个，因为有两个的话，异或的结果就为0了）。<br>(4)证明，x^a,x^b,x^c中只有一个第m-bit位为1.假设他们的第m位都为1，那么x的第m位为0，但是x=a^b^c其第m位肯定为1，所以假设不成立。那么相反，<br>假设x的第m位为1，a,b,c的第m位都为0，也不成立，因为x=a^b^c。所以综上所述x^a,x^b,x^c中只有一个第m位为1。那么这个问题就好办了。根据这个<br>第m位找到第一个只出现一次的数字。然后剩下两个就是问题2所描述的问题。</p>
+<h3 id="参考代码-2"><a href="#参考代码-2" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">int get_first_bit(int num)   //效其果是最低位的1不变 其余清0</div><div class="line">&#123;  </div><div class="line">	<span class="built_in">return</span> num&amp;~(num-1);  </div><div class="line">&#125;  </div><div class="line">void get_two_unique_num(int *a,int n,int *num1,int *num2)  </div><div class="line">&#123;  </div><div class="line">	int result_code=0;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">		result_code^=a[i];  </div><div class="line">	int diff=get_first_bit(result_code);    //最低位为1 其余位为0</div><div class="line">	*num1=0;  </div><div class="line">	*num2=0;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">	&#123;  </div><div class="line">		<span class="keyword">if</span>(a[i]&amp;diff)         //不同与例题二的操作 此方法不需要找出最低位1的位置</div><div class="line">		&#123;  </div><div class="line">			(*num1)^=a[i];  </div><div class="line">		&#125;  </div><div class="line">		<span class="keyword">else</span>  </div><div class="line">		&#123;  </div><div class="line">			(*num2)^=a[i];  </div><div class="line">		&#125;  </div><div class="line">	&#125;  </div><div class="line">&#125;  </div><div class="line">void get_three_unique_num(int *a,int n,int *num1,int *num2,int *num3)  </div><div class="line">&#123;  </div><div class="line">	int result_code=0;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">		result_code^=a[i];            //最后结果为x=a^b^c</div><div class="line">	int flag=0;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">		flag^=get_first_bit(result_code^a[i]);   //x^a x^b x^c 分别进行最低位为1 其余清0的操作</div><div class="line">	flag=get_first_bit(flag);            //再把这三个数^再进行清0操作 得到的就是只有最低位为1的数字</div><div class="line">	*num1=0;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">	&#123;  </div><div class="line">		<span class="keyword">if</span>(get_first_bit(result_code^a[i])==flag)  //以最低位的1为基准 只要该位为1的数字全部^ </div><div class="line">		&#123;                                         //即可求出num1</div><div class="line">			(*num1)^=a[i];  </div><div class="line">		&#125;  </div><div class="line">	&#125;  </div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)               //把num1与数组最后一位交换 前面的n-1个数字进行与问题二相同的操作</div><div class="line">	&#123;  </div><div class="line">		<span class="keyword">if</span>(a[i]==(*num1))  </div><div class="line">		&#123;  </div><div class="line">			int temp=a[i];  </div><div class="line">			a[i]=a[n-1];  </div><div class="line">			a[n-1]=temp;  </div><div class="line">			<span class="built_in">break</span>;  </div><div class="line">		&#125;  </div><div class="line">	&#125;  </div><div class="line">	get_two_unique_num(a,n-1,num2,num3);  </div><div class="line">&#125;  </div><div class="line">void <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">	int a[]=&#123;2,2,4,4,6,6,3,5,7&#125;;  </div><div class="line">	int num1,num2,num3;  </div><div class="line">	get_three_unique_num(a,sizeof(a)/sizeof(int),&amp;num1,&amp;num2,&amp;num3);  </div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\t%d\t%d\n"</span>,num1,num2,num3);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="例题四"><a href="#例题四" class="headerlink" title="例题四"></a>例题四</h2><h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出1-1000个连续自然数，然后从中随机去掉两个，再打乱顺序，要求只遍历一次，求出被去掉的两个数。</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>首先，这两个数组(打乱前和打乱后)各自异或，也就是1^2^…^1000，得到两个异或值。再对这两个异或值进行一次异或，这样就得到了x^y的指(重复部分互相<br>抵消了)。<br>因为x和y是两个不同的整数，所以这两个数的异或结果，转化为二进制的话，一定在某位是1，假设在第3位。也就是说如果把原始数组按第3位是否为0进行划<br>分，就可以分成两个数组，每个数组各包含一个被抽取的数。如果打乱后的数组也按这个规则划分为两个数组，这样就得到了4个数组，其中两组是第3位为0,<br>另外两组是第3位为1。把第3位为0的两个数组所有元素进行异或就能得到被抽取的一个数，同理也就能获得另外一个被抽取的数，于是问题解决。</p>
+<h2 id="例题五"><a href="#例题五" class="headerlink" title="例题五"></a>例题五</h2><h3 id="题目要求-4"><a href="#题目要求-4" class="headerlink" title="题目要求"></a>题目要求</h3><p>数组A中，除了某一个数字x之外，其他数字都出现了三次，而x出现了一次。请给出最快的方法，找到x。</p>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>乍一看这个题目，不少同学立马给出了答案：异或。但举个例子，就会发现，异或是行不通的，一般的方法是利用异或的的如下特性：<br>A xor A = 0<br>A xor 0 = A<br>但是这个题目中，数字都是奇数个的，直接采用之前类似题目的异或方法，已经不合适了。</p>
+<p>除此之外，我们还可能想到如下的方法：<br>（1）采用hashmap，时间复杂度O(n)，空间复杂度O(n)<br>（2）对数组A进行排序，然后在遍历一次，时间复杂度O(nlogn)，空间复杂度O(1) 这个方法还可以。</p>
+<p>是否还有一些效果更好的方法呢？这一类的题目，即使简单的异或不能解决，也可以从二进制位、位操作方面去考虑，总之这样的大方向是不会错的。<br>题目中，如果数组中的元素都是三个三个出现的，那么从二进制表示的角度，每个位上的1加起来，应该可以整除3。如果有一个数x只出现一次，会是什么<br>情况呢？<br>如果某个特定位上的1加起来，可以被3整除，说明对应x的那位是0，因为如果是1，不可能被3整除<br>如果某个特定位上的1加起来，不可以被3整除，说明对应x的那位是1<br>根据上面的描述，我们可以开辟一个大小为32的数组，第0个元素表示，A中所有元素的二进制表示的最低位的和，依次类推。最后，再转换为十进制数即可。<br>这里要说明的是，用一个大小为32的整数数组表示，同样空间是O(1)的。</p>
+<h3 id="参考代码-3"><a href="#参考代码-3" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">void <span class="built_in">set</span>(int&amp; a,int i) &#123; a |= (1&lt;&lt; (i &amp; 0x1F));&#125;  //把a第i位置为1</div><div class="line">void clr(int&amp; a,int i) &#123; a &amp;= ~(1&lt;&lt;(i &amp; 0x1f));&#125;  //把a的第i位清0</div><div class="line">void find(int a[],int n)</div><div class="line">&#123;</div><div class="line">    int m[32];</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;32;i++)</div><div class="line">        m[i]=0;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;32;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(int j=0;j&lt;n;j++)</div><div class="line">        &#123;</div><div class="line">            int bit=a[j]&amp;1;</div><div class="line">            m[i]+=bit;</div><div class="line">            a[j] &gt;&gt;=1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    int result=0;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;32;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(m[i]%3!=0)</div><div class="line">            <span class="built_in">set</span>(result,i);</div><div class="line">    &#125;</div><div class="line">    cout&lt;&lt;<span class="string">"结果为"</span>&lt;&lt;result&lt;&lt;endl;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">    int a[]=&#123;1,2,2,2,3,3,3&#125;;</div><div class="line">    int n=sizeof(a)/sizeof(a[0]);</div><div class="line">    find(a,n);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="经典位运算总结"><a href="#经典位运算总结" class="headerlink" title="经典位运算总结"></a>经典位运算总结</h2><p>（1） n&amp;（n-1）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">把最低为的1变成0 原本是0不变 用于计算二进制数中1的个数</div></pre></td></tr></table></figure></p>
+<p>（2） n&amp;~（n-1）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在n-1前加了取反符号 作用是保留n中最低位的1 其余位均清零</div></pre></td></tr></table></figure></p>
+<p>（3）把a第i位置为1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void <span class="built_in">set</span>(int&amp; a,int i) &#123; a |= (1&lt;&lt; (i &amp; 0x1F));&#125; </div><div class="line">``` </div><div class="line">（4）把a的第i位清0</div><div class="line">```bash</div><div class="line">void clr(int&amp; a,int i) &#123; a &amp;= ~(1&lt;&lt;(i &amp; 0x1f));&#125;</div></pre></td></tr></table></figure></p>
+<p>（5）获取第i位(2^i次方形式)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int <span class="built_in">test</span>(int&amp; a,int i) &#123; <span class="built_in">return</span> a&amp;= (1&lt;&lt;(i &amp; 0x1F));&#125;</div></pre></td></tr></table></figure></p>
+<p>（6）a&amp;1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">判断a的最后一位数字是0还是1 用于判断奇偶性 也可用于二进制数每一位的相加运算 寻找最低位1的位置</div><div class="line">判断二进制中x到y位中1的个数等等。</div></pre></td></tr></table></figure></p>
+<p>（7）&amp;1 |1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">只有1&amp;1结果才为1 只有0|0结果才为0</div></pre></td></tr></table></figure></p>
+<p>（8）交换两个数字<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void swap(int x , int y) </div><div class="line">&#123; </div><div class="line">    x =x^y; </div><div class="line">    y =x^y; </div><div class="line">    x =x^y; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（9）返回整数的平均值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int average(int x, int y) </div><div class="line">&#123;    </div><div class="line">    <span class="built_in">return</span> (x&amp;y)+((x^y)&gt;&gt;1); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（10）对于一个数x，判断他是不是2的幂<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">boolean power2(int x) </div><div class="line">&#123; </div><div class="line">    <span class="built_in">return</span> (x&amp;(x-1))==0； </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（11）计算绝对值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int abs( int x ) </div><div class="line">&#123; </div><div class="line">int y ; </div><div class="line">y = x &gt;&gt; 31 ; </div><div class="line"><span class="built_in">return</span> (x^y)-y ;        //or: (x+y)^y </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（12）取模运算转化成位运算 (在不产生溢出的情况下)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a % (2^n) 等价于 a &amp; (2^n - 1)</div></pre></td></tr></table></figure></p>
+<p>（13）乘法运算转化成位运算 (在不产生溢出的情况下)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a * (2^n) 等价于 a &lt; &lt; n</div></pre></td></tr></table></figure></p>
+<p>（14）除法运算转化成位运算 (在不产生溢出的情况下)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a / (2^n) 等价于 a&gt;&gt; n </div><div class="line">例: 12/8 == 12&gt;&gt;3</div></pre></td></tr></table></figure></p>
+<p>（15）x 的 相反数 表示为 (~x+1)<br>（16）求从x位（高）到y位（低）间共有多少个1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int FindChessNum(int x, int y, int k) </div><div class="line">&#123; </div><div class="line">	int re = 0; </div><div class="line">	<span class="keyword">for</span> (int i = y; i &lt;= x; i++) </div><div class="line">	&#123; </div><div class="line">		re += ((k &gt;&gt; (i - 1)) &amp; 1); </div><div class="line">	&#125; </div><div class="line">	<span class="built_in">return</span> re; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2017/02/06/经典面试之——异或操作/">经典面试之——异或操作</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey Xu</a></p>
+        <p><span>發布時間:</span>2017-02-06, 12:24:00</p>
+        <p><span>最後更新:</span>2017-02-06, 14:45:21</p>
+        <p>
+            <span>原始鏈接:</span><a class="post-url" href="/2017/02/06/经典面试之——异或操作/" title="经典面试之——异或操作">http://xuboming8.github.io/2017/02/06/经典面试之——异或操作/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/06/经典面试之——异或操作/　　作者: Hippopmonkey Xu" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/03/贪心专题/">
+                    贪心专题-区间问题
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目錄</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#经典面试之——异或操作"><span class="toc-number">1.</span> <span class="toc-text">经典面试之——异或操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例题一"><span class="toc-number">1.1.</span> <span class="toc-text">例题一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码"><span class="toc-number">1.1.3.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题二"><span class="toc-number">1.2.</span> <span class="toc-text">例题二</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题三"><span class="toc-number">1.3.</span> <span class="toc-text">例题三</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题四"><span class="toc-number">1.4.</span> <span class="toc-text">例题四</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题五"><span class="toc-number">1.5.</span> <span class="toc-text">例题五</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.5.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-3"><span class="toc-number">1.5.3.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经典位运算总结"><span class="toc-number">1.6.</span> <span class="toc-text">经典位运算总结</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+    <script>
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"经典面试之——异或操作　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/02/06/经典面试之——异或操作/" data-title="经典面试之——异或操作" data-url="http://xuboming8.github.io/2017/02/06/经典面试之——异或操作/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"hhmy"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/02/03/贪心专题/" title="下一篇: 贪心专题-区间问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/经典面试之——异或操作/">经典面试之——异或操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/03/贪心专题/">贪心专题-区间问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/01/欧拉通路-回路/">欧拉通路 回路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/图论基础/">图论基础杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/26/数位dp/">数位dp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/Marchine-Learning/">Machine Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/27/12-24-杭电校赛/">12-24 杭电校赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/12-11-哈理工团体新生赛/">12-11 哈理工团体新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/广工业新生赛/">广工业新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/图论-最短路专题/">图论-最短路专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/哈理工新人赛/">哈理工新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/蓝桥杯模拟赛/">蓝桥杯模拟赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/21/后缀数组四大基础应用/">后缀数组四大基础应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/二分图交叉染色法模版题/">二分图交叉染色法模版题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/11-13-周赛/">11-13 周赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/09/11-06-热身赛/">11-06 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/09/RMQ问题/">RMQ问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/扩展欧几里德算法/">扩展欧几里德算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/10-30-热身赛/">10-30 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/化繁为简：位运算/">化繁为简：位运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/字典树trie/">字典树trie</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/vector实现前向星/">vector实现前向星</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/10-23-热身赛/">10-23 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/10-16-热身赛/">10-16 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/神奇的树状数组/">神奇的树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/atoi与itoa函数介绍/">atoi与itoa函数介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/九大基础排序算法/">十三种基础排序算法[置顶]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/hello-world/">First article about hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Hippopmonkey Xu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
