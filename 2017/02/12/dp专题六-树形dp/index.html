@@ -15,25 +15,30 @@
 
 
 
-<meta name="description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
+<meta name="description" content="dp专题六–树形dpHDU 1502–树的最大独立集Problem Description
+Input">
 <meta property="og:type" content="article">
-<meta property="og:title" content="神奇的树状数组">
-<meta property="og:url" content="http://xuboming8.github.io/2016/10/03/神奇的树状数组/index.html">
+<meta property="og:title" content="dp专题六--树形dp">
+<meta property="og:url" content="http://xuboming8.github.io/2017/02/12/dp专题六-树形dp/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666368.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666408.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666456.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666497.png">
-<meta property="og:updated_time" content="2016-10-03T12:14:03.100Z">
+<meta property="og:description" content="dp专题六–树形dpHDU 1502–树的最大独立集Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/1486907888.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788846.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788889.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788928.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788988.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817323.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817381.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817425.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817464.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817512.png">
+<meta property="og:updated_time" content="2017-02-12T14:07:40.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神奇的树状数组">
-<meta name="twitter:description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png">
+<meta name="twitter:title" content="dp专题六--树形dp">
+<meta name="twitter:description" content="dp专题六–树形dpHDU 1502–树的最大独立集Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/1486907888.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -65,7 +70,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>神奇的树状数组 | 似水年华</title>
+<title>dp专题六--树形dp | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -294,11 +299,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-神奇的树状数组" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-dp专题六-树形dp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/03/神奇的树状数组/" class="article-date">
-      <time datetime="2016-10-03T12:04:16.000Z" itemprop="datePublished">2016-10-03</time>
+      <a href="/2017/02/12/dp专题六-树形dp/" class="article-date">
+      <time datetime="2017-02-12T13:54:30.000Z" itemprop="datePublished">2017-02-12</time>
 </a>
 
 
@@ -313,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      神奇的树状数组
+      dp专题六--树形dp
     </h1>
   
 
@@ -328,7 +333,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树/">树</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -338,13 +343,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="树状数组的存储原理"><a href="#树状数组的存储原理" class="headerlink" title="树状数组的存储原理"></a>树状数组的存储原理</h1><p><a href="http://www.cnblogs.com/fancy-itlife/p/4312170.html" target="_blank" rel="external">转跳链接</a></p>
-<h2 id="例题-ACM-HDOJ-1166"><a href="#例题-ACM-HDOJ-1166" class="headerlink" title="(例题)ACM-HDOJ 1166"></a>(例题)ACM-HDOJ 1166</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png" alt=""><br><a id="more"></a></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666368.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666408.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666456.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666497.png" alt=""></p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;string&gt;</span></div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define MAX 50005</span></div><div class="line">int c[MAX],que[MAX];</div><div class="line">int lowbit(int x)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> x&amp;(-x);</div><div class="line">&#125;</div><div class="line">void create(int n)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(i);</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;s;j++)</div><div class="line">			c[i]+=que[i-j];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int sum(int idx)</div><div class="line">&#123;</div><div class="line">	int sum=0;</div><div class="line">	<span class="keyword">while</span>(idx&gt;0)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(idx);</div><div class="line">		sum+=c[idx];</div><div class="line">		idx-=s;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">void change(int i,int n,int x)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">while</span>(i&lt;=n)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(i);</div><div class="line">		c[i]+=x;</div><div class="line">		i+=s;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t,j=1;</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int N;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;N);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=N;i++)</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;que[i]);</div><div class="line">		memset(c,0,sizeof(c));</div><div class="line">		create(N);</div><div class="line">		cout&lt;&lt;<span class="string">"Case "</span>&lt;&lt;j++&lt;&lt;<span class="string">":"</span>&lt;&lt;endl;</div><div class="line">		<span class="keyword">while</span>(1)</div><div class="line">		&#123;</div><div class="line">			char ch[10];</div><div class="line">			int i,n,a,b;</div><div class="line">			scanf(<span class="string">"%s"</span>,ch);</div><div class="line">			<span class="keyword">if</span>(!strcmp(ch,<span class="string">"Add"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;i,&amp;n);</div><div class="line">				change(i,N,n);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(ch,<span class="string">"Sub"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;i,&amp;n);</div><div class="line">				change(i,N,-n);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(ch,<span class="string">"Query"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">				int s=sum(b)-sum(a-1);</div><div class="line">				cout&lt;&lt;s&lt;&lt;endl;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="dp专题六–树形dp"><a href="#dp专题六–树形dp" class="headerlink" title="dp专题六–树形dp"></a>dp专题六–树形dp</h1><h2 id="HDU-1502–树的最大独立集"><a href="#HDU-1502–树的最大独立集" class="headerlink" title="HDU 1502–树的最大独立集"></a>HDU 1502–树的最大独立集</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/1486907888.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788846.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788889.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788928.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690788988.png" alt=""></p>
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>树的结构为人际关系 雇员和老班只能要求一个人 转换成树的最大独立集问题</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;vector&gt;</span></div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define maxn 6050</span></div><div class="line">int dp[maxn][2];</div><div class="line">int vis[maxn];</div><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">void dfs(int root)</div><div class="line">&#123;</div><div class="line">	vis[root]=1;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[root].size();i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(!vis[e[root][i]])</div><div class="line">		&#123;</div><div class="line">			dfs(e[root][i]);</div><div class="line">			dp[root][0]+=max(dp[e[root][i]][1],dp[e[root][i]][0]);</div><div class="line">			dp[root][1]+=dp[e[root][i]][0];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//状态转移方程：</div><div class="line">//用dp[i][0]表示不选中i号，周围的都可以选的最大值，dp[i][1]表示选中i号，那么周围都不能选的最大值。</div><div class="line">//dp[i][0]+=(dp[j][1],dp[j][0])</div><div class="line">//dp[i][1]+=dp[j][0]</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	int n;</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d"</span>,&amp;n)!=EOF)</div><div class="line">	&#123;</div><div class="line">		/*<span class="keyword">if</span>(n==0)</div><div class="line">			<span class="built_in">break</span>;*/</div><div class="line">		memset(vis,0,sizeof(vis));</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">		&#123;</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;dp[i][1]);</div><div class="line">			e[i].clear();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">		&#123;</div><div class="line">			int u,v;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</div><div class="line">			<span class="keyword">if</span>(u==0&amp;&amp;v==0)</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			e[u].push_back(v);</div><div class="line">			e[v].push_back(u);</div><div class="line">		&#125;</div><div class="line">		dfs(1);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max(dp[1][1],dp[1][0]));  //第一个点取与不取两种情况取最大值</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="HDU-4118–树形dp"><a href="#HDU-4118–树形dp" class="headerlink" title="HDU 4118–树形dp"></a>HDU 4118–树形dp</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817323.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817381.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817425.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817464.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148690817512.png" alt=""></p>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>树的结构：点代表城市 权值为距离<br>开始时每个城市都有一个人 接着每个人都要移动 最后每个城市依然要保持1个人 求所有人移动的最大距离</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;vector&gt;</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define maxn 100000+50</span></div><div class="line">using namespace std;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int to,w;</div><div class="line">	node(int to,int w):to(to),w(w)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">vector&lt;node&gt;e[maxn];</div><div class="line">int vis[maxn];</div><div class="line">LL ans=0;      //注意答案开为LL型</div><div class="line">int n;</div><div class="line">int num[maxn];   //num记录该结点下的结点数</div><div class="line">void dfs(int u)</div><div class="line">&#123;</div><div class="line">	vis[u]=1;</div><div class="line">	num[u]=1;    //每次访问一个结点时初始化为1</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[u].size();i++)</div><div class="line">	&#123;</div><div class="line">		int next=e[u][i].to;</div><div class="line">		<span class="keyword">if</span>(!vis[next])</div><div class="line">		&#123;</div><div class="line">			dfs(next);</div><div class="line">			num[u]+=num[next];   //父节点的下结点数等于所有子结点数之和</div><div class="line">			LL minnum=min(num[next],n-num[next]);  //找出这个结点两边 结点小的那一边的结点数</div><div class="line">			ans+=e[u][i].w*minnum*2LL;  //该结点数×权值×2就是答案</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//因为结点两边只有最小的那一边移动才能满足两边顺利移动</div><div class="line">//例如一边结点数为a 另一边为b 假设a＜b 那么选取a b那一端也一定能找出a个点与之匹配</div><div class="line">//ans需要乘以2是因为来回要走两次</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	int flag=1;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;=n;i++)</div><div class="line">			e[i].clear();</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			int u,v,w;</div><div class="line">			cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;</div><div class="line">			e[u].push_back(node(v,w));</div><div class="line">			e[v].push_back(node(u,w));</div><div class="line">		&#125;</div><div class="line">		ans=0;</div><div class="line">		memset(num, 0, sizeof(num));  </div><div class="line">		memset(vis, 0, sizeof(vis));  </div><div class="line">		dfs(1);</div><div class="line">		cout&lt;&lt;<span class="string">"Case #"</span>&lt;&lt;flag++&lt;&lt;<span class="string">": "</span>&lt;&lt;ans&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -353,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/03/神奇的树状数组/">神奇的树状数组</a></p>
+        <p><span>Title:</span><a href="/2017/02/12/dp专题六-树形dp/">dp专题六--树形dp</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey Xu</a></p>
-        <p><span>Created:</span>2016-10-03, 20:04:16</p>
-        <p><span>Updated:</span>2016-10-03, 20:14:03</p>
+        <p><span>Created:</span>2017-02-12, 21:54:30</p>
+        <p><span>Updated:</span>2017-02-12, 22:07:40</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/03/神奇的树状数组/" title="神奇的树状数组">http://xuboming8.github.io/2016/10/03/神奇的树状数组/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/10/03/神奇的树状数组/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/02/12/dp专题六-树形dp/" title="dp专题六--树形dp">http://xuboming8.github.io/2017/02/12/dp专题六-树形dp/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/02/12/dp专题六-树形dp/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -371,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/20/10-16-热身赛/">
-                    10-16 热身赛
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/01/atoi与itoa函数介绍/">
-                    atoi与itoa函数介绍
+                <a href="/2017/02/10/dp专题二/">
+                    dp基础专题五
                 </a>
             </div>
         
@@ -393,7 +399,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#树状数组的存储原理"><span class="toc-number">1.</span> <span class="toc-text">树状数组的存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例题-ACM-HDOJ-1166"><span class="toc-number">1.1.</span> <span class="toc-text">(例题)ACM-HDOJ 1166</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dp专题六–树形dp"><span class="toc-number">1.</span> <span class="toc-text">dp专题六–树形dp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1502–树的最大独立集"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 1502–树的最大独立集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4118–树形dp"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 4118–树形dp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -429,7 +435,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"神奇的树状数组　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"dp专题六--树形dp　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -445,7 +451,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/03/神奇的树状数组/" data-title="神奇的树状数组" data-url="http://xuboming8.github.io/2016/10/03/神奇的树状数组/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/02/12/dp专题六-树形dp/" data-title="dp专题六--树形dp" data-url="http://xuboming8.github.io/2017/02/12/dp专题六-树形dp/"></div>
     <script>
         var duoshuoQuery = {short_name:"hhmy"};
         var loadComment = function(){
@@ -468,15 +474,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/20/10-16-热身赛/" title="Pre: 10-16 热身赛">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/01/atoi与itoa函数介绍/" title="Next: atoi与itoa函数介绍">
+            <a href="/2017/02/10/dp专题二/" title="Next: dp基础专题五">
                 <i class="fa fa-angle-right"></i>
             </a>
         
