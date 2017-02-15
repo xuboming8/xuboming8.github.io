@@ -32,7 +32,14 @@
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658492.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138633.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138701.png">
-<meta property="og:updated_time" content="2017-02-11T16:53:24.968Z">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090233.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090293.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871512378.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123834.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123872.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715166665.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871516672.png">
+<meta property="og:updated_time" content="2017-02-15T09:42:40.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning-2">
 <meta name="twitter:description" content="Machine Learning-2第三周分类问题我们通常不用线性回归来解决分类问题这是因为极端点往往对线性回归的拟合产生较大偏差通常使用逻辑回归才解决分类问题在分类问题中y通常取0/1代表两种不用的状态">
@@ -352,7 +359,10 @@
 <p>那么在matlab中敲入对应的算法后 将会求出θ1=5 θ2=5 J=0 exitFlag=1<br>说明θ1和θ2等于5时 J=0为最小值 且收敛 验证此算法是正确的<br><strong>备注</strong><br>使用此算法需要注意 gradient的纬度d需要≥2 如果纬度是1 需要查询fminunc找出对应资料</p>
 <h3 id="一对多的分类问题"><a href="#一对多的分类问题" class="headerlink" title="一对多的分类问题"></a>一对多的分类问题</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138633.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138701.png" alt=""><br>我们对这个分类问题使用如下算法：<br>每次选取一种类型的问题为1 所有其它类型就为0 这样就转换成了把两种类型的数据分开的子问题<br>如上图所以有三种分类的方法<br>在这三种分类方法中 选取一个hθ最大的分类方法作为分类标准即可</p>
 <h3 id="过度拟合问题"><a href="#过度拟合问题" class="headerlink" title="过度拟合问题"></a>过度拟合问题</h3><p>如果我们在使用假设函数中增加了过度的高次项 那么这个函数会过度的拟合这些点 甚至产生扭曲 从而破坏了一般性规律<br>一般在特征过多而我们又没有很多的训练集的时候 就会出现过度拟合的问题<br>为了坚决过度拟合的问题 有如下方法：<br>（1）尽量减少特征的数量 选取更多重要的特征<br>（2）使用模型选择算法 自动删去一些特征（之后会提到）<br>（3）正规化（之后会提到）</p>
-
+<h3 id="假设函数的过度拟合"><a href="#假设函数的过度拟合" class="headerlink" title="假设函数的过度拟合"></a>假设函数的过度拟合</h3><p>下图给出对假设函数出现过度拟合的处理：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090233.png" alt=""><br>例如：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090293.png" alt=""><br>我们在多项式后加入1000θ3²+θ4² 根据最小化可得θ3和θ4趋近于0 所以图像就会避免过度拟合的问题</p>
+<h3 id="正则化解决线性回归"><a href="#正则化解决线性回归" class="headerlink" title="正则化解决线性回归"></a>正则化解决线性回归</h3><p>下图是梯度下降算法的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871512378.png" alt=""><br>θ0和θi分别处理<br>展开后如下图所以：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123834.png" alt=""><br>对于θj前面的参数可以看作小于1又接近1 所以θj每次以一个很小的数量下降<br>下图是正规方程的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123872.png" alt=""><br>在正规方程中原本存在不可逆的问题 但是正则化后括号内的矩阵一定可逆 L的维数为n+1</p>
+<h3 id="正则化解决逻辑回归"><a href="#正则化解决逻辑回归" class="headerlink" title="正则化解决逻辑回归"></a>正则化解决逻辑回归</h3><p>下图是针对逻辑函数的代价方程的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715166665.png" alt=""><br>下图是针对逻辑回归的梯度下降算法：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871516672.png" alt=""><br>形式上与线性回归相同 但注意假设函数不同</p>
+<h2 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h2>
       
     </div>
     
@@ -363,7 +373,7 @@
         <p><span>本文标题:</span><a href="/2017/02/06/Machine-Learning-2/">Machine Learning-2</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
         <p><span>发布时间:</span>2017-02-06, 23:18:33</p>
-        <p><span>最后更新:</span>2017-02-12, 00:53:24</p>
+        <p><span>最后更新:</span>2017-02-15, 17:42:40</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/02/06/Machine-Learning-2/" title="Machine Learning-2">http://xuboming8.github.io/2017/02/06/Machine-Learning-2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/06/Machine-Learning-2/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -400,7 +410,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning-2"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三周"><span class="toc-number">1.1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设函数表达式"><span class="toc-number">1.1.2.</span> <span class="toc-text">假设函数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策边界"><span class="toc-number">1.1.3.</span> <span class="toc-text">决策边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代价方程的逻辑回归形式"><span class="toc-number">1.1.4.</span> <span class="toc-text">代价方程的逻辑回归形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化代价方程-amp-使用梯度下降算法实现逻辑回归"><span class="toc-number">1.1.5.</span> <span class="toc-text">简化代价方程&使用梯度下降算法实现逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级优化算法"><span class="toc-number">1.1.6.</span> <span class="toc-text">高级优化算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对多的分类问题"><span class="toc-number">1.1.7.</span> <span class="toc-text">一对多的分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过度拟合问题"><span class="toc-number">1.1.8.</span> <span class="toc-text">过度拟合问题</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning-2"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三周"><span class="toc-number">1.1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设函数表达式"><span class="toc-number">1.1.2.</span> <span class="toc-text">假设函数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策边界"><span class="toc-number">1.1.3.</span> <span class="toc-text">决策边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代价方程的逻辑回归形式"><span class="toc-number">1.1.4.</span> <span class="toc-text">代价方程的逻辑回归形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化代价方程-amp-使用梯度下降算法实现逻辑回归"><span class="toc-number">1.1.5.</span> <span class="toc-text">简化代价方程&使用梯度下降算法实现逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级优化算法"><span class="toc-number">1.1.6.</span> <span class="toc-text">高级优化算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对多的分类问题"><span class="toc-number">1.1.7.</span> <span class="toc-text">一对多的分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过度拟合问题"><span class="toc-number">1.1.8.</span> <span class="toc-text">过度拟合问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设函数的过度拟合"><span class="toc-number">1.1.9.</span> <span class="toc-text">假设函数的过度拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则化解决线性回归"><span class="toc-number">1.1.10.</span> <span class="toc-text">正则化解决线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则化解决逻辑回归"><span class="toc-number">1.1.11.</span> <span class="toc-text">正则化解决逻辑回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四周"><span class="toc-number">1.2.</span> <span class="toc-text">第四周</span></a></li></ol></li></ol>
         
     </div>
     <style>
