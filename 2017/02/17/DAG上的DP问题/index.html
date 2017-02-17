@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
+<meta name="description" content="DAG上的DP问题嵌套矩形问题–NYOJ16Problem Description有n个矩形，每个矩形可以用a,b来描述，表示长和宽。矩形X(a,b)可以嵌套在矩形Y(c,d)中当且仅当a&amp;lt;c,b&amp;lt;d或者b&amp;lt;c,a&amp;lt;d（相当于旋转X90度）。例如（1,5）可以嵌套在（6,2）内，但不能嵌套在（3,4）中。你的任务是选出尽可能多的矩形排成一行，使得除最后一个外，每一个矩形都可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="atoi与itoa函数介绍">
-<meta property="og:url" content="http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/index.html">
+<meta property="og:title" content="DAG上的DP问题">
+<meta property="og:url" content="http://xuboming8.github.io/2017/02/17/DAG上的DP问题/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
-<meta property="og:updated_time" content="2016-09-02T00:44:34.794Z">
+<meta property="og:description" content="DAG上的DP问题嵌套矩形问题–NYOJ16Problem Description有n个矩形，每个矩形可以用a,b来描述，表示长和宽。矩形X(a,b)可以嵌套在矩形Y(c,d)中当且仅当a&amp;lt;c,b&amp;lt;d或者b&amp;lt;c,a&amp;lt;d（相当于旋转X90度）。例如（1,5）可以嵌套在（6,2）内，但不能嵌套在（3,4）中。你的任务是选出尽可能多的矩形排成一行，使得除最后一个外，每一个矩形都可">
+<meta property="og:updated_time" content="2017-02-17T14:19:41.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="atoi与itoa函数介绍">
-<meta name="twitter:description" content="atoi函数与itoa函数atoi函数功能把字符串转换成整形数">
+<meta name="twitter:title" content="DAG上的DP问题">
+<meta name="twitter:description" content="DAG上的DP问题嵌套矩形问题–NYOJ16Problem Description有n个矩形，每个矩形可以用a,b来描述，表示长和宽。矩形X(a,b)可以嵌套在矩形Y(c,d)中当且仅当a&amp;lt;c,b&amp;lt;d或者b&amp;lt;c,a&amp;lt;d（相当于旋转X90度）。例如（1,5）可以嵌套在（6,2）内，但不能嵌套在（3,4）中。你的任务是选出尽可能多的矩形排成一行，使得除最后一个外，每一个矩形都可">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>atoi与itoa函数介绍 | 似水年华</title>
+<title>DAG上的DP问题 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-atoi与itoa函数介绍" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DAG上的DP问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/01/atoi与itoa函数介绍/" class="article-date">
-      <time datetime="2016-09-01T08:57:59.000Z" itemprop="datePublished">2016-09-01</time>
+      <a href="/2017/02/17/DAG上的DP问题/" class="article-date">
+      <time datetime="2017-02-17T13:32:10.000Z" itemprop="datePublished">2017-02-17</time>
 </a>
 
 
@@ -304,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      atoi与itoa函数介绍
+      DAG上的DP问题
     </h1>
   
 
@@ -313,13 +313,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a>
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,17 +329,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="atoi函数与itoa函数"><a href="#atoi函数与itoa函数" class="headerlink" title="atoi函数与itoa函数"></a>atoi函数与itoa函数</h1><h2 id="atoi函数"><a href="#atoi函数" class="headerlink" title="atoi函数"></a>atoi函数</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>把字符串转换成整形数<br><a id="more"></a></p>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>int atoi(const char *str);<br>函数的返回值用一个整形变量接受，str表示准备进行转换的字符串。</p>
-<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>atoi( ) 函数会扫描参数str字符串，跳过前面的空白字符（例如空格，tab缩进等），直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时<br>(‘\0’)才结束转换，并将结果返回。如果str不能转换成int或者str为空字符串，那么将返回0。需要加入头文件stdlib.h。</p>
-<h3 id="简化实例"><a href="#简化实例" class="headerlink" title="简化实例"></a>简化实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int n;</div><div class="line">char *str=<span class="string">"12345.67"</span>;</div><div class="line">n=atoi(str);</div><div class="line">cout&lt;&lt;n&lt;&lt;endl;</div></pre></td></tr></table></figure>
-<p>输出结果为12345</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char a[]=<span class="string">"-100"</span>;</div><div class="line">char b[]=<span class="string">"123"</span>;</div><div class="line">int c;</div><div class="line">c=atoi(a)+atoi(b);</div><div class="line">cout&lt;&lt;c&lt;&lt;endl;</div></pre></td></tr></table></figure>
-<p>输出结果为23</p>
-<h2 id="itoa函数"><a href="#itoa函数" class="headerlink" title="itoa函数"></a>itoa函数</h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>将整形转换为字符串</p>
-<h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>char<br>char &#42;itoa(int value,char &#42;string,int radix);<br>value为被转换的整数，string为转换后储存的字符数组，radix转换进制数，如2,8,10,16 进制等。使用需加入头文件stdlib.h。</p>
-<h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int number=123456;</div><div class="line">char string[25];</div><div class="line">itoa(number,string,10);</div></pre></td></tr></table></figure>
-
+        <h1 id="DAG上的DP问题"><a href="#DAG上的DP问题" class="headerlink" title="DAG上的DP问题"></a>DAG上的DP问题</h1><h2 id="嵌套矩形问题–NYOJ16"><a href="#嵌套矩形问题–NYOJ16" class="headerlink" title="嵌套矩形问题–NYOJ16"></a>嵌套矩形问题–NYOJ16</h2><p><strong>Problem Description</strong><br>有n个矩形，每个矩形可以用a,b来描述，表示长和宽。矩形X(a,b)可以嵌套在矩形Y(c,d)中当且仅当a&lt;c,b&lt;d或者b&lt;c,a&lt;d（相当于旋转X90度）。例如（1,5）<br>可以嵌套在（6,2）内，但不能嵌套在（3,4）中。你的任务是选出尽可能多的矩形排成一行，使得除最后一个外，每一个矩形都可以嵌套在下一个矩形内。</p>
+<p><strong>Input</strong><br><a id="more"></a><br>第一行是一个正正数N(0&lt;N&lt;10)，表示测试数据组数，<br>每组测试数据的第一行是一个正正数n，表示该组测试数据中含有矩形的个数(n&lt;=1000)<br>随后的n行，每行有两个数a,b(0&lt;a,b&lt;100)，表示矩形的长和宽</p>
+<p><strong>Output</strong><br>每组测试数据都输出一个数，表示最多符合条件的矩形数目，每组输出占一行</p>
+<p><strong>Sample Input</strong><br>1<br>10<br>1 2<br>2 4<br>5 8<br>6 10<br>7 9<br>3 1<br>5 8<br>12 10<br>9 7<br>2 2</p>
+<p><strong>Sample Output</strong><br>5</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct node</div><div class="line">&#123;</div><div class="line">	int x,y;</div><div class="line">&#125;m[1050];</div><div class="line">int d[1050];</div><div class="line">int cmp(node a,node b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(a.x==b.x)</div><div class="line">		<span class="built_in">return</span> a.y&lt;b.y;</div><div class="line">	<span class="built_in">return</span> a.x&lt;=b.x;</div><div class="line">&#125;</div><div class="line">int Max(node a,node b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(a.x&lt;b.x&amp;&amp;a.y&lt;b.y)</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int n;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;m[i].x&gt;&gt;m[i].y;</div><div class="line">			<span class="keyword">if</span>(m[i].x&gt;m[i].y)</div><div class="line">			&#123;</div><div class="line">				m[i].x=m[i].x^m[i].y;</div><div class="line">				m[i].y=m[i].x^m[i].y;</div><div class="line">				m[i].x=m[i].x^m[i].y;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		memset(d,0,sizeof(d));</div><div class="line">		sort(m,m+n,cmp);</div><div class="line">		<span class="keyword">for</span>(int i = 1; i &lt; n; i++)   </div><div class="line">			<span class="keyword">for</span>(int j = 0; j &lt;= i; j++)   </div><div class="line">				<span class="keyword">if</span>(Max(m[j],m[i])&amp;&amp;d[i] &lt; d[j] + 1)   </div><div class="line">					d[i] = d[j] + 1;  </div><div class="line">		int maxn = d[0];  </div><div class="line">		<span class="keyword">for</span>(int i = 0; i &lt; n; i++)   </div><div class="line">			<span class="keyword">if</span>(maxn &lt; d[i])  </div><div class="line">				maxn = d[i];  </div><div class="line">		cout&lt;&lt;maxn+1&lt;&lt;endl;  </div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>按照先x后y的升序排列 后只需求LIS长度即可<br>需要注意本题的大于或者小于需要满足句型的长和宽均大于或小于另一个矩形才可<br>这里LIS里的&gt;/&lt;等价与一个矩形的长和宽都比另一个大 所以就能包含 LIS长度就是最大包含数</p>
+<h2 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h2><p>题目：有n种硬币，面值分别为V1,V2,…Vn,每种都有无限多。给定非负整数S，可以选用多少个硬币，使得面值之和恰好为S？输出硬币数目的最小值和最大值<br>分析：我们把每种面值看作一个点！表示“还需要凑足的面值”，初始状态为S，目标状态为0。那么若当前状态在i，每使用一个硬币j，状态便转移到i-Vj。</p>
+<h3 id="参考代码-记忆化搜索"><a href="#参考代码-记忆化搜索" class="headerlink" title="参考代码(记忆化搜索)"></a>参考代码(记忆化搜索)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;string&gt;</span></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int n, S, V[MAXN], d[MAXN], vis[MAXN];</div><div class="line">const int MAXN = 10000;</div><div class="line">const int INF = 100000000;</div><div class="line">int dpmax(int S) </div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(vis[S]) <span class="built_in">return</span> d[S];</div><div class="line">	vis[S] = 1;</div><div class="line">	int &amp;ans = d[S];</div><div class="line">	ans = -1 &lt;&lt; 30;</div><div class="line">	<span class="keyword">for</span>(int i = 1; i &lt;= n; ++i)</div><div class="line">		<span class="keyword">if</span>(S &gt;= V[i]) </div><div class="line">			ans = max(ans, dpmax(S - V[i]) + 1);</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int dpmin(int S) </div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(vis[S]) <span class="built_in">return</span> d[S];</div><div class="line">	vis[S] = 1;</div><div class="line">	int &amp;ans = d[S];</div><div class="line">	ans = -1 &gt;&gt; 30;</div><div class="line">	<span class="keyword">for</span>(int i = 1; i &lt;= n; ++i) </div><div class="line">		<span class="keyword">if</span>(S &gt;= V[i]) </div><div class="line">			ans = min(ans, dpmin(S - V[i]) + 1);</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>() </div><div class="line">&#123;</div><div class="line">	memset(vis, 0, sizeof(vis));</div><div class="line">	cin &gt;&gt; n &gt;&gt; S;</div><div class="line">	<span class="keyword">for</span>(int i = 1; i &lt;= n; ++i) </div><div class="line">		cin &gt;&gt; V[i];</div><div class="line">	cout &lt;&lt; dpmax(S) &lt;&lt; endl;</div><div class="line">	cout &lt;&lt; dpmin(S) &lt;&lt; endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参考代码-打印字典序最小路径"><a href="#参考代码-打印字典序最小路径" class="headerlink" title="参考代码(打印字典序最小路径)"></a>参考代码(打印字典序最小路径)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;string&gt;</span></div><div class="line">using namespace std;</div><div class="line">const int MAXN = 10000;</div><div class="line">const int INF = 1000000000;</div><div class="line">int n, S, V[MAXN], minn[MAXN], maxn[MAXN];//minn[i]表示还需凑足价值为i的话，所需的最少的硬币数 maxn[i]表示还需凑足价值为i的话，所需的最多的硬币数</div><div class="line">int min_coin[MAXN], max_coin[MAXN];           //min_coin[S]记录的是满足minn[S] = minn[S-V[i]]+1的最小的i。</div><div class="line">void print_ans(int* d, int S) </div><div class="line">&#123;</div><div class="line">	<span class="keyword">while</span>(S) </div><div class="line">	&#123;</div><div class="line">		cout &lt;&lt; d[S] &lt;&lt; <span class="string">" "</span>;</div><div class="line">		S -= V[d[S]];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line"> &#123;</div><div class="line">	cin &gt;&gt; n &gt;&gt; S;</div><div class="line">	<span class="keyword">for</span>(int i = 1; i &lt;= n; ++i) </div><div class="line">		cin &gt;&gt; V[i];</div><div class="line">	memset(minn, INF, sizeof(minn));</div><div class="line">	memset(maxn, -INF, sizeof(maxn));</div><div class="line">	<span class="keyword">for</span>(int i = 1; i &lt;= S; ++i)</div><div class="line">	&#123;                          //递推！求出所有minn[1...S]与maxn[1...S]</div><div class="line">		<span class="keyword">for</span>(int j = 1; j &lt;= n; ++j) &#123;</div><div class="line">			<span class="keyword">if</span>(i &gt;= V[j])</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(minn[i] &gt; minn[i - V[j]] + 1) </div><div class="line">				&#123;</div><div class="line">					minn[i] = minn[i - V[j]] + 1;</div><div class="line">					min_coin[i] = j;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(maxn[i] &lt; maxn[i - V[j]] + 1) </div><div class="line">				&#123;</div><div class="line">					maxn[i] = maxn[i - V[j]] + 1;</div><div class="line">					max_coin[i] = j;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	cout &lt;&lt; minn[S] &lt;&lt; endl;</div><div class="line">	cout &lt;&lt; maxn[S] &lt;&lt; endl;</div><div class="line">	print_ans(min_coin, S);</div><div class="line">	cout &lt;&lt; endl;</div><div class="line">	print_ans(max_coin, S);</div><div class="line">	cout &lt;&lt; endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -347,13 +346,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/01/atoi与itoa函数介绍/">atoi与itoa函数介绍</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/17/DAG上的DP问题/">DAG上的DP问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2016-09-01, 16:57:59</p>
-        <p><span>最后更新:</span>2016-09-02, 08:44:34</p>
+        <p><span>发布时间:</span>2017-02-17, 21:32:10</p>
+        <p><span>最后更新:</span>2017-02-17, 22:19:41</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/01/atoi与itoa函数介绍/" title="atoi与itoa函数介绍">http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/17/DAG上的DP问题/" title="DAG上的DP问题">http://xuboming8.github.io/2017/02/17/DAG上的DP问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/17/DAG上的DP问题/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -365,16 +364,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/03/神奇的树状数组/">
-                    神奇的树状数组
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/01/九大基础排序算法/">
-                    十三种基础排序算法[置顶]
+                <a href="/2017/02/15/DP专题七-有关复杂集合/">
+                    DP专题七--有关复杂集合
                 </a>
             </div>
         
@@ -387,7 +380,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#atoi函数与itoa函数"><span class="toc-number">1.</span> <span class="toc-text">atoi函数与itoa函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#atoi函数"><span class="toc-number">1.1.</span> <span class="toc-text">atoi函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">1.1.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型"><span class="toc-number">1.1.2.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数介绍"><span class="toc-number">1.1.3.</span> <span class="toc-text">函数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化实例"><span class="toc-number">1.1.4.</span> <span class="toc-text">简化实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itoa函数"><span class="toc-number">1.2.</span> <span class="toc-text">itoa函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单实例"><span class="toc-number">1.2.3.</span> <span class="toc-text">简单实例</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DAG上的DP问题"><span class="toc-number">1.</span> <span class="toc-text">DAG上的DP问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套矩形问题–NYOJ16"><span class="toc-number">1.1.</span> <span class="toc-text">嵌套矩形问题–NYOJ16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬币问题"><span class="toc-number">1.2.</span> <span class="toc-text">硬币问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-记忆化搜索"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考代码(记忆化搜索)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-打印字典序最小路径"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考代码(打印字典序最小路径)</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -423,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"atoi与itoa函数介绍　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"DAG上的DP问题　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -439,7 +432,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/01/atoi与itoa函数介绍/" data-title="atoi与itoa函数介绍" data-url="http://xuboming8.github.io/2016/09/01/atoi与itoa函数介绍/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/02/17/DAG上的DP问题/" data-title="DAG上的DP问题" data-url="http://xuboming8.github.io/2017/02/17/DAG上的DP问题/"></div>
     <script>
         var duoshuoQuery = {short_name:"hhmy"};
         var loadComment = function(){
@@ -462,15 +455,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/03/神奇的树状数组/" title="上一篇: 神奇的树状数组">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/01/九大基础排序算法/" title="下一篇: 十三种基础排序算法[置顶]">
+            <a href="/2017/02/15/DP专题七-有关复杂集合/" title="下一篇: DP专题七--有关复杂集合">
                 <i class="fa fa-angle-right"></i>
             </a>
         
