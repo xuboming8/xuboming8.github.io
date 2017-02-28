@@ -15,25 +15,35 @@
 
 
 
-<meta name="description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
+<meta name="description" content="容斥原理HDU 4135Problem Description
+Input">
 <meta property="og:type" content="article">
-<meta property="og:title" content="神奇的树状数组">
-<meta property="og:url" content="http://xuboming8.github.io/2016/10/03/神奇的树状数组/index.html">
+<meta property="og:title" content="容斥原理">
+<meta property="og:url" content="http://xuboming8.github.io/2017/02/28/容斥原理/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666368.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666408.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666456.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666497.png">
-<meta property="og:updated_time" content="2016-10-03T12:14:03.100Z">
+<meta property="og:description" content="容斥原理HDU 4135Problem Description
+Input">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14882421406.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214145.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214198.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214242.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214294.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824275953.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276082.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276229.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/1488242763.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276364.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340387.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340473.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340526.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340637.png">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340706.png">
+<meta property="og:updated_time" content="2017-02-28T01:08:51.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神奇的树状数组">
-<meta name="twitter:description" content="树状数组的存储原理转跳链接
-(例题)ACM-HDOJ 1166Problem Description">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png">
+<meta name="twitter:title" content="容斥原理">
+<meta name="twitter:description" content="容斥原理HDU 4135Problem Description
+Input">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14882421406.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -65,7 +75,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>神奇的树状数组 | 似水年华</title>
+<title>容斥原理 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -294,11 +304,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-神奇的树状数组" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-容斥原理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/03/神奇的树状数组/" class="article-date">
-      <time datetime="2016-10-03T12:04:16.000Z" itemprop="datePublished">2016-10-03</time>
+      <a href="/2017/02/28/容斥原理/" class="article-date">
+      <time datetime="2017-02-28T00:32:19.000Z" itemprop="datePublished">2017-02-28</time>
 </a>
 
 
@@ -313,7 +323,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      神奇的树状数组
+      容斥原理
     </h1>
   
 
@@ -328,7 +338,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树/">树</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -338,13 +348,30 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="树状数组的存储原理"><a href="#树状数组的存储原理" class="headerlink" title="树状数组的存储原理"></a>树状数组的存储原理</h1><p><a href="http://www.cnblogs.com/fancy-itlife/p/4312170.html" target="_blank" rel="external">转跳链接</a></p>
-<h2 id="例题-ACM-HDOJ-1166"><a href="#例题-ACM-HDOJ-1166" class="headerlink" title="(例题)ACM-HDOJ 1166"></a>(例题)ACM-HDOJ 1166</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666304.png" alt=""><br><a id="more"></a></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666368.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666408.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666456.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147549666497.png" alt=""></p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;string&gt;</span></div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define MAX 50005</span></div><div class="line">int c[MAX],que[MAX];</div><div class="line">int lowbit(int x)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> x&amp;(-x);</div><div class="line">&#125;</div><div class="line">void create(int n)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(i);</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;s;j++)</div><div class="line">			c[i]+=que[i-j];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int sum(int idx)</div><div class="line">&#123;</div><div class="line">	int sum=0;</div><div class="line">	<span class="keyword">while</span>(idx&gt;0)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(idx);</div><div class="line">		sum+=c[idx];</div><div class="line">		idx-=s;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">void change(int i,int n,int x)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">while</span>(i&lt;=n)</div><div class="line">	&#123;</div><div class="line">		int s=lowbit(i);</div><div class="line">		c[i]+=x;</div><div class="line">		i+=s;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int t,j=1;</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int N;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;N);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=N;i++)</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;que[i]);</div><div class="line">		memset(c,0,sizeof(c));</div><div class="line">		create(N);</div><div class="line">		cout&lt;&lt;<span class="string">"Case "</span>&lt;&lt;j++&lt;&lt;<span class="string">":"</span>&lt;&lt;endl;</div><div class="line">		<span class="keyword">while</span>(1)</div><div class="line">		&#123;</div><div class="line">			char ch[10];</div><div class="line">			int i,n,a,b;</div><div class="line">			scanf(<span class="string">"%s"</span>,ch);</div><div class="line">			<span class="keyword">if</span>(!strcmp(ch,<span class="string">"Add"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;i,&amp;n);</div><div class="line">				change(i,N,n);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(ch,<span class="string">"Sub"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;i,&amp;n);</div><div class="line">				change(i,N,-n);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(ch,<span class="string">"Query"</span>))</div><div class="line">			&#123;</div><div class="line">				scanf(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">				int s=sum(b)-sum(a-1);</div><div class="line">				cout&lt;&lt;s&lt;&lt;endl;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="HDU-4135"><a href="#HDU-4135" class="headerlink" title="HDU 4135"></a>HDU 4135</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14882421406.png" alt=""></p>
+<p><strong>Input</strong><br><a id="more"></a><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214145.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214198.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214242.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824214294.png" alt=""></p>
+<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>找出区间[a,b]内与n互质的个数</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;cstring&gt;</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line">using namespace std;</div><div class="line">LL ans;</div><div class="line">int a[1000];</div><div class="line">int num;</div><div class="line">void get_prime(LL n)    //快速求出所有n的质因子</div><div class="line">&#123;             //使用唯一分解定理 任何一个数都可以拆分成若干个质数的乘积</div><div class="line">	<span class="keyword">for</span>(int i=2;i*i&lt;=n;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(n%i==0)</div><div class="line">		&#123;</div><div class="line">			a[num++]=i;</div><div class="line">			<span class="keyword">while</span>(n%i==0)</div><div class="line">				n/=i;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(n&gt;1)         //注意最后一项的处理</div><div class="line">		a[num++]=n;</div><div class="line">&#125;</div><div class="line">LL rongchi(LL m)   //容斥原理公式</div><div class="line">&#123;</div><div class="line">	LL que[10000];</div><div class="line">	LL sum=0;</div><div class="line">	int t=0;</div><div class="line">	que[t++]=-1;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;num;i++)</div><div class="line">	&#123;</div><div class="line">		int k=t;</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;k;j++)</div><div class="line">			que[t++]=(-1)*a[i]*que[j];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;t;i++)</div><div class="line">		sum+=m/que[i];</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	int t;</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	int flag=1;</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		LL x,y;</div><div class="line">		int n;</div><div class="line">		scanf(<span class="string">"%lld%lld%d"</span>,&amp;x,&amp;y,&amp;n);</div><div class="line">		memset(a,0,sizeof(a));</div><div class="line">		ans=0,num=0;</div><div class="line">		get_prime(n);</div><div class="line">		ans=(y-rongchi(y))-(x-1-rongchi(x-1));</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d: %lld\n"</span>,flag++,ans);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>我们可以先转化下：用(1,b)区间与n互质的数的个数减去(1,a-1)区间与n互质的数的个数,那么现在就转化成求(1,m)区间于n互质的数的个数,如果要求的是(1,n)区间<br>与n互质的数的个数的话，我们直接求出n的欧拉函数值即可，可是这里是行不通的!我们不妨换一种思路：就是求出(1,m)区间与n不互质的数的个数，假设为num，<br>那么我们的答案就是：m-num!现在的关键就是：怎样用一种最快的方法求出(1,m)区间与n不互质的数的个数？方法实现：我们先求出n的质因子(因为任何一个数都可以<br>分解成若干个质数相乘的),如何尽快地求出n的质因子呢？使用代码给出的方法<br>举一组实例吧:假设m=12,n=30.<br>第一步：求出n的质因子：2,3,5；<br>第二步：(1,m)中是n的因子的倍数当然就不互质了(2,4,6,8,10)-&gt;n/2  6个,(3,6,9,12)-&gt;n/3  4个,(5,10)-&gt;n/5  2个。<br>如果是粗心的同学就把它们全部加起来就是：6+4+2=12个了，那你就大错特错了,里面明显出现了重复的,我们现在要处理的就是如何去掉那些重复的了<br>第三步：这里就需要用到容斥原理了，公式就是：n/2+n/3+n/5-n/(2×3)-n/(2×5)-n/(3×5)+n/(2×3×5).<br>第四步:我们该如何实现呢？我在网上看到有几种实现方法：dfs(深搜)，队列数组，位运算三种方法都可以 上述公式有一个特点：n除以奇数个数相乘的时候是加，<br>n除以偶数个数相乘的时候是减(奇加偶减)。这里用队列数组实现：我们可以把第一个元素设为-1 具体看代码实现</p>
+<h2 id="HDU-1796"><a href="#HDU-1796" class="headerlink" title="HDU 1796"></a>HDU 1796</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824275953.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276082.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276229.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/1488242763.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824276364.png" alt=""></p>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出N和一个数集 求1—N中可以被数集中的任何元素整除的所有数的个数</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;cstring&gt;</span></div><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line">using namespace std;</div><div class="line">LL n,ans;</div><div class="line">int m,cnt;</div><div class="line">int a[15];</div><div class="line">LL gcd(LL a,LL b)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> b==0?a:gcd(b,a%b);</div><div class="line">&#125;</div><div class="line">void dfs(int cur,LL lcm,int id)</div><div class="line">&#123;</div><div class="line">	lcm=a[cur]/gcd(a[cur],lcm)*lcm;</div><div class="line">	<span class="keyword">if</span>(id&amp;1)</div><div class="line">		ans+=(n-1)/lcm;</div><div class="line">	<span class="keyword">else</span></div><div class="line">		ans-=(n-1)/lcm;</div><div class="line">	<span class="keyword">for</span>(int i=cur+1;i&lt;cnt;i++)</div><div class="line">		dfs(i,lcm,id+1);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%lld%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">	&#123;</div><div class="line">		cnt=0,ans=0;</div><div class="line">		memset(a,0,sizeof(a));</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;m;i++)</div><div class="line">		&#123;</div><div class="line">			int x;</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;x);</div><div class="line">			<span class="keyword">if</span>(x!=0)           //x为非负数 需要把0排除</div><div class="line">				a[cnt++]=x;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;cnt;i++)</div><div class="line">			dfs(i,a[i],1);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>容斥原理地简单应用。先找出1…n内能被集合中任意一个元素整除的个数，再减去能被集合中任意两个整除的个数，即能被它们两只的最小公倍数整除的个数，<br>因为这部分被计算了两次，然后又加上三个时候的个数，然后又减去四个时候的倍数…所以深搜，最后判断下集合元素的个数为奇还是偶，奇加偶减。</p>
+<h2 id="HDU-2841"><a href="#HDU-2841" class="headerlink" title="HDU 2841"></a>HDU 2841</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340387.png" alt=""></p>
+<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340473.png" alt=""></p>
+<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340526.png" alt=""></p>
+<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340637.png" alt=""></p>
+<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148824340706.png" alt=""></p>
+<h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>从(1,1)开始的N×M的格子上有树，从(0,0)点可以看到多少棵树</p>
+<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;vector&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line">using namespace std;</div><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">int que[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;maxn;i++)</div><div class="line">		e[i].clear();</div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;maxn;i++)</div><div class="line">	&#123;</div><div class="line">		int t=i;</div><div class="line">		<span class="keyword">for</span>(int j=2;j*j&lt;maxn;j++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(t%j==0)</div><div class="line">			&#123;</div><div class="line">				e[i].push_back(j);</div><div class="line">				<span class="keyword">while</span>(t%j==0)</div><div class="line">					t/=j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(t&gt;1)</div><div class="line">			e[i].push_back(t);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">LL rongchi(int n,int s)</div><div class="line">&#123;</div><div class="line">	int num=0;</div><div class="line">	que[num++]=1;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[s].size();i++)</div><div class="line">	&#123;</div><div class="line">		int ep=e[s][i];</div><div class="line">		<span class="keyword">if</span>(ep&gt;n)</div><div class="line">			<span class="built_in">break</span>;</div><div class="line">		int k=num;</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;k;j++)</div><div class="line">			que[num++]=que[j]*(-1)*ep;</div><div class="line">	&#125;</div><div class="line">	LL sum=0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;num;i++)</div><div class="line">		sum+=n/que[i];</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	/*freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);*/</div><div class="line">	init();</div><div class="line">	int t;</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)</div><div class="line">	&#123;</div><div class="line">		int m,n;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;m,&amp;n);</div><div class="line">		LL ans=n;</div><div class="line">		<span class="keyword">for</span>(int i=2;i&lt;=m;i++)</div><div class="line">			ans+=rongchi(n,i);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>因为ans初始化为n 所以从第二行开始为奇减偶加<br>经画图推敲可以发现如果A1/B1=A2/B2那么就有一棵树看不到，所以就是找出Ai/Bi有多少种。<br>再可以发现A/B中，如果A,B有大于1的公约数，则A=A’×D B=B’×D，那么A/B=A’/B’,也就是存在另外一组数和这种相等，则问题转换成有多少对互质的数。<br>本题和HDU 4135唯一的区别就是枚举i，从1-M中找与i互质的数，其中1&lt;=i&lt;=N。<br>容注意先预处理i的所有素因子，然后容斥就可以了。</p>
 
       
     </div>
@@ -353,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/03/神奇的树状数组/">神奇的树状数组</a></p>
+        <p><span>Title:</span><a href="/2017/02/28/容斥原理/">容斥原理</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey Xu</a></p>
-        <p><span>Created:</span>2016-10-03, 20:04:16</p>
-        <p><span>Updated:</span>2016-10-03, 20:14:03</p>
+        <p><span>Created:</span>2017-02-28, 08:32:19</p>
+        <p><span>Updated:</span>2017-02-28, 09:08:51</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/03/神奇的树状数组/" title="神奇的树状数组">http://xuboming8.github.io/2016/10/03/神奇的树状数组/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/10/03/神奇的树状数组/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/02/28/容斥原理/" title="容斥原理">http://xuboming8.github.io/2017/02/28/容斥原理/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/02/28/容斥原理/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -371,16 +398,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/20/10-16-热身赛/">
-                    10-16 热身赛
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/01/atoi与itoa函数介绍/">
-                    atoi与itoa函数介绍
+                <a href="/2017/02/23/DP专题八-石子合并/">
+                    DP专题八--石子合并
                 </a>
             </div>
         
@@ -393,7 +414,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#树状数组的存储原理"><span class="toc-number">1.</span> <span class="toc-text">树状数组的存储原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例题-ACM-HDOJ-1166"><span class="toc-number">1.1.</span> <span class="toc-text">(例题)ACM-HDOJ 1166</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#容斥原理"><span class="toc-number">1.</span> <span class="toc-text">容斥原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4135"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 4135</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1796"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 1796</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-2841"><span class="toc-number">1.3.</span> <span class="toc-text">HDU 2841</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -429,7 +450,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"神奇的树状数组　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"容斥原理　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -445,7 +466,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/03/神奇的树状数组/" data-title="神奇的树状数组" data-url="http://xuboming8.github.io/2016/10/03/神奇的树状数组/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/02/28/容斥原理/" data-title="容斥原理" data-url="http://xuboming8.github.io/2017/02/28/容斥原理/"></div>
     <script>
         var duoshuoQuery = {short_name:"hhmy"};
         var loadComment = function(){
@@ -468,15 +489,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/20/10-16-热身赛/" title="Pre: 10-16 热身赛">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/01/atoi与itoa函数介绍/" title="Next: atoi与itoa函数介绍">
+            <a href="/2017/02/23/DP专题八-石子合并/" title="Next: DP专题八--石子合并">
                 <i class="fa fa-angle-right"></i>
             </a>
         
