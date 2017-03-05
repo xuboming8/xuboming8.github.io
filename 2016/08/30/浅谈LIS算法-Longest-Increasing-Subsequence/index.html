@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/index.html">
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
-<meta property="og:updated_time" content="2017-02-17T09:39:39.569Z">
+<meta property="og:updated_time" content="2017-03-05T10:32:37.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈LIS算法(Longest Increasing Subsequence)">
 <meta name="twitter:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>友情链接</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>关于我</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap"><article id="post-浅谈LIS算法-Longest-Increasing-Subsequence" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -335,7 +335,7 @@
 <h3 id="思路（一）"><a href="#思路（一）" class="headerlink" title="思路（一）"></a>思路（一）</h3><p>假定存在一个序列d[1…9]=2 1 5 3 6 4 8 9 7，可以看出LIS长度为5。现在开始一步一步的找出来最终的结果。<br>　　定义序列B，令i=1…9来逐个考察。此外用变量len来记录现在最长算到了多少了。<br>　　首先，把d[1]放到B里，即B[1]=d[1]，就是说长度为1的LIS的最小末尾是2，这时len=1，然后把d[2]有序的放到B里，令B[1]=1（d[2]），就是说长度为1的LIS最<br>小末尾是1，d[1]=2已经没有用了，这时len=1不变。接着d[3]=5，5&gt;1，所以令B[1+1]=d[3]=5，就是说长度为2的LIS的最小末尾是5，此时的B[1…2]=1,5，len=2。<br>　　再来，d[4]=3，它正好在1和5之间，当然放在1的位置上不合适，因为1<3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。 　　继续d[5]="6，它在3后边，所以B[3]=4，B[1...3]=1,3,6，len=3。" 　　第6个，d[6]="4，它加在3和6之间，所以我们把6换掉，这样B[1...3]=1,3,4，len=3。" 　　第7个，d[7]="8，8">4，所以B[4]=8，B[1…4]=1,3,4,8，len=4。<br>　　第8个，d[8]=9，B[1…5]=1,3,4,8,9，len=5。<br>　　最后一个，d[9]=7，所以B[1…5]=1,3,4,7,9，len=5。<br>　　注意这里的B并不是LIS，而是对应长度的LIS的最小末尾。<br>　　总结下：若后一个数比前一个数大，那么直接此数的后面，若后一个数比前一个数小，那么覆盖掉该数。最后得到的len就是LIS长度。</3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。></p>
 <h3 id="代码-一"><a href="#代码-一" class="headerlink" title="代码(一)"></a>代码(一)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std; </div><div class="line">int  num[100];</div><div class="line">int  ans[100]=&#123;0&#125;;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;  </div><div class="line">    int n;  </div><div class="line">    int len,low,heigh,mid;  </div><div class="line">	cin&gt;&gt;n;                //输入数组长度</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)	</div><div class="line">		cin&gt;&gt;num[i];       //输入数组</div><div class="line">	ans[1]=num[1];  </div><div class="line">	len=1;  </div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;=n;i++)    //使用一个<span class="keyword">for</span>循环和二分法进行计算</div><div class="line">	&#123;  </div><div class="line">		low=1;  </div><div class="line">		heigh=len;  </div><div class="line">		<span class="keyword">while</span>(low&lt;=heigh)  </div><div class="line">		&#123;  </div><div class="line">			mid=(low+heigh)/2;  </div><div class="line">			<span class="keyword">if</span>(ans[mid]&lt;num[i])  </div><div class="line">				low=mid+1;  </div><div class="line">			<span class="keyword">else</span>  </div><div class="line">				heigh=mid-1;  </div><div class="line">		&#125;  </div><div class="line">		ans[low]=num[i];  </div><div class="line">		<span class="keyword">if</span>(low&gt;len)  </div><div class="line">			len++;  </div><div class="line">	&#125;  </div><div class="line">	cout&lt;&lt;<span class="string">"LIS长度为："</span>&lt;&lt;len&lt;&lt;endl; </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>算法（n^2）</strong></p>
-<h3 id="思路（二）"><a href="#思路（二）" class="headerlink" title="思路（二）"></a>思路（二）</h3><p>再以数组a[0~8]={2,1,5,3,6,4,8,9,7}为例，先定义d[0]=1来存放LIS长度，接着从数组的第二个元素开始,每次都把d[i]定义为1，接着拿该元素之前的所有元素与它比较<br>，由于1<2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于 1和2都小于3，所以d[3]="d[0]+1=d[1]+1=2，但是5">3,所以最后的d[3]=2。接下来轮到元素6，由于之前的所有元素均小于6，所以d[4]=d[0]+1=d[1]+1=2，接着<br>d[4]=d[2]+1=d[3]+1=3，所以最后的d[4]为3。下面的元素为4，由于最多只轮到3&lt;4，所以d[5]=d[3]+1=3。接下来同理d[6]=4,d[7]=5,d[8]=4。最后寻找数组d的<br>最大值，为5，所以LIS长度为5。<br>总结：用2个for循环，第一个for循环用来依次移动需要比较的元素，第二个for循环用来把该元素与之前的所有元素进行比较，d在该位置存放的长度为之前所有元素中最后一<br>个小于该元素的d存放的长度+1（表现出来的形式为该元素只要大于前面某个元素，那么d[j]立刻变为d[i]+1），若该元素小于之前所有的元素，那么该位置存放的位置保持为<br>1。</2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于></p>
+<h3 id="思路（二）"><a href="#思路（二）" class="headerlink" title="思路（二）"></a>思路（二）</h3><p>再以数组a[0~8]={2,1,5,3,6,4,8,9,7}为例，先定义d[0]=1来存放LIS长度，接着从数组的第二个元素开始,每次都把d[i]定义为1，接着拿该元素之前的所有元素与它比较<br>，由于1<2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于 1和2="" 都小于3，所以d[3]="d[0]+1=d[1]+1=2，但是5">3,所以最后的d[3]=2。接下来轮到元素6，由于之前的所有元素均小于6，所以d[4]=d[0]+1=d[1]+1=2，接着<br>d[4]=d[2]+1=d[3]+1=3，所以最后的d[4]为3。下面的元素为4，由于最多只轮到3&lt;4，所以d[5]=d[3]+1=3。接下来同理d[6]=4,d[7]=5,d[8]=4。最后寻找数组d的<br>最大值，为5，所以LIS长度为5。<br>总结：用2个for循环，第一个for循环用来依次移动需要比较的元素，第二个for循环用来把该元素与之前的所有元素进行比较，d在该位置存放的长度为之前所有元素中最后一<br>个小于该元素且dp值最大的d存放的长度+1（表现出来的形式为该元素只要大于前面某个dp值最大的元素，那么d[j]立刻变为d[i]+1），若该元素小于之前所有的元素，那么该<br>位置存放的位置保持为1。</2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于></p>
 <h3 id="代码（二）"><a href="#代码（二）" class="headerlink" title="代码（二）"></a>代码（二）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int a[9]=&#123;2,1,5,3,6,4,8,9,7&#125;;</div><div class="line">	int d[9],maxn;</div><div class="line">	memset(d,0,sizeof(d));</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;9;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;=i;j++)</div><div class="line">			<span class="keyword">if</span>(a[i]&gt;a[j]&amp;&amp;d[i]&lt;d[j]+1)</div><div class="line">				d[i]=d[j]+1;</div><div class="line">		maxn=d[0];</div><div class="line">		<span class="keyword">for</span>(int i = 0; i &lt; 9; i++)   </div><div class="line">			maxn=d[i]&gt;maxn?d[i]:maxn;</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;<span class="string">"LIS长度："</span>&lt;&lt;maxn+1&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>链接：<a href="http://monkeyxu.cn/2016/08/30/ACM-1023-1027-1058/" target="_blank" rel="external">ACM-HDOJ 1025题</a></p>
 
@@ -346,17 +346,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2016-08-30, 21:12:32</p>
-        <p><span>最后更新:</span>2017-02-17, 17:39:39</p>
+        <p><span>本文標題:</span><a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey Xu</a></p>
+        <p><span>發布時間:</span>2016-08-30, 21:12:32</p>
+        <p><span>最後更新:</span>2017-03-05, 18:32:37</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" title="浅谈LIS算法(Longest Increasing Subsequence)">http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" title="浅谈LIS算法(Longest Increasing Subsequence)">http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/　　作者: Hippopmonkey Xu" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -384,7 +384,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">文章目錄</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路以及代码详解"><span class="toc-number">1.1.</span> <span class="toc-text">思路以及代码详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（一）"><span class="toc-number">1.1.1.</span> <span class="toc-text">思路（一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-一"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码(一)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（二）"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路（二）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（二）"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码（二）</span></a></li></ol></li></ol></li></ol>
         
@@ -400,10 +400,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
     </script>
 
 
@@ -492,14 +492,14 @@
                 2016-2017 Hippopmonkey Xu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -508,7 +508,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -541,9 +541,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

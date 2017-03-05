@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148682971857.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148682971891.png">
 <meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14868297193.png">
-<meta property="og:updated_time" content="2017-02-12T14:09:02.244Z">
+<meta property="og:updated_time" content="2017-03-05T10:33:29.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dp基础专题五">
 <meta name="twitter:description" content="dp专题五最优矩阵链乘问题题目要求一个n×m阶矩阵和一个m×p阶矩阵连乘 运算量是nmp有n个矩阵链乘 可以给矩阵加括号改变运算顺序 求最小的运算次数">
@@ -173,13 +173,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>友情链接</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>关于我</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -311,7 +311,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap"><article id="post-dp专题二" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -363,7 +363,7 @@
 <h2 id="最优三角剖分"><a href="#最优三角剖分" class="headerlink" title="最优三角剖分"></a>最优三角剖分</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>对于一个n个顶点的凸多边形 用n-3条对角线把他分成n-2个三角形 每个三角形规定一个权函数w（i,j,k）要求分成的所有三角形<br>权函数最大</p>
 <h3 id="参考代码-1"><a href="#参考代码-1" class="headerlink" title="参考代码"></a>参考代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">//与矩阵链乘的求解方式类似</div><div class="line">//状态转移方程为：d[i,j]=max&#123;d(i,k)+d(k,j)+w(i,j,k)&#125;</div><div class="line"><span class="comment">#include &lt;iostream&gt;   </span></div><div class="line">using namespace std;   </div><div class="line">const int n= 6;//凸多边形边数  </div><div class="line">int weight[][n] = &#123;&#123;0,2,2,3,1,4&#125;,&#123;2,0,1,5,2,3&#125;,&#123;2,1,0,2,1,4&#125;,&#123;3,5,2,0,6,2&#125;,&#123;1,2,1,6,0,1&#125;,&#123;4,3,4,2,1,0&#125;&#125;;//凸多边形的权  </div><div class="line">int t[n][n],s[n][n];</div><div class="line">int Weight(int a,int b,int c)  </div><div class="line">&#123;  </div><div class="line">	<span class="built_in">return</span> weight[a][b] + weight[b][c] + weight[a][c];  </div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">MinWeightTriangulation</span></span>()  </div><div class="line">&#123;  </div><div class="line">	<span class="keyword">for</span>(int i=0; i&lt;n; i++)  </div><div class="line">	&#123;</div><div class="line">		t[i][i] = 0;   </div><div class="line">		t[i][i+1]=0;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int r=2; r&lt;=n; r++) //r为当前计算的链长（子问题规模）    </div><div class="line">	&#123;  </div><div class="line">		<span class="keyword">for</span>(int i=1; i&lt;=n-r+1; i++)//n-r+1为最后一个r链的前边界    </div><div class="line">		&#123;  </div><div class="line">			int j = i+r-1;//计算前边界为r，链长为r的链的后边界    </div><div class="line">			t[i][j] = t[i+1][j] + Weight(i-1,i,j);//将链ij划分为A(i) * ( A[i+1:j] )这里实际上就是k=i  </div><div class="line">			s[i][j] = i;  </div><div class="line">			<span class="keyword">for</span>(int k=i+1; k&lt;j; k++)  </div><div class="line">			&#123;  </div><div class="line">				//将链ij划分为( A[i:k] )* (A[k+1:j])     </div><div class="line">				int u = t[i][k] + t[k+1][j] + Weight(i-1,k,j);  </div><div class="line">				<span class="keyword">if</span>(u&lt;t[i][j])  </div><div class="line">				&#123;  </div><div class="line">					t[i][j] = u;  </div><div class="line">					s[i][j] = k;  </div><div class="line">				&#125;  </div><div class="line">			&#125;  </div><div class="line">		&#125;  </div><div class="line">	&#125;   </div><div class="line">&#125;  </div><div class="line">void Traceback(int i,int j)  </div><div class="line">&#123;  </div><div class="line">	<span class="keyword">if</span>(i==j) <span class="built_in">return</span>;  </div><div class="line">	Traceback(i,s[i][j]);  </div><div class="line">	Traceback(s[i][j]+1,j);  </div><div class="line">	cout&lt;&lt;<span class="string">"三角剖分顶点：V"</span>&lt;&lt;i-1&lt;&lt;<span class="string">",V"</span>&lt;&lt;j&lt;&lt;<span class="string">",V"</span>&lt;&lt;s[i][j]&lt;&lt;endl;  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">	cout&lt;&lt;<span class="string">"此多边形的最优三角剖分值为："</span>;</div><div class="line">	M<span class="keyword">in</span>WeightTriangulation();</div><div class="line">	cout&lt;&lt;t[1][n-1]&lt;&lt;endl;</div><div class="line">	cout&lt;&lt;<span class="string">"最优三角剖分结构为："</span>&lt;&lt;endl;</div><div class="line">	Traceback(1,5); //s[i][j]记录了Vi-1和Vj构成三角形的第3个顶点的位置  </div><div class="line">	<span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="经典DP问题"><a href="#经典DP问题" class="headerlink" title="经典DP问题"></a>经典DP问题</h2><h3 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a>LIS</h3><p>本博客中均给出了n^2和nlogn复杂度的两种算法<br><a href="http://monkeyxu.cn/2016/08/30/%E6%B5%85%E8%B0%88LIS%E7%AE%97%E6%B3%95-Longest-Increasing-Subsequence/" target="_blank" rel="external">转跳博客链接</a></p>
-<h3 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h3><p>状态转移方程为：<br>若该位置匹配dp[i][j]=dp[i-1][j-1]+1<br>若该位置不匹配dp[i][j]=max(dp[i-1][j],dp[i][j-1])<br><a href="http://monkeyxu.cn/2016/10/26/10-23-%E7%83%AD%E8%BA%AB%E8%B5%9B/#Common-Subsequence" target="_blank" rel="external">详见此题</a></p>
+<h3 id="LCS"><a href="#LCS" class="headerlink" title="LCS"></a>LCS</h3><p>状态转移方程为：<br>若该位置匹配dp[i][j]=dp[i-1][j-1]+1<br>若该位置不匹配dp[i][j]=max(dp[i-1][j],dp[i][j-1])<br><a href="http://monkeyxu.cn/2016/10/26/10-23-%E7%83%AD%E8%BA%AB%E8%B5%9B/#Common-Subsequence" target="_blank" rel="external">详见此题</a></p>
 <h3 id="连续和最大子序列问题"><a href="#连续和最大子序列问题" class="headerlink" title="连续和最大子序列问题"></a>连续和最大子序列问题</h3><p>本题有经典的HDU 1003和HDU 1231<br><a href="http://monkeyxu.cn/2016/08/30/ACM-1002-1007/#1003" target="_blank" rel="external">HDU-1003转跳链接</a></p>
 <p>HDU 1231仅在1003的基础上略做修改</p>
 <p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14867398858.png" alt=""></p>
@@ -415,17 +415,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/10/dp专题二/">dp基础专题五</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2017-02-10, 21:57:44</p>
-        <p><span>最后更新:</span>2017-02-12, 22:09:02</p>
+        <p><span>本文標題:</span><a href="/2017/02/10/dp专题二/">dp基础专题五</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey Xu</a></p>
+        <p><span>發布時間:</span>2017-02-10, 21:57:44</p>
+        <p><span>最後更新:</span>2017-03-05, 18:33:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/10/dp专题二/" title="dp基础专题五">http://xuboming8.github.io/2017/02/10/dp专题二/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/10/dp专题二/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2017/02/10/dp专题二/" title="dp基础专题五">http://xuboming8.github.io/2017/02/10/dp专题二/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/10/dp专题二/　　作者: Hippopmonkey Xu" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -453,9 +453,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">文章目錄</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dp专题五"><span class="toc-number">1.</span> <span class="toc-text">dp专题五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#最优矩阵链乘问题"><span class="toc-number">1.1.</span> <span class="toc-text">最优矩阵链乘问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最优三角剖分"><span class="toc-number">1.2.</span> <span class="toc-text">最优三角剖分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经典DP问题"><span class="toc-number">1.3.</span> <span class="toc-text">经典DP问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LIS"><span class="toc-number">1.3.1.</span> <span class="toc-text">LIS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCM"><span class="toc-number">1.3.2.</span> <span class="toc-text">LCM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续和最大子序列问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">连续和最大子序列问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.3.4.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1257"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 1257</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码–dp（LIS）"><span class="toc-number">1.4.1.</span> <span class="toc-text">参考AC代码–dp（LIS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码–贪心"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码–贪心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-1471"><span class="toc-number">1.5.</span> <span class="toc-text">UVA 1471</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大子矩阵问题"><span class="toc-number">1.6.</span> <span class="toc-text">最大子矩阵问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.6.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.6.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.6.3.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.6.4.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-5"><span class="toc-number">1.6.5.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.6.6.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dp专题五"><span class="toc-number">1.</span> <span class="toc-text">dp专题五</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#最优矩阵链乘问题"><span class="toc-number">1.1.</span> <span class="toc-text">最优矩阵链乘问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最优三角剖分"><span class="toc-number">1.2.</span> <span class="toc-text">最优三角剖分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经典DP问题"><span class="toc-number">1.3.</span> <span class="toc-text">经典DP问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LIS"><span class="toc-number">1.3.1.</span> <span class="toc-text">LIS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCS"><span class="toc-number">1.3.2.</span> <span class="toc-text">LCS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续和最大子序列问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">连续和最大子序列问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.3.4.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1257"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 1257</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码–dp（LIS）"><span class="toc-number">1.4.1.</span> <span class="toc-text">参考AC代码–dp（LIS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码–贪心"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码–贪心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-1471"><span class="toc-number">1.5.</span> <span class="toc-text">UVA 1471</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大子矩阵问题"><span class="toc-number">1.6.</span> <span class="toc-text">最大子矩阵问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.6.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.6.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.6.3.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.6.4.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-5"><span class="toc-number">1.6.5.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.6.6.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -469,10 +469,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
     </script>
 
 
@@ -561,14 +561,14 @@
                 2016-2017 Hippopmonkey Xu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -577,7 +577,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -610,9 +610,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
