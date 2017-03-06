@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[线段树专题]]></title>
+      <url>http://xuboming8.github.io/2017/03/06/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%93%E9%A2%98/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[简单数论]]></title>
       <url>http://xuboming8.github.io/2017/03/03/%E7%AE%80%E5%8D%95%E6%95%B0%E8%AE%BA/</url>
       <content type="html"><![CDATA[<h1 id="简单数论"><a href="#简单数论" class="headerlink" title="简单数论"></a>简单数论</h1><h2 id="UVA-12716"><a href="#UVA-12716" class="headerlink" title="UVA 12716"></a>UVA 12716</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>输入整数n（1≤n≤30000000）有多少对整数（a，b）满足：1≤b≤a≤n 且gcd(a，b)=a XOR b<br>例如n=7时 有4对：（3，2）（5，4）（6，4）（7，6）<br><a id="more"></a></p>
