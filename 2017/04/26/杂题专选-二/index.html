@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/04/26/杂题专选-二/index.html">
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="杂题专选-二集合操作参考代码">
-<meta property="og:updated_time" content="2017-04-29T06:54:18.958Z">
+<meta property="og:updated_time" content="2017-04-30T08:47:06.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题专选-二">
 <meta name="twitter:description" content="杂题专选-二集合操作参考代码">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-杂题专选-二" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -343,6 +343,9 @@
 <h2 id="cf-Presents-in-Bankopolis"><a href="#cf-Presents-in-Bankopolis" class="headerlink" title="cf_Presents in Bankopolis"></a>cf_Presents in Bankopolis</h2><h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>一条路每次来回不能越过已走过的最远的边界<br>类似于不断缩小范围的搜索</p>
 <h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define inf 0x7f7f7f7f</span></div><div class="line"><span class="comment">#define maxn 82</span></div><div class="line">using namespace std;</div><div class="line">int g[maxn][maxn];</div><div class="line">int dp[maxn][maxn][maxn][maxn];</div><div class="line">int n,m,k;</div><div class="line">int M_search(int l,int r,int cur,int k)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(dp[l][r][cur][k]!=-1) <span class="built_in">return</span> dp[l][r][cur][k];</div><div class="line">	<span class="keyword">if</span>(k==1)&#123;</div><div class="line">		dp[l][r][cur][k]=0;</div><div class="line">		<span class="built_in">return</span> 0;</div><div class="line">	&#125;</div><div class="line">	int ans=inf;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(g[cur][i]!=inf)&#123;</div><div class="line">			<span class="keyword">if</span>(i&gt;l&amp;&amp;i&lt;r)&#123;</div><div class="line">				<span class="keyword">if</span>(i&gt;cur) ans=min(ans,g[cur][i]+M_search(cur,r,i,k-1));</div><div class="line">				<span class="keyword">else</span> ans=min(ans,g[cur][i]+M_search(l,cur,i,k-1));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	dp[l][r][cur][k]=ans;</div><div class="line">	<span class="built_in">return</span> dp[l][r][cur][k];</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d%d%d"</span>,&amp;n,&amp;k,&amp;m);</div><div class="line">	memset(dp,-1,sizeof(dp));</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) </div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;=n;j++) g[i][j]=inf;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">		int u,v,w;</div><div class="line">		scanf(<span class="string">"%d%d%d"</span>,&amp;u,&amp;v,&amp;w);</div><div class="line">		g[u][v]=min(g[u][v],w);</div><div class="line">	&#125;</div><div class="line">	int ans=inf;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) ans=min(ans,M_search(0,n+1,i,k));</div><div class="line">	<span class="keyword">if</span>(ans&gt;=inf) ans=-1;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>记忆化搜索+dp的状态转移方程<br>k=1时dp置为0<br>注意记忆化搜索的格式</p>
+<h2 id="ATcoder——01背包变形"><a href="#ATcoder——01背包变形" class="headerlink" title="ATcoder——01背包变形"></a>ATcoder——01背包变形</h2><h3 id="题目要求-4"><a href="#题目要求-4" class="headerlink" title="题目要求"></a>题目要求</h3><p>背包容量10^9 无法用数组保存<br>单件物品的消耗满足w1&lt;=wi&lt;=w1+3四种情况</p>
+<h3 id="参考AC代码-4"><a href="#参考AC代码-4" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line">using namespace std;</div><div class="line">vector&lt;LL&gt;w0,w1,w2,w3;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	LL n,W;</div><div class="line">	scanf(<span class="string">"%lld%lld"</span>,&amp;n,&amp;W);</div><div class="line">	LL w,v,pw;</div><div class="line">	scanf(<span class="string">"%lld%lld"</span>,&amp;w,&amp;v);</div><div class="line">	w0.push_back(v);</div><div class="line">	pw=w;</div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">		scanf(<span class="string">"%lld%lld"</span>,&amp;w,&amp;v);</div><div class="line">		<span class="keyword">if</span>(w==pw) w0.push_back(v);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(w==pw+1) w1.push_back(v);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(w==pw+2) w2.push_back(v);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(w==pw+3) w3.push_back(v);</div><div class="line">	&#125;</div><div class="line">	sort(w0.begin(),w0.end(),greater&lt;LL&gt;());</div><div class="line">	sort(w1.begin(),w1.end(),greater&lt;LL&gt;());</div><div class="line">	sort(w2.begin(),w2.end(),greater&lt;LL&gt;());</div><div class="line">	sort(w3.begin(),w3.end(),greater&lt;LL&gt;());</div><div class="line">//	<span class="keyword">for</span>(int i=0;i&lt;w3.size();i++) cout&lt;&lt;w3[i]&lt;&lt;endl;</div><div class="line">	LL ans=-1;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=w0.size();i++)&#123;</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;=w1.size();j++)&#123;</div><div class="line">			<span class="keyword">for</span>(int k=0;k&lt;=w2.size();k++)&#123;</div><div class="line">				<span class="keyword">for</span>(int p=0;p&lt;=w3.size();p++)&#123;</div><div class="line">					<span class="keyword">if</span>(pw*i+(pw+1)*j+(pw+2)*k+(pw+3)*p&gt;W) <span class="built_in">continue</span>;</div><div class="line">					LL x=accumulate(w0.begin(),w0.begin()+i,0LL)+accumulate(w1.begin(),w1.begin()+j,0LL)+accumulate(w2.begin(),w2.begin()+k,0LL)+accumulate(w3.begin(),w3.begin()+p,0LL);</div><div class="line">					ans=max(ans,x);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>贪心<br>vector保存四种w的物品 每种w的物品按照价值的降序排列<br>暴力即可 使用accumulate函数可以增加代码可读性 注意条件判断</p>
 
       
     </div>
@@ -351,17 +354,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/26/杂题专选-二/">杂题专选-二</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2017-04-26, 10:13:35</p>
-        <p><span>最后更新:</span>2017-04-29, 14:54:18</p>
+        <p><span>Title:</span><a href="/2017/04/26/杂题专选-二/">杂题专选-二</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey Xu</a></p>
+        <p><span>Created:</span>2017-04-26, 10:13:35</p>
+        <p><span>Updated:</span>2017-04-30, 16:47:06</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/26/杂题专选-二/" title="杂题专选-二">http://xuboming8.github.io/2017/04/26/杂题专选-二/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/04/26/杂题专选-二/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/04/26/杂题专选-二/" title="杂题专选-二">http://xuboming8.github.io/2017/04/26/杂题专选-二/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/04/26/杂题专选-二/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -389,9 +392,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#杂题专选-二"><span class="toc-number">1.</span> <span class="toc-text">杂题专选-二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合操作"><span class="toc-number">1.1.</span> <span class="toc-text">集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详解"><span class="toc-number">1.1.2.</span> <span class="toc-text">详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-803c"><span class="toc-number">1.2.</span> <span class="toc-text">cf 803c</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Igor-and-his-way-to-work"><span class="toc-number">1.3.</span> <span class="toc-text">cf_Igor and his way to work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Mice-problem"><span class="toc-number">1.4.</span> <span class="toc-text">cf_Mice problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.4.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Presents-in-Bankopolis"><span class="toc-number">1.5.</span> <span class="toc-text">cf_Presents in Bankopolis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#杂题专选-二"><span class="toc-number">1.</span> <span class="toc-text">杂题专选-二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合操作"><span class="toc-number">1.1.</span> <span class="toc-text">集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详解"><span class="toc-number">1.1.2.</span> <span class="toc-text">详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-803c"><span class="toc-number">1.2.</span> <span class="toc-text">cf 803c</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Igor-and-his-way-to-work"><span class="toc-number">1.3.</span> <span class="toc-text">cf_Igor and his way to work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Mice-problem"><span class="toc-number">1.4.</span> <span class="toc-text">cf_Mice problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.4.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-Presents-in-Bankopolis"><span class="toc-number">1.5.</span> <span class="toc-text">cf_Presents in Bankopolis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ATcoder——01背包变形"><span class="toc-number">1.6.</span> <span class="toc-text">ATcoder——01背包变形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.6.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.6.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.6.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -405,10 +408,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -461,15 +464,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/30/莫比乌斯反演/" title="上一篇: 莫比乌斯反演">
+            <a href="/2017/04/30/莫比乌斯反演/" title="Pre: 莫比乌斯反演">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/25/Bitset优化/" title="下一篇: Bitset优化">
+            <a href="/2017/04/25/Bitset优化/" title="Next: Bitset优化">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -492,14 +495,14 @@
                 2016-2017 Hippopmonkey Xu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -508,7 +511,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -541,9 +544,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
