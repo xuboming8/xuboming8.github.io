@@ -15,51 +15,18 @@
 
 
 
-<meta name="description" content="Machine Learning-2第三周分类问题我们通常不用线性回归来解决分类问题这是因为极端点往往对线性回归的拟合产生较大偏差通常使用逻辑回归才解决分类问题在分类问题中y通常取0/1代表两种不用的状态">
+<meta name="description" content="二分图多重匹配与普通二分图匹配的区别在于一个点可匹配多个点普通二分图匹配一般求最大(完美)带权匹配值二分图多重匹配一般求是否有合理的分配使得形成多重匹配">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning-2">
-<meta property="og:url" content="http://xuboming8.github.io/2017/02/06/Machine-Learning-2/index.html">
+<meta property="og:title" content="网络流拓展">
+<meta property="og:url" content="http://xuboming8.github.io/2017/06/23/网络流拓展/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="Machine Learning-2第三周分类问题我们通常不用线性回归来解决分类问题这是因为极端点往往对线性回归的拟合产生较大偏差通常使用逻辑回归才解决分类问题在分类问题中y通常取0/1代表两种不用的状态">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643564287.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643564339.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643645124.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643728236.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643728295.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14864372834.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658397.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658447.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658492.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138633.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138701.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090233.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090293.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871512378.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123834.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123872.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715166665.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871516672.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191236.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191102.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191155.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191155.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261372.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261418.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261454.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261539.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261587.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261619.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261652.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300459.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300634.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300833.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730315081.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730315147.png">
-<meta property="og:updated_time" content="2017-02-17T03:46:43.666Z">
+<meta property="og:description" content="二分图多重匹配与普通二分图匹配的区别在于一个点可匹配多个点普通二分图匹配一般求最大(完美)带权匹配值二分图多重匹配一般求是否有合理的分配使得形成多重匹配">
+<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/149818173234.jpg">
+<meta property="og:updated_time" content="2017-06-23T01:42:02.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning-2">
-<meta name="twitter:description" content="Machine Learning-2第三周分类问题我们通常不用线性回归来解决分类问题这是因为极端点往往对线性回归的拟合产生较大偏差通常使用逻辑回归才解决分类问题在分类问题中y通常取0/1代表两种不用的状态">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643564287.png">
+<meta name="twitter:title" content="网络流拓展">
+<meta name="twitter:description" content="二分图多重匹配与普通二分图匹配的区别在于一个点可匹配多个点普通二分图匹配一般求最大(完美)带权匹配值二分图多重匹配一般求是否有合理的分配使得形成多重匹配">
+<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/149818173234.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -91,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Machine Learning-2 | 似水年华</title>
+<title>网络流拓展 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -320,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Machine-Learning-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-网络流拓展" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/06/Machine-Learning-2/" class="article-date">
-      <time datetime="2017-02-06T15:18:33.000Z" itemprop="datePublished">2017-02-06</time>
+      <a href="/2017/06/23/网络流拓展/" class="article-date">
+      <time datetime="2017-06-23T01:23:51.000Z" itemprop="datePublished">2017-06-23</time>
 </a>
 
 
@@ -339,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Machine Learning-2
+      网络流拓展
     </h1>
   
 
@@ -348,13 +315,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/机器学习/">机器学习</a>
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cousera/">cousera</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab/">matlab</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -364,25 +331,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Machine-Learning-2"><a href="#Machine-Learning-2" class="headerlink" title="Machine Learning-2"></a>Machine Learning-2</h1><h2 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h2><h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>我们通常不用线性回归来解决分类问题<br>这是因为极端点往往对线性回归的拟合产生较大偏差<br>通常使用逻辑回归才解决分类问题<br>在分类问题中y通常取0/1代表两种不用的状态<br><a id="more"></a></p>
-<h3 id="假设函数表达式"><a href="#假设函数表达式" class="headerlink" title="假设函数表达式"></a>假设函数表达式</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643564287.png" alt=""><br>根据概率论的相关知识 可以得到<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643564339.png" alt=""></p>
-<h3 id="决策边界"><a href="#决策边界" class="headerlink" title="决策边界"></a>决策边界</h3><p>从图像中可以看出 当z≥0 即θTx≥0 y属于[0.5,1]取1  当θTx&lt;0 y属于[0,0.5]取0<br>ex：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643645124.png" alt=""><br>当普通的表达式无法满足分类问题的时候 我们可以通过增加高次多项式才使图像满足分类问题<br>例如加上θ0+θ1x1²+θ2x2²可使图像变为圆</p>
-<h3 id="代价方程的逻辑回归形式"><a href="#代价方程的逻辑回归形式" class="headerlink" title="代价方程的逻辑回归形式"></a>代价方程的逻辑回归形式</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643728236.png" alt=""><br>图像如下<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148643728295.png" alt=""><br>从图像中可以看出<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14864372834.png" alt=""></p>
-<h3 id="简化代价方程-amp-使用梯度下降算法实现逻辑回归"><a href="#简化代价方程-amp-使用梯度下降算法实现逻辑回归" class="headerlink" title="简化代价方程&amp;使用梯度下降算法实现逻辑回归"></a>简化代价方程&amp;使用梯度下降算法实现逻辑回归</h3><p>将y=0和y=1时的代价方程可简化如下：(并给出向量化的表达式)<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658397.png" alt=""><br>当对J进行偏导操作后发现和线性回归的梯度下降算法完全一样：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658447.png" alt=""><br>不一样的是 线性回归的中h=XTθ 而逻辑回归中的h=1/1+e(-XTθ)<br>逻辑回归的J向量化如下：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148648658492.png" alt=""></p>
-<h3 id="高级优化算法"><a href="#高级优化算法" class="headerlink" title="高级优化算法"></a>高级优化算法</h3><p>在高级优化算法中 我们需要求出代价方程J和代价方程J对θ的偏导数<br>所以我们可以在matlab中使用如下算法 可以快速求解θ J和J是否收敛<br>如下是定义的函数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> [jVal, gradient] = costFunction(theta)</div><div class="line">  jVal = [...code to compute J(theta)...];</div><div class="line">  gradient = [...code to compute derivative of J(theta)...];</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>如下是在matlab中使用的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">options = optimset(<span class="string">'GradObj'</span>, <span class="string">'on'</span>, <span class="string">'MaxIter'</span>, 100);</div><div class="line">initialTheta = zeros(2,1);</div><div class="line">   [optTheta, <span class="keyword">function</span>Val, <span class="built_in">exit</span>Flag] = fminunc(@costFunction, initialTheta, options);</div></pre></td></tr></table></figure></p>
-<p>例如,定义的函数可以如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> [jVal, gradient] = costFunction(theta)</div><div class="line">  jVal = (theta(1)-5)^2+(theta(2)-5)^2;</div><div class="line">  gradient = zeros(2,1);</div><div class="line">  gradient(1)=2*(theta(1)-5);</div><div class="line">  gradient(2)=2*(theta(2)-5);</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>那么在matlab中敲入对应的算法后 将会求出θ1=5 θ2=5 J=0 exitFlag=1<br>说明θ1和θ2等于5时 J=0为最小值 且收敛 验证此算法是正确的<br><strong>备注</strong><br>使用此算法需要注意 gradient的纬度d需要≥2 如果纬度是1 需要查询fminunc找出对应资料</p>
-<h3 id="一对多的分类问题"><a href="#一对多的分类问题" class="headerlink" title="一对多的分类问题"></a>一对多的分类问题</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138633.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148683138701.png" alt=""><br>我们对这个分类问题使用如下算法：<br>每次选取一种类型的问题为1 所有其它类型就为0 这样就转换成了把两种类型的数据分开的子问题<br>如上图所以有三种分类的方法<br>在这三种分类方法中 选取一个hθ最大的分类方法作为分类标准即可</p>
-<h3 id="过度拟合问题"><a href="#过度拟合问题" class="headerlink" title="过度拟合问题"></a>过度拟合问题</h3><p>如果我们在使用假设函数中增加了过度的高次项 那么这个函数会过度的拟合这些点 甚至产生扭曲 从而破坏了一般性规律<br>一般在特征过多而我们又没有很多的训练集的时候 就会出现过度拟合的问题<br>为了坚决过度拟合的问题 有如下方法：<br>（1）尽量减少特征的数量 选取更多重要的特征<br>（2）使用模型选择算法 自动删去一些特征（之后会提到）<br>（3）正规化（之后会提到）</p>
-<h3 id="假设函数的过度拟合"><a href="#假设函数的过度拟合" class="headerlink" title="假设函数的过度拟合"></a>假设函数的过度拟合</h3><p>下图给出对假设函数出现过度拟合的处理：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090233.png" alt=""><br>例如：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715090293.png" alt=""><br>我们在多项式后加入1000θ3²+θ4² 根据最小化可得θ3和θ4趋近于0 所以图像就会避免过度拟合的问题</p>
-<h3 id="正则化解决线性回归"><a href="#正则化解决线性回归" class="headerlink" title="正则化解决线性回归"></a>正则化解决线性回归</h3><p>下图是梯度下降算法的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871512378.png" alt=""><br>θ0和θi分别处理<br>展开后如下图所以：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123834.png" alt=""><br>对于θj前面的参数可以看作小于1又接近1 所以θj每次以一个很小的数量下降<br>下图是正规方程的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715123872.png" alt=""><br>在正规方程中原本存在不可逆的问题 但是正则化后括号内的矩阵一定可逆 L的维数为n+1</p>
-<h3 id="正则化解决逻辑回归"><a href="#正则化解决逻辑回归" class="headerlink" title="正则化解决逻辑回归"></a>正则化解决逻辑回归</h3><p>下图是针对逻辑函数的代价方程的正则化：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148715166665.png" alt=""><br>下图是针对逻辑回归的梯度下降算法：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14871516672.png" alt=""><br>形式上与线性回归相同 但注意假设函数不同</p>
-<h2 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h2><h3 id="神经网络模型一"><a href="#神经网络模型一" class="headerlink" title="神经网络模型一"></a>神经网络模型一</h3><p><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191236.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191102.png" alt=""><br>在神经网络中 ai(j)表示对j层的第i个对象 θ(j)表示从j层到j+1层的所有权重(参数)<br>θj的维度等于s(j+1)×(sj+1) 例如θ1=s2×(s1+1)=3×4<br>计算公式如下：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191155.png" alt=""></p>
-<h3 id="神经网络模型二"><a href="#神经网络模型二" class="headerlink" title="神经网络模型二"></a>神经网络模型二</h3><p>这是上一节的公式：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730191155.png" alt=""><br>我们把它变为如下形式：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261372.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261418.png" alt=""><br>变为向量形式：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261454.png" alt=""><br>对于z(j) a(j) hθ(x)有如下公式：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261539.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261587.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261619.png" alt=""><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730261652.png" alt=""></p>
-<h3 id="具体实例"><a href="#具体实例" class="headerlink" title="具体实例"></a>具体实例</h3><p>可以实现逻辑上的异或 且 或等操作<br>例如 或运算的参数如下：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300459.png" alt=""><br>其余一些运算如下:<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300634.png" alt=""><br>公式如下：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730300833.png" alt=""></p>
-<h3 id="神经网络中的一对多"><a href="#神经网络中的一对多" class="headerlink" title="神经网络中的一对多"></a>神经网络中的一对多</h3><p>实际问题中的一对多：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730315081.png" alt=""><br>若是四种识别 我们可输出y的结果定义如下：<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/148730315147.png" alt=""></p>
-
+        <h1 id="二分图多重匹配"><a href="#二分图多重匹配" class="headerlink" title="二分图多重匹配"></a>二分图多重匹配</h1><p>与普通二分图匹配的区别在于一个点可匹配多个点<br>普通二分图匹配一般求最大(完美)带权匹配值<br>二分图多重匹配一般求是否有合理的分配使得形成多重匹配<br><a id="more"></a></p>
+<h2 id="HDU-3605"><a href="#HDU-3605" class="headerlink" title="HDU 3605"></a>HDU 3605</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>一个人可以去多个星球 输出每个人可以去的星球的情况 数组g中存储1代表可以去 0代表不能去<br>一个星球最多可以容纳某个数量的人 问是否可以有某种分配方式使得满足多重匹配</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define maxm 15</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define pii pair&lt;int,int&gt;</span></div><div class="line"><span class="comment">#define fi first</span></div><div class="line"><span class="comment">#define se second</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define mp(a,b) make_pair(a,b)</span></div><div class="line">const LL mod=1e9+7;</div><div class="line">const LL INF=(LL)1e18;</div><div class="line">using namespace std;</div><div class="line">int n,m,w[maxm],cnt[maxm];  </div><div class="line">int g[maxn][maxm],match[maxm][maxn];  </div><div class="line">bool vis[maxm];  </div><div class="line">bool dfs(int x)&#123; </div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;m;i++)  </div><div class="line">        <span class="keyword">if</span>(!vis[i]&amp;&amp;g[x][i])&#123;</div><div class="line">            vis[i]=1;  </div><div class="line">            <span class="keyword">if</span>(cnt[i]&lt;w[i])&#123;</div><div class="line">                match[i][cnt[i]++]=x;  </div><div class="line">                <span class="built_in">return</span> <span class="literal">true</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">for</span>(int j=0;j&lt;cnt[i];j++)  </div><div class="line">                <span class="keyword">if</span>(dfs(match[i][j]))&#123;</div><div class="line">                    match[i][j]=x;  </div><div class="line">                    <span class="built_in">return</span> <span class="literal">true</span>;  </div><div class="line">                &#125;  </div><div class="line">        &#125;  </div><div class="line">    <span class="built_in">return</span> <span class="literal">false</span>;  </div><div class="line">&#125;  </div><div class="line">bool <span class="function"><span class="title">ok</span></span>()&#123;    </div><div class="line">    mm(cnt,0);</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">        mm(vis,0);</div><div class="line">        <span class="keyword">if</span>(!dfs(i)) <span class="built_in">return</span> <span class="literal">false</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//    freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">    cin.tie(0),cout.tie(0);</div><div class="line">    <span class="keyword">while</span>(cin&gt;&gt;n&gt;&gt;m)&#123; </div><div class="line">        <span class="keyword">for</span>(int i=0;i&lt;n;i++)  </div><div class="line">            <span class="keyword">for</span>(int j=0;j&lt;m;j++)  </div><div class="line">                cin&gt;&gt;g[i][j];  </div><div class="line">        <span class="keyword">for</span>(int i=0;i&lt;m;i++) cin&gt;&gt;w[i];  </div><div class="line">        puts(ok()?<span class="string">"YES"</span>:<span class="string">"NO"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>使用hungray模版<br>建好图和容量w 带入模版即可<br>注意本题中点和边的上限以及数组开的大小</p>
+<h2 id="hihocoder-1393"><a href="#hihocoder-1393" class="headerlink" title="hihocoder 1393"></a>hihocoder 1393</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>班级参加运动会 每个人擅长某些项目 每个人最多参加某个数量的项目 每个项目必须有某个数量的人参加<br>问是否存在某种匹配使得满足这些条件 即满足多重匹配</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 210</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line">using namespace std;</div><div class="line">struct Edge&#123;</div><div class="line">  int from, to, <span class="built_in">cap</span>, flow;</div><div class="line">&#125;;</div><div class="line">struct Dinic&#123;</div><div class="line">  int n, m, s, t;</div><div class="line">  vector&lt;Edge&gt; edges;   </div><div class="line">  vector&lt;int&gt; G[maxn];   </div><div class="line">  bool vis[maxn];         </div><div class="line">  int d[maxn];           </div><div class="line">  int cur[maxn];       </div><div class="line">void ClearAll(int n)&#123;</div><div class="line">    <span class="keyword">for</span>(int i = 0; i &lt; n; i++) G[i].clear();</div><div class="line">    edges.clear();</div><div class="line">&#125;</div><div class="line">void AddEdge(int from, int to, int <span class="built_in">cap</span>)&#123;</div><div class="line">    edges.push_back((Edge)&#123;from, to, <span class="built_in">cap</span>, 0&#125;);</div><div class="line">    edges.push_back((Edge)&#123;to, from, 0, 0&#125;);</div><div class="line">    m = edges.size();</div><div class="line">    G[from].push_back(m-2);</div><div class="line">    G[to].push_back(m-1);</div><div class="line">&#125;</div><div class="line">bool <span class="function"><span class="title">BFS</span></span>()&#123;</div><div class="line">    memset(vis, 0, sizeof(vis));</div><div class="line">    queue&lt;int&gt; Q;</div><div class="line">    Q.push(s);</div><div class="line">    vis[s] = 1;</div><div class="line">    d[s] = 0;</div><div class="line">    <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">      int x = Q.front(); Q.pop();</div><div class="line">      <span class="keyword">for</span>(int i = 0; i &lt; G[x].size(); i++) &#123;</div><div class="line">        Edge&amp; e = edges[G[x][i]];</div><div class="line">        <span class="keyword">if</span>(!vis[e.to] &amp;&amp; e.cap &gt; e.flow) &#123;</div><div class="line">          vis[e.to] = 1;</div><div class="line">          d[e.to] = d[x] + 1;</div><div class="line">          Q.push(e.to);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> vis[t];</div><div class="line">&#125;</div><div class="line">int DFS(int x, int a)&#123;</div><div class="line">    <span class="keyword">if</span>(x == t || a == 0) <span class="built_in">return</span> a;</div><div class="line">    int flow = 0, f;</div><div class="line">    <span class="keyword">for</span>(int&amp; i = cur[x]; i &lt; G[x].size(); i++) &#123;</div><div class="line">      Edge&amp; e = edges[G[x][i]];</div><div class="line">      <span class="keyword">if</span>(d[x] + 1 == d[e.to] &amp;&amp; (f = DFS(e.to, min(a, e.cap-e.flow))) &gt; 0) &#123;</div><div class="line">        e.flow += f;</div><div class="line">        edges[G[x][i]^1].flow -= f;</div><div class="line">        flow += f;</div><div class="line">        a -= f;</div><div class="line">        <span class="keyword">if</span>(a == 0) <span class="built_in">break</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> flow;</div><div class="line">&#125;</div><div class="line">int Maxflow(int s, int t)&#123;</div><div class="line">    this-&gt;s = s; this-&gt;t = t;</div><div class="line">    int flow = 0;</div><div class="line">    <span class="keyword">while</span>(BFS()) &#123;</div><div class="line">      memset(cur, 0, sizeof(cur));</div><div class="line">      flow += DFS(s, inf);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> flow;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">Dinic g;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0);</div><div class="line">	int t; cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		int nn,mm;</div><div class="line">		cin&gt;&gt;nn&gt;&gt;mm;</div><div class="line">		g.ClearAll(maxn);</div><div class="line">		int sum=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=mm;i++)&#123;</div><div class="line">			int x; cin&gt;&gt;x;</div><div class="line">			sum+=x;</div><div class="line">			g.AddEdge(nn+i,nn+mm+1,x);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=nn;i++)&#123;</div><div class="line">			int x,y;</div><div class="line">			cin&gt;&gt;x&gt;&gt;y;</div><div class="line">			g.AddEdge(0,i,x);</div><div class="line">			<span class="keyword">while</span>(y--)&#123;</div><div class="line">				int z; cin&gt;&gt;z;</div><div class="line">				g.AddEdge(i,nn+z,1);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(g.Maxflow(0,nn+mm+1)==sum) cout&lt;&lt;<span class="string">"Yes"</span>&lt;&lt;endl;</div><div class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">"No"</span>&lt;&lt;endl;	</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>建图如下<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/149818173234.jpg" alt=""><br>A对应的是学生 B对应的是项目 a[i]对应的是每个学生限制参加的项目个数 m[i]对应每个项目限制参加的人数 增加一个源点S和一个汇点T<br>根据a[i]，在s和A[i]之间连接一条容量为a[i]的边<br>将原来A[i]-B[j]直接的边都改造为从A[i]到B[j]的容量为1的边<br>最后我们还要连接所有的B[j]-t。由于比赛项目B[j]最多只需要m[j]名选手参加，所以我们不妨限制B[j]-t的容量为m[j]<br>在完成最大流后，这个网络流图的流量情况直接对应了一个分配方案：<br>s-A[i]：这一类边的流量表示了A[i]参加的项目数量。<br>A[i]-B[j]：这一类边的流量表示了A[i]是否参加项目B[j]，若参加则流量为1，否则流量为0。<br>B[j]-t：这一类边的流量表示了参加比赛项目B[j]的选手数量。<br>由于流网络会自动调整去满足最大流量，所以它会自动调整每个A[i]-B[j]的流量来使得B[j]-t尽可能大。<br>若每个项目都能够满足人数的话，网络流会自己调整为所有B[j]-t都满流的情况。<br>只需要最后判断一下每一条B[j]-t的边是否满流，就可以知道能否满足需求</p>
+<h1 id="最小路径覆盖"><a href="#最小路径覆盖" class="headerlink" title="最小路径覆盖"></a>最小路径覆盖</h1><h2 id="hihocoder-1394"><a href="#hihocoder-1394" class="headerlink" title="hihocoder 1394"></a>hihocoder 1394</h2>
       
     </div>
     
@@ -390,13 +346,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/06/Machine-Learning-2/">Machine Learning-2</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/23/网络流拓展/">网络流拓展</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2017-02-06, 23:18:33</p>
-        <p><span>最后更新:</span>2017-02-17, 11:46:43</p>
+        <p><span>发布时间:</span>2017-06-23, 09:23:51</p>
+        <p><span>最后更新:</span>2017-06-23, 09:42:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/06/Machine-Learning-2/" title="Machine Learning-2">http://xuboming8.github.io/2017/02/06/Machine-Learning-2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/02/06/Machine-Learning-2/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/23/网络流拓展/" title="网络流拓展">http://xuboming8.github.io/2017/06/23/网络流拓展/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/06/23/网络流拓展/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -408,16 +364,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/02/07/贪心杂选/">
-                    贪心杂选
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/02/06/经典面试之——异或操作/">
-                    经典面试之——异或操作
+                <a href="/2017/06/16/cf杂选-1/">
+                    cf杂选2
                 </a>
             </div>
         
@@ -430,7 +380,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning-2"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三周"><span class="toc-number">1.1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设函数表达式"><span class="toc-number">1.1.2.</span> <span class="toc-text">假设函数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策边界"><span class="toc-number">1.1.3.</span> <span class="toc-text">决策边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代价方程的逻辑回归形式"><span class="toc-number">1.1.4.</span> <span class="toc-text">代价方程的逻辑回归形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化代价方程-amp-使用梯度下降算法实现逻辑回归"><span class="toc-number">1.1.5.</span> <span class="toc-text">简化代价方程&使用梯度下降算法实现逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级优化算法"><span class="toc-number">1.1.6.</span> <span class="toc-text">高级优化算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一对多的分类问题"><span class="toc-number">1.1.7.</span> <span class="toc-text">一对多的分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过度拟合问题"><span class="toc-number">1.1.8.</span> <span class="toc-text">过度拟合问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设函数的过度拟合"><span class="toc-number">1.1.9.</span> <span class="toc-text">假设函数的过度拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则化解决线性回归"><span class="toc-number">1.1.10.</span> <span class="toc-text">正则化解决线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则化解决逻辑回归"><span class="toc-number">1.1.11.</span> <span class="toc-text">正则化解决逻辑回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四周"><span class="toc-number">1.2.</span> <span class="toc-text">第四周</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络模型一"><span class="toc-number">1.2.1.</span> <span class="toc-text">神经网络模型一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络模型二"><span class="toc-number">1.2.2.</span> <span class="toc-text">神经网络模型二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实例"><span class="toc-number">1.2.3.</span> <span class="toc-text">具体实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络中的一对多"><span class="toc-number">1.2.4.</span> <span class="toc-text">神经网络中的一对多</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二分图多重匹配"><span class="toc-number">1.</span> <span class="toc-text">二分图多重匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-3605"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 3605</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hihocoder-1393"><span class="toc-number">1.2.</span> <span class="toc-text">hihocoder 1393</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最小路径覆盖"><span class="toc-number">2.</span> <span class="toc-text">最小路径覆盖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hihocoder-1394"><span class="toc-number">2.1.</span> <span class="toc-text">hihocoder 1394</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -466,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Machine Learning-2　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"网络流拓展　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -500,15 +450,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/02/07/贪心杂选/" title="上一篇: 贪心杂选">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/02/06/经典面试之——异或操作/" title="下一篇: 经典面试之——异或操作">
+            <a href="/2017/06/16/cf杂选-1/" title="下一篇: cf杂选2">
                 <i class="fa fa-angle-right"></i>
             </a>
         
