@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="MST模板primeprime详解
 模版">
-<meta property="og:updated_time" content="2017-06-29T06:09:54.260Z">
+<meta property="og:updated_time" content="2017-06-29T06:21:20.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MST模板">
 <meta name="twitter:description" content="MST模板primeprime详解
@@ -148,13 +148,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -286,7 +286,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-MST模板" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -336,7 +336,7 @@
 <h3 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h3><a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line">using namespace std;</div><div class="line">int g[maxn][maxn];</div><div class="line">int lowcost[maxn],mst[maxn];</div><div class="line">int m,n;     </div><div class="line">int <span class="function"><span class="title">prime</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">		lowcost[i]=g[1][i];</div><div class="line">		mst[i]=1;</div><div class="line">	&#125; </div><div class="line">	lowcost[1]=0,mst[1]=0;</div><div class="line">	int M<span class="keyword">in</span>,sum=0,temp;</div><div class="line">	<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">		M<span class="keyword">in</span>=inf,temp=0;</div><div class="line">		<span class="keyword">for</span>(int j=2;j&lt;=n;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(lowcost[j]&lt;M<span class="keyword">in</span> &amp;&amp; lowcost[j]!=0)&#123;</div><div class="line">				M<span class="keyword">in</span>=lowcost[j];</div><div class="line">				temp=j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;mst[temp]&lt;&lt;<span class="string">" "</span>&lt;&lt;temp&lt;&lt;<span class="string">" "</span>&lt;&lt;M<span class="keyword">in</span>&lt;&lt;endl;</div><div class="line">		sum+=M<span class="keyword">in</span>;</div><div class="line">		lowcost[temp]=0,mst[temp]=0;</div><div class="line">		<span class="keyword">for</span>(int j=2;j&lt;=n;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(g[temp][j]&lt;lowcost[j])&#123;</div><div class="line">				lowcost[j]=g[temp][j];</div><div class="line">				mst[j]=temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0);</div><div class="line">	cin&gt;&gt;n&gt;&gt;m;</div><div class="line">	memset(g,inf,sizeof(g));</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">		int u,v,w;</div><div class="line">		cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;</div><div class="line">		g[u][v]=g[v][u]=w;</div><div class="line">	&#125;</div><div class="line">	int cost=prime();</div><div class="line">	cout&lt;&lt;cost&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line">//</div><div class="line">6 10  </div><div class="line">1 2 6  </div><div class="line">1 3 1  </div><div class="line">1 4 5  </div><div class="line">2 3 5  </div><div class="line">2 5 3  </div><div class="line">3 4 5  </div><div class="line">3 5 6  </div><div class="line">3 6 4  </div><div class="line">4 6 2  </div><div class="line">5 6 6 </div><div class="line">answer:15</div></pre></td></tr></table></figure>
 <h2 id="kruskal"><a href="#kruskal" class="headerlink" title="kruskal"></a>kruskal</h2><p><a href="http://blog.csdn.net/luomingjun12315/article/details/47700237" target="_blank" rel="external">kruskal详解</a></p>
-<h3 id="模版-1"><a href="#模版-1" class="headerlink" title="模版"></a>模版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100</span></div><div class="line">using namespace std;</div><div class="line">int u[maxn],v[maxn],w[maxn];</div><div class="line">int p[maxn],r[maxn];</div><div class="line">int n,m;</div><div class="line">int cmp(int i,int j)&#123;</div><div class="line">	<span class="built_in">return</span> w[i]&lt;w[j];</div><div class="line">&#125;</div><div class="line">int find(int x)&#123;</div><div class="line">	<span class="built_in">return</span> x==p[x]?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">kruskal</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++) p[i]=i;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++) r[i]=i;</div><div class="line">	sort(r,r+m,cmp);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		int e=r[i];</div><div class="line">		int x=find(u[e]),y=find(v[e]);</div><div class="line">		<span class="keyword">if</span>(x!=y)&#123;</div><div class="line">			ans+=w[e];</div><div class="line">			p[x]=y;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0);</div><div class="line">	cin&gt;&gt;n&gt;&gt;m;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		int a,b,c;</div><div class="line">		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</div><div class="line">		u[i]=a,v[i]=b,w[i]=c;</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;kruskal()&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line">//</div><div class="line">6 10  </div><div class="line">1 2 6  </div><div class="line">1 3 1  </div><div class="line">1 4 5  </div><div class="line">2 3 5  </div><div class="line">2 5 3  </div><div class="line">3 4 5  </div><div class="line">3 5 6  </div><div class="line">3 6 4  </div><div class="line">4 6 2  </div><div class="line">5 6 6 </div><div class="line">answer:15</div></pre></td></tr></table></figure>
+<h3 id="模版-1"><a href="#模版-1" class="headerlink" title="模版"></a>模版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100000</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define pii pair&lt;int,int&gt;</span></div><div class="line"><span class="comment">#define fi first</span></div><div class="line"><span class="comment">#define se second</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define mp(a,b) make_pair(a,b)</span></div><div class="line">const LL mod=1e9+7;</div><div class="line">const LL INF=(LL)1e18;</div><div class="line">using namespace std;</div><div class="line">struct edge&#123;</div><div class="line">	int u,v,w;</div><div class="line">	edge(int u,int v,int w):u(u),v(v),w(w)&#123;&#125;</div><div class="line">	bool operator &lt; (const edge&amp; x) const&#123;</div><div class="line">		<span class="built_in">return</span> w&lt;x.w;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">int n,m;</div><div class="line">int p[maxn];</div><div class="line">vector&lt;edge&gt;e;</div><div class="line">int find(int x)&#123;</div><div class="line">	<span class="built_in">return</span> x==p[x]?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">kruskal</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	int cnt=0;</div><div class="line">	sort(e.begin(),e.end());</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) p[i]=i;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		int x=find(e[i].u),y=find(e[i].v);</div><div class="line">		<span class="keyword">if</span>(x!=y)&#123;</div><div class="line">			ans+=e[i].w;</div><div class="line">			p[x]=y;</div><div class="line">			cnt++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt==n-1) <span class="built_in">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//	freopen(<span class="string">"ouput.txt"</span>,<span class="string">"w"</span>,sdout);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0),cout.tie(0);</div><div class="line">	cin&gt;&gt;n&gt;&gt;m;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">		int u,v,w;</div><div class="line">		cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;</div><div class="line">		e.pb(edge(u,v,w));</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;kruskal()&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line">//</div><div class="line">6 10  </div><div class="line">1 2 6  </div><div class="line">1 3 1  </div><div class="line">1 4 5  </div><div class="line">2 3 5  </div><div class="line">2 5 3  </div><div class="line">3 4 5  </div><div class="line">3 5 6  </div><div class="line">3 6 4  </div><div class="line">4 6 2  </div><div class="line">5 6 6 </div><div class="line">answer:15</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -344,17 +344,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/28/MST模板/">MST模板</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey Xu</a></p>
-        <p><span>发布时间:</span>2017-05-28, 14:59:30</p>
-        <p><span>最后更新:</span>2017-06-29, 14:09:54</p>
+        <p><span>Title:</span><a href="/2017/05/28/MST模板/">MST模板</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey Xu</a></p>
+        <p><span>Created:</span>2017-05-28, 14:59:30</p>
+        <p><span>Updated:</span>2017-06-29, 14:21:20</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/28/MST模板/" title="MST模板">http://xuboming8.github.io/2017/05/28/MST模板/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/05/28/MST模板/　　作者: Hippopmonkey Xu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/05/28/MST模板/" title="MST模板">http://xuboming8.github.io/2017/05/28/MST模板/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/05/28/MST模板/　　By Hippopmonkey Xu" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -382,7 +382,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MST模板"><span class="toc-number">1.</span> <span class="toc-text">MST模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#prime"><span class="toc-number">1.1.</span> <span class="toc-text">prime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模版"><span class="toc-number">1.1.1.</span> <span class="toc-text">模版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kruskal"><span class="toc-number">1.2.</span> <span class="toc-text">kruskal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模版-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">模版</span></a></li></ol></li></ol></li></ol>
         
@@ -398,10 +398,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -454,15 +454,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/29/cf-at-hiho杂选二/" title="上一篇: cf&amp;at&amp;hiho杂选二">
+            <a href="/2017/05/29/cf-at-hiho杂选二/" title="Pre: cf&amp;at&amp;hiho杂选二">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/05/25/Polay计数/" title="下一篇: Polay计数">
+            <a href="/2017/05/25/Polay计数/" title="Next: Polay计数">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -485,14 +485,14 @@
                 2016-2017 Hippopmonkey Xu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -501,7 +501,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -534,9 +534,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
