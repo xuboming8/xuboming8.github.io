@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
+<meta name="description" content="网络流拓展二POJ 3680(区间k覆盖问题+离散)题目要求枢轴上有一些带权值的区间 选出权和尽量大的一些区间 使得任意一个数最多被k个区间覆盖">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈LIS算法(Longest Increasing Subsequence)">
-<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/index.html">
+<meta property="og:title" content="网络流拓展二">
+<meta property="og:url" content="http://xuboming8.github.io/2017/07/19/网络流拓展二/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
-<meta property="og:updated_time" content="2017-04-23T07:34:34.339Z">
+<meta property="og:description" content="网络流拓展二POJ 3680(区间k覆盖问题+离散)题目要求枢轴上有一些带权值的区间 选出权和尽量大的一些区间 使得任意一个数最多被k个区间覆盖">
+<meta property="og:updated_time" content="2017-07-19T07:23:48.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈LIS算法(Longest Increasing Subsequence)">
-<meta name="twitter:description" content="简介LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循环和二分法，算法的复杂度为O(nlogn)。">
+<meta name="twitter:title" content="网络流拓展二">
+<meta name="twitter:description" content="网络流拓展二POJ 3680(区间k覆盖问题+离散)题目要求枢轴上有一些带权值的区间 选出权和尽量大的一些区间 使得任意一个数最多被k个区间覆盖">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>浅谈LIS算法(Longest Increasing Subsequence) | 似水年华</title>
+<title>网络流拓展二 | 似水年华</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-浅谈LIS算法-Longest-Increasing-Subsequence" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-网络流拓展二" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" class="article-date">
-      <time datetime="2016-08-30T13:12:32.000Z" itemprop="datePublished">2016-08-30</time>
+      <a href="/2017/07/19/网络流拓展二/" class="article-date">
+      <time datetime="2017-07-19T07:07:11.000Z" itemprop="datePublished">2017-07-19</time>
 </a>
 
 
@@ -304,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈LIS算法(Longest Increasing Subsequence)
+      网络流拓展二
     </h1>
   
 
@@ -319,7 +319,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LIS/">LIS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,15 +329,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>LIS（Longest Increasing Subsequence）：最长上升（不下降）子序列，有两种算法复杂度为O(n*logn)和O(n^2)。这种算法只能得到最终的数据个数，但是如果<br>需要得到具体的内容就不行了。由于第一种算法使用了2个for循环，所以算法的复杂度为O(n^2),该算法比较简洁易懂，但是复杂度较高。而第二种算法使用了一个for循<br>环和二分法，算法的复杂度为O(nlogn)。此算法虽稍微复杂，但是复杂度降了下来，在需要运算时间的情况下优先选择第二种算法。</p>
-<h2 id="思路以及代码详解"><a href="#思路以及代码详解" class="headerlink" title="思路以及代码详解"></a>思路以及代码详解</h2><a id="more"></a>
-<p><strong>算法（nlogn）</strong></p>
-<h3 id="思路（一）"><a href="#思路（一）" class="headerlink" title="思路（一）"></a>思路（一）</h3><p>假定存在一个序列d[1…9]=2 1 5 3 6 4 8 9 7，可以看出LIS长度为5。现在开始一步一步的找出来最终的结果。<br>　　定义序列B，令i=1…9来逐个考察。此外用变量len来记录现在最长算到了多少了。<br>　　首先，把d[1]放到B里，即B[1]=d[1]，就是说长度为1的LIS的最小末尾是2，这时len=1，然后把d[2]有序的放到B里，令B[1]=1（d[2]），就是说长度为1的LIS最<br>小末尾是1，d[1]=2已经没有用了，这时len=1不变。接着d[3]=5，5&gt;1，所以令B[1+1]=d[3]=5，就是说长度为2的LIS的最小末尾是5，此时的B[1…2]=1,5，len=2。<br>　　再来，d[4]=3，它正好在1和5之间，当然放在1的位置上不合适，因为1<3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。 　　继续d[5]="6，它在3后边，所以B[3]=4，B[1...3]=1,3,6，len=3。" 　　第6个，d[6]="4，它加在3和6之间，所以我们把6换掉，这样B[1...3]=1,3,4，len=3。" 　　第7个，d[7]="8，8">4，所以B[4]=8，B[1…4]=1,3,4,8，len=4。<br>　　第8个，d[8]=9，B[1…5]=1,3,4,8,9，len=5。<br>　　最后一个，d[9]=7，所以B[1…5]=1,3,4,7,9，len=5。<br>　　注意这里的B并不是LIS，而是对应长度的LIS的最小末尾。<br>　　总结下：若后一个数比前一个数大，那么直接此数的后面，若后一个数比前一个数小，那么覆盖掉该数。最后得到的len就是LIS长度。</3，因此长度为2的最小末尾应该是3，淘汰掉5，这时候b[1...2]=1,3，len=2。></p>
-<h3 id="代码-一"><a href="#代码-一" class="headerlink" title="代码(一)"></a>代码(一)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;</div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line">int a[maxn];</div><div class="line">int ans[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	int n; </div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++) scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">	int len=1;</div><div class="line">	ans[0]=a[0];</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;n;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]&gt;=ans[len-1]) ans[len++]=a[i];</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			int pos=upper_bound(ans,ans+len,a[i])-ans;</div><div class="line">			ans[pos]=a[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,len);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>算法（n^2）</strong></p>
-<h3 id="思路（二）"><a href="#思路（二）" class="headerlink" title="思路（二）"></a>思路（二）</h3><p>再以数组a[0~8]={2,1,5,3,6,4,8,9,7}为例，先定义d[0]=1来存放LIS长度，接着从数组的第二个元素开始,每次都把d[i]定义为1，接着拿该元素之前的所有元素与它比较<br>，由于1<2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于 1和2="" 都小于3，所以d[3]="d[0]+1=d[1]+1=2，但是5">3,所以最后的d[3]=2。接下来轮到元素6，由于之前的所有元素均小于6，所以d[4]=d[0]+1=d[1]+1=2，接着<br>d[4]=d[2]+1=d[3]+1=3，所以最后的d[4]为3。下面的元素为4，由于最多只轮到3&lt;4，所以d[5]=d[3]+1=3。接下来同理d[6]=4,d[7]=5,d[8]=4。最后寻找数组d的<br>最大值，为5，所以LIS长度为5。<br>总结：用2个for循环，第一个for循环用来依次移动需要比较的元素，第二个for循环用来把该元素与之前的所有元素进行比较，d在该位置存放的长度为之前所有元素中最后一<br>个小于该元素且dp值最大的d存放的长度+1（表现出来的形式为该元素只要大于前面某个dp值最大的元素，那么d[j]立刻变为d[i]+1），若该元素小于之前所有的元素，那么该<br>位置存放的位置保持为1。</2,所以不进行额外的运算，d[1]依然是1。接着是第三个元素5，由于2<5，所以d[2]=d[0]+1=2，接着1也小于5，所以d[2]=d[1]+1=2。下一个元素为3，由于></p>
-<h3 id="代码（二）"><a href="#代码（二）" class="headerlink" title="代码（二）"></a>代码（二）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int d[1050],len;</div><div class="line">	memset(d,0,sizeof(d));</div><div class="line">	int n,a[1050];</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)</div><div class="line">	&#123;</div><div class="line">		int maxn=0;</div><div class="line">		<span class="keyword">for</span>(int j=i-1;j&gt;=0;j--)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(a[i]&gt;=a[j])</div><div class="line">				maxn=max(maxn,d[j]);</div><div class="line">		&#125;</div><div class="line">		d[i]=maxn+1;</div><div class="line">		len=max(len,d[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,len);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>链接：<a href="http://monkeyxu.cn/2016/08/30/ACM-1023-1027-1058/" target="_blank" rel="external">ACM-HDOJ 1025题</a></p>
+        <h1 id="网络流拓展二"><a href="#网络流拓展二" class="headerlink" title="网络流拓展二"></a>网络流拓展二</h1><h2 id="POJ-3680-区间k覆盖问题-离散"><a href="#POJ-3680-区间k覆盖问题-离散" class="headerlink" title="POJ 3680(区间k覆盖问题+离散)"></a>POJ 3680(区间k覆盖问题+离散)</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>枢轴上有一些带权值的区间 选出权和尽量大的一些区间 使得任意一个数最多被k个区间覆盖<br><a id="more"></a></p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 410</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define pii pair&lt;int,int&gt;</span></div><div class="line"><span class="comment">#define fi first</span></div><div class="line"><span class="comment">#define se second</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define mp(a,b) make_pair(a,b)</span></div><div class="line"><span class="comment">#define lson l,m,rt&lt;&lt;1</span></div><div class="line"><span class="comment">#define rson m+1,r,rt&lt;&lt;1|1</span></div><div class="line">const double eps = 1e-6;</div><div class="line">const LL mod=1e9+7;</div><div class="line">const LL INF=(LL)1e18;</div><div class="line">using namespace std;</div><div class="line">LL gcd(LL a,LL b)&#123;<span class="built_in">return</span> b==0?a:gcd(b,a%b);&#125;</div><div class="line">LL qpow(LL x,LL y)&#123;LL re=1,base=x%mod;<span class="keyword">while</span>(y)&#123;<span class="keyword">if</span>(y&amp;1)re=(re*base)%mod;base=(base*base)%mod;y&gt;&gt;=1;&#125;<span class="built_in">return</span> re;&#125;</div><div class="line">struct Edge&#123;</div><div class="line">	int from,to,<span class="built_in">cap</span>,flow,cost;</div><div class="line">	Edge(int from,int to,int <span class="built_in">cap</span>,int flow,int cost):from(from),to(to),<span class="built_in">cap</span>(<span class="built_in">cap</span>),flow(flow),cost(cost)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">struct MCMF&#123;</div><div class="line">	int n,m,s,t;</div><div class="line">	vector&lt;Edge&gt;edges;</div><div class="line">	vector&lt;int&gt;G[maxn];</div><div class="line">	int inq[maxn],d[maxn],p[maxn],a[maxn];</div><div class="line">	void init(int n)&#123;</div><div class="line">		this-&gt;n=n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++) G[i].clear();</div><div class="line">		edges.clear();</div><div class="line">	&#125;</div><div class="line">	void AddEdge(int from,int to,int <span class="built_in">cap</span>,int cost)&#123;</div><div class="line">		edges.push_back(Edge(from,to,<span class="built_in">cap</span>,0,cost));</div><div class="line">		edges.push_back(Edge(to,from,0,0,-cost));</div><div class="line">		m=edges.size();</div><div class="line">		G[from].push_back(m-2);</div><div class="line">		G[to].push_back(m-1);</div><div class="line">	&#125;</div><div class="line">	bool BellmanFord(int s,int t,int &amp;flow,int&amp; cost)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++) d[i]=inf;</div><div class="line">		memset(inq,0,sizeof(inq));</div><div class="line">		d[s]=0,inq[s]=1,p[s]=0,a[s]=inf;</div><div class="line">		queue&lt;int&gt;Q;</div><div class="line">		Q.push(s);</div><div class="line">		<span class="keyword">while</span>(!Q.empty())&#123;</div><div class="line">			int u=Q.front();  Q.pop();</div><div class="line">			inq[u]=0;</div><div class="line">			<span class="keyword">for</span>(int i=0;i&lt;G[u].size();i++)&#123;</div><div class="line">				Edge&amp; e=edges[G[u][i]];</div><div class="line">				<span class="keyword">if</span>(e.cap&gt;e.flow &amp;&amp; d[e.to]&gt;d[u]+e.cost)&#123;</div><div class="line">					d[e.to]=d[u]+e.cost;</div><div class="line">					p[e.to]=G[u][i];</div><div class="line">					a[e.to]=min(a[u],e.cap-e.flow);</div><div class="line">					<span class="keyword">if</span>(!inq[e.to])&#123;</div><div class="line">						Q.push(e.to);</div><div class="line">						inq[e.to]=1;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(d[t]==inf) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">		flow+=a[t];</div><div class="line">		cost+=d[t]*a[t];</div><div class="line">		int u=t;</div><div class="line">		<span class="keyword">while</span>(u!=s)&#123;</div><div class="line">			edges[p[u]].flow+=a[t];</div><div class="line">			edges[p[u]^1].flow-=a[t];</div><div class="line">			u=edges[p[u]].from;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	int Mincost(int s,int t)&#123;</div><div class="line">		int flow=0,cost=0;</div><div class="line">		<span class="keyword">while</span>(BellmanFord(s,t,flow,cost));</div><div class="line">		<span class="built_in">return</span> cost;</div><div class="line">	&#125;</div><div class="line">&#125;mc;</div><div class="line">int l[maxn],r[maxn],w[maxn],temp[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//	freopen(<span class="string">"ouput.txt"</span>,<span class="string">"w"</span>,sdout);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0),cout.tie(0);</div><div class="line">	int t;</div><div class="line">	cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		int nn,k;</div><div class="line">		cin&gt;&gt;nn&gt;&gt;k;</div><div class="line">		int cnt=0,mm=1;</div><div class="line">		mc.init(maxn);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=nn;i++)&#123;</div><div class="line">			cin&gt;&gt;l[i]&gt;&gt;r[i]&gt;&gt;w[i];</div><div class="line">			temp[++cnt]=l[i];</div><div class="line">			temp[++cnt]=r[i];</div><div class="line">		&#125;</div><div class="line">		sort(temp+1,temp+1+cnt);</div><div class="line">		<span class="keyword">for</span>(int i=2;i&lt;=cnt;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(temp[i]!=temp[i-1]) temp[++mm]=temp[i];</div><div class="line">		&#125;</div><div class="line">		int S=0,T=mm+1;</div><div class="line">		<span class="keyword">for</span>(int i=2;i&lt;=mm;i++) mc.AddEdge(i-1,i,k,0);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=nn;i++)&#123;</div><div class="line">			int u=lower_bound(temp+1,temp+1+mm,l[i])-temp;</div><div class="line">			int v=lower_bound(temp+1,temp+1+mm,r[i])-temp;</div><div class="line">			mc.AddEdge(u,v,1,-w[i]);</div><div class="line">		&#125;</div><div class="line">		mc.AddEdge(S,1,k,0);</div><div class="line">		mc.AddEdge(mm,T,k,0);</div><div class="line">		int ans=-mc.Mincost(S,T);</div><div class="line">		cout&lt;&lt;ans&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>MCMF解法：<br>把所有点排序后离散化去重<br>相邻点加边 容量为k 费用为0<br>对于原来的区间[l,r] 找到排序后l和r的位置建边 容量为1 费用为-w<br>源点到点1建边 容量为k 费用为0 满足最多k区间覆盖<br>点mm到汇点建边 容量为k 费用为0<br>跑一遍MCMF 答案取反就是所求(求的是最大 MCMF是最小费用)</p>
 
       
     </div>
@@ -346,13 +340,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/19/网络流拓展二/">网络流拓展二</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2016-08-30, 21:12:32</p>
-        <p><span>最后更新:</span>2017-04-23, 15:34:34</p>
+        <p><span>发布时间:</span>2017-07-19, 15:07:11</p>
+        <p><span>最后更新:</span>2017-07-19, 15:23:48</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/" title="浅谈LIS算法(Longest Increasing Subsequence)">http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/19/网络流拓展二/" title="网络流拓展二">http://xuboming8.github.io/2017/07/19/网络流拓展二/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/07/19/网络流拓展二/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -364,16 +358,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">
-                    深度优先搜索(DFS)与广度优先搜索(BFS)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/30/Talking-with-Catalan/">
-                    Talking with Catalan
+                <a href="/2017/07/17/cf-edu25/">
+                    cf edu25
                 </a>
             </div>
         
@@ -386,7 +374,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路以及代码详解"><span class="toc-number">1.1.</span> <span class="toc-text">思路以及代码详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（一）"><span class="toc-number">1.1.1.</span> <span class="toc-text">思路（一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-一"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码(一)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路（二）"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路（二）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（二）"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码（二）</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络流拓展二"><span class="toc-number">1.</span> <span class="toc-text">网络流拓展二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POJ-3680-区间k覆盖问题-离散"><span class="toc-number">1.1.</span> <span class="toc-text">POJ 3680(区间k覆盖问题+离散)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -422,7 +410,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"浅谈LIS算法(Longest Increasing Subsequence)　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"网络流拓展二　| 似水年华　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -456,15 +444,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/" title="上一篇: 深度优先搜索(DFS)与广度优先搜索(BFS)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/30/Talking-with-Catalan/" title="下一篇: Talking with Catalan">
+            <a href="/2017/07/17/cf-edu25/" title="下一篇: cf edu25">
                 <i class="fa fa-angle-right"></i>
             </a>
         
