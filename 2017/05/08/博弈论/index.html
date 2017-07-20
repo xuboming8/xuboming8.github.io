@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/05/08/博弈论/index.html">
 <meta property="og:site_name" content="似水年华">
 <meta property="og:description" content="博弈论四大基础博弈转跳链接转跳1转跳2">
-<meta property="og:updated_time" content="2017-05-08T05:41:15.890Z">
+<meta property="og:updated_time" content="2017-07-20T14:45:26.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博弈论">
 <meta name="twitter:description" content="博弈论四大基础博弈转跳链接转跳1转跳2">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-博弈论" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -329,7 +329,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><h2 id="四大基础博弈"><a href="#四大基础博弈" class="headerlink" title="四大基础博弈"></a>四大基础博弈</h2><h3 id="转跳链接"><a href="#转跳链接" class="headerlink" title="转跳链接"></a>转跳链接</h3><p><a href="http://blog.csdn.net/chao1983210400/article/details/10284693" target="_blank" rel="external">转跳1</a><br><a href="http://blog.csdn.net/ac_gibson/article/details/41624623" target="_blank" rel="external">转跳2</a></p>
+        <h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><h2 id="四大基础博弈"><a href="#四大基础博弈" class="headerlink" title="四大基础博弈"></a>四大基础博弈</h2><h3 id="转跳链接"><a href="#转跳链接" class="headerlink" title="转跳链接"></a>转跳链接</h3><p><a href="http://blog.csdn.net/chao1983210400/article/details/10284693" target="_blank" rel="external">转跳1</a><br><a href="http://blog.csdn.net/ac_gibson/article/details/41624623" target="_blank" rel="external">转跳2</a><br><a id="more"></a></p>
+<h2 id="HDU-1546-SG函数"><a href="#HDU-1546-SG函数" class="headerlink" title="HDU 1546(SG函数)"></a>HDU 1546(SG函数)</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>首先输入K 表示一个集合的大小 之后输入集合 表示对于这对石子只能去这个集合中的元素的个数<br>之后输入 一个m 表示接下来对于这个集合要进行m次询问<br>之后m行 每行输入一个n 表示有n个堆 每堆有n1个石子 问这一行所表示的状态是赢还是输 如果赢输入W否则L</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 10050</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define pii pair&lt;int,int&gt;</span></div><div class="line"><span class="comment">#define fi first</span></div><div class="line"><span class="comment">#define se second</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define mp(a,b) make_pair(a,b)</span></div><div class="line"><span class="comment">#define lson l,m,rt&lt;&lt;1</span></div><div class="line"><span class="comment">#define rson m+1,r,rt&lt;&lt;1|1</span></div><div class="line">const double eps = 1e-6;</div><div class="line">const LL mod=1e9+7;</div><div class="line">const LL INF=(LL)1e18;</div><div class="line">using namespace std;</div><div class="line">LL gcd(LL a,LL b)&#123;<span class="built_in">return</span> b==0?a:gcd(b,a%b);&#125;</div><div class="line">LL qpow(LL x,LL y)&#123;LL re=1,base=x%mod;<span class="keyword">while</span>(y)&#123;<span class="keyword">if</span>(y&amp;1)re=(re*base)%mod;base=(base*base)%mod;y&gt;&gt;=1;&#125;<span class="built_in">return</span> re;&#125;</div><div class="line">bool hashh[maxn];</div><div class="line">int sg[maxn],s[150];</div><div class="line">int t;</div><div class="line">void <span class="function"><span class="title">sg_solve</span></span>()&#123;</div><div class="line">	mm(sg,0);</div><div class="line">	int j;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=maxn;i++)&#123;</div><div class="line">		mm(hashh,0);</div><div class="line">		<span class="keyword">for</span>(j=0;j&lt;t;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(i<span class="_">-s</span>[j]&gt;=0) hashh[sg[i<span class="_">-s</span>[j]]]=1;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(j=0;j&lt;=maxn;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(!hashh[j]) <span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">		sg[i]=j;</div><div class="line">	&#125;</div><div class="line">&#125; </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//	freopen(<span class="string">"ouput.txt"</span>,<span class="string">"w"</span>,sdout);</div><div class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">	cin.tie(0),cout.tie(0);</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;t)&#123;</div><div class="line">		<span class="keyword">if</span>(t==0) <span class="built_in">break</span>;</div><div class="line">		string ans;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;t;i++) cin&gt;&gt;s[i];</div><div class="line">		sg_solve();</div><div class="line">		int n; cin&gt;&gt;n;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">			int m;</div><div class="line">			cin&gt;&gt;m;</div><div class="line">			int res=0;</div><div class="line">			<span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;</div><div class="line">				int h;</div><div class="line">				cin&gt;&gt;h;</div><div class="line">				res^=sg[h];</div><div class="line">			&#125;</div><div class="line">			ans+=res?<span class="string">'W'</span>:<span class="string">'L'</span>;</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;ans&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>SG模版<br>威佐夫博弈的变形</p>
 
       
     </div>
@@ -338,17 +341,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/05/08/博弈论/">博弈论</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-05-08, 13:37:04</p>
-        <p><span>Updated:</span>2017-05-08, 13:41:15</p>
+        <p><span>本文标题:</span><a href="/2017/05/08/博弈论/">博弈论</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-05-08, 13:37:04</p>
+        <p><span>最后更新:</span>2017-07-20, 22:45:26</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/05/08/博弈论/" title="博弈论">http://xuboming8.github.io/2017/05/08/博弈论/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/05/08/博弈论/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/08/博弈论/" title="博弈论">http://xuboming8.github.io/2017/05/08/博弈论/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/05/08/博弈论/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -376,9 +379,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#博弈论"><span class="toc-number">1.</span> <span class="toc-text">博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#四大基础博弈"><span class="toc-number">1.1.</span> <span class="toc-text">四大基础博弈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转跳链接"><span class="toc-number">1.1.1.</span> <span class="toc-text">转跳链接</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#博弈论"><span class="toc-number">1.</span> <span class="toc-text">博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#四大基础博弈"><span class="toc-number">1.1.</span> <span class="toc-text">四大基础博弈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转跳链接"><span class="toc-number">1.1.1.</span> <span class="toc-text">转跳链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1546-SG函数"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 1546(SG函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -392,10 +395,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -448,15 +451,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/08/2017-ccpc-wfin-女生赛/" title="Pre: 2017 ccpc wfin-女生赛">
+            <a href="/2017/05/08/2017-ccpc-wfin-女生赛/" title="上一篇: 2017 ccpc wfin-女生赛">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/30/莫比乌斯反演/" title="Next: 莫比乌斯反演">
+            <a href="/2017/04/30/莫比乌斯反演/" title="下一篇: 莫比乌斯反演">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -479,14 +482,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -495,7 +498,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -528,9 +531,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
