@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[背包组合数相关]]></title>
+      <url>http://xuboming8.github.io/2017/08/10/%E8%83%8C%E5%8C%85%E7%BB%84%E5%90%88%E6%95%B0%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[muti多校-5]]></title>
       <url>http://xuboming8.github.io/2017/08/09/muti%E5%A4%9A%E6%A0%A1-5/</url>
       <content type="html"><![CDATA[<h1 id="muti多校-5"><a href="#muti多校-5" class="headerlink" title="muti多校-5"></a>muti多校-5</h1><h2 id="HDU-6085"><a href="#HDU-6085" class="headerlink" title="HDU 6085"></a>HDU 6085</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>有n个小孩和m个糖果 每个小孩有Ai的钱 每个糖果值Bi的钱 小孩只会买一种糖果<br>给出q次询问 每次询问包含一个k 问有多少个小孩买糖果满足余下k的钱 最后的结果mod2<br><a id="more"></a></p>
