@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;lt;">
+<meta name="description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;#60;&amp;#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="背包组合数相关">
 <meta property="og:url" content="http://xuboming8.github.io/2017/08/10/背包组合数相关/index.html">
 <meta property="og:site_name" content="似水年华">
-<meta property="og:description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;lt;">
-<meta property="og:updated_time" content="2017-08-10T02:30:17.168Z">
+<meta property="og:description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;#60;&amp;#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是">
+<meta property="og:updated_time" content="2017-08-10T02:33:05.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="背包组合数相关">
-<meta name="twitter:description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;lt;">
+<meta name="twitter:description" content="背包组合数相关总结背包组合问题通常用01背包dp解决相关问题有数组中的数字求单次组合数和无限次组合数前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字还可用bitset s|=s&amp;#60;&amp;#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -329,7 +329,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&lt;<num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到="" <a="" id="more"></num[i]表示把第个数字压入bitset中></p>
+        <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&#60;&#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到<br><a id="more"></a></p>
 <h2 id="HDU-6092"><a href="#HDU-6092" class="headerlink" title="HDU 6092"></a>HDU 6092</h2><p>通过所有组合数的个数反推集合中的每个元素<br><a href="http://monkeyxu.cn/2017/08/09/muti%E5%A4%9A%E6%A0%A1-5/#HDU-6092" target="_blank" rel="external">多校5转跳链接</a></p>
 <h2 id="openjudge-2985"><a href="#openjudge-2985" class="headerlink" title="openjudge 2985"></a>openjudge 2985</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出大小为n的数组 单次组合后问和为t的组合数有多少种组合方式</p>
 <h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 1000</span></div><div class="line">using namespace std;</div><div class="line">int dp[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	int n,t; </div><div class="line">	cin&gt;&gt;n&gt;&gt;t;</div><div class="line">	memset(dp,0,sizeof dp);</div><div class="line">	dp[0]=1;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">		int x; cin&gt;&gt;x;</div><div class="line">		<span class="keyword">for</span>(int j=t;j&gt;=x;j--) dp[j]+=dp[j-x];</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;dp[t]&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -349,7 +349,7 @@
         <p><span>本文标题:</span><a href="/2017/08/10/背包组合数相关/">背包组合数相关</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2017-08-10, 01:12:25</p>
-        <p><span>最后更新:</span>2017-08-10, 10:30:17</p>
+        <p><span>最后更新:</span>2017-08-10, 10:33:05</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/10/背包组合数相关/" title="背包组合数相关">http://xuboming8.github.io/2017/08/10/背包组合数相关/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/10/背包组合数相关/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

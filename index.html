@@ -391,7 +391,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&lt;<num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到
+              <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&#60;&#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到<br>
           
       
     </div>
