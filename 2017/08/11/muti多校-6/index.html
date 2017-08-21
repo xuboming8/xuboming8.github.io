@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/08/11/muti多校-6/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="muti多校-6HDU 6096题目要求">
-<meta property="og:updated_time" content="2017-08-11T14:40:08.079Z">
+<meta property="og:updated_time" content="2017-08-21T15:57:56.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="muti多校-6">
 <meta name="twitter:description" content="muti多校-6HDU 6096题目要求">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-muti多校-6" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -332,7 +332,7 @@
         <h1 id="muti多校-6"><a href="#muti多校-6" class="headerlink" title="muti多校-6"></a>muti多校-6</h1><h2 id="HDU-6096"><a href="#HDU-6096" class="headerlink" title="HDU 6096"></a>HDU 6096</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><a id="more"></a>
 <p>给出n个单词和q次询问<br>每次询问包括一个前缀和后缀 问满足条件的单词共多少个</p>
 <h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define maxn 500050</span></div><div class="line">using namespace std;</div><div class="line">char s[maxn],t[maxn],st[maxn*2];</div><div class="line">struct Trie&#123;</div><div class="line">	int num,root,next[maxn*2][26],v[maxn*2];</div><div class="line">	vector&lt;int&gt;g[2*maxn];</div><div class="line">	int <span class="function"><span class="title">newnode</span></span>()&#123;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;26;i++) next[num][i]=-1;</div><div class="line">		v[num]=0;</div><div class="line">		<span class="built_in">return</span> num++;</div><div class="line">	&#125;</div><div class="line">	void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">		num=0;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;2*maxn;i++) g[i].clear();</div><div class="line">		root=newnode();</div><div class="line">	&#125;</div><div class="line">	void build(char *s,int len)&#123;</div><div class="line">		int lens=strlen(s);</div><div class="line">		int now=root;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;lens;i++)&#123;</div><div class="line">			int id=s[i]-<span class="string">'a'</span>;</div><div class="line">			<span class="keyword">if</span>(next[now][id]==-1) next[now][id]=newnode();</div><div class="line">			now=next[now][id];</div><div class="line">			g[now].pb(len);</div><div class="line">			v[now]++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	void dfs(int x)&#123;</div><div class="line">		sort(g[x].begin(),g[x].end());</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;26;i++)&#123;</div><div class="line">			int temp=next[x][i];</div><div class="line">			<span class="keyword">if</span>(temp!=-1) dfs(temp);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;trie;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	int T; scanf(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		int n,q;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;q);</div><div class="line">		trie.init();</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">			scanf(<span class="string">"%s"</span>,s);</div><div class="line">			int len=strlen(s);</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;len;j++)&#123;</div><div class="line">				st[2*j]=s[j];</div><div class="line">				st[2*j+1]=s[len-j-1];</div><div class="line">			&#125;</div><div class="line">			st[len*2]=<span class="string">'\0'</span>;</div><div class="line">			trie.build(st,len);</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		trie.dfs(0);</div><div class="line">		<span class="keyword">while</span>(q--)&#123;</div><div class="line">			scanf(<span class="string">"%s %s"</span>,&amp;s,&amp;t);</div><div class="line">			int len1=strlen(s);</div><div class="line">			int len2=strlen(t);</div><div class="line">			int len=max(len1,len2);</div><div class="line">			int sum=len1+len2;</div><div class="line">			<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">				<span class="keyword">if</span>(i&lt;len1) st[2*i]=s[i];</div><div class="line">				<span class="keyword">else</span> st[2*i]=<span class="string">'*'</span>;</div><div class="line">				<span class="keyword">if</span>(i&lt;len2) st[2*i+1]=t[len2-i-1];</div><div class="line">				<span class="keyword">else</span> st[2*i+1]=<span class="string">'*'</span>;</div><div class="line">			&#125;</div><div class="line">			len*=2;</div><div class="line">			queue&lt;int&gt;q[2];</div><div class="line">			q[0].push(0);</div><div class="line">			int ans=0,temp=0;</div><div class="line">			<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">				int id=st[i]-<span class="string">'a'</span>;</div><div class="line">				<span class="keyword">while</span>(!q[temp].empty())&#123;</div><div class="line">					int now=q[temp].front(); q[temp].pop();</div><div class="line">					<span class="keyword">if</span>(st[i]==<span class="string">'*'</span>)&#123;</div><div class="line">						<span class="keyword">for</span>(int j=0;j&lt;26;j++)&#123;</div><div class="line">							int x=trie.next[now][j];</div><div class="line">							<span class="keyword">if</span>(x!=-1) q[1-temp].push(x);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">else</span>&#123;</div><div class="line">						int x=trie.next[now][id];</div><div class="line">						<span class="keyword">if</span>(x!=-1) q[1-temp].push(x);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				temp=1-temp; </div><div class="line">			&#125;</div><div class="line">			<span class="keyword">while</span>(!q[temp].empty())&#123;</div><div class="line">				int now=q[temp].front();</div><div class="line">				q[temp].pop();</div><div class="line">				int pos=lower_bound(trie.g[now].begin(),trie.g[now].end(),sum)-trie.g[now].begin();</div><div class="line">				ans+=trie.v[now];</div><div class="line">				ans-=pos;</div><div class="line">			&#125;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>普通trie的情况下加了后缀的限制<br>存储单词的时候按照第一位 第n位 第2位 第n-1位这样存储 例如cedf存储为cfdeedfc 相当于奇数位正序 偶数位逆序<br>查询前后缀的时候同理 如果前后缀大小不等用<em>补齐 代表可以用任何字母代替 例如ce f存储为cfe</em><br>字典树存放的为：num代表给每个结点的编号 当有新的结点时候调用newnode num++ next模拟指针 v代表经过该结点的字符串个数<br>g存储经过该结点的所有字符串的长度<br>用2个队列互相更新 从0的根开始 q[0]和q[1]互相转换 相当于向下遍历字典树的过程<br>通过更新队列后逐个弹出g[temp]里的结点序号 通过lower_bound找到该长度在g中的位置 用v-pos就是答案 表示所有经过该结点的<br>字符串个数减去长度小于sum就是答案 只有大于sum才能在前后缀的基础上继续延伸满足题意<br>注意：第一个st应加\0 不然strlen不能处理</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>普通trie的情况下加了后缀的限制<br>存储单词的时候按照第一位 第n位 第2位 第n-1位这样存储 例如cedf存储为cfdeedfc 相当于奇数位正序 偶数位逆序<br>查询前后缀的时候同理 如果前后缀大小不等用&#42;补齐 代表可以用任何字母代替 例如ce f存储为cfe*<br>字典树存放的为：num代表给每个结点的编号 当有新的结点时候调用newnode num++ next模拟指针 v代表经过该结点的字符串个数<br>g存储经过该结点的所有字符串的长度<br>用2个队列互相更新 从0的根开始 q[0]和q[1]互相转换 相当于向下遍历字典树的过程<br>通过更新队列后逐个弹出g[temp]里的结点序号 通过lower_bound找到该长度在g中的位置 用v-pos就是答案 表示所有经过该结点的<br>字符串个数减去长度小于sum就是答案 只有大于sum才能在前后缀的基础上继续延伸满足题意<br>注意：第一个st应加\0 不然strlen不能处理</p>
 <h2 id="HDU-6098"><a href="#HDU-6098" class="headerlink" title="HDU 6098"></a>HDU 6098</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出数组n 要求从i=2开始到n 共n-1个数字 依次输出A中index%i!=0的最大值</p>
 <h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define pii pair&lt;int,int&gt;</span></div><div class="line"><span class="comment">#define fi first</span></div><div class="line"><span class="comment">#define se second</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define mp(a,b) make_pair(a,b)</span></div><div class="line"><span class="comment">#define lson l,m,rt&lt;&lt;1</span></div><div class="line"><span class="comment">#define rson m+1,r,rt&lt;&lt;1|1</span></div><div class="line">const double eps = 1e-6;</div><div class="line">const LL mod=1e9+7;</div><div class="line">const LL INF=(LL)1e18;</div><div class="line">using namespace std;</div><div class="line">LL gcd(LL a,LL b)&#123;<span class="built_in">return</span> b==0?a:gcd(b,a%b);&#125;</div><div class="line">LL qpow(LL x,LL y)&#123;LL re=1,base=x%mod;<span class="keyword">while</span>(y)&#123;<span class="keyword">if</span>(y&amp;1)re=(re*base)%mod;base=(base*base)%mod;y&gt;&gt;=1;&#125;<span class="built_in">return</span> re;&#125;</div><div class="line">template&lt;typename T&gt; inline void <span class="built_in">read</span>(T &amp;x)&#123;x=0;T f=1;char ch;<span class="keyword">do</span>&#123;ch=getchar();<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=-1;&#125;<span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>);<span class="keyword">do</span> x=x*10+ch-<span class="string">'0'</span>,ch=getchar();<span class="keyword">while</span>(ch&lt;=<span class="string">'9'</span>&amp;&amp;ch&gt;=<span class="string">'0'</span>);x*=f;&#125;</div><div class="line">inline void out(int x)&#123;<span class="keyword">if</span>(x&gt;9) out(x/10);putchar(x%10+<span class="string">'0'</span>);&#125;</div><div class="line">vector&lt;pii&gt;a;</div><div class="line">int dp[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//    freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">//    freopen(<span class="string">"ouput.txt"</span>,<span class="string">"w"</span>,sdout);</div><div class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</div><div class="line">    cin.tie(0),cout.tie(0);</div><div class="line">    int t; <span class="built_in">read</span>(t);</div><div class="line">    <span class="keyword">while</span>(t--)&#123;</div><div class="line">        a.clear();</div><div class="line">        mm(dp,0);</div><div class="line">        int n; <span class="built_in">read</span>(n);</div><div class="line">        <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">            int x; <span class="built_in">read</span>(x);</div><div class="line">            a.pb(mp(x,i));</div><div class="line">        &#125;</div><div class="line">        sort(a.begin(),a.end(),greater&lt;pii&gt;());</div><div class="line">        int len=a.size();</div><div class="line">        <span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(int j=0;j&lt;len;j++)&#123;</div><div class="line">                int num=a[j].fi,id=a[j].se;</div><div class="line">                <span class="keyword">if</span>(id%i!=0)&#123;</div><div class="line">                    dp[i]=num;</div><div class="line">                    <span class="built_in">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(i==2) <span class="built_in">printf</span>(<span class="string">"%d"</span>,dp[i]);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">" %d"</span>,dp[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>任何nlogn算法都可以卡过<br>这里介绍一种：给数组A从大到小排序 从最大数开始 dp数组预处理出index%i!=0的最大数<br>实际情况是只要找到第一个满足该位置条件的直接保存退出判断下一个</p>
@@ -354,17 +354,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/08/11/muti多校-6/">muti多校-6</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-08-11, 14:59:32</p>
-        <p><span>Updated:</span>2017-08-11, 22:40:08</p>
+        <p><span>本文标题:</span><a href="/2017/08/11/muti多校-6/">muti多校-6</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-08-11, 14:59:32</p>
+        <p><span>最后更新:</span>2017-08-21, 23:57:56</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/08/11/muti多校-6/" title="muti多校-6">http://xuboming8.github.io/2017/08/11/muti多校-6/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/08/11/muti多校-6/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/11/muti多校-6/" title="muti多校-6">http://xuboming8.github.io/2017/08/11/muti多校-6/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/11/muti多校-6/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -392,7 +392,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#muti多校-6"><span class="toc-number">1.</span> <span class="toc-text">muti多校-6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6096"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 6096</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6098"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 6098</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6103"><span class="toc-number">1.3.</span> <span class="toc-text">HDU 6103</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6105"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 6105</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6106"><span class="toc-number">1.5.</span> <span class="toc-text">HDU 6106</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
@@ -408,10 +408,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -464,15 +464,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/14/2017百度之星复赛A/" title="Pre: 2017百度之星预赛A">
+            <a href="/2017/08/14/2017百度之星复赛A/" title="上一篇: 2017百度之星预赛A">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/08/10/背包组合数相关/" title="Next: 背包组合数相关">
+            <a href="/2017/08/10/背包组合数相关/" title="下一篇: 背包组合数相关">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -495,14 +495,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -511,7 +511,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -544,9 +544,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
