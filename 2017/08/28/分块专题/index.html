@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/08/28/分块专题/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="分块专题一bzoj 3343题目要求">
-<meta property="og:updated_time" content="2017-08-28T17:18:38.165Z">
+<meta property="og:updated_time" content="2017-08-29T04:14:46.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分块专题一">
 <meta name="twitter:description" content="分块专题一bzoj 3343题目要求">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>友情鏈接</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>關於我</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-分块专题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -341,6 +341,9 @@
 <p>对于每个i=1的情况，你都要输出一个需要的步数，占一行。</p>
 <h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int n,q,block,num;</div><div class="line">int a[maxn],belong[maxn];</div><div class="line">int cnt[maxn],End[maxn];</div><div class="line">int l[1100],r[1100];</div><div class="line">inline LL <span class="function"><span class="title">read</span></span>()&#123;</div><div class="line">    int x=0,f=1;char ch=getchar();</div><div class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=-1;ch=getchar();&#125;</div><div class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=x*10+ch-<span class="string">'0'</span>;ch=getchar();&#125;</div><div class="line">    <span class="built_in">return</span> x*f;</div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">build</span></span>()&#123;</div><div class="line">	block = sqrt(n);</div><div class="line">    num = n/block;</div><div class="line">    <span class="keyword">if</span>(n%block) num++;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=num;i++) l[i]=(i-1)*block+1,r[i]=i*block;</div><div class="line">    r[num]=n;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++) belong[i]=(i-1)/block+1;</div><div class="line">	<span class="keyword">for</span>(int i=n;i&gt;=1;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]+i&gt;n) cnt[i]=1,End[i]=-1;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(belong[i]==belong[a[i]+i]) cnt[i]=cnt[i+a[i]]+1,End[i]=End[i+a[i]];</div><div class="line">		<span class="keyword">else</span> cnt[i]=1,End[i]=i+a[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">void update(int x,int y)&#123;</div><div class="line">	a[x]=y;</div><div class="line">	<span class="keyword">for</span>(int i=x;i&gt;=l[belong[x]];i--)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]+i&gt;n) cnt[i]=1,End[i]=-1;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(belong[i]==belong[a[i]+i]) cnt[i]=cnt[i+a[i]]+1,End[i]=End[i+a[i]];</div><div class="line">		<span class="keyword">else</span> cnt[i]=1,End[i]=i+a[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int solve(int x)&#123;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">while</span>(1)&#123;</div><div class="line">		ans+=cnt[x];</div><div class="line">		<span class="keyword">if</span>(End[x]&lt;0) <span class="built_in">break</span>;</div><div class="line">		x=End[x];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	n=<span class="built_in">read</span>();</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) a[i]=<span class="built_in">read</span>();</div><div class="line">	build();</div><div class="line">	q=<span class="built_in">read</span>();</div><div class="line">	<span class="keyword">while</span>(q--)&#123;</div><div class="line">		int op; op=<span class="built_in">read</span>();</div><div class="line">		<span class="keyword">if</span>(op==1)&#123;</div><div class="line">			int x; x=<span class="built_in">read</span>();</div><div class="line">			x++;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,solve(x));</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			int x,y;</div><div class="line">			x++; </div><div class="line">			x=<span class="built_in">read</span>(),y=<span class="built_in">read</span>();</div><div class="line">			update(x,y);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>分块<br>cnt维护跳出该块的步数<br>end维护跳到下一个块的位置<br>注意下标从0开始 x需要++</p>
+<h2 id="cf-444c"><a href="#cf-444c" class="headerlink" title="cf 444c"></a>cf 444c</h2><h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>开始,a[i]=i,b[i]=0<br>然后两个操作<br>1.使得[l,r]的b[i]+=fabs(x-a[i]),a[i]=x<br>2.查询[l,r]的b[i]和</p>
+<h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;  </div><div class="line"><span class="comment">#define ll long long  </span></div><div class="line"><span class="comment">#define L(x) (x&lt;&lt;1)  </span></div><div class="line"><span class="comment">#define R(x) (x&lt;&lt;1|1)  </span></div><div class="line"><span class="comment">#define N 100005  </span></div><div class="line">inline int Mid(int a,int b)&#123;<span class="built_in">return</span> (a+b)&gt;&gt;1;&#125;  </div><div class="line">inline ll ABS(ll x)&#123;<span class="built_in">return</span> x&gt;0?x:-x;&#125;  </div><div class="line">int n,m;  </div><div class="line">struct node&#123;  </div><div class="line">    int l, r, id;  </div><div class="line">    ll <span class="function"><span class="title">siz</span></span>()&#123;<span class="built_in">return</span> (ll)(r<span class="_">-l</span>+1);&#125;  </div><div class="line">    ll sum, col, lazy, same;  </div><div class="line">&#125;tree[N&lt;&lt;2];  </div><div class="line">void push_down(int id)&#123;   </div><div class="line">    <span class="keyword">if</span>(tree[id].lazy) &#123;  </div><div class="line">        tree[L(id)].sum += tree[L(id)].siz()*tree[id].lazy;  </div><div class="line">        tree[R(id)].sum += tree[R(id)].siz()*tree[id].lazy;  </div><div class="line">        tree[L(id)].lazy += tree[id].lazy;  </div><div class="line">        tree[R(id)].lazy += tree[id].lazy;  </div><div class="line">        tree[id].lazy = 0;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">if</span>(tree[id].col&gt;=0)&#123;  </div><div class="line">        tree[L(id)].col = tree[R(id)].col = tree[id].col;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">void push_up(int id)&#123;  </div><div class="line">    <span class="keyword">if</span>(tree[L(id)].col==tree[R(id)].col&amp;&amp;tree[L(id)].col&gt;=0)  </div><div class="line">    tree[id].col = tree[L(id)].col, tree[id].same = 1;  </div><div class="line">    <span class="keyword">else</span> tree[id].col = -1, tree[id].same = 0;  </div><div class="line">    tree[id].sum = tree[L(id)].sum+tree[R(id)].sum;  </div><div class="line">&#125;  </div><div class="line">void build(int l, int r, int id)&#123;  </div><div class="line">    tree[id].l = l, tree[id].r = r;  </div><div class="line">    tree[id].sum = 0;  </div><div class="line">    tree[id].lazy = 0;  </div><div class="line">    tree[id].col = -1;  </div><div class="line">    tree[id].same = 0;  </div><div class="line">    <span class="keyword">if</span>(l==r)&#123;  </div><div class="line">        tree[id].col = l;  </div><div class="line">        tree[id].same = 1;  </div><div class="line">        <span class="built_in">return</span> ;  </div><div class="line">    &#125;  </div><div class="line">    int mid = Mid(l,r);  </div><div class="line">    build(l,mid,L(id));  </div><div class="line">    build(mid+1,r,R(id));  </div><div class="line">&#125;  </div><div class="line">void updata(int l, int r, int id, ll col)&#123;  </div><div class="line">    <span class="keyword">if</span>(l==tree[id].l&amp;&amp;tree[id].r==r &amp;&amp; tree[id].same)&#123;  </div><div class="line">        tree[id].sum += tree[id].siz() * ABS(col-tree[id].col);  </div><div class="line">        tree[id].lazy += ABS(col-tree[id].col);  </div><div class="line">        tree[id].col = col;  </div><div class="line">        <span class="built_in">return</span> ;  </div><div class="line">    &#125;  </div><div class="line">    push_down(id);  </div><div class="line">    int mid = Mid(tree[id].l, tree[id].r);  </div><div class="line">    <span class="keyword">if</span>(mid&lt;l) updata(l,r,R(id),col);  </div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(r&lt;=mid) updata(l,r,L(id),col);  </div><div class="line">    <span class="keyword">else</span> updata(l,mid,L(id),col),updata(mid+1,r,R(id),col);    </div><div class="line">    push_up(id);  </div><div class="line">&#125;  </div><div class="line">ll query(int l, int r, int id)&#123;  </div><div class="line">    <span class="keyword">if</span>(l==tree[id].l &amp;&amp; tree[id].r==r) <span class="built_in">return</span> tree[id].sum;  </div><div class="line">    push_down(id);  </div><div class="line">    int mid = Mid(tree[id].l, tree[id].r);  </div><div class="line">    <span class="keyword">if</span>(mid&lt;l) <span class="built_in">return</span> query(l,r,R(id));  </div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(r&lt;=mid) <span class="built_in">return</span> query(l,r,L(id));  </div><div class="line">    <span class="keyword">else</span> <span class="built_in">return</span> query(l,mid,L(id))+query(mid+1,r,R(id));  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">    int <span class="built_in">type</span>, l, r;  </div><div class="line">    ll x;  </div><div class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%d %d"</span>,&amp;n,&amp;m))&#123;  </div><div class="line">        build(1,n,1);  </div><div class="line">        <span class="keyword">while</span>(m--)&#123;  </div><div class="line">            scanf(<span class="string">"%d %d %d"</span>,&amp;<span class="built_in">type</span>,&amp;l,&amp;r);  </div><div class="line">            <span class="keyword">if</span>(<span class="built_in">type</span>==1)&#123;  </div><div class="line">                scanf(<span class="string">"%lld"</span>,&amp;x);  </div><div class="line">                updata(l,r,1,x);  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">else</span> &#123;  </div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,query(l,r,1));  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>可以用分块做 本题采用线段树 但用了分块的思想<br>same表示区间的颜色是否相同 0表示不同<br>每次更新的时候找到颜色相同的块更新</p>
 
       
     </div>
@@ -349,17 +352,17 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2017/08/28/分块专题/">分块专题一</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey</a></p>
-        <p><span>發布時間:</span>2017-08-28, 19:39:00</p>
-        <p><span>最後更新:</span>2017-08-29, 01:18:38</p>
+        <p><span>本文标题:</span><a href="/2017/08/28/分块专题/">分块专题一</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-08-28, 19:39:00</p>
+        <p><span>最后更新:</span>2017-08-29, 12:14:46</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2017/08/28/分块专题/" title="分块专题一">http://xuboming8.github.io/2017/08/28/分块专题/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/28/分块专题/　　作者: Hippopmonkey" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/28/分块专题/" title="分块专题一">http://xuboming8.github.io/2017/08/28/分块专题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/28/分块专题/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -381,9 +384,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分块专题一"><span class="toc-number">1.</span> <span class="toc-text">分块专题一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-3343"><span class="toc-number">1.1.</span> <span class="toc-text">bzoj 3343</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-4636"><span class="toc-number">1.2.</span> <span class="toc-text">bzoj 4636</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-2002"><span class="toc-number">1.3.</span> <span class="toc-text">bzoj 2002</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分块专题一"><span class="toc-number">1.</span> <span class="toc-text">分块专题一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-3343"><span class="toc-number">1.1.</span> <span class="toc-text">bzoj 3343</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-4636"><span class="toc-number">1.2.</span> <span class="toc-text">bzoj 4636</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-2002"><span class="toc-number">1.3.</span> <span class="toc-text">bzoj 2002</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-444c"><span class="toc-number">1.4.</span> <span class="toc-text">cf 444c</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -397,10 +400,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -453,7 +456,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -482,14 +485,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -498,7 +501,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -531,9 +534,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
