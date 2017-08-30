@@ -15,21 +15,16 @@
 
 
 
-<meta name="description" content="RMQ问题母题RMQ (Range Minimum/Maximum Query)：对于长度为n的数列A，回答若干询问RMQ(A,i,j)(i,j&amp;lt;=n)，返回数列A中下标在[i,j]里的最小(大）值，也就是说，RMQ问题是指求区间最值的问题 
-三种基本算法">
+<meta name="description" content="分块专题2cf 455D题目要求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RMQ问题">
-<meta property="og:url" content="http://xuboming8.github.io/2016/11/09/RMQ问题/index.html">
+<meta property="og:title" content="分块专题2">
+<meta property="og:url" content="http://xuboming8.github.io/2017/08/30/分块专题2/index.html">
 <meta property="og:site_name" content="臀臀柯基">
-<meta property="og:description" content="RMQ问题母题RMQ (Range Minimum/Maximum Query)：对于长度为n的数列A，回答若干询问RMQ(A,i,j)(i,j&amp;lt;=n)，返回数列A中下标在[i,j]里的最小(大）值，也就是说，RMQ问题是指求区间最值的问题 
-三种基本算法">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147865828788.png">
-<meta property="og:updated_time" content="2016-11-09T02:35:29.947Z">
+<meta property="og:description" content="分块专题2cf 455D题目要求">
+<meta property="og:updated_time" content="2017-08-30T10:17:09.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RMQ问题">
-<meta name="twitter:description" content="RMQ问题母题RMQ (Range Minimum/Maximum Query)：对于长度为n的数列A，回答若干询问RMQ(A,i,j)(i,j&amp;lt;=n)，返回数列A中下标在[i,j]里的最小(大）值，也就是说，RMQ问题是指求区间最值的问题 
-三种基本算法">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147865828788.png">
+<meta name="twitter:title" content="分块专题2">
+<meta name="twitter:description" content="分块专题2cf 455D题目要求">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>RMQ问题 | 臀臀柯基</title>
+<title>分块专题2 | 臀臀柯基</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -290,11 +285,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-RMQ问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-分块专题2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/09/RMQ问题/" class="article-date">
-      <time datetime="2016-11-09T02:14:14.000Z" itemprop="datePublished">2016-11-09</time>
+      <a href="/2017/08/30/分块专题2/" class="article-date">
+      <time datetime="2017-08-30T10:09:23.000Z" itemprop="datePublished">2017-08-30</time>
 </a>
 
 
@@ -309,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      RMQ问题
+      分块专题2
     </h1>
   
 
@@ -324,7 +319,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMQ/">RMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ST算法/">ST算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树/">线段树</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -334,15 +329,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="RMQ问题"><a href="#RMQ问题" class="headerlink" title="RMQ问题"></a>RMQ问题</h1><h2 id="母题"><a href="#母题" class="headerlink" title="母题"></a>母题</h2><p>RMQ (Range Minimum/Maximum Query)：对于长度为n的数列A，回答若干询问RMQ(A,i,j)(i,j&lt;=n)，返回数列A中下标在[i,j]里的最小(大）值，也就是说，RMQ问题<br>是指求区间最值的问题 </p>
-<p><strong>三种基本算法</strong><br><a id="more"></a></p>
-<h2 id="朴素（即搜索）"><a href="#朴素（即搜索）" class="headerlink" title="朴素（即搜索）"></a>朴素（即搜索）</h2><p>时间复杂度：O(n)-O(n) </p>
-<h2 id="线段树-segment-tree"><a href="#线段树-segment-tree" class="headerlink" title="线段树(segment tree)"></a>线段树(segment tree)</h2><p>时间复杂度：O(n)-O(qlogn) </p>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>线段树能在对数时间内在数组区间上进行更新与查询。<br>定义线段树在区间[i, j] 上如下：<br>第一个节点维护着区间 [i, j] 的信息。<br>if i&lt;j , 那么左孩子维护着区间[i, (i+j)/2] 的信息，右孩子维护着区间[(i+j)/2+1, j] 的信息。<br>可知 N  个元素的线段树的高度 为 [logN] + 1(只有根节点的树高度为0) .<br>下面是区间 [0, 9]  的一个线段树:<br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/147865828788.png" alt=""><br>线段树和堆有一样的结构, 因此如果一个节点编号为 x ，那么左孩子编号为2<em>x  右孩子编号为2</em>x+1.<br>使用线段树解决RMQ问题，关键维护一个数组M[num]，num=2^(线段树高度+1).<br>M[i]:维护着被分配给该节点(编号:i 线段树根节点编号:1)的区间的最小值元素的下标。 该数组初始状态为-1. </p>
-<h3 id="模版代码"><a href="#模版代码" class="headerlink" title="模版代码"></a>模版代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;   </span></div><div class="line">using namespace std;   </div><div class="line"><span class="comment">#define MAXN 100  </span></div><div class="line"><span class="comment">#define MAXIND 256 //线段树节点个数   </span></div><div class="line">//构建线段树,目的:得到M数组.  </div><div class="line">void initialize(int node, int b, int e, int M[], int A[])  </div><div class="line">&#123;  </div><div class="line">    <span class="keyword">if</span> (b == e)  </div><div class="line">        M[node] = b; //只有一个元素,只有一个下标  </div><div class="line">    <span class="keyword">else</span>  </div><div class="line">    &#123;  </div><div class="line">    //递归实现左孩子和右孩子  </div><div class="line">        initialize(2 * node, b, (b + e) / 2, M, A);  </div><div class="line">        initialize(2 * node + 1, (b + e) / 2 + 1, e, M, A);  </div><div class="line">    <span class="keyword">if</span> (A[M[2 * node]] &lt;= A[M[2 * node + 1]])  </div><div class="line">        M[node] = M[2 * node];  </div><div class="line">    <span class="keyword">else</span>  </div><div class="line">        M[node] = M[2 * node + 1];  </div><div class="line">    &#125;  </div><div class="line">&#125;   </div><div class="line">//找出区间 [i, j] 上的最小值的索引  </div><div class="line">int query(int node, int b, int e, int M[], int A[], int i, int j)  </div><div class="line">&#123;  </div><div class="line">    int p1, p2;  </div><div class="line">    //查询区间和要求的区间没有交集  </div><div class="line">    <span class="keyword">if</span> (i &gt; e || j &lt; b)  </div><div class="line">        <span class="built_in">return</span> -1;  </div><div class="line">    <span class="keyword">if</span> (b &gt;= i &amp;&amp; e &lt;= j)  </div><div class="line">        <span class="built_in">return</span> M[node];  </div><div class="line">    p1 = query(2 * node, b, (b + e) / 2, M, A, i, j);  </div><div class="line">    p2 = query(2 * node + 1, (b + e) / 2 + 1, e, M, A, i, j);  </div><div class="line">    //minimum is  </div><div class="line">    <span class="keyword">if</span> (p1 == -1)  </div><div class="line">        <span class="built_in">return</span> M[node] = p2;  </div><div class="line">    <span class="keyword">if</span> (p2 == -1)  </div><div class="line">        <span class="built_in">return</span> M[node] = p1;  </div><div class="line">    <span class="keyword">if</span> (A[p1] &lt;= A[p2])  </div><div class="line">        <span class="built_in">return</span> M[node] = p1;  </div><div class="line">    <span class="built_in">return</span> M[node] = p2; </div><div class="line">&#125;   </div><div class="line">int <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">    int M[MAXIND]; //下标1起才有意义,保存下标编号节点对应区间最小值的下标.  </div><div class="line">    memset(M,-1,sizeof(M));  </div><div class="line">    int a[]=&#123;3,1,5,7,2,9,0,3,4,5&#125;;  </div><div class="line">    initialize(1, 0, sizeof(a)/sizeof(a[0])-1, M, a);  </div><div class="line">    cout&lt;&lt;query(1, 0, sizeof(a)/sizeof(a[0])-1, M, a, 0, 5)&lt;&lt;endl;  </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="ST（实质是动态规划）"><a href="#ST（实质是动态规划）" class="headerlink" title="ST（实质是动态规划）"></a>ST（实质是动态规划）</h2><p>时间复杂度：O(nlogn)-O(1) </p>
-<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>以最小值为例。a为所寻找的数组.<br>用一个二维数组f(i,j)记录区间[i,i+2^j-1]持续2^j个区间中的最小值。其中f[i,0] = a[i];<br>所以，对于任意的一组(i,j)，f(i,j) = min{f(i,j-1),f(i+2^(j-1),j-1)}来使用动态规划计算出来。<br>这个算法的高明之处不是在于这个动态规划的建立，而是它的查询：它的查询效率是O(1).<br>假设我们要求区间[m,n]中a的最小值，找到一个数k使得2^k&lt;n-m+1.<br>这样，可以把这个区间分成两个部分：[m,m+2^k-1]和[n-2^k+1,n].我们发现，这两个区间是已经初始化好的.<br>前面的区间是f(m,k)，后面的区间是f(n-2^k+1,k).<br>这样，只要看这两个区间的最小值，就可以知道整个区间的最小值</p>
-<h3 id="模版代码-1"><a href="#模版代码-1" class="headerlink" title="模版代码"></a>模版代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;  </span></div><div class="line"><span class="comment">#include&lt;cmath&gt;  </span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;  </span></div><div class="line">using namespace std;  </div><div class="line"><span class="comment">#define M 100010  </span></div><div class="line"><span class="comment">#define MAXN 500  </span></div><div class="line"><span class="comment">#define MAXM 500  </span></div><div class="line">int dp[M][18];  </div><div class="line">/* </div><div class="line">*一维RMQ ST算法 </div><div class="line">*构造RMQ数组 makermq(int n,int b[]) O(nlog(n))的算法复杂度 </div><div class="line">*dp[i][j] 表示从i到i+2^j -1中最小的一个值(从i开始持续2^j个数) </div><div class="line">*dp[i][j]=min&#123;dp[i][j-1],dp[i+2^(j-1)][j-1]&#125; </div><div class="line">*查询RMQ rmq(int s,int v) </div><div class="line">*将s-v 分成两个2^k的区间 </div><div class="line">*即 k=(int)<span class="built_in">log</span>2(s-v+1) </div><div class="line">*查询结果应该为 min(dp[s][k],dp[v-2^k+1][k]) </div><div class="line">*/  </div><div class="line">void makermq(int n,int b[])  </div><div class="line">&#123;  </div><div class="line">    int i,j;  </div><div class="line">    <span class="keyword">for</span>(i=0;i&lt;n;i++)  </div><div class="line">        dp[i][0]=b[i];  </div><div class="line">    <span class="keyword">for</span>(j=1;(1&lt;&lt;j)&lt;=n;j++)  </div><div class="line">        <span class="keyword">for</span>(i=0;i+(1&lt;&lt;j)-1&lt;n;i++)  </div><div class="line">            dp[i][j]=min(dp[i][j-1],dp[i+(1&lt;&lt;(j-1))][j-1]);  </div><div class="line">&#125;  </div><div class="line">int rmq(int s,int v)  </div><div class="line">&#123;  </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> min(dp[s][k],dp[v-(1&lt;&lt;k)+1][k]);  </div><div class="line">&#125;  </div><div class="line">void makeRmqIndex(int n,int b[]) //返回最小值对应的下标  </div><div class="line">&#123;  </div><div class="line">    int i,j;  </div><div class="line">    <span class="keyword">for</span>(i=0;i&lt;n;i++)  </div><div class="line">        dp[i][0]=i;  </div><div class="line">    <span class="keyword">for</span>(j=1;(1&lt;&lt;j)&lt;=n;j++)  </div><div class="line">        <span class="keyword">for</span>(i=0;i+(1&lt;&lt;j)-1&lt;n;i++)  </div><div class="line">            dp[i][j]=b[dp[i][j-1]] &lt; b[dp[i+(1&lt;&lt;(j-1))][j-1]]? dp[i][j-1]:dp[i+(1&lt;&lt;(j-1))][j-1];  </div><div class="line">&#125;  </div><div class="line">int rmqIndex(int s,int v,int b[])  </div><div class="line">&#123;  </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> b[dp[s][k]]&lt;b[dp[v-(1&lt;&lt;k)+1][k]]? dp[s][k]:dp[v-(1&lt;&lt;k)+1][k];  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()  </div><div class="line">&#123;  </div><div class="line">    int a[]=&#123;3,4,5,7,8,9,0,3,4,5&#125;;  </div><div class="line">    //返回下标  </div><div class="line">    makeRmqIndex(sizeof(a)/sizeof(a[0]),a);  </div><div class="line">    cout&lt;&lt;rmqIndex(0,9,a)&lt;&lt;endl;  </div><div class="line">    cout&lt;&lt;rmqIndex(4,9,a)&lt;&lt;endl;  </div><div class="line">    //返回最小值  </div><div class="line">    makermq(sizeof(a)/sizeof(a[0]),a);  </div><div class="line">    cout&lt;&lt;rmq(0,9)&lt;&lt;endl;  </div><div class="line">    cout&lt;&lt;rmq(4,9)&lt;&lt;endl;  </div><div class="line">    <span class="built_in">return</span> 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="分块专题2"><a href="#分块专题2" class="headerlink" title="分块专题2"></a>分块专题2</h1><h2 id="cf-455D"><a href="#cf-455D" class="headerlink" title="cf 455D"></a>cf 455D</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><a id="more"></a>
+<p>题意：给出一个序列，两种操作<br>1.将区间[l,r]滚动一次    a[l] a[l+1]···a[r]-&gt;a[r] a[l]···a[r-1]<br>2.询问区间[l,r]中值等于k的数有多少个<br>根据所给公式强制在线</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">deque&lt;int&gt;que[350];</div><div class="line">int b[350][maxn];</div><div class="line">int n,q;</div><div class="line">int val[maxn];</div><div class="line">int block,num,belong[maxn],l[maxn],r[maxn];</div><div class="line">void <span class="function"><span class="title">build</span></span>()&#123;</div><div class="line">	block=sqrt(n);</div><div class="line">    num=n/block;</div><div class="line">	<span class="keyword">if</span>(n%block) num++;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=num;i++) l[i]=(i-1)*block+1,r[i]=i*block;</div><div class="line">    r[num]=n;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++) belong[i]=(i-1)/block+1;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=num;i++)&#123;</div><div class="line">    	<span class="keyword">for</span>(int j=l[i];j&lt;=r[i];j++)&#123;</div><div class="line">    		b[i][val[j]]++;</div><div class="line">    		que[i].push_back(val[j]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">void update(int x,int y)&#123;</div><div class="line">	<span class="keyword">if</span>(belong[x]==belong[y])&#123;</div><div class="line">		int index=belong[x];</div><div class="line">		x-=l[index];</div><div class="line">		y-=l[index];</div><div class="line">		int temp=que[index][y];</div><div class="line">		<span class="keyword">for</span>(int i=y;i&gt;x;i--) que[index][i]=que[index][i-1];</div><div class="line">		que[index][x]=temp;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	int temp=que[belong[y]][y<span class="_">-l</span>[belong[y]]];</div><div class="line">	int temp2=que[belong[x]][r[belong[x]]<span class="_">-l</span>[belong[x]]];</div><div class="line">	b[belong[y]][temp]--;</div><div class="line">	b[belong[x]][temp2]--;</div><div class="line">	<span class="keyword">for</span>(int i=r[belong[x]];i&gt;x;i--) que[belong[x]][i<span class="_">-l</span>[belong[x]]]=que[belong[x]][i<span class="_">-l</span>[belong[x]]-1];</div><div class="line">	que[belong[x]][x<span class="_">-l</span>[belong[x]]]=temp;</div><div class="line">	b[belong[x]][temp]++;</div><div class="line">	<span class="keyword">for</span>(int i=belong[x]+1;i&lt;belong[y];i++)&#123;</div><div class="line">		int tp=temp2;</div><div class="line">		b[i][temp2]++;</div><div class="line">		temp2=que[i][r[i]<span class="_">-l</span>[i]];</div><div class="line">		b[i][temp2]--;</div><div class="line">		que[i].pop_back();</div><div class="line">		que[i].push_front(tp);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=y;i&gt;l[belong[y]];i--) que[belong[y]][i<span class="_">-l</span>[belong[y]]]=que[belong[y]][i<span class="_">-l</span>[belong[y]]-1];</div><div class="line">	que[belong[y]][0]=temp2;</div><div class="line">	b[belong[y]][temp2]++;</div><div class="line">&#125;</div><div class="line">int query(int x,int y,int k)&#123;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">if</span>(belong[x]==belong[y])&#123;</div><div class="line">		<span class="keyword">for</span>(int i=x;i&lt;=y;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(que[belong[x]][i<span class="_">-l</span>[belong[x]]]==k) ans++;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> ans;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=x;i&lt;=r[belong[x]];i++)&#123;</div><div class="line">		<span class="keyword">if</span>(que[belong[x]][i<span class="_">-l</span>[belong[x]]]==k) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=belong[x]+1;i&lt;belong[y];i++) ans+=b[i][k];</div><div class="line">	<span class="keyword">for</span>(int i=l[belong[y]];i&lt;=y;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(que[belong[y]][i<span class="_">-l</span>[belong[y]]]==k) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) scanf(<span class="string">"%d"</span>,&amp;val[i]);</div><div class="line">	build();</div><div class="line">	int ans=0;</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;q);</div><div class="line">	<span class="keyword">while</span>(q--)&#123;</div><div class="line">		int op;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;op);</div><div class="line">		int x,y;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">		x=(x+ans-1)%n+1;</div><div class="line">		y=(y+ans-1)%n+1;</div><div class="line">		<span class="keyword">if</span>(x&gt;y) swap(x,y);</div><div class="line">		<span class="keyword">if</span>(op==1) update(x,y);</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			int k;</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;k);</div><div class="line">			k=(k+ans-1)%n+1;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans=query(x,y,k));</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>分块+双段队列模拟<br>b代表每个块的hash表 que模拟每个块<br>模拟时注意细节即可 每个块que的下标需要减去左端点l</p>
+
       
     </div>
     
@@ -350,13 +341,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/09/RMQ问题/">RMQ问题</a></p>
+        <p><span>Title:</span><a href="/2017/08/30/分块专题2/">分块专题2</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2016-11-09, 10:14:14</p>
-        <p><span>Updated:</span>2016-11-09, 10:35:29</p>
+        <p><span>Created:</span>2017-08-30, 18:09:23</p>
+        <p><span>Updated:</span>2017-08-30, 18:17:09</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/09/RMQ问题/" title="RMQ问题">http://xuboming8.github.io/2016/11/09/RMQ问题/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/11/09/RMQ问题/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/08/30/分块专题2/" title="分块专题2">http://xuboming8.github.io/2017/08/30/分块专题2/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/08/30/分块专题2/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -368,16 +359,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/09/11-06-热身赛/">
-                    11-06 热身赛
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/02/扩展欧几里德算法/">
-                    扩展欧几里德算法
+                <a href="/2017/08/28/分块专题/">
+                    分块专题一
                 </a>
             </div>
         
@@ -390,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RMQ问题"><span class="toc-number">1.</span> <span class="toc-text">RMQ问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#母题"><span class="toc-number">1.1.</span> <span class="toc-text">母题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素（即搜索）"><span class="toc-number">1.2.</span> <span class="toc-text">朴素（即搜索）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线段树-segment-tree"><span class="toc-number">1.3.</span> <span class="toc-text">线段树(segment tree)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法分析"><span class="toc-number">1.3.1.</span> <span class="toc-text">算法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码"><span class="toc-number">1.3.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ST（实质是动态规划）"><span class="toc-number">1.4.</span> <span class="toc-text">ST（实质是动态规划）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法分析-1"><span class="toc-number">1.4.1.</span> <span class="toc-text">算法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码-1"><span class="toc-number">1.4.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分块专题2"><span class="toc-number">1.</span> <span class="toc-text">分块专题2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-455D"><span class="toc-number">1.1.</span> <span class="toc-text">cf 455D</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -426,7 +411,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"RMQ问题　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"分块专题2　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -460,15 +445,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/09/11-06-热身赛/" title="Pre: 11-06 热身赛">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/02/扩展欧几里德算法/" title="Next: 扩展欧几里德算法">
+            <a href="/2017/08/28/分块专题/" title="Next: 分块专题一">
                 <i class="fa fa-angle-right"></i>
             </a>
         
