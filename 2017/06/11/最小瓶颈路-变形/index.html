@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/06/11/最小瓶颈路-变形/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="最小瓶颈路&amp;amp;变形基本概念&amp;amp;解法瓶颈路：最小生成树的最大边最小瓶颈路：A到B的所有路径中最大边的最小值最小瓶颈路变形：A到B的所有路径中最小边的最大值">
-<meta property="og:updated_time" content="2017-06-11T08:37:19.077Z">
+<meta property="og:updated_time" content="2017-09-03T14:29:01.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最小瓶颈路&变形">
 <meta name="twitter:description" content="最小瓶颈路&amp;amp;变形基本概念&amp;amp;解法瓶颈路：最小生成树的最大边最小瓶颈路：A到B的所有路径中最大边的最小值最小瓶颈路变形：A到B的所有路径中最小边的最大值">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-最小瓶颈路-变形" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -341,6 +341,9 @@
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>最小瓶颈路+单次询问</p>
 <h2 id="UVA-11354"><a href="#UVA-11354" class="headerlink" title="UVA 11354"></a>UVA 11354</h2><h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define maxn 50050</span></div><div class="line">using namespace std;</div><div class="line">int n,m,k;</div><div class="line">int dep[maxn],fa[20][maxn],mi[20][maxn];</div><div class="line">int p[maxn];</div><div class="line">struct node1&#123;</div><div class="line">	int u,v,w;</div><div class="line">	bool operator &lt; (const node1&amp; p) const&#123;</div><div class="line">		<span class="built_in">return</span> w&lt;p.w;</div><div class="line">	&#125;</div><div class="line">&#125;e1[maxn&lt;&lt;2];</div><div class="line">struct node2&#123;</div><div class="line">	int to,w;</div><div class="line">	node2(int to,int w):to(to),w(w)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">vector&lt;node2&gt;e2[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) e2[i].clear();</div><div class="line">	memset(e1,0,sizeof(e1));</div><div class="line">	memset(dep,0,sizeof(dep));</div><div class="line">	memset(fa,0,sizeof(fa));</div><div class="line">	memset(mi,0,sizeof(mi));</div><div class="line">&#125;</div><div class="line">int find(int x)&#123;</div><div class="line">	<span class="built_in">return</span> x==p[x]?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">void dfs(int x,int y)&#123;</div><div class="line">    dep[x]=dep[y]+1;</div><div class="line">    fa[0][x]=y;</div><div class="line">    <span class="keyword">for</span>(int i=1;fa[i-1][fa[i-1][x]];i++)&#123;</div><div class="line">        fa[i][x]=fa[i-1][fa[i-1][x]];</div><div class="line">        mi[i][x]=max(mi[i-1][x],mi[i-1][fa[i-1][x]]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e2[x].size();i++)&#123;</div><div class="line">        int z=e2[x][i].to,w=e2[x][i].w;</div><div class="line">        <span class="keyword">if</span>(z==y)<span class="built_in">continue</span>;</div><div class="line">        mi[0][z]=w;</div><div class="line">        dfs(z,x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int lca_maxdist(int x,int y)&#123;</div><div class="line">    int ret=-inf;</div><div class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y])swap(x,y);</div><div class="line">    <span class="keyword">for</span>(int i=19;i&gt;=0;i--)<span class="keyword">if</span>(dep[fa[i][x]]&gt;=dep[y])ret=max(ret,mi[i][x]),x=fa[i][x];</div><div class="line">    <span class="keyword">if</span>(x==y)<span class="built_in">return</span> ret;</div><div class="line">    <span class="keyword">for</span>(int i=19;i&gt;=0;i--)&#123;</div><div class="line">        <span class="keyword">if</span>(fa[i][x]!=fa[i][y])&#123;</div><div class="line">            ret=max(ret,mi[i][x]);</div><div class="line">            ret=max(ret,mi[i][y]);</div><div class="line">            x=fa[i][x];</div><div class="line">            y=fa[i][y];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ret=max(ret,mi[0][x]);</div><div class="line">    ret=max(ret,mi[0][y]);</div><div class="line">    <span class="built_in">return</span> ret;</div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">kruskal</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) p[i]=i;</div><div class="line">	sort(e1+1,e1+1+m);</div><div class="line">	int cnt=0;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">		int x=find(e1[i].u),y=find(e1[i].v);</div><div class="line">		<span class="keyword">if</span>(x!=y)&#123;</div><div class="line">			p[x]=y;</div><div class="line">			e2[e1[i].u].pb(node2(e1[i].v,e1[i].w));</div><div class="line">			e2[e1[i].v].pb(node2(e1[i].u,e1[i].w));</div><div class="line">			<span class="keyword">if</span>(++cnt==n-1) <span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125; </div><div class="line">int flag=1;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)&#123;</div><div class="line">		flag==1?flag++:<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++) scanf(<span class="string">"%d%d%d"</span>,&amp;e1[i].u,&amp;e1[i].v,&amp;e1[i].w);</div><div class="line">		kruskal();</div><div class="line">		dfs(1,0);</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;k);</div><div class="line">		<span class="keyword">while</span>(k--)&#123;</div><div class="line">			int x,y;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,lca_maxdist(x,y));</div><div class="line">		&#125;	</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>最小瓶颈路+多次询问</p>
+<h2 id="uva-12655"><a href="#uva-12655" class="headerlink" title="uva 12655"></a>uva 12655</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>最小瓶颈路变形+多次询问</p>
+<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define pb push_back</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line"><span class="comment">#define maxn 20050</span></div><div class="line"><span class="comment">#define maxm 100050</span></div><div class="line">using namespace std;</div><div class="line">int n,m,k;</div><div class="line">int dep[maxn],fa[20][maxn],mi[20][maxn];</div><div class="line">int p[maxm];</div><div class="line">struct node1&#123;</div><div class="line">    int u,v,w;</div><div class="line">    bool operator &lt; (const node1&amp; p) const&#123;</div><div class="line">        <span class="built_in">return</span> w&gt;p.w;</div><div class="line">    &#125;</div><div class="line">&#125;e1[maxm];</div><div class="line">struct node2&#123;</div><div class="line">    int to,w;</div><div class="line">    node2(int to,int w):to(to),w(w)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">vector&lt;node2&gt;e2[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) e2[i].clear();</div><div class="line">	mm(e1,0),mm(dep,0),mm(fa,0),mm(mi,inf);</div><div class="line">&#125;</div><div class="line">int find(int x)&#123;</div><div class="line">    <span class="built_in">return</span> x==p[x]?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">void dfs(int x,int y)&#123;</div><div class="line">    dep[x]=dep[y]+1;</div><div class="line">    fa[0][x]=y;</div><div class="line">    <span class="keyword">for</span>(int i=1;fa[i-1][fa[i-1][x]];i++)&#123;</div><div class="line">        fa[i][x]=fa[i-1][fa[i-1][x]];</div><div class="line">        mi[i][x]=min(mi[i-1][x],mi[i-1][fa[i-1][x]]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e2[x].size();i++)&#123;</div><div class="line">        int z=e2[x][i].to,w=e2[x][i].w;</div><div class="line">        <span class="keyword">if</span>(z==y)<span class="built_in">continue</span>;</div><div class="line">        mi[0][z]=w;</div><div class="line">        dfs(z,x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int lca_mindist(int x,int y)&#123;</div><div class="line">    int ret=1e9;</div><div class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y])swap(x,y);</div><div class="line">    <span class="keyword">for</span>(int i=19;i&gt;=0;i--)<span class="keyword">if</span>(dep[fa[i][x]]&gt;=dep[y])ret=min(ret,mi[i][x]),x=fa[i][x];</div><div class="line">    <span class="keyword">if</span>(x==y)<span class="built_in">return</span> ret;</div><div class="line">    <span class="keyword">for</span>(int i=19;i&gt;=0;i--)&#123;</div><div class="line">        <span class="keyword">if</span>(fa[i][x]!=fa[i][y])&#123;</div><div class="line">            ret=min(ret,mi[i][x]);</div><div class="line">            ret=min(ret,mi[i][y]);</div><div class="line">            x=fa[i][x];</div><div class="line">            y=fa[i][y];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ret=min(ret,mi[0][x]);</div><div class="line">    ret=min(ret,mi[0][y]);</div><div class="line">    <span class="built_in">return</span> ret;</div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">kruskal</span></span>()&#123;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++) p[i]=i;</div><div class="line">    sort(e1+1,e1+1+m);</div><div class="line">    int cnt=0;</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">        int x=find(e1[i].u),y=find(e1[i].v);</div><div class="line">        <span class="keyword">if</span>(x!=y)&#123;</div><div class="line">            p[x]=y;</div><div class="line">            e2[e1[i].u].pb(node2(e1[i].v,e1[i].w));</div><div class="line">            e2[e1[i].v].pb(node2(e1[i].u,e1[i].w));</div><div class="line">            <span class="keyword">if</span>(++cnt==n-1) <span class="built_in">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125; </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">    <span class="keyword">while</span>(scanf(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k)!=EOF)&#123;</div><div class="line">    	init();</div><div class="line">    	<span class="keyword">for</span>(int i=1;i&lt;=m;i++) scanf(<span class="string">"%d%d%d"</span>,&amp;e1[i].u,&amp;e1[i].v,&amp;e1[i].w);</div><div class="line">	    kruskal();</div><div class="line">	    dfs(1,0);</div><div class="line">	    <span class="keyword">while</span>(k--)&#123;</div><div class="line">	        int x,y;</div><div class="line">	        scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">	        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,lca_mindist(x,y));</div><div class="line">	    &#125;	</div><div class="line">	&#125;</div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>跟本博客第一题相比 注意开边的大小 此题m为1e5</p>
 
       
     </div>
@@ -349,17 +352,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/11/最小瓶颈路-变形/">最小瓶颈路&amp;变形</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2017-06-11, 15:10:39</p>
-        <p><span>最后更新:</span>2017-06-11, 16:37:19</p>
+        <p><span>Title:</span><a href="/2017/06/11/最小瓶颈路-变形/">最小瓶颈路&amp;变形</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2017-06-11, 15:10:39</p>
+        <p><span>Updated:</span>2017-09-03, 22:29:01</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/11/最小瓶颈路-变形/" title="最小瓶颈路&amp;变形">http://xuboming8.github.io/2017/06/11/最小瓶颈路-变形/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/06/11/最小瓶颈路-变形/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/06/11/最小瓶颈路-变形/" title="最小瓶颈路&amp;变形">http://xuboming8.github.io/2017/06/11/最小瓶颈路-变形/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/06/11/最小瓶颈路-变形/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -387,9 +390,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最小瓶颈路-amp-变形"><span class="toc-number">1.</span> <span class="toc-text">最小瓶颈路&变形</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念-amp-解法"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念&解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qwb与学姐"><span class="toc-number">1.2.</span> <span class="toc-text">qwb与学姐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-534"><span class="toc-number">1.3.</span> <span class="toc-text">UVA 534</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-11354"><span class="toc-number">1.4.</span> <span class="toc-text">UVA 11354</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.4.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.4.2.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最小瓶颈路-amp-变形"><span class="toc-number">1.</span> <span class="toc-text">最小瓶颈路&变形</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念-amp-解法"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念&解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qwb与学姐"><span class="toc-number">1.2.</span> <span class="toc-text">qwb与学姐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-534"><span class="toc-number">1.3.</span> <span class="toc-text">UVA 534</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UVA-11354"><span class="toc-number">1.4.</span> <span class="toc-text">UVA 11354</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.4.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.4.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uva-12655"><span class="toc-number">1.5.</span> <span class="toc-text">uva 12655</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -403,10 +406,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -459,15 +462,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/13/NEUQ-ACM程序设计竞赛-团队赛/" title="上一篇: NEUQ-ACM程序设计竞赛(团队赛)">
+            <a href="/2017/06/13/NEUQ-ACM程序设计竞赛-团队赛/" title="Pre: NEUQ-ACM程序设计竞赛(团队赛)">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/11/浙工业之江学院比赛/" title="下一篇: 浙工业之江学院比赛">
+            <a href="/2017/06/11/浙工业之江学院比赛/" title="Next: 浙工业之江学院比赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -490,14 +493,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -506,7 +509,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -539,9 +542,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
