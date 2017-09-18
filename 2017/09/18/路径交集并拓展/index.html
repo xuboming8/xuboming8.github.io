@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/09/18/路径交集并拓展/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="路径交集并拓展HDU 6200题目要求">
-<meta property="og:updated_time" content="2017-09-18T12:57:48.637Z">
+<meta property="og:updated_time" content="2017-09-18T13:05:22.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路径交集并拓展">
 <meta name="twitter:description" content="路径交集并拓展HDU 6200题目要求">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-路径交集并拓展" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -332,7 +332,7 @@
         <h1 id="路径交集并拓展"><a href="#路径交集并拓展" class="headerlink" title="路径交集并拓展"></a>路径交集并拓展</h1><h2 id="HDU-6200"><a href="#HDU-6200" class="headerlink" title="HDU 6200"></a>HDU 6200</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><a id="more"></a>
 <p>给定一个n个点m条边的图 有两种操作<br>1.加一条u到v的边<br>2.询问u到v上所有路径的交集</p>
 <h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">//树剖求lca+dfs序部分 </div><div class="line">int sz[maxn],dep[maxn],fa[maxn],son[maxn];</div><div class="line">int <span class="keyword">in</span>[maxn],out[maxn],top[maxn];</div><div class="line">int t,n,m,q,step;</div><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">vector&lt;pair&lt;int,int&gt; &gt;edges;</div><div class="line">void <span class="function"><span class="title">init1</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) e[i].clear();</div><div class="line">	edges.clear();</div><div class="line">    mm(sz,0),mm(dep,0),mm(fa,0),mm(son,0);</div><div class="line">    mm(<span class="keyword">in</span>,0),mm(out,0),mm(top,0);</div><div class="line">    step=0;</div><div class="line">&#125;</div><div class="line">void dfs1(int x,int f,int deep)&#123;</div><div class="line">    sz[x]=1,fa[x]=f,son[x]=0,dep[x]=deep;</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==f) <span class="built_in">continue</span>;</div><div class="line">        dfs1(next,x,deep+1);</div><div class="line">        sz[x]+=sz[next];</div><div class="line">        <span class="keyword">if</span>(sz[son[x]]&lt;sz[next]) son[x]=next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">void dfs2(int x,int tp)&#123;</div><div class="line">    top[x]=tp;</div><div class="line">    <span class="keyword">in</span>[x]=++step;</div><div class="line">    <span class="keyword">if</span>(son[x]) dfs2(son[x],tp);</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==fa[x] || next==son[x]) <span class="built_in">continue</span>;</div><div class="line">        dfs2(next,next);</div><div class="line">    &#125;</div><div class="line">    out[x]=step;</div><div class="line">&#125; </div><div class="line">int lca(int u,int v)&#123;</div><div class="line">    <span class="keyword">while</span>(top[u]!=top[v])&#123;</div><div class="line">        <span class="keyword">if</span>(dep[top[u]]&lt;dep[top[v]]) swap(u,v);</div><div class="line">        u=fa[top[u]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dep[u]&gt;dep[v]) swap(u,v);</div><div class="line">    <span class="built_in">return</span> u;</div><div class="line">&#125;</div><div class="line">//并查集部分</div><div class="line">int p[maxn];</div><div class="line">void <span class="function"><span class="title">init2</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) p[i]=i;</div><div class="line">&#125;</div><div class="line">int find(int x)&#123;</div><div class="line">	<span class="built_in">return</span> p[x]==x?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">void merge(int u,int v)&#123;</div><div class="line">	int x=find(u);</div><div class="line">	int y=find(v);</div><div class="line">	<span class="keyword">if</span>(x!=y) p[x]=y;</div><div class="line">&#125;</div><div class="line">bool same(int u,int v)&#123;</div><div class="line">	<span class="built_in">return</span> find(u)==find(v);</div><div class="line">&#125;</div><div class="line">//树状数组部分:区间更新单点查询</div><div class="line">int tree[maxn&lt;&lt;2];</div><div class="line">void change(int x,int val)&#123;</div><div class="line">    <span class="keyword">while</span>(x&lt;=n) &#123;</div><div class="line">        tree[x]+=val;</div><div class="line">        x+=x&amp;(-x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int sum(int x)&#123;</div><div class="line">	int res=0;</div><div class="line">    <span class="keyword">while</span>(x)&#123;</div><div class="line">        res+=tree[x];</div><div class="line">        x-=x&amp;(-x);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> res;</div><div class="line">&#125;</div><div class="line">//并查集暴力修改</div><div class="line">void addedge(int u,int v)&#123;</div><div class="line">	int f=lca(u,v);</div><div class="line">	<span class="keyword">while</span>(find(u)!=find(f))&#123;</div><div class="line">		change(<span class="keyword">in</span>[find(u)],1);</div><div class="line">		change(out[find(u)]+1,-1);</div><div class="line">		merge(find(u),fa[find(u)]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span>(find(v)!=find(f))&#123;</div><div class="line">		change(<span class="keyword">in</span>[find(v)],1);</div><div class="line">		change(out[find(v)]+1,-1);</div><div class="line">		merge(find(v),fa[find(v)]);</div><div class="line">	&#125;</div><div class="line">&#125; </div><div class="line">int Case=1;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d:\n"</span>,Case++);</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">		init1(),init2();</div><div class="line">		mm(tree,0);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">			int u,v;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</div><div class="line">			<span class="keyword">if</span>(same(u,v)) edges.push_back(make_pair(u,v));</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				e[u].push_back(v),e[v].push_back(u);</div><div class="line">				merge(u,v);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		init2();</div><div class="line">		dfs1(1,0,0);</div><div class="line">		dfs2(1,1);</div><div class="line">		<span class="keyword">for</span>(auto p:edges) addedge(p.first,p.second);</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;q);</div><div class="line">		<span class="keyword">while</span>(q--)&#123;</div><div class="line">			int op,x,y;</div><div class="line">			scanf(<span class="string">"%d%d%d"</span>,&amp;op,&amp;x,&amp;y);</div><div class="line">			<span class="keyword">if</span>(op==1) addedge(x,y);</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				int f=lca(x,y);</div><div class="line">				int ans=dep[x]+dep[y]-2*dep[f]-(sum(<span class="keyword">in</span>[x])+sum(<span class="keyword">in</span>[y])-2*sum(<span class="keyword">in</span>[f]));</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>在给定的n点m边的图上固定生成一棵树 利用并查集把非树边加到edges中 这些边当成1操作带入到addedge函数中<br>非树边由于破坏了树的非连通性(树的路径交集就等于长度) 所以必然有某些边构成了环导致并集的减少 所以这些非树边要涂成黑色<br>所以每当有非树边加进来 等价于把这条非树边涂黑 用树状数组维护路径中到每个点的黑边数目 最后只要查询u到v上的白边数量即可<br><strong>详细</strong>：<br>用树剖求出lca和dfs序 每次涂黑操作需要注意把它并查集根下的所有子树都涂成黑色 带入in的序号是u并查集根的序号<br>即是in[find(u)]而不是find(u) 这是因为双向边的影响 最终会影响到u的子树和u到u并查集的根这两段 即最终影响到u并查集根下的子树<br>最后的求ans操作就是u到v上的所有路径减去涂成黑色的路径 就是所求的交集<br>注意：<br>1.并查集需要初始化2次 在固定生成一棵树后需要初始化<br>2.加非树边操作同时伴随着merge操作 这意味的同一个并查集下不可能加入2条相同的边 相同的边会在addedge中由于find相等而被略过<br>保证了算法的正确性</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>在给定的n点m边的图上固定生成一棵树 利用并查集把非树边加到edges中 这些边当成1操作带入到addedge函数中<br>非树边由于破坏了树的非连通性(树的路径交集就等于长度) 所以必然有某些边构成了环导致并集的减少 所以这些非树边要涂成黑色<br>所以每当有非树边加进来 等价于把这条非树边涂黑 用树状数组维护路径中到每个点的黑边数目 最后只要查询u到v上的白边数量即可<br><strong>详细</strong>：<br>用树剖求出lca和dfs序 每次涂黑操作需要注意把它并查集根下的所有子树都涂成黑色 带入in的序号是u并查集根的序号<br>即是in[find(u)]而不是find(u) 这是因为双向边的影响 最终会影响到u的子树和u到u并查集的根这两段 即最终影响到u并查集根下的子树<br>最后的求ans操作就是u到v上的所有路径减去涂成黑色的路径 就是所求的交集<br><strong>注意</strong>：<br>1.并查集需要初始化2次 在固定生成一棵树后需要初始化<br>2.加非树边操作同时伴随着merge操作 这意味的同一个并查集下不可能加入2条相同的边 相同的边会在addedge中由于find相等而被略过<br>保证了算法的正确性</p>
 
       
     </div>
@@ -341,17 +341,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/09/18/路径交集并拓展/">路径交集并拓展</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-09-18, 20:32:55</p>
-        <p><span>Updated:</span>2017-09-18, 20:57:48</p>
+        <p><span>本文标题:</span><a href="/2017/09/18/路径交集并拓展/">路径交集并拓展</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-09-18, 20:32:55</p>
+        <p><span>最后更新:</span>2017-09-18, 21:05:22</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/09/18/路径交集并拓展/" title="路径交集并拓展">http://xuboming8.github.io/2017/09/18/路径交集并拓展/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/09/18/路径交集并拓展/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/18/路径交集并拓展/" title="路径交集并拓展">http://xuboming8.github.io/2017/09/18/路径交集并拓展/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/09/18/路径交集并拓展/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -373,7 +373,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路径交集并拓展"><span class="toc-number">1.</span> <span class="toc-text">路径交集并拓展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6200"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 6200</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
@@ -389,10 +389,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -445,13 +445,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/09/18/2017青岛网络赛/" title="Next: 2017青岛网络赛">
+            <a href="/2017/09/18/2017青岛网络赛/" title="下一篇: 2017青岛网络赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -474,14 +474,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -490,7 +490,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -523,9 +523,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
