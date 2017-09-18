@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/09/11/lca相关/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="lca相关模版">
-<meta property="og:updated_time" content="2017-09-12T06:43:56.169Z">
+<meta property="og:updated_time" content="2017-09-18T12:58:44.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lca相关">
 <meta name="twitter:description" content="lca相关模版">
@@ -335,7 +335,8 @@
 <h2 id="求树上两点间距离"><a href="#求树上两点间距离" class="headerlink" title="求树上两点间距离"></a>求树上两点间距离</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">void dfs(int id)&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e[id].size();i++)&#123;</div><div class="line">        int next=e[id][i].to,ww=e[id][i].w;</div><div class="line">        <span class="keyword">if</span>(vis[next]) <span class="built_in">continue</span>;</div><div class="line">        dis[next]=dis[id]+ww;</div><div class="line">        vis[next]=1;</div><div class="line">        dfs2(next);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">预处理任意一点的dist(id出发到各点的距离)</div><div class="line">树上x到y的距离为dist[x]+dist[y]-2*dist[lca(x,y)]</div></pre></td></tr></table></figure>
 <h2 id="最大生成树lca求法"><a href="#最大生成树lca求法" class="headerlink" title="最大生成树lca求法"></a>最大生成树lca求法</h2><p><a href="http://monkeyxu.cn/2017/05/19/ccpc%E6%B1%9F%E8%8B%8F%E7%9C%81%E8%B5%9B/#H" target="_blank" rel="external">转跳链接</a></p>
 <h2 id="图中判断两条路径是否相交"><a href="#图中判断两条路径是否相交" class="headerlink" title="图中判断两条路径是否相交"></a>图中判断两条路径是否相交</h2><p><a href="http://monkeyxu.cn/2017/05/19/ccpc%E6%B1%9F%E8%8B%8F%E7%9C%81%E8%B5%9B/#H" target="_blank" rel="external">转跳链接</a></p>
-<h2 id="求图中两条路径并集大小"><a href="#求图中两条路径并集大小" class="headerlink" title="求图中两条路径并集大小"></a>求图中两条路径并集大小</h2><p><a href="http://monkeyxu.cn/2017/08/14/2017%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F%E5%A4%8D%E8%B5%9BA/#HDU-6110" target="_blank" rel="external">专挑连接</a></p>
+<h2 id="求图中两条路径并集大小"><a href="#求图中两条路径并集大小" class="headerlink" title="求图中两条路径并集大小"></a>求图中两条路径并集大小</h2><p><a href="http://monkeyxu.cn/2017/08/14/2017%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F%E5%A4%8D%E8%B5%9BA/#HDU-6110" target="_blank" rel="external">转跳连接</a></p>
+<h2 id="求图中两点的所有路径交集大小"><a href="#求图中两点的所有路径交集大小" class="headerlink" title="求图中两点的所有路径交集大小"></a>求图中两点的所有路径交集大小</h2><p><a href="http://monkeyxu.cn/2017/09/18/%E8%B7%AF%E5%BE%84%E4%BA%A4%E9%9B%86%E5%B9%B6%E6%8B%93%E5%B1%95/" target="_blank" rel="external">转跳链接</a></p>
 
       
     </div>
@@ -347,7 +348,7 @@
         <p><span>Title:</span><a href="/2017/09/11/lca相关/">lca相关</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
         <p><span>Created:</span>2017-09-11, 22:48:09</p>
-        <p><span>Updated:</span>2017-09-12, 14:43:56</p>
+        <p><span>Updated:</span>2017-09-18, 20:58:44</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/09/11/lca相关/" title="lca相关">http://xuboming8.github.io/2017/09/11/lca相关/</a>
             <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/09/11/lca相关/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -384,7 +385,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca相关"><span class="toc-number">1.</span> <span class="toc-text">lca相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版"><span class="toc-number">1.1.</span> <span class="toc-text">模版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求树上两点间距离"><span class="toc-number">1.2.</span> <span class="toc-text">求树上两点间距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大生成树lca求法"><span class="toc-number">1.3.</span> <span class="toc-text">最大生成树lca求法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图中判断两条路径是否相交"><span class="toc-number">1.4.</span> <span class="toc-text">图中判断两条路径是否相交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两条路径并集大小"><span class="toc-number">1.5.</span> <span class="toc-text">求图中两条路径并集大小</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca相关"><span class="toc-number">1.</span> <span class="toc-text">lca相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版"><span class="toc-number">1.1.</span> <span class="toc-text">模版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求树上两点间距离"><span class="toc-number">1.2.</span> <span class="toc-text">求树上两点间距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大生成树lca求法"><span class="toc-number">1.3.</span> <span class="toc-text">最大生成树lca求法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图中判断两条路径是否相交"><span class="toc-number">1.4.</span> <span class="toc-text">图中判断两条路径是否相交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两条路径并集大小"><span class="toc-number">1.5.</span> <span class="toc-text">求图中两条路径并集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两点的所有路径交集大小"><span class="toc-number">1.6.</span> <span class="toc-text">求图中两点的所有路径交集大小</span></a></li></ol></li></ol>
         
     </div>
     <style>
