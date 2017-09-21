@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="回文串专题hihocoder 1032(最长回文串)题目要求输出最长回文串">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回文串专题">
-<meta property="og:url" content="http://xuboming8.github.io/2017/08/14/回文串专题/index.html">
+<meta property="og:title" content="First article about hexo">
+<meta property="og:url" content="http://xuboming8.github.io/2017/09/22/hello-world/index.html">
 <meta property="og:site_name" content="臀臀柯基">
-<meta property="og:description" content="回文串专题hihocoder 1032(最长回文串)题目要求输出最长回文串">
-<meta property="og:updated_time" content="2017-08-21T08:02:53.489Z">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
+<meta property="og:updated_time" content="2016-08-30T11:30:28.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回文串专题">
-<meta name="twitter:description" content="回文串专题hihocoder 1032(最长回文串)题目要求输出最长回文串">
+<meta name="twitter:title" content="First article about hexo">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>回文串专题 | 臀臀柯基</title>
+<title>First article about hexo | 臀臀柯基</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +288,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-回文串专题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/14/回文串专题/" class="article-date">
-      <time datetime="2017-08-14T08:14:04.000Z" itemprop="datePublished">2017-08-14</time>
+      <a href="/2017/09/22/hello-world/" class="article-date">
+      <time datetime="2017-09-21T16:21:16.701Z" itemprop="datePublished">2017-09-22</time>
 </a>
 
 
@@ -304,7 +307,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      回文串专题
+      First article about hexo
     </h1>
   
 
@@ -313,13 +316,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    <a class="article-category-link" href="/categories/博客搭建/">博客搭建</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/回文串/">回文串</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,22 +332,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="回文串专题"><a href="#回文串专题" class="headerlink" title="回文串专题"></a>回文串专题</h1><h2 id="hihocoder-1032-最长回文串"><a href="#hihocoder-1032-最长回文串" class="headerlink" title="hihocoder 1032(最长回文串)"></a>hihocoder 1032(最长回文串)</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>输出最长回文串<br><a id="more"></a></p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">string s,s1;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	int t; cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		cin&gt;&gt;s;</div><div class="line">		int len=s.size();</div><div class="line">		s1.resize(len*2+2);</div><div class="line">		s1[0]=<span class="string">'$'</span>,s1[1]=<span class="string">'#'</span>;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">			s1[(1+i)&lt;&lt;1]=s[i];</div><div class="line">			s1[(1+i)&lt;&lt;1|1]=<span class="string">'#'</span>;</div><div class="line">		&#125;</div><div class="line">		vector&lt;int&gt;p(s1.size(),0);</div><div class="line">		int ans=0;</div><div class="line">		<span class="keyword">for</span>(int id=0,i=1;i&lt;s1.size();i++)&#123;</div><div class="line">			<span class="keyword">if</span>(p[id]+id&gt;i) p[i]=min(p[2*id-i],p[id]+id-i);</div><div class="line">			<span class="keyword">else</span> p[i]=1;</div><div class="line">			<span class="keyword">while</span>(s1[i+p[i]]==s1[i-p[i]]) ++p[i];</div><div class="line">			<span class="keyword">if</span>(i+p[i]&gt;id+p[id]) id=i;</div><div class="line">			ans=max(ans,p[i]);</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;ans-1&lt;&lt;endl;</div><div class="line">	&#125;	</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>最长回文串On算法：Manacher算法<br>算法的核心就在这一句上了：p[i] = min(p[2×id-i], p[id] + id - i);</p>
-<h2 id="hihocoder-1149-回文总数变形"><a href="#hihocoder-1149-回文总数变形" class="headerlink" title="hihocoder 1149(回文总数变形)"></a>hihocoder 1149(回文总数变形)</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>输出回文数量 注意aba中的aa也计算在内</p>
-<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 1050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">const int mod = 1e5+7;</div><div class="line">char s[maxn];</div><div class="line">int dp[maxn][maxn];</div><div class="line">int len;</div><div class="line">int flag=1;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	int t; cin&gt;&gt;t;</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		cout&lt;&lt;<span class="string">"Case #"</span>&lt;&lt;flag++&lt;&lt;<span class="string">": "</span>;</div><div class="line">		scanf(<span class="string">"%s"</span>,s);</div><div class="line">		len=strlen(s);</div><div class="line">		mm(dp,0);</div><div class="line">		<span class="keyword">for</span>(int j=0;j&lt;len;j++)&#123;</div><div class="line">			dp[j][j]=1;</div><div class="line">			<span class="keyword">for</span>(int i=j-1;i&gt;=0;i--)&#123;</div><div class="line">				dp[i][j]=(dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1]+mod)%mod;</div><div class="line">				<span class="keyword">if</span>(s[i]==s[j]) dp[i][j]=(dp[i][j]+1+dp[i+1][j-1])%mod;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;dp[0][len-1]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>dp[i][j]表示区间i-j内的回文数量<br>dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1]<br>若s[i]==s[j] 需要加上dp[i+1][j-1] 由于aba中的aa也算一种 所以再加1</p>
-<h2 id="hihocoder-1323-通过操作变成回文串"><a href="#hihocoder-1323-通过操作变成回文串" class="headerlink" title="hihocoder 1323(通过操作变成回文串)"></a>hihocoder 1323(通过操作变成回文串)</h2><h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>给定一个字符串 S ，最少需要几次增删改操作可以把 S 变成一个回文字符串？<br>一次操作可以在任意位置插入一个字符，或者删除任意一个字符，或者把任意一个字符修改成任意其他字符<br>S 的长度不超过100, 只包含’A’-‘Z’。<br>输出最少的修改次数</p>
-<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 105</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int dp[maxn][maxn];</div><div class="line">char s[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%s"</span>,s+1);</div><div class="line">	int len=strlen(s+1);</div><div class="line">	mm(dp,0);</div><div class="line">	<span class="keyword">for</span>(int i=len;i&gt;=1;i--)&#123;</div><div class="line">		<span class="keyword">for</span>(int j=i+1;j&lt;=len;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(s[i]==s[j]) dp[i][j]=dp[i+1][j-1];</div><div class="line">			<span class="keyword">else</span> dp[i][j]=min(dp[i+1][j],min(dp[i][j-1],dp[i+1][j-1]))+1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[1][len]);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>dp[i][j]表示区间i-j变成回文串的最少操作次数<br>当s[i] == s[j]时有dp[i][j] = dp[i+1][j-1]，这个式子的意思就是当你找到两个字符相等的时候最优的解就是它里面一层的结果即dp[i+1][j-1]（<br>左边界加1并且有边界减去1），这样从中心往外加下去。当s[i] != s[j]的时候就要考虑增、删、改这三种操作了，仔细分析你会发现其实增和删的操作是<br>一样的增加一个字符和删除一个字符的效果是一样的这时的递推关系式为 dp[i][j] = min(dp[i+1][j]，dp[i][j-1]，dp[i+1][j-1])；这个递推关系<br>的意思就是要么增加或删除左边的一个字符，要么增加或删除右边的一个字符，要么修改两边中的一个，就有三种选择，选择其中最优的一种情况就得到了<br>最后的结果。<br>注意逆序更新即可</p>
-<h2 id="cf-round427-D-k阶回文串"><a href="#cf-round427-D-k阶回文串" class="headerlink" title="cf round427 D(k阶回文串)"></a>cf round427 D(k阶回文串)</h2><h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>定义k阶回文串为本身是回文串 且左边和右边相等 也都是回文串<br>k阶就是k层 问给定的字符串是几阶回文串</p>
-<h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 5050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int dp[maxn][maxn];</div><div class="line">int ans[maxn],len;</div><div class="line">char s[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">		int l=0;</div><div class="line">		<span class="keyword">while</span>(i<span class="_">-l</span>&gt;=0 &amp;&amp; i+l&lt;len &amp;&amp; s[i<span class="_">-l</span>]==s[i+l]) dp[i<span class="_">-l</span>][i+l]=1,l++;</div><div class="line">		l=0;</div><div class="line">		<span class="keyword">while</span>(i<span class="_">-l</span>&gt;=0 &amp;&amp; i+1+l&lt;len &amp;&amp; s[i<span class="_">-l</span>]==s[i+l+1]) dp[i<span class="_">-l</span>][i+l+1]=1,l++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">solve</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int t=0;t&lt;len;t++)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=0;i+t&lt;len;i++)&#123;</div><div class="line">			int j=i+t,mid;</div><div class="line">	    	<span class="keyword">if</span>(!dp[i][j]) <span class="built_in">continue</span>;</div><div class="line">	    	<span class="keyword">if</span>(t%2==0) mid=(i+j)/2-1;</div><div class="line">	    	<span class="keyword">else</span> mid=(i+j)/2;</div><div class="line">			<span class="keyword">if</span>(dp[i][mid] &amp;&amp; dp[i][j]) dp[i][j]=max(dp[i][j],dp[i][mid]+1);</div><div class="line">			ans[dp[i][j]]++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%s"</span>,s);</div><div class="line">	len=strlen(s);</div><div class="line">	mm(dp,0),mm(ans,0);</div><div class="line">	init();</div><div class="line">	solve();</div><div class="line">	<span class="keyword">for</span>(int i=len-1;i&gt;=1;i--) ans[i]+=ans[i+1];</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=len;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(i==1) <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans[i]);</div><div class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">" %d"</span>,ans[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>dp[i][j]表示区间i-j是否是回文串 0表示不是 1表示是<br>接着枚举间隔和起点 计算出终点和中点 注意mid需要奇偶性判断<br>如果dp[i][mid]和dp[i][j]都是回文串 那么dp[mid][j]也是回文串且左右相等 满足题意<br>dp更新k数 该阶数的ans值++<br>最后由于题意里k阶回文串是包括1到k-1阶回文串的 所以逆序累加输出答案即可</p>
-<h2 id="HDU-6103-回文字符累加"><a href="#HDU-6103-回文字符累加" class="headerlink" title="HDU 6103(回文字符累加)"></a>HDU 6103(回文字符累加)</h2><p><a href="http://monkeyxu.cn/2017/08/11/muti%E5%A4%9A%E6%A0%A1-6/#HDU-6103" target="_blank" rel="external">转跳链接</a><br>补充思路：题意其实就是回文串的变形 所以枚举mid向两边延伸 由于回文串有偶数和奇数个两种情况 而枚举的mid向两边延伸考虑的是奇数的情况<br>所以偶数的情况需要再做考虑 向右延伸+1即可 由于本题有和的限制 所以枚举的时候超过限制对头出队 类似与单调队列窗口的滑动</p>
-<h2 id="HDU-6156-计算k进制下l-r内的回文数"><a href="#HDU-6156-计算k进制下l-r内的回文数" class="headerlink" title="HDU 6156(计算k进制下l-r内的回文数)"></a>HDU 6156(计算k进制下l-r内的回文数)</h2><p><a href="http://monkeyxu.cn/2017/08/20/2017ccpc%E7%BD%91%E8%B5%9B/#HDU-6156" target="_blank" rel="external">转跳链接</a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>回文串问题多用dp解决 多为枚举mid再向两边扩展 扩展的时候再枚举间隔 注意奇偶情况即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//dp[i][j]表示区间内是否有回文串</div><div class="line">mm(dp,0);</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">		int l=0;</div><div class="line">		<span class="keyword">while</span>(i<span class="_">-l</span>&gt;=0 &amp;&amp; i+l&lt;len &amp;&amp; s[i<span class="_">-l</span>]==s[i+l]) dp[i<span class="_">-l</span>][i+l]=1,l++;</div><div class="line">		l=0;</div><div class="line">		<span class="keyword">while</span>(i<span class="_">-l</span>&gt;=0 &amp;&amp; i+1+l&lt;len &amp;&amp; s[i<span class="_">-l</span>]==s[i+l+1]) dp[i<span class="_">-l</span>][i+l+1]=1,l++;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//dp[i][j]表示区间内回文串的个数</div><div class="line">mm(dp,0);</div><div class="line"><span class="keyword">for</span>(int j=0;j&lt;len;j++)&#123;</div><div class="line">	dp[j][j]=1;</div><div class="line">	<span class="keyword">for</span>(int i=j-1;i&gt;=0;i--)&#123;</div><div class="line">		dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1];</div><div class="line">		<span class="keyword">if</span>(s[i]==s[j]) dp[i][j]+=dp[i+1][j-1];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">cout&lt;&lt;dp[0][len-1]&lt;&lt;endl;</div></pre></td></tr></table></figure>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br><a id="more"></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
@@ -353,13 +349,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/14/回文串专题/">回文串专题</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/22/hello-world/">First article about hexo</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2017-08-14, 16:14:04</p>
-        <p><span>最后更新:</span>2017-08-21, 16:02:53</p>
+        <p><span>发布时间:</span>2017-09-22, 00:21:16</p>
+        <p><span>最后更新:</span>2016-08-30, 19:30:28</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/14/回文串专题/" title="回文串专题">http://xuboming8.github.io/2017/08/14/回文串专题/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/14/回文串专题/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/22/hello-world/" title="First article about hexo">http://xuboming8.github.io/2017/09/22/hello-world/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/09/22/hello-world/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -371,16 +367,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/08/14/图论-团专题/">
-                    图论-团专题
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/08/14/cf-round428/">
-                    cf round428
+                <a href="/2017/09/19/网络流拓展四/">
+                    网络流拓展四
                 </a>
             </div>
         
@@ -393,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#回文串专题"><span class="toc-number">1.</span> <span class="toc-text">回文串专题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hihocoder-1032-最长回文串"><span class="toc-number">1.1.</span> <span class="toc-text">hihocoder 1032(最长回文串)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hihocoder-1149-回文总数变形"><span class="toc-number">1.2.</span> <span class="toc-text">hihocoder 1149(回文总数变形)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hihocoder-1323-通过操作变成回文串"><span class="toc-number">1.3.</span> <span class="toc-text">hihocoder 1323(通过操作变成回文串)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf-round427-D-k阶回文串"><span class="toc-number">1.4.</span> <span class="toc-text">cf round427 D(k阶回文串)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6103-回文字符累加"><span class="toc-number">1.5.</span> <span class="toc-text">HDU 6103(回文字符累加)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-6156-计算k进制下l-r内的回文数"><span class="toc-number">1.6.</span> <span class="toc-text">HDU 6156(计算k进制下l-r内的回文数)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.7.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -429,7 +419,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"回文串专题　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"First article about hexo　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -463,15 +453,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/14/图论-团专题/" title="上一篇: 图论-团专题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/08/14/cf-round428/" title="下一篇: cf round428">
+            <a href="/2017/09/19/网络流拓展四/" title="下一篇: 网络流拓展四">
                 <i class="fa fa-angle-right"></i>
             </a>
         
