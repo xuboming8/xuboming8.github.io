@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="lca相关模版(倍增)">
+<meta name="description" content="lca专题一模版(倍增)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lca专题一">
 <meta property="og:url" content="http://xuboming8.github.io/2017/09/11/lca相关/index.html">
 <meta property="og:site_name" content="臀臀柯基">
-<meta property="og:description" content="lca相关模版(倍增)">
-<meta property="og:updated_time" content="2017-10-01T06:58:28.200Z">
+<meta property="og:description" content="lca专题一模版(倍增)">
+<meta property="og:updated_time" content="2017-10-01T16:18:13.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lca专题一">
-<meta name="twitter:description" content="lca相关模版(倍增)">
+<meta name="twitter:description" content="lca专题一模版(倍增)">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-lca相关" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -329,8 +329,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="lca相关"><a href="#lca相关" class="headerlink" title="lca相关"></a>lca相关</h1><h2 id="模版-倍增"><a href="#模版-倍增" class="headerlink" title="模版(倍增)"></a>模版(倍增)</h2><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">int deep[maxn],f[maxn],anc[maxn][25];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	mm(f,0),mm(anc,0),mm(deep,0);</div><div class="line">	deep[1]=1;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int fa)&#123;</div><div class="line">    anc[x][0]=f[x];</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=20;i++) anc[x][i]=anc[anc[x][i-1]][i-1];</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e[x].size();i++)&#123;</div><div class="line">        int next=e[x][i].to;</div><div class="line">        <span class="keyword">if</span>(next!=fa)&#123;</div><div class="line">            f[next]=x;</div><div class="line">            deep[next]=deep[x]+1;</div><div class="line">            dfs(next,x);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int lca(int x,int y)&#123;</div><div class="line">    <span class="keyword">if</span>(deep[x]&lt;deep[y]) swap(x,y);</div><div class="line">    <span class="keyword">for</span>(int i=20;i&gt;=0;i--) <span class="keyword">if</span>(deep[anc[x][i]]&gt;=deep[y]) x=anc[x][i];</div><div class="line">    <span class="keyword">if</span>(x==y) <span class="built_in">return</span> x;</div><div class="line">    <span class="keyword">for</span>(int i=20;i&gt;=0;i--) <span class="keyword">if</span>(anc[x][i]!=anc[y][i]) x=anc[x][i],y=anc[y][i];</div><div class="line">    <span class="built_in">return</span> f[x];</div><div class="line">&#125;</div><div class="line">dfs(1,0);</div></pre></td></tr></table></figure>
+        <h1 id="lca专题一"><a href="#lca专题一" class="headerlink" title="lca专题一"></a>lca专题一</h1><h2 id="模版-倍增"><a href="#模版-倍增" class="headerlink" title="模版(倍增)"></a>模版(倍增)</h2><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">int deep[maxn],f[maxn],anc[maxn][25];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	mm(f,0),mm(anc,0),mm(deep,0);</div><div class="line">	deep[1]=1;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int fa)&#123;</div><div class="line">    anc[x][0]=f[x];</div><div class="line">    <span class="keyword">for</span>(int i=1;i&lt;=20;i++) anc[x][i]=anc[anc[x][i-1]][i-1];</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e[x].size();i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next!=fa)&#123;</div><div class="line">            f[next]=x;</div><div class="line">            deep[next]=deep[x]+1;</div><div class="line">            dfs(next,x);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int lca(int x,int y)&#123;</div><div class="line">    <span class="keyword">if</span>(deep[x]&lt;deep[y]) swap(x,y);</div><div class="line">    <span class="keyword">for</span>(int i=20;i&gt;=0;i--) <span class="keyword">if</span>(deep[anc[x][i]]&gt;=deep[y]) x=anc[x][i];</div><div class="line">    <span class="keyword">if</span>(x==y) <span class="built_in">return</span> x;</div><div class="line">    <span class="keyword">for</span>(int i=20;i&gt;=0;i--) <span class="keyword">if</span>(anc[x][i]!=anc[y][i]) x=anc[x][i],y=anc[y][i];</div><div class="line">    <span class="built_in">return</span> f[x];</div><div class="line">&#125;</div><div class="line">dfs(1,0);</div></pre></td></tr></table></figure>
 <p><strong>下标从1开始</strong><br><strong>如果有边权 加node结构体</strong></p>
 <h2 id="模版-树剖"><a href="#模版-树剖" class="headerlink" title="模版(树剖)"></a>模版(树剖)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">void dfs1(int x,int f,int deep)&#123;</div><div class="line">    sz[x]=1,fa[x]=f,son[x]=0,dep[x]=deep;</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==f) <span class="built_in">continue</span>;</div><div class="line">        dfs1(next,x,deep+1);</div><div class="line">        sz[x]+=sz[next];</div><div class="line">        <span class="keyword">if</span>(sz[son[x]]&lt;sz[next]) son[x]=next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">void dfs2(int x,int tp)&#123;</div><div class="line">    top[x]=tp;</div><div class="line">    <span class="keyword">in</span>[x]=++step;</div><div class="line">    <span class="keyword">if</span>(son[x]) dfs2(son[x],tp);</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==fa[x] || next==son[x]) <span class="built_in">continue</span>;</div><div class="line">        dfs2(next,next);</div><div class="line">    &#125;</div><div class="line">    out[x]=step;</div><div class="line">&#125; </div><div class="line">int lca(int u,int v)&#123;</div><div class="line">    <span class="keyword">while</span>(top[u]!=top[v])&#123;</div><div class="line">        <span class="keyword">if</span>(dep[top[u]]&lt;dep[top[v]]) swap(u,v);</div><div class="line">        u=fa[top[u]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dep[u]&gt;dep[v]) swap(u,v);</div><div class="line">    <span class="built_in">return</span> u;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="求树上两点间距离"><a href="#求树上两点间距离" class="headerlink" title="求树上两点间距离"></a>求树上两点间距离</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">void dfs(int id)&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;e[id].size();i++)&#123;</div><div class="line">        int next=e[id][i].to,ww=e[id][i].w;</div><div class="line">        <span class="keyword">if</span>(vis[next]) <span class="built_in">continue</span>;</div><div class="line">        dis[next]=dis[id]+ww;</div><div class="line">        vis[next]=1;</div><div class="line">        dfs2(next);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">预处理任意一点的dist(id出发到各点的距离)</div><div class="line">树上x到y的距离为dist[x]+dist[y]-2*dist[lca(x,y)]</div></pre></td></tr></table></figure>
@@ -348,17 +348,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/09/11/lca相关/">lca专题一</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-09-11, 22:48:09</p>
-        <p><span>Updated:</span>2017-10-01, 14:58:28</p>
+        <p><span>本文标题:</span><a href="/2017/09/11/lca相关/">lca专题一</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-09-11, 22:48:09</p>
+        <p><span>最后更新:</span>2017-10-02, 00:18:13</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/09/11/lca相关/" title="lca专题一">http://xuboming8.github.io/2017/09/11/lca相关/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/09/11/lca相关/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/11/lca相关/" title="lca专题一">http://xuboming8.github.io/2017/09/11/lca相关/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/09/11/lca相关/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -386,9 +386,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca相关"><span class="toc-number">1.</span> <span class="toc-text">lca相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版-倍增"><span class="toc-number">1.1.</span> <span class="toc-text">模版(倍增)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模版-树剖"><span class="toc-number">1.2.</span> <span class="toc-text">模版(树剖)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求树上两点间距离"><span class="toc-number">1.3.</span> <span class="toc-text">求树上两点间距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大生成树lca求法"><span class="toc-number">1.4.</span> <span class="toc-text">最大生成树lca求法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图中判断两条路径是否相交"><span class="toc-number">1.5.</span> <span class="toc-text">图中判断两条路径是否相交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两条路径并集大小"><span class="toc-number">1.6.</span> <span class="toc-text">求图中两条路径并集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两点的所有路径交集大小"><span class="toc-number">1.7.</span> <span class="toc-text">求图中两点的所有路径交集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lca-贪心"><span class="toc-number">1.8.</span> <span class="toc-text">lca+贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权值为1终点相同的两条路径点并集"><span class="toc-number">1.9.</span> <span class="toc-text">权值为1终点相同的两条路径点并集</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca专题一"><span class="toc-number">1.</span> <span class="toc-text">lca专题一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版-倍增"><span class="toc-number">1.1.</span> <span class="toc-text">模版(倍增)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模版-树剖"><span class="toc-number">1.2.</span> <span class="toc-text">模版(树剖)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求树上两点间距离"><span class="toc-number">1.3.</span> <span class="toc-text">求树上两点间距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大生成树lca求法"><span class="toc-number">1.4.</span> <span class="toc-text">最大生成树lca求法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图中判断两条路径是否相交"><span class="toc-number">1.5.</span> <span class="toc-text">图中判断两条路径是否相交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两条路径并集大小"><span class="toc-number">1.6.</span> <span class="toc-text">求图中两条路径并集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求图中两点的所有路径交集大小"><span class="toc-number">1.7.</span> <span class="toc-text">求图中两点的所有路径交集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lca-贪心"><span class="toc-number">1.8.</span> <span class="toc-text">lca+贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权值为1终点相同的两条路径点并集"><span class="toc-number">1.9.</span> <span class="toc-text">权值为1终点相同的两条路径点并集</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -402,10 +402,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -458,15 +458,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/13/网络流拓展三/" title="Pre: 网络流拓展三">
+            <a href="/2017/09/13/网络流拓展三/" title="上一篇: 网络流拓展三">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/09/11/2017沈阳网络赛/" title="Next: 2017沈阳网络赛">
+            <a href="/2017/09/11/2017沈阳网络赛/" title="下一篇: 2017沈阳网络赛">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -489,14 +489,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -505,7 +505,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -538,9 +538,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
