@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/10/01/lca专题二/index.html">
 <meta property="og:site_name" content="臀臀柯基">
 <meta property="og:description" content="lca专题二HDU 5293题目要求">
-<meta property="og:updated_time" content="2017-10-01T07:19:45.032Z">
+<meta property="og:updated_time" content="2017-10-01T13:13:23.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lca专题二">
 <meta name="twitter:description" content="lca专题二HDU 5293题目要求">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-lca专题二" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -333,6 +333,9 @@
 <p>给你一棵树，树上有n个点。<br>然后给你m条链，每条链都有权值，然后让你选择一些不相交的链，使得权值和最大。</p>
 <h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">struct node&#123;</div><div class="line">	int l,r,w;</div><div class="line">	node(int l,int r,int w):l(l),r(r),w(w)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">int t,n,m,step;</div><div class="line">int tree[maxn&lt;&lt;2];</div><div class="line">int sz[maxn],fa[maxn],son[maxn],dep[maxn];</div><div class="line">int top[maxn],<span class="keyword">in</span>[maxn],out[maxn];</div><div class="line">int sum[maxn],dp[maxn];</div><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">vector&lt;node&gt;q[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) e[i].clear(),q[i].clear();</div><div class="line">    mm(sz,0),mm(dep,0),mm(fa,0),mm(son,0);</div><div class="line">    mm(<span class="keyword">in</span>,0),mm(top,0),mm(out,0);</div><div class="line">    mm(sum,0),mm(dp,0),mm(tree,0);</div><div class="line">    step=0;</div><div class="line">&#125;</div><div class="line">void add(int x,int val)&#123;</div><div class="line">    <span class="keyword">while</span>(x&lt;=n) &#123;</div><div class="line">        tree[x]+=val;</div><div class="line">        x+=x&amp;(-x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int get(int x)&#123;</div><div class="line">    int res=0;</div><div class="line">    <span class="keyword">while</span> (x)&#123;</div><div class="line">        res+=tree[x];</div><div class="line">        x-=x&amp;(-x);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> res;</div><div class="line">&#125;</div><div class="line">void dfs1(int x,int f,int deep)&#123;</div><div class="line">    sz[x]=1,fa[x]=f,son[x]=0,dep[x]=deep;</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==f) <span class="built_in">continue</span>;</div><div class="line">        dfs1(next,x,deep+1);</div><div class="line">        sz[x]+=sz[next];</div><div class="line">        <span class="keyword">if</span>(sz[son[x]]&lt;sz[next]) son[x]=next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">void dfs2(int x,int tp)&#123;</div><div class="line">    top[x]=tp;</div><div class="line">    <span class="keyword">in</span>[x]=++step;</div><div class="line">    <span class="keyword">if</span>(son[x]) dfs2(son[x],tp);</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i];</div><div class="line">        <span class="keyword">if</span>(next==fa[x] || next==son[x]) <span class="built_in">continue</span>;</div><div class="line">        dfs2(next,next);</div><div class="line">    &#125;</div><div class="line">    out[x]=step;</div><div class="line">&#125; </div><div class="line">int lca(int u,int v)&#123;</div><div class="line">    <span class="keyword">while</span>(top[u]!=top[v])&#123;</div><div class="line">        <span class="keyword">if</span>(dep[top[u]]&lt;dep[top[v]]) swap(u,v);</div><div class="line">        u=fa[top[u]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dep[u]&gt;dep[v]) swap(u,v);</div><div class="line">    <span class="built_in">return</span> u;</div><div class="line">&#125;</div><div class="line">void dfs(int x,int fa)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[x].size();i++)&#123;</div><div class="line">		int next=e[x][i];</div><div class="line">		<span class="keyword">if</span>(next==fa) <span class="built_in">continue</span>;</div><div class="line">		dfs(next,x);</div><div class="line">		sum[x]+=dp[next];</div><div class="line">	&#125;</div><div class="line">	dp[x]=sum[x];</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;q[x].size();i++)&#123;</div><div class="line">		int l=q[x][i].l;</div><div class="line">		int r=q[x][i].r;</div><div class="line">		int w=q[x][i].w;</div><div class="line">		dp[x]=max(dp[x],sum[x]+w+get(<span class="keyword">in</span>[l])+get(<span class="keyword">in</span>[r]));</div><div class="line">	&#125;</div><div class="line">	add(<span class="keyword">in</span>[x],sum[x]-dp[x]);</div><div class="line">	add(out[x]+1,dp[x]-sum[x]);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++)&#123;</div><div class="line">			int u,v;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</div><div class="line">			e[u].push_back(v);</div><div class="line">			e[v].push_back(u);</div><div class="line">		&#125;</div><div class="line">		dfs1(1,0,0);</div><div class="line">		dfs2(1,1);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">			int u,v,w;</div><div class="line">			scanf(<span class="string">"%d%d%d"</span>,&amp;u,&amp;v,&amp;w);</div><div class="line">			q[lca(u,v)].push_back(node(u,v,w));</div><div class="line">		&#125;</div><div class="line">		dfs(1,0);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[1]);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>lca+树形dp+树状数组<br>要求权值最大，按照树形dp的思路去考虑，用dp[i]表示以第i个点为根节点的子树的最优解。<br>dp[i]的状态转移公式,有两种可能,第一种：第i个节点上不出现链，那么dp[i]=∑(dp[k] | k为i的子节点)；<br>第二种：第i个节点上出现链，如果选择加入这条链，那么dp[i]=w(链的权值)+∑(dp[k] | k为链上的节点的子节点)=w+∑(sum[k] | k为链上的节点 )-∑(dp[k] | k为链上的节点)<br>sum[i]表示i节点的所有子节点的dp和，在 ∑(sum[k] | k为链上的节点 ) - ∑(dp[k] | k为链上的节点) 中减去的dp[k]会由它的父节点的sum补全。这样就得到了状态转移公式。<br>所减去的地方：sum[k] - dp[k]用树状数组维护<br>注意dfs序区间的开闭问题：out[x]+1</p>
+<h2 id="HDU-5296"><a href="#HDU-5296" class="headerlink" title="HDU 5296"></a>HDU 5296</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>一棵树 n个点 有边权 q次操作<br>1 x：把点x加入到集合s中(若点x不在集合中)<br>2 x：把点x移除集合s(若点x在集合中)<br>对于每次询问 输出为了使集合S中所有的点联通需要最少的边权</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">struct node&#123;</div><div class="line">	int to,w;</div><div class="line">	node(int to,int w):to(to),w(w)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">int t,n,q,step;</div><div class="line">vector&lt;node&gt;e[maxn];</div><div class="line"><span class="built_in">set</span>&lt;int&gt;st;</div><div class="line">int sz[maxn],dep[maxn],fa[maxn],son[maxn];</div><div class="line">int <span class="keyword">in</span>[maxn],top[maxn],val[maxn],dis[maxn];</div><div class="line">int vis[maxn];</div><div class="line">void <span class="function"><span class="title">init</span></span>()&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++) e[i].clear();</div><div class="line">	st.clear();</div><div class="line">    mm(sz,0),mm(dep,0),mm(fa,0),mm(son,0);</div><div class="line">    mm(<span class="keyword">in</span>,0),mm(top,0),mm(val,0),mm(vis,0),mm(dis,0);</div><div class="line">    step=0;</div><div class="line">&#125;</div><div class="line">void dfs1(int x,int f,int deep)&#123;</div><div class="line">    sz[x]=1,fa[x]=f,son[x]=0,dep[x]=deep;</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i].to,ww=e[x][i].w;</div><div class="line">        <span class="keyword">if</span>(next==f) <span class="built_in">continue</span>;</div><div class="line">        dis[next]=dis[x]+ww;</div><div class="line">        dfs1(next,x,deep+1);</div><div class="line">        sz[x]+=sz[next];</div><div class="line">        <span class="keyword">if</span>(sz[son[x]]&lt;sz[next]) son[x]=next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">void dfs2(int x,int tp)&#123;</div><div class="line">    top[x]=tp;</div><div class="line">    <span class="keyword">in</span>[x]=++step;</div><div class="line">    val[step]=x; </div><div class="line">    <span class="keyword">if</span>(son[x]) dfs2(son[x],tp);</div><div class="line">    int len=e[x].size();</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">        int next=e[x][i].to;</div><div class="line">        <span class="keyword">if</span>(next==fa[x] || next==son[x]) <span class="built_in">continue</span>;</div><div class="line">        dfs2(next,next);</div><div class="line">    &#125;</div><div class="line">&#125; </div><div class="line">int lca(int u,int v)&#123;</div><div class="line">    <span class="keyword">while</span>(top[u]!=top[v])&#123;</div><div class="line">        <span class="keyword">if</span>(dep[top[u]]&lt;dep[top[v]]) swap(u,v);</div><div class="line">        u=fa[top[u]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dep[u]&gt;dep[v]) swap(u,v);</div><div class="line">    <span class="built_in">return</span> u;</div><div class="line">&#125;</div><div class="line">int solve(int x)&#123;</div><div class="line">	<span class="keyword">if</span>(st.size()==0) <span class="built_in">return</span> 0;</div><div class="line">	<span class="built_in">set</span>&lt;int&gt;::iterator pos=st.upper_bound(<span class="keyword">in</span>[x]);</div><div class="line">	int a,b;</div><div class="line">	<span class="keyword">if</span>(pos==st.begin() || pos==st.end())&#123;</div><div class="line">		a=val[*st.rbegin()];</div><div class="line">		b=val[*st.begin()];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		a=val[*pos];</div><div class="line">		pos--;</div><div class="line">		b=val[*pos];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> dis[x]+dis[lca(a,b)]-dis[lca(x,a)]-dis[lca(x,b)];</div><div class="line">&#125;</div><div class="line">int Case=1;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d:\n"</span>,Case++);</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;q);</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++)&#123;</div><div class="line">			int u,v,w;</div><div class="line">			scanf(<span class="string">"%d%d%d"</span>,&amp;u,&amp;v,&amp;w);</div><div class="line">			e[u].push_back(node(v,w));</div><div class="line">			e[v].push_back(node(u,w));</div><div class="line">		&#125;</div><div class="line">		dfs1(1,0,0);</div><div class="line">		dfs2(1,1);</div><div class="line">		int ans=0;</div><div class="line">		<span class="keyword">while</span>(q--)&#123;</div><div class="line">			int op,x;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;op,&amp;x);</div><div class="line">			<span class="keyword">if</span>(op==1 &amp;&amp; !vis[<span class="keyword">in</span>[x]])&#123;</div><div class="line">				ans+=solve(x);</div><div class="line">				vis[<span class="keyword">in</span>[x]]=1;</div><div class="line">				st.insert(<span class="keyword">in</span>[x]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(op==2 &amp;&amp; vis[<span class="keyword">in</span>[x]])&#123;</div><div class="line">				st.erase(<span class="keyword">in</span>[x]);</div><div class="line">				vis[<span class="keyword">in</span>[x]]=0;</div><div class="line">				ans-=solve(x);</div><div class="line">			&#125;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>lca+dfs序<br>对于添加或者删除一个点造成的影响有公式：dis[x]+dis[lca(a,b)]-dis[lca(x,a)]-dis[lca(x,b)]<br>a是dfs序大于x的点 b是dfs序小于x的点 若ab不同时存在 找到字典序最大和最小的点a和b即可<br>公式画图即可理解<br>寻找大于x和小于x的dfs序的点用set存dfs序后二分查找<br>注意添加和删除中ans更新的顺序<br>额外补充：<br>c.begin() 返回一个迭代器，它指向容器c的<strong>第一个元素</strong><br>c.end() 返回一个迭代器，它指向容器c的<strong>最后一个元素的下一个位置</strong><br>c.rbegin() 返回一个逆序迭代器，它指向容器c的<strong>最后一个元素</strong><br>c.rend() 返回一个逆序迭代器，它指向容器c的<strong>第一个元素前面的位置</strong></p>
 
       
     </div>
@@ -341,17 +344,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/10/01/lca专题二/">lca专题二</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2017-10-01, 15:00:14</p>
-        <p><span>最后更新:</span>2017-10-01, 15:19:45</p>
+        <p><span>Title:</span><a href="/2017/10/01/lca专题二/">lca专题二</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2017-10-01, 15:00:14</p>
+        <p><span>Updated:</span>2017-10-01, 21:13:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/01/lca专题二/" title="lca专题二">http://xuboming8.github.io/2017/10/01/lca专题二/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/10/01/lca专题二/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/10/01/lca专题二/" title="lca专题二">http://xuboming8.github.io/2017/10/01/lca专题二/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/10/01/lca专题二/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -373,9 +376,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca专题二"><span class="toc-number">1.</span> <span class="toc-text">lca专题二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-5293"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 5293</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lca专题二"><span class="toc-number">1.</span> <span class="toc-text">lca专题二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-5293"><span class="toc-number">1.1.</span> <span class="toc-text">HDU 5293</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-5296"><span class="toc-number">1.2.</span> <span class="toc-text">HDU 5296</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -389,10 +392,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -445,13 +448,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/09/28/莫队专题/" title="下一篇: 莫队专题">
+            <a href="/2017/09/28/莫队专题/" title="Next: 莫队专题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -474,14 +477,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -490,7 +493,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -523,9 +526,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
