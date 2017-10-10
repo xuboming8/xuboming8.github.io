@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="cf round428A题目要求ai表示每天可以有ai个糖果 要去A需要给Bk个糖果每天最多只能给8个 问多少天可以给B k个糖果 若不能输出-1">
+<meta name="description" content="紫书图论章末杂选uva 1664题目要求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cf round428">
-<meta property="og:url" content="http://xuboming8.github.io/2017/08/14/cf-round428/index.html">
+<meta property="og:title" content="紫书图论章末杂选">
+<meta property="og:url" content="http://xuboming8.github.io/2017/10/10/紫书图论章末杂选/index.html">
 <meta property="og:site_name" content="臀臀柯基">
-<meta property="og:description" content="cf round428A题目要求ai表示每天可以有ai个糖果 要去A需要给Bk个糖果每天最多只能给8个 问多少天可以给B k个糖果 若不能输出-1">
-<meta property="og:updated_time" content="2017-08-14T17:23:51.232Z">
+<meta property="og:description" content="紫书图论章末杂选uva 1664题目要求">
+<meta property="og:updated_time" content="2017-10-10T08:32:11.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cf round428">
-<meta name="twitter:description" content="cf round428A题目要求ai表示每天可以有ai个糖果 要去A需要给Bk个糖果每天最多只能给8个 问多少天可以给B k个糖果 若不能输出-1">
+<meta name="twitter:title" content="紫书图论章末杂选">
+<meta name="twitter:description" content="紫书图论章末杂选uva 1664题目要求">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>cf round428 | 臀臀柯基</title>
+<title>紫书图论章末杂选 | 臀臀柯基</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -285,11 +285,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-cf-round428" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-紫书图论章末杂选" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/14/cf-round428/" class="article-date">
-      <time datetime="2017-08-14T02:42:11.000Z" itemprop="datePublished">2017-08-14</time>
+      <a href="/2017/10/10/紫书图论章末杂选/" class="article-date">
+      <time datetime="2017-10-10T08:06:08.000Z" itemprop="datePublished">2017-10-10</time>
 </a>
 
 
@@ -304,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      cf round428
+      紫书图论章末杂选
     </h1>
   
 
@@ -319,7 +319,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cf/">cf</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,16 +329,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="cf-round428"><a href="#cf-round428" class="headerlink" title="cf round428"></a>cf round428</h1><h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>ai表示每天可以有ai个糖果 要去A需要给Bk个糖果<br>每天最多只能给8个 问多少天可以给B k个糖果 若不能输出-1<br><a id="more"></a></p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 105</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int a[maxn];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	int n,k;</div><div class="line">	cin&gt;&gt;n&gt;&gt;k;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];</div><div class="line">	int sum=0,left=0,day,flag=0;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">		left+=a[i];</div><div class="line">		<span class="keyword">if</span>(left&gt;8)&#123;</div><div class="line">			sum+=8;</div><div class="line">			left-=8;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			sum+=left;</div><div class="line">			left=0;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(sum&gt;=k)&#123;</div><div class="line">			day=i;</div><div class="line">			flag=1;</div><div class="line">			<span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(flag==0) cout&lt;&lt;<span class="string">"-1"</span>&lt;&lt;endl;</div><div class="line">	<span class="keyword">else</span> cout&lt;&lt;day&lt;&lt;endl;</div><div class="line"> 	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>模拟<br>注意处理好剩下的糖果</p>
-<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>{1, 2}, {3, 4}, {4, 5}, {5, 6} or {7, 8}算是相邻的位置 给出n行<br>给出k个军队 每个军队有ai个人 相邻的位置不能做不同军队的人 问是否能满足题意</p>
-<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;</div><div class="line">const int maxn = 1e2 + 17;</div><div class="line">int n, k, have[5], cnt[5];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	ios::sync_with_stdio(0), cin.tie(0);</div><div class="line">	cin &gt;&gt; n &gt;&gt; k;</div><div class="line">	have[2] = 2 * n, have[4] = n;</div><div class="line">	<span class="keyword">for</span>(int i = 0; i &lt; k; i++)&#123;</div><div class="line">		int x;</div><div class="line">		cin &gt;&gt; x;</div><div class="line">		<span class="keyword">while</span>(x &gt;= 3)</div><div class="line">			<span class="keyword">if</span>(have[4] &gt; 0)</div><div class="line">				x -= 4, have[4]--;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(have[2] &gt; 0)</div><div class="line">				x -= 2, have[2]--;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="built_in">return</span> cout &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="string">'\n'</span>, 0;</div><div class="line">		<span class="keyword">if</span>(x &gt; 0)</div><div class="line">			cnt[x]++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span>(cnt[2])</div><div class="line">		<span class="keyword">if</span>(have[2] &gt; 0)</div><div class="line">			cnt[2]--, have[2]--;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(have[4] &gt; 0)</div><div class="line">			cnt[2]--, have[4]--, have[1]++;</div><div class="line">		<span class="keyword">else</span></div><div class="line">            cnt[2]--, cnt[1] += 2;</div><div class="line">	<span class="keyword">if</span>(cnt[1] &gt; have[1] + have[2] + have[4] * 2)</div><div class="line">		<span class="built_in">return</span> cout &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="string">'\n'</span>, 0;</div><div class="line">	cout &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>模拟<br>把位置转换为4 2 和剩下的即可</p>
-<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出一棵树 求树上所有叶子结点深度的期望</p>
-<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">vector&lt;int&gt;e[maxn];</div><div class="line">int du[maxn]; </div><div class="line">double ans;</div><div class="line">void dfs(int x,int fa,double epx,int deep)&#123;</div><div class="line">	int len=e[x].size();</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;</div><div class="line">		int next=e[x][i];</div><div class="line">		<span class="keyword">if</span>(next==fa) <span class="built_in">continue</span>;</div><div class="line">		<span class="keyword">if</span>(du[next]==1) ans+=epx*(deep+1);</div><div class="line">		dfs(next,x,epx*1.0/(du[next]-1),deep+1);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	int n; cin&gt;&gt;n;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++) e[i].clear();</div><div class="line">	mm(du,0);</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n-1;i++)&#123;</div><div class="line">		int u,v;</div><div class="line">		cin&gt;&gt;u&gt;&gt;v;</div><div class="line">		e[u].push_back(v);</div><div class="line">		e[v].push_back(u);</div><div class="line">		du[u]++,du[v]++;</div><div class="line">	&#125;</div><div class="line">	dfs(1,0,1.0/du[1],0);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%.6lf\n"</span>,ans);</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>dfs里维护一个概率即可 du判断是否是叶子结点</p>
-<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p><a href="http://monkeyxu.cn/2017/08/14/%E5%9B%BE%E8%AE%BA-%E5%9B%A2%E4%B8%93%E9%A2%98/#cf-round428-E" target="_blank" rel="external">转跳链接</a></p>
+        <h1 id="紫书图论章末杂选"><a href="#紫书图论章末杂选" class="headerlink" title="紫书图论章末杂选"></a>紫书图论章末杂选</h1><h2 id="uva-1664"><a href="#uva-1664" class="headerlink" title="uva 1664"></a>uva 1664</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><a id="more"></a>
+<p>紫书P382<br>n个城市形成一棵树 每条边有权值cij 任意两个点的容量sij定义为i到j唯一通路上权值的最小值 找一个点 他将成为中心城市 使得它到其他所有店的容量之和最大</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 200050</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int n; </div><div class="line">int p[maxn],cnt[maxn];</div><div class="line">LL sum[maxn];</div><div class="line">struct edge&#123;</div><div class="line">	int u,v,w;</div><div class="line">	bool operator &lt; (const edge&amp; a) const&#123;</div><div class="line">		<span class="built_in">return</span> w&gt;a.w;</div><div class="line">	&#125;</div><div class="line">&#125;e[maxn];</div><div class="line">int find(int x)&#123;</div><div class="line">	<span class="built_in">return</span> x==p[x]?x:p[x]=find(p[x]);</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d"</span>,&amp;n)!=EOF)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++) scanf(<span class="string">"%d%d%d"</span>,&amp;e[i].u,&amp;e[i].v,&amp;e[i].w);</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;maxn;i++) p[i]=i,sum[i]=0,cnt[i]=1;</div><div class="line">		sort(e+1,e+n);</div><div class="line">		LL ans=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;n;i++)&#123;</div><div class="line">			int x=find(e[i].u);</div><div class="line">			int y=find(e[i].v);</div><div class="line">			LL sumx=sum[x]+(LL)cnt[y]*e[i].w;</div><div class="line">			LL sumy=sum[y]+(LL)cnt[x]*e[i].w;</div><div class="line">			<span class="keyword">if</span>(sumx&lt;sumy)&#123;</div><div class="line">				p[x]=y;</div><div class="line">				ans=sumy;</div><div class="line">				sum[y]=sumy;</div><div class="line">				cnt[y]+=cnt[x];</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				p[y]=x;</div><div class="line">				ans=sumx;</div><div class="line">				sum[x]=sumx;</div><div class="line">				cnt[x]+=cnt[y];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先，解决两点的容量问题 ，我们将所有边从大到小排序，然后从大到小枚举，我们假设根结点就是要找的城市中心点<br>那么当又加入一条边时，该边的两个顶点所在的集合设为A、B，集合A、B的顶点a、b，要让谁当中心点呢？ 易知：无论谁当中心点，它与另一个集合中任一点的容量都为该边长度(因为是从大到小枚举的)<br>那么为了求出总容量，我们要维护一些值，用空间换时间 。  维护每个顶点的总容量sum[i]，维护每个顶点与之相连的顶点数量cnt[i]，当前答案ans<br>那么对于a、b点，如果以a为中心，总容量为sum[a] + cnt[b] * e[i].c 。 反之亦然，哪个量大，则以哪个点为城市中心，也就是并查集的根结点<br>该题的巧妙之处在于，将答案结点维护成并查集的根结点，快速的找出一个集合中的城市中心 。 </p>
 
       
     </div>
@@ -347,13 +341,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/08/14/cf-round428/">cf round428</a></p>
+        <p><span>Title:</span><a href="/2017/10/10/紫书图论章末杂选/">紫书图论章末杂选</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-08-14, 10:42:11</p>
-        <p><span>Updated:</span>2017-08-15, 01:23:51</p>
+        <p><span>Created:</span>2017-10-10, 16:06:08</p>
+        <p><span>Updated:</span>2017-10-10, 16:32:11</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/08/14/cf-round428/" title="cf round428">http://xuboming8.github.io/2017/08/14/cf-round428/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/08/14/cf-round428/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/10/10/紫书图论章末杂选/" title="紫书图论章末杂选">http://xuboming8.github.io/2017/10/10/紫书图论章末杂选/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/10/10/紫书图论章末杂选/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -365,16 +359,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/08/14/回文串专题/">
-                    回文串专题
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/08/14/2017百度之星预赛B/">
-                    2017百度之星预赛B
+                <a href="/2017/10/09/网络流拓展六/">
+                    网络流拓展六
                 </a>
             </div>
         
@@ -387,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cf-round428"><span class="toc-number">1.</span> <span class="toc-text">cf round428</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">1.1.</span> <span class="toc-text">A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">1.2.</span> <span class="toc-text">B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.3.</span> <span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">1.4.</span> <span class="toc-text">E</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#紫书图论章末杂选"><span class="toc-number">1.</span> <span class="toc-text">紫书图论章末杂选</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#uva-1664"><span class="toc-number">1.1.</span> <span class="toc-text">uva 1664</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -423,7 +411,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"cf round428　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"紫书图论章末杂选　| 臀臀柯基　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -457,15 +445,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/14/回文串专题/" title="Pre: 回文串专题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/08/14/2017百度之星预赛B/" title="Next: 2017百度之星预赛B">
+            <a href="/2017/10/09/网络流拓展六/" title="Next: 网络流拓展六">
                 <i class="fa fa-angle-right"></i>
             </a>
         
