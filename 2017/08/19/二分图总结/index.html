@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="二分图总结相关结论">
+<meta name="description" content="二分图总结模版hungary1234567891011121314151617181920212223int g[maxn][maxn],linker[maxn];bool used[maxn];bool dfs(int u)&amp;#123;	for(int i=0;i&amp;lt;m;i++)&amp;#123;		if(g[u][i] &amp;amp;&amp;amp; !used[i])&amp;#123;			used[i]=t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分图总结">
 <meta property="og:url" content="http://xuboming8.github.io/2017/08/19/二分图总结/index.html">
 <meta property="og:site_name" content="臀臀柯基">
-<meta property="og:description" content="二分图总结相关结论">
-<meta property="og:updated_time" content="2017-08-19T07:27:44.348Z">
+<meta property="og:description" content="二分图总结模版hungary1234567891011121314151617181920212223int g[maxn][maxn],linker[maxn];bool used[maxn];bool dfs(int u)&amp;#123;	for(int i=0;i&amp;lt;m;i++)&amp;#123;		if(g[u][i] &amp;amp;&amp;amp; !used[i])&amp;#123;			used[i]=t">
+<meta property="og:updated_time" content="2017-10-10T06:47:55.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二分图总结">
-<meta name="twitter:description" content="二分图总结相关结论">
+<meta name="twitter:description" content="二分图总结模版hungary1234567891011121314151617181920212223int g[maxn][maxn],linker[maxn];bool used[maxn];bool dfs(int u)&amp;#123;	for(int i=0;i&amp;lt;m;i++)&amp;#123;		if(g[u][i] &amp;amp;&amp;amp; !used[i])&amp;#123;			used[i]=t">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-二分图总结" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -329,13 +329,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="二分图总结"><a href="#二分图总结" class="headerlink" title="二分图总结"></a>二分图总结</h1><h2 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h2><a id="more"></a>
-<p><strong>最小边覆盖</strong><br>最小边覆盖 = 最大独立集 = 顶点数 - 最大匹配数<br>这是二分图的基本性质 需要满足原图是二分图<br>这里的最大匹配树是在原二分图上进行的<br>最大匹配用匈牙利算法 <a href="http://monkeyxu.cn/2017/03/06/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%93%E9%A2%98/#匈牙利算法-km算法" target="_blank" rel="external">转跳链接</a></p>
+        <h1 id="二分图总结"><a href="#二分图总结" class="headerlink" title="二分图总结"></a>二分图总结</h1><h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><h3 id="hungary"><a href="#hungary" class="headerlink" title="hungary"></a>hungary</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">int g[maxn][maxn],linker[maxn];</div><div class="line">bool used[maxn];</div><div class="line">bool dfs(int u)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(g[u][i] &amp;&amp; !used[i])&#123;</div><div class="line">			used[i]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[i]==-1 || dfs(linker[i]))&#123;</div><div class="line">				linker[i]=u;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">hungary</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	mm(linker,-1);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">		mm(used,0);</div><div class="line">		<span class="keyword">if</span>(dfs(i)) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 n和m分别记录2个集合的点数</strong></p>
+<h3 id="km"><a href="#km" class="headerlink" title="km"></a>km</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">int nx,ny;</div><div class="line">int g[maxn][maxn];</div><div class="line">int linker[maxn],lx[maxn],ly[maxn];</div><div class="line">int slack[maxn];</div><div class="line">bool visx[maxn],visy[maxn];</div><div class="line">bool dfs(int x)&#123;</div><div class="line">	visx[x]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(int y=0;y&lt;ny;y++)&#123;</div><div class="line">		<span class="keyword">if</span>(visy[y]) <span class="built_in">continue</span>;</div><div class="line">		int tmp=lx[x]+ly[y]-g[x][y];</div><div class="line">		<span class="keyword">if</span>(tmp==0)&#123;</div><div class="line">			visy[y]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[y]==-1 || dfs(linker[y]))&#123;</div><div class="line">				linker[y]=x;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> slack[y]=min(slack[y],tmp);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">km</span></span>()&#123;</div><div class="line">	mm(linker,-1),mm(ly,0);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		lx[i]=g[i][0];</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;ny;j++) lx[i]=max(lx[i],g[i][j]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		fill(slack,slack+ny,inf);</div><div class="line">		<span class="keyword">while</span>(1)&#123;</div><div class="line">			mm(visx,<span class="literal">false</span>),mm(visy,<span class="literal">false</span>);</div><div class="line">			<span class="keyword">if</span>(dfs(i)) <span class="built_in">break</span>;</div><div class="line">			int d=inf;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(!visy[j]) d=min(d,slack[j]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;nx;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visx[j]) lx[j]-=d;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visy[j]) ly[j]+=d;</div><div class="line">				<span class="keyword">else</span> slack[j]-=d;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;ny;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(linker[i]!=-1) ans+=g[linker[i]][i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 nx和ny分别记录2个集合的点数</strong></p>
+<h2 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h2><a id="more"></a>
+<p><strong>二分图判定</strong><br>dfs交叉染色法<br><a href="http://monkeyxu.cn/2016/11/16/%E4%BA%8C%E5%88%86%E5%9B%BE%E4%BA%A4%E5%8F%89%E6%9F%93%E8%89%B2%E6%B3%95%E6%A8%A1%E7%89%88%E9%A2%98/" target="_blank" rel="external">转跳链接</a></p>
+<p><strong>最小边覆盖</strong><br>最小边覆盖 = 最大独立集 = 顶点数 - 最大匹配数<br>这是二分图的基本性质 需要满足原图是二分图<br>这里的最大匹配树是在原二分图上进行的<br>最大匹配用匈牙利算法</p>
 <p><strong>最小路径覆盖</strong><br>最小路径覆盖=顶点数-最大匹配数<br>最小路径覆盖和最小边覆盖不同，不要求给的图是二分图，而是要求是有向图，不能有环，然后根据原图构造二分图<br>构造方法是拆点 最大匹配用dinic <a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#最小路径覆盖" target="_blank" rel="external">转跳链接</a></p>
-<p><strong>最小顶点覆盖</strong><br>最小顶点覆盖=最大匹配数<br>要求原图是二分图 匈牙利转跳链接如上</p>
+<p><strong>最小顶点覆盖</strong><br>最小顶点覆盖=最大匹配数<br>要求原图是二分图 使用匈牙利算法</p>
 <p><strong>最大带权独立集合</strong><br>最大带权独立集合=总权值-最小顶点覆盖=总权值-最大匹配数<br>拆点 用dinic求最大匹配数<br><a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#HDU-1569-二分图带权最大独立集" target="_blank" rel="external">转跳链接</a></p>
 <p><strong>带权最小k路径覆盖</strong><br>网络流<br><a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#HDU-4862-带权最小k路径覆盖" target="_blank" rel="external">转跳链接</a></p>
-<p><strong>最大团</strong><br>最大团顶点数 = 原图补图的最大独立集顶点数 = 补图顶点数-补图最大匹配数<br>最大匹配数用匈牙利算法 链接如上</p>
+<p><strong>最大团</strong><br>最大团顶点数 = 原图补图的最大独立集顶点数 = 补图顶点数-补图最大匹配数<br>最大匹配数用匈牙利算法</p>
+<h2 id="uva-12549"><a href="#uva-12549" class="headerlink" title="uva 12549"></a>uva 12549</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>紫书P381</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 5050</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">int t,r,c,n,m,num;</div><div class="line">int mp[maxn][maxn];</div><div class="line">int g[maxn][maxn],linker[maxn];</div><div class="line">bool used[maxn];</div><div class="line">struct node&#123;</div><div class="line">	int x,y;</div><div class="line">&#125;a[maxn][maxn];</div><div class="line">bool dfs(int u)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(g[u][i] &amp;&amp; !used[i])&#123;</div><div class="line">			used[i]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[i]==-1 || dfs(linker[i]))&#123;</div><div class="line">				linker[i]=u;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">hungary</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	mm(linker,-1);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">		mm(used,0);</div><div class="line">		<span class="keyword">if</span>(dfs(i)) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">void <span class="function"><span class="title">build</span></span>()&#123;</div><div class="line">	int row=-1,col=-1;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=r;i++)&#123;</div><div class="line">		bool flag=<span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;=c;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(mp[i][j]==1)&#123;</div><div class="line">				<span class="keyword">if</span>(flag) row++;</div><div class="line">				a[i][j].x=row;</div><div class="line">				flag=<span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(mp[i][j]==2) flag=<span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int j=1;j&lt;=c;j++)&#123;</div><div class="line">		bool flag=<span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=r;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(mp[i][j]==1)&#123;</div><div class="line">				<span class="keyword">if</span>(flag) col++;</div><div class="line">				a[i][j].y=col;</div><div class="line">				flag=<span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(mp[i][j]==2) flag=<span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	n=row+1,m=col+1;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=r;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;=c;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(mp[i][j]==1) g[a[i][j].x][a[i][j].y]=1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		mm(mp,0),mm(g,0),mm(a,0); </div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;r,&amp;c);</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;num);</div><div class="line">		<span class="keyword">while</span>(num--)&#123;</div><div class="line">			int x,y;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">			mp[x][y]=1;   //重要 </div><div class="line">		&#125;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;num);</div><div class="line">		<span class="keyword">while</span>(num--)&#123;</div><div class="line">			int x,y;</div><div class="line">			scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">			mp[x][y]=2;   //障碍 </div><div class="line">		&#125;</div><div class="line">		build();</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,hungary());</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>本题可以转换为最小顶点覆盖 二分图的最小顶点覆盖=二分图最大匹配数<br>重在建图(若没有障碍更简单 有障碍只需要领取一行或一列即可) 然后直接跑hungary即可<br>初始化row和col为-1 遇到重要位置记录下行或者列 若遇到障碍物 行和列需要额外加1 代表需要新的机器人<br>row是从行开始 col是从列开始 n和m更新2个集合的点数<br>最后的二分图相当于：第一个集合代表行 第二个集合代表列 某个机器人可以守护某一行或者某一列 对应的行列相连<br>最小顶点覆盖即为选择最少的机器人能够守护到所有的行或列</p>
+<h2 id="HDU-1150"><a href="#HDU-1150" class="headerlink" title="HDU 1150"></a>HDU 1150</h2><p><a href="http://monkeyxu.cn/2017/03/06/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%93%E9%A2%98/#HDU-1150-匈牙利算法" target="_blank" rel="external">转跳链接</a></p>
+<h2 id="HDU-2255"><a href="#HDU-2255" class="headerlink" title="HDU 2255"></a>HDU 2255</h2><p><a href="http://monkeyxu.cn/2017/03/06/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%93%E9%A2%98/#HDU-2255-km模版" target="_blank" rel="external">转跳链接</a></p>
+<h2 id="HDU-1533"><a href="#HDU-1533" class="headerlink" title="HDU 1533"></a>HDU 1533</h2><p><a href="http://monkeyxu.cn/2017/03/06/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%93%E9%A2%98/#HDU-1533（km）" target="_blank" rel="external">转跳链接</a></p>
 
       
     </div>
@@ -344,17 +355,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/08/19/二分图总结/">二分图总结</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-08-19, 14:47:24</p>
-        <p><span>Updated:</span>2017-08-19, 15:27:44</p>
+        <p><span>本文标题:</span><a href="/2017/08/19/二分图总结/">二分图总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-08-19, 14:47:24</p>
+        <p><span>最后更新:</span>2017-10-10, 14:47:55</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/08/19/二分图总结/" title="二分图总结">http://xuboming8.github.io/2017/08/19/二分图总结/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/08/19/二分图总结/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/19/二分图总结/" title="二分图总结">http://xuboming8.github.io/2017/08/19/二分图总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/19/二分图总结/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -382,9 +393,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二分图总结"><span class="toc-number">1.</span> <span class="toc-text">二分图总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关结论"><span class="toc-number">1.1.</span> <span class="toc-text">相关结论</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二分图总结"><span class="toc-number">1.</span> <span class="toc-text">二分图总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版"><span class="toc-number">1.1.</span> <span class="toc-text">模版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hungary"><span class="toc-number">1.1.1.</span> <span class="toc-text">hungary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#km"><span class="toc-number">1.1.2.</span> <span class="toc-text">km</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关结论"><span class="toc-number">1.2.</span> <span class="toc-text">相关结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uva-12549"><span class="toc-number">1.3.</span> <span class="toc-text">uva 12549</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1150"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 1150</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-2255"><span class="toc-number">1.5.</span> <span class="toc-text">HDU 2255</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1533"><span class="toc-number">1.6.</span> <span class="toc-text">HDU 1533</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -398,10 +409,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -454,15 +465,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/20/2017ccpc网赛/" title="Pre: 2017ccpc网赛">
+            <a href="/2017/08/20/2017ccpc网赛/" title="上一篇: 2017ccpc网赛">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/08/18/dfs序专题/" title="Next: dfs序专题">
+            <a href="/2017/08/18/dfs序专题/" title="下一篇: dfs序专题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -485,14 +496,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -501,7 +512,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -534,9 +545,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
