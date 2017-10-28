@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/08/19/二分图总结/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="二分图总结模版hungary1234567891011121314151617181920212223int g[maxn][maxn],linker[maxn];bool used[maxn];bool dfs(int u)&amp;#123;	for(int i=0;i&amp;lt;m;i++)&amp;#123;		if(g[u][i] &amp;amp;&amp;amp; !used[i])&amp;#123;			used[i]=t">
-<meta property="og:updated_time" content="2017-10-10T06:47:55.709Z">
+<meta property="og:updated_time" content="2017-10-28T16:37:52.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二分图总结">
 <meta name="twitter:description" content="二分图总结模版hungary1234567891011121314151617181920212223int g[maxn][maxn],linker[maxn];bool used[maxn];bool dfs(int u)&amp;#123;	for(int i=0;i&amp;lt;m;i++)&amp;#123;		if(g[u][i] &amp;amp;&amp;amp; !used[i])&amp;#123;			used[i]=t">
@@ -336,7 +336,7 @@
 <h2 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h2><a id="more"></a>
 <p><strong>二分图判定</strong><br>dfs交叉染色法<br><a href="http://monkeyxu.cn/2016/11/16/%E4%BA%8C%E5%88%86%E5%9B%BE%E4%BA%A4%E5%8F%89%E6%9F%93%E8%89%B2%E6%B3%95%E6%A8%A1%E7%89%88%E9%A2%98/" target="_blank" rel="external">转跳链接</a></p>
 <p><strong>最小边覆盖</strong><br>最小边覆盖 = 最大独立集 = 顶点数 - 最大匹配数<br>这是二分图的基本性质 需要满足原图是二分图<br>这里的最大匹配树是在原二分图上进行的<br>最大匹配用匈牙利算法</p>
-<p><strong>最小路径覆盖</strong><br>最小路径覆盖=顶点数-最大匹配数<br>最小路径覆盖和最小边覆盖不同，不要求给的图是二分图，而是要求是有向图，不能有环，然后根据原图构造二分图<br>构造方法是拆点 最大匹配用dinic <a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#最小路径覆盖" target="_blank" rel="external">转跳链接</a></p>
+<p><strong>最小路径覆盖</strong><br>最小路径覆盖=顶点数-最大匹配数<br>最小路径覆盖和最小边覆盖不同，不要求给的图是二分图，而是要求是有向图，不能有环，然后根据原图构造二分图<br>构造方法是拆点 最大匹配用dinic <a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#最小路径覆盖" target="_blank" rel="external">转跳链接</a><br>也可以用匈牙利求匹配</p>
 <p><strong>最小顶点覆盖</strong><br>最小顶点覆盖=最大匹配数<br>要求原图是二分图 使用匈牙利算法</p>
 <p><strong>最大带权独立集合</strong><br>最大带权独立集合=总权值-最小顶点覆盖=总权值-最大匹配数<br>拆点 用dinic求最大匹配数<br><a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#HDU-1569-二分图带权最大独立集" target="_blank" rel="external">转跳链接</a></p>
 <p><strong>带权最小k路径覆盖</strong><br>网络流<br><a href="http://monkeyxu.cn/2017/06/23/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%8B%93%E5%B1%95/#HDU-4862-带权最小k路径覆盖" target="_blank" rel="external">转跳链接</a></p>
@@ -358,7 +358,7 @@
         <p><span>本文标题:</span><a href="/2017/08/19/二分图总结/">二分图总结</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2017-08-19, 14:47:24</p>
-        <p><span>最后更新:</span>2017-10-10, 14:47:55</p>
+        <p><span>最后更新:</span>2017-10-29, 00:37:52</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/19/二分图总结/" title="二分图总结">http://xuboming8.github.io/2017/08/19/二分图总结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/08/19/二分图总结/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
