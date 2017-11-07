@@ -149,13 +149,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -287,9 +287,147 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-2017ccpc网赛" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/20/2017ccpc网赛/" class="article-date">
+      <time datetime="2017-08-20T03:47:09.000Z" itemprop="datePublished">2017-08-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/20/2017ccpc网赛/">2017ccpc网赛</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="ccpc网赛"><a href="#ccpc网赛" class="headerlink" title="ccpc网赛"></a>ccpc网赛</h1><h2 id="HDU-6150"><a href="#HDU-6150" class="headerlink" title="HDU 6150"></a>HDU 6150</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ccpc/">ccpc</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a class="hidden" href="/2017/08/20/2017ccpc网赛/#more">undefined >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-二分图总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/19/二分图总结/" class="article-date">
+      <time datetime="2017-08-19T06:47:24.000Z" itemprop="datePublished">2017-08-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/19/二分图总结/">二分图总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="二分图总结"><a href="#二分图总结" class="headerlink" title="二分图总结"></a>二分图总结</h1><h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><h3 id="hungary"><a href="#hungary" class="headerlink" title="hungary"></a>hungary</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">int g[maxn][maxn],linker[maxn];</div><div class="line">bool used[maxn];</div><div class="line">bool dfs(int u)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(g[u][i] &amp;&amp; !used[i])&#123;</div><div class="line">			used[i]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[i]==-1 || dfs(linker[i]))&#123;</div><div class="line">				linker[i]=u;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">hungary</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	mm(linker,-1);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">		mm(used,0);</div><div class="line">		<span class="keyword">if</span>(dfs(i)) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 n和m分别记录2个集合的点数</strong></p>
+<h3 id="km"><a href="#km" class="headerlink" title="km"></a>km</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">int nx,ny;</div><div class="line">int g[maxn][maxn];</div><div class="line">int linker[maxn],lx[maxn],ly[maxn];</div><div class="line">int slack[maxn];</div><div class="line">bool visx[maxn],visy[maxn];</div><div class="line">bool dfs(int x)&#123;</div><div class="line">	visx[x]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(int y=0;y&lt;ny;y++)&#123;</div><div class="line">		<span class="keyword">if</span>(visy[y]) <span class="built_in">continue</span>;</div><div class="line">		int tmp=lx[x]+ly[y]-g[x][y];</div><div class="line">		<span class="keyword">if</span>(tmp==0)&#123;</div><div class="line">			visy[y]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[y]==-1 || dfs(linker[y]))&#123;</div><div class="line">				linker[y]=x;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> slack[y]=min(slack[y],tmp);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">km</span></span>()&#123;</div><div class="line">	mm(linker,-1),mm(ly,0);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		lx[i]=g[i][0];</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;ny;j++) lx[i]=max(lx[i],g[i][j]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		fill(slack,slack+ny,inf);</div><div class="line">		<span class="keyword">while</span>(1)&#123;</div><div class="line">			mm(visx,<span class="literal">false</span>),mm(visy,<span class="literal">false</span>);</div><div class="line">			<span class="keyword">if</span>(dfs(i)) <span class="built_in">break</span>;</div><div class="line">			int d=inf;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(!visy[j]) d=min(d,slack[j]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;nx;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visx[j]) lx[j]-=d;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visy[j]) ly[j]+=d;</div><div class="line">				<span class="keyword">else</span> slack[j]-=d;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;ny;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(linker[i]!=-1) ans+=g[linker[i]][i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 nx和ny分别记录2个集合的点数</strong></p>
+<h2 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h2>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分图/">二分图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a class="hidden" href="/2017/08/19/二分图总结/#more">undefined >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-dfs序专题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -827,140 +965,6 @@
 
 
   
-    <article id="post-muti多校-6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/11/muti多校-6/" class="article-date">
-      <time datetime="2017-08-11T06:59:32.000Z" itemprop="datePublished">2017-08-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/muti多校-6/">muti多校-6</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="muti多校-6"><a href="#muti多校-6" class="headerlink" title="muti多校-6"></a>muti多校-6</h1><h2 id="HDU-6096"><a href="#HDU-6096" class="headerlink" title="HDU 6096"></a>HDU 6096</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多校/">多校</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a class="hidden" href="/2017/08/11/muti多校-6/#more">undefined >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-背包组合数相关" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/10/背包组合数相关/" class="article-date">
-      <time datetime="2017-08-09T17:12:25.000Z" itemprop="datePublished">2017-08-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/背包组合数相关/">背包组合数相关</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&#60;&#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包/">背包</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a class="hidden" href="/2017/08/10/背包组合数相关/#more">undefined >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -975,14 +979,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -991,7 +995,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -1024,9 +1028,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
