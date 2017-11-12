@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hippopmonkey" />
+
+
+
+<meta name="description" content="2017icpc青岛B题目要求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017icpc青岛">
+<meta property="og:url" content="http://xuboming8.github.io/2017/11/12/2017icpc青岛/index.html">
+<meta property="og:site_name" content="CorgiButt">
+<meta property="og:description" content="2017icpc青岛B题目要求">
+<meta property="og:updated_time" content="2017-11-12T12:07:05.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017icpc青岛">
+<meta name="twitter:description" content="2017icpc青岛B题目要求">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="CorgiButt" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/white/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>2017icpc青岛 | CorgiButt</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/15029834412.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hippopmonkey</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2-sat/">2-sat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MST/">MST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RMQ/">RMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST算法/">ST算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVA/">UVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/acm/">acm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/acm-codeforces/">acm & codeforces</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atcoder/">atcoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitset/">bitset</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ccpc/">ccpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cf/">cf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cousera/">cousera</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs序/">dfs序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hihocoder/">hihocoder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icpc/">icpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icpc总结/">icpc总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kdtree/">kdtree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/km算法/">km算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lca/">lca</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polay计数/">polay计数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vector/">vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分图/">二分图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/位运算/">位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前向星/">前向星</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/匈牙利算法/">匈牙利算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈/">博弈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀数组/">后缀数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/周赛/">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/哈密顿/">哈密顿</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回文串/">回文串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团/">团</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图论/">图论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多校/">多校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字典树/">字典树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌套结构/">嵌套结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/差分/">差分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异或/">异或</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扩展欧几里德算法/">扩展欧几里德算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数位运算/">数位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/新生赛/">新生赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树分治/">树分治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树链剖分/">树链剖分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧几里德算法/">欧几里德算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比赛/">比赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瓶颈路/">瓶颈路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生成树/">生成树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/百度之星/">百度之星</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/省赛/">省赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网赛/">网赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包/">背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/莫比乌斯/">莫比乌斯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/莫队算法/">莫队算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合/">集合</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://voyage97.github.io/">Mr Kevin</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://open.163.com/ted/">TED-Talk</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://acm.split.hdu.edu.cn/">ACM-HDOJ</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.acmerblog.com/">ACM之家</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://hhmy.duoshuo.com/admin/">多说管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.wal8.com/upload/add.html">外链图床</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://netcn.console.aliyun.com/core/domain/list?spm=5176.200004.102.5.wPXnzm">域名管理</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/MOxFIVE/hexo-theme-yelee">本主题下载</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">锄禾日当午，不如coding苦。 对着C++，一调一下午。 调了一下午，bug还得补。 Bug刚补完，结构需重组。 Bug改不完，无言见列祖。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hippopmonkey</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/15029834412.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hippopmonkey</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">每天都是一个起点，每天都有一点进步，每天都有一点收获!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/5255092020/home" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/#signin" title="知乎"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://www.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-2017icpc青岛" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/12/2017icpc青岛/" class="article-date">
+      <time datetime="2017-11-12T11:47:13.000Z" itemprop="datePublished">2017-11-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017icpc青岛
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/icpc/">icpc</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="2017icpc青岛"><a href="#2017icpc青岛" class="headerlink" title="2017icpc青岛"></a>2017icpc青岛</h1><h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><a id="more"></a>
+<p>判断一个3×3的矩阵 是否有某一行或者某一列或者对角线是c t z 如果是则输出 否则输出ongoing</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;</div><div class="line">int t;</div><div class="line">char mp[5][5];</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=3;i++) scanf(<span class="string">"%s"</span>,mp[i]+1);</div><div class="line">		int flag=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=3;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(mp[i][1]==mp[i][2] &amp;&amp; mp[i][2]==mp[i][3] &amp;&amp; mp[i][1]!=<span class="string">'.'</span>)&#123;</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,mp[i][1]);</div><div class="line">				flag=1;</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag) <span class="built_in">continue</span>;</div><div class="line">		flag=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=3;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(mp[1][i]==mp[2][i] &amp;&amp; mp[2][i]==mp[3][i] &amp;&amp; mp[1][i]!=<span class="string">'.'</span>)&#123;</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,mp[1][i]);</div><div class="line">				flag=1;</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			&#125; </div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag) <span class="built_in">continue</span>;</div><div class="line">		flag=0;</div><div class="line">		<span class="keyword">if</span>(mp[1][1]==mp[2][2] &amp;&amp; mp[2][2]==mp[3][3] &amp;&amp; mp[1][1]!=<span class="string">'.'</span>)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,mp[1][1]);</div><div class="line">			flag=1;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag) <span class="built_in">continue</span>;</div><div class="line">		flag=0;</div><div class="line">		<span class="keyword">if</span>(mp[1][3]==mp[2][2] &amp;&amp; mp[2][2]==mp[3][1] &amp;&amp; mp[1][3]!=<span class="string">'.'</span>)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,mp[1][3]);</div><div class="line">			flag=1;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(flag) <span class="built_in">continue</span>;</div><div class="line">		puts(<span class="string">"ongoing"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>直接模拟</p>
+<h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>有一个n×n的表格 依次按照右下左上的顺序走<br>如果遇到边界或者遇到障碍物 进入下一方向<br>如果它能走的下一个位置无法移动 结束 输出矩阵</p>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 50</span></div><div class="line"><span class="comment">#define mm(a,b) memset(a,b,sizeof(a))</span></div><div class="line">using namespace std;</div><div class="line">char g[maxn][maxn];</div><div class="line">int t,n;</div><div class="line">void dfs(int x,int y,int dir)&#123;</div><div class="line">	<span class="keyword">if</span>(dir==1)&#123;</div><div class="line">		<span class="keyword">if</span>(g[x-1][y]==<span class="string">'#'</span> || g[x+1][y]==<span class="string">'#'</span> || g[x][y+1]==<span class="string">'#'</span>) <span class="built_in">return</span>;</div><div class="line">		g[x][y]=<span class="string">'#'</span>;</div><div class="line">		y++;</div><div class="line">		<span class="keyword">if</span>(y&gt;n || g[x][y+1]==<span class="string">'#'</span>) dfs(x+1,y-1,2);</div><div class="line">		<span class="keyword">else</span> dfs(x,y,dir);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(dir==2)&#123;</div><div class="line">		<span class="keyword">if</span>(g[x][y-1]==<span class="string">'#'</span> || g[x][y+1]==<span class="string">'#'</span> || g[x+1][y]==<span class="string">'#'</span>) <span class="built_in">return</span>;</div><div class="line">		g[x][y]=<span class="string">'#'</span>;</div><div class="line">		x++;</div><div class="line">		<span class="keyword">if</span>(x&gt;n || g[x+1][y]==<span class="string">'#'</span>) dfs(x-1,y-1,3);</div><div class="line">		<span class="keyword">else</span> dfs(x,y,dir);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(dir==3)&#123;</div><div class="line">		<span class="keyword">if</span>(g[x-1][y]==<span class="string">'#'</span> || g[x+1][y]==<span class="string">'#'</span> || g[x][y-1]==<span class="string">'#'</span>) <span class="built_in">return</span>;</div><div class="line">		g[x][y]=<span class="string">'#'</span>;</div><div class="line">		y--;</div><div class="line">		<span class="keyword">if</span>(y&lt;1 || g[x][y-1]==<span class="string">'#'</span>) dfs(x-1,y+1,4);</div><div class="line">		<span class="keyword">else</span> dfs(x,y,dir);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(dir==4)&#123;</div><div class="line">		<span class="keyword">if</span>(g[x][y-1]==<span class="string">'#'</span> || g[x][y+1]==<span class="string">'#'</span> || g[x-1][y]==<span class="string">'#'</span>) <span class="built_in">return</span>;</div><div class="line">		g[x][y]=<span class="string">'#'</span>;</div><div class="line">		x--;</div><div class="line">		<span class="keyword">if</span>(x&lt;1 || g[x-1][y]==<span class="string">'#'</span>) dfs(x+1,y+1,1);</div><div class="line">		<span class="keyword">else</span> dfs(x,y,dir);	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;=40;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;=40;j++) g[i][j]=<span class="string">' '</span>;</div><div class="line">		&#125;</div><div class="line">		dfs(1,1,1);</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%c"</span>,g[i][j]);</div><div class="line">			&#125;</div><div class="line">			puts(<span class="string">""</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>dfs模拟<br>注意遇到边界或者遇到障碍物就进入下一方向</p>
+<h2 id="K"><a href="#K" class="headerlink" title="K"></a>K</h2><h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>给出一些城市的机场顺序 要求从西安出发 经过青岛前先经过上海 离开青岛后最后要到达上海的浦东<br>上海有2个机场可以相互到达 分别是虹桥和浦东<br>如果第一次只经过虹桥没有转换 那么第二次只能到浦东<br>如果要内部交换只能第一次是浦东到虹桥 第二次是虹桥到浦东<br>每个机场都只能离开和到达一次(除了浦东可以到达两次) 并且都有费用 要求费用最小</p>
+<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define inf 0x3f3f3f3f</span></div><div class="line"><span class="comment">#define maxn 20050 </span></div><div class="line">using namespace std;</div><div class="line">int t,n;</div><div class="line">const int base=10005;</div><div class="line">struct Edge&#123;</div><div class="line">	int from,to,<span class="built_in">cap</span>,flow,cost;</div><div class="line">	Edge(int from,int to,int <span class="built_in">cap</span>,int flow,int cost):from(from),to(to),<span class="built_in">cap</span>(<span class="built_in">cap</span>),flow(flow),cost(cost)&#123;&#125;</div><div class="line">&#125;;</div><div class="line">struct MCMF&#123;</div><div class="line">	int n,m,s,t;</div><div class="line">	vector&lt;Edge&gt;edges;</div><div class="line">	vector&lt;int&gt;G[maxn];</div><div class="line">	int inq[maxn],d[maxn],p[maxn],a[maxn];</div><div class="line">	void init(int n)&#123;</div><div class="line">		this-&gt;n=n;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++) G[i].clear();</div><div class="line">		edges.clear();</div><div class="line">	&#125;</div><div class="line">	void AddEdge(int from,int to,int <span class="built_in">cap</span>,int cost)&#123;</div><div class="line">		edges.push_back(Edge(from,to,<span class="built_in">cap</span>,0,cost));</div><div class="line">		edges.push_back(Edge(to,from,0,0,-cost));</div><div class="line">		m=edges.size();</div><div class="line">		G[from].push_back(m-2);</div><div class="line">		G[to].push_back(m-1);</div><div class="line">	&#125;</div><div class="line">	bool BellmanFord(int s,int t,int&amp; flow,int&amp; cost)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;n;i++) d[i]=inf;</div><div class="line">		memset(inq,0,sizeof(inq));</div><div class="line">		d[s]=0,inq[s]=1,p[s]=0,a[s]=inf;</div><div class="line">		queue&lt;int&gt;Q;</div><div class="line">		Q.push(s);</div><div class="line">		<span class="keyword">while</span>(!Q.empty())&#123;</div><div class="line">			int u=Q.front();</div><div class="line">			Q.pop();</div><div class="line">			inq[u]=0;</div><div class="line">			<span class="keyword">for</span>(int i=0;i&lt;(int)G[u].size();i++)&#123;</div><div class="line">				Edge&amp; e=edges[G[u][i]];</div><div class="line">				<span class="keyword">if</span>(e.cap&gt;e.flow &amp;&amp; d[e.to]&gt;d[u]+e.cost)&#123;</div><div class="line">					d[e.to]=d[u]+e.cost;</div><div class="line">					p[e.to]=G[u][i];</div><div class="line">					a[e.to]=min(a[u],e.cap-e.flow);</div><div class="line">					<span class="keyword">if</span>(!inq[e.to])&#123;</div><div class="line">						Q.push(e.to);</div><div class="line">						inq[e.to]=1;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(d[t]==inf) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">		flow+=a[t];</div><div class="line">		cost+=d[t]*a[t];</div><div class="line">		int u=t;</div><div class="line">		<span class="keyword">while</span>(u!=s)&#123;</div><div class="line">			edges[p[u]].flow+=a[t];</div><div class="line">			edges[p[u]^1].flow-=a[t];</div><div class="line">			u=edges[p[u]].from;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	void Mincost(int s,int t)&#123;</div><div class="line">		int flow=0,cost=0;</div><div class="line">		<span class="keyword">while</span>(BellmanFord(s,t,flow,cost));</div><div class="line">		<span class="keyword">if</span>(flow==3) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cost);</div><div class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;g;</div><div class="line">char s1[15],s2[15];</div><div class="line">map&lt;string,int&gt;mp;</div><div class="line">int w,id;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		scanf(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		mp.clear();</div><div class="line">		g.init(maxn);</div><div class="line">		id=0;</div><div class="line">		int S=0,T=20010;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">			scanf(<span class="string">"%s%s%d"</span>,s1,s2,&amp;w);</div><div class="line">			<span class="keyword">if</span>(!mp.count(s1))&#123;</div><div class="line">				mp[s1]=++id;</div><div class="line">				<span class="keyword">if</span>(strcmp(s1,<span class="string">"Hongqiao"</span>)==0) g.AddEdge(mp[s1],mp[s1]+base,2,0);</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(strcmp(s1,<span class="string">"Qingdao"</span>)==0) g.AddEdge(mp[s1],mp[s1]+base,2,0);</div><div class="line">				<span class="keyword">else</span> g.AddEdge(mp[s1],mp[s1]+base,1,0);</div><div class="line">			&#125; </div><div class="line">			<span class="keyword">if</span>(!mp.count(s2))&#123;</div><div class="line">				mp[s2]=++id;</div><div class="line">				<span class="keyword">if</span>(strcmp(s2,<span class="string">"Hongqiao"</span>)==0) g.AddEdge(mp[s2],mp[s2]+base,2,0);</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(strcmp(s2,<span class="string">"Qingdao"</span>)==0) g.AddEdge(mp[s2],mp[s2]+base,2,0);</div><div class="line">				<span class="keyword">else</span> g.AddEdge(mp[s2],mp[s2]+base,1,0);</div><div class="line">			&#125;</div><div class="line">			g.AddEdge(mp[s1]+base,mp[s2],inf,w);</div><div class="line">			g.AddEdge(mp[s2]+base,mp[s1],inf,w);</div><div class="line">		&#125;</div><div class="line">		g.AddEdge(S,mp[<span class="string">"Qingdao"</span>],inf,0);</div><div class="line">		g.AddEdge(S,mp[<span class="string">"Xian"</span>],inf,0);</div><div class="line">		g.AddEdge(mp[<span class="string">"Hongqiao"</span>]+base,T,inf,0);</div><div class="line">		g.AddEdge(mp[<span class="string">"Pudong"</span>]+base,T,inf,0);</div><div class="line">		g.Mincost(S,T);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>MCMF<br>根据题目要求只能是2种情况<br>1.西安-&gt;···-&gt;虹桥-&gt;···-&gt;青岛-&gt;···-&gt;浦东<br>2.西安-&gt;···-&gt;浦东-&gt;虹桥-&gt;···-&gt;青岛-&gt;···-&gt;虹桥-&gt;浦东<br>观察两种情况 我们可以分成三段 西安出发的一段 青岛流往两边的两段<br>两种情况都要求虹桥和青岛连的边流量为2 其余为1 拆点跑mcmf 判断最后是否满流(flow==3)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/12/2017icpc青岛/">2017icpc青岛</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-11-12, 19:47:13</p>
+        <p><span>最后更新:</span>2017-11-12, 20:07:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/12/2017icpc青岛/" title="2017icpc青岛">http://xuboming8.github.io/2017/11/12/2017icpc青岛/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/11/12/2017icpc青岛/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/11/07/2017ccpc秦皇岛/">
+                    2017ccpc秦皇岛
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2017icpc青岛"><span class="toc-number">1.</span> <span class="toc-text">2017icpc青岛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">1.1.</span> <span class="toc-text">B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">1.2.</span> <span class="toc-text">I</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">1.3.</span> <span class="toc-text">K</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"2017icpc青岛　| CorgiButt　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=845569486';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/11/07/2017ccpc秦皇岛/" title="下一篇: 2017ccpc秦皇岛">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/2017icpc青岛/">2017icpc青岛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/2017ccpc秦皇岛/">2017ccpc秦皇岛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/cf-round441/">cf round441</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/cf-round433/">cf round433</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/cf-edu31/">cf edu31</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/树分治专题/">树分治专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/二分图专题补/">二分图专题补</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/2016ccpc杭州/">2016ccpc杭州</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/tarjan强联通专题/">tarjan强联通专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/24/2-SAT/">2-SAT</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/24/cf-round439/">cf round439</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/总结2017acm沈阳区域赛/">总结2017acm沈阳区域赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/生成树相关/">生成树相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/12/差分约束专题/">差分约束专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/紫书图论章末杂选/">紫书图论章末杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/网络流拓展六/">网络流拓展六</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/06/最短路专题二/">最短路专题二</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/04/网络流拓展五/">网络流拓展五</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/02/蓝书-嵌套-分块/">蓝书 嵌套+分块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/01/lca专题二/">lca专题二</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/28/莫队专题/">莫队专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/kdtree专题/">kdtree专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/2017南宁网络赛/">2017南宁网络赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/22/hello-world/">First article about hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/网络流拓展四/">网络流拓展四</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/18/路径交集并拓展/">路径交集并拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/18/2017青岛网络赛/">2017青岛网络赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/13/网络流拓展三/">网络流拓展三</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/11/lca相关/">lca专题一</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/11/2017沈阳网络赛/">2017沈阳网络赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/2017新疆赛区网赛/">2017新疆赛区网赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/树链剖分专题3/">树链剖分专题3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/最短路相关/">最短路相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/2017广西邀请赛/">2017广西邀请赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/分块专题2/">分块专题2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/28/分块专题/">分块专题一</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/28/muti多校-10/">muti多校-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/熟练剖分专题2/">树链剖分专题2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/23/树链剖分专题/">树链剖分专题1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/23/muti多校-9/">muti多校-9</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/20/2017ccpc网赛/">2017ccpc网赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/19/二分图总结/">二分图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/18/dfs序专题/">dfs序专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/17/muti多校-7-8/">muti多校7 & 2017百度之星复赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/17/树状数组延伸/">树状数组延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/14/图论-团专题/">图论-团专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/14/回文串专题/">回文串专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/14/cf-round428/">cf round428</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/14/2017百度之星预赛B/">2017百度之星预赛B</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/14/2017百度之星复赛A/">2017百度之星预赛A</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/muti多校-6/">muti多校-6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/背包组合数相关/">背包组合数相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/09/muti多校-5/">muti多校-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/08/muti多校-4/">muti多校-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/07/atcoder-regular080/">atcoder regular080</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/06/2017百度之星-cf-edu26-D/">2017百度之星资格赛&&cf edu26-D</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/03/并查集/">并查集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/multi多校-3/">multi多校-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/multi多校-2/">multi多校-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/26/福建2017省赛/">福建2017省赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/26/hiho杂选/">hiho杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/26/multi多校-1/">multi多校-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/cf-round-425/">cf round 425</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/hihocoder编程练习赛19/">hihocoder编程练习赛19</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/19/网络流拓展二/">网络流拓展二</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/17/cf-edu25/">cf edu25</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/atcoder078regular/">atcoder078regular</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/15/cf-round-423/">cf round 423</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/cf-round-424/">cf round 424</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/上海大学oj比赛/">上海大学oj比赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/cf-round-422/">cf round 422</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/网络流拓展/">网络流拓展一</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/16/cf杂选-1/">cf杂选2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/NEUQ-ACM程序设计竞赛-团队赛/">NEUQ-ACM程序设计竞赛(团队赛)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/最小瓶颈路-变形/">最小瓶颈路&变形</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/11/浙工业之江学院比赛/">浙工业之江学院比赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/网络流专题/">网络流专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/百度之星专题/">百度之星专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/2017acm-final/">2017acm final</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/cf-at-hiho杂选二/">cf&at&hiho杂选二</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/MST模板/">MST模板</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/25/Polay计数/">Polya计数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/23/cf-at-杂选/">cf&at 杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/cf杂选/">cf杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/ccpc江苏省赛/">2017ccpc江苏省赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/2017-ccpc-wfin-女生赛/">2017 ccpc wfin-女生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/博弈论/">博弈论</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/莫比乌斯反演/">莫比乌斯反演</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/杂题专选-二/">杂题专选-二</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/Bitset优化/">Bitset优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/线段树专题/">专题杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/简单数论/">简单数论</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/容斥原理/">容斥原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/DP专题八-石子合并/">DP专题八--石子合并</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/DAG上的DP问题/">DAG上的DP问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/15/DP专题七-有关复杂集合/">DP专题七--有关复杂集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/dp专题六-树形dp/">dp专题六--树形dp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/10/dp专题二/">dp基础专题五</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/07/贪心杂选/">贪心杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Machine-Learning-2/">Machine Learning-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/经典面试之——异或操作/">经典面试之——异或操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/03/贪心专题/">贪心专题-区间问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/01/欧拉通路-回路/">欧拉通路 回路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/图论基础/">图论基础杂选</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/26/数位dp/">数位dp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/Marchine-Learning/">Machine Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/27/12-24-杭电校赛/">12-24 杭电校赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/12-11-哈理工团体新生赛/">12-11 哈理工团体新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/广工业新生赛/">广工业新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/图论-最短路专题/">图论-最短路专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/28/哈理工新人赛/">哈理工新生赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/蓝桥杯模拟赛/">蓝桥杯模拟赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/21/后缀数组四大基础应用/">后缀数组四大基础应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/二分图交叉染色法模版题/">二分图交叉染色法模版题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/11-13-周赛/">11-13 周赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/09/11-06-热身赛/">11-06 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/09/RMQ问题/">RMQ问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/扩展欧几里德算法/">扩展欧几里德算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/10-30-热身赛/">10-30 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/化繁为简：位运算/">化繁为简：位运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/字典树trie/">字典树trie</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/vector实现前向星/">vector实现前向星</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/10-23-热身赛/">10-23 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/10-16-热身赛/">10-16 热身赛</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/神奇的树状数组/">神奇的树状数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/atoi与itoa函数介绍/">atoi与itoa函数介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/九大基础排序算法/">十三种基础排序算法[置顶]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题四-背包延伸/">DP问题专题四 背包延伸</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题三-完全·分组背包巩固/">DP问题专题三 完全·分组背包巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题二-01背包专题/">DP问题专题二 01背包专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/DP问题专题一-Dynamic-Programming-背包入门/">DP问题专题一(Dynamic Programming) 背包入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/经典的搜索类游戏/">经典的搜索类游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/深度优先搜索-DFS-与广度优先搜索-BFS/">深度优先搜索(DFS)与广度优先搜索(BFS)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/浅谈LIS算法-Longest-Increasing-Subsequence/">浅谈LIS算法(Longest Increasing Subsequence)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/Talking-with-Catalan/">Talking with Catalan</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1023-1027-1058/">ACM 1023-1027 1058</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1018-1022/">ACM 1018-1022</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1013-1017/">ACM 1013-1017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/ACM-1002-1007/">ACM 1002-1007</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Hippopmonkey
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 3;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
