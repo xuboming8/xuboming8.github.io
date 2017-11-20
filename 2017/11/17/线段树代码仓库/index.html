@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/11/17/线段树代码仓库/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="线段树代码仓库除基本操作(区间单点增减替换 区间单点查询最值或和)除pdf(个别pdf题目会加进来)">
-<meta property="og:updated_time" content="2017-11-18T09:06:46.731Z">
+<meta property="og:updated_time" content="2017-11-20T15:57:35.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树代码仓库">
 <meta name="twitter:description" content="线段树代码仓库除基本操作(区间单点增减替换 区间单点查询最值或和)除pdf(个别pdf题目会加进来)">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-线段树代码仓库" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -345,6 +345,10 @@
 <h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>跟lcis类似 再维护l和r<br>删除和恢复用栈维护<br>注意push up操作和query里的操作</p>
 <h2 id="bzoj-1135"><a href="#bzoj-1135" class="headerlink" title="bzoj 1135"></a>bzoj 1135</h2><p>维护连续区间和的最大值<br>注意写法</p>
 <h3 id="参考AC代码-4"><a href="#参考AC代码-4" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void pushup(int rt)&#123;</div><div class="line">    sum[rt]=sum[rt&lt;&lt;1]+sum[rt&lt;&lt;1|1];</div><div class="line">    lmax[rt]=max(lmax[rt&lt;&lt;1],sum[rt&lt;&lt;1]+lmax[rt&lt;&lt;1|1]);</div><div class="line">    rmax[rt]=max(rmax[rt&lt;&lt;1|1],sum[rt&lt;&lt;1|1]+rmax[rt&lt;&lt;1]);</div><div class="line">    mmax[rt]=max(lmax[rt&lt;&lt;1|1]+rmax[rt&lt;&lt;1],max(mmax[rt&lt;&lt;1],mmax[rt&lt;&lt;1|1]));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="HDU-4614"><a href="#HDU-4614" class="headerlink" title="HDU 4614"></a>HDU 4614</h2><h3 id="题目要求-4"><a href="#题目要求-4" class="headerlink" title="题目要求"></a>题目要求</h3><p>有n个花瓶 每个花瓶只能放一朵花<br>给出q次两种类型的操作<br>1代表在x位置开始放y多花 如果有这个位置有花 后推 直到最后一个 如果有部分花没有放 直接扔掉 如果一朵花都没有放<br>输出Can not put any one.<br>2代表把x到y位置的花全部清空 输出一共有多少朵花</p>
+<h3 id="参考AC代码-5"><a href="#参考AC代码-5" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 50050</span></div><div class="line"><span class="comment">#define lson rt&lt;&lt;1,l,mid</span></div><div class="line"><span class="comment">#define rson rt&lt;&lt;1|1,mid+1,r </span></div><div class="line">using namespace std;</div><div class="line">int t,n,q;</div><div class="line">int sum[maxn&lt;&lt;2],lazy[maxn&lt;&lt;2];</div><div class="line">void push_up(int rt)&#123;</div><div class="line">	sum[rt]=sum[rt&lt;&lt;1]+sum[rt&lt;&lt;1|1];</div><div class="line">&#125;</div><div class="line">void push_down(int rt,int l,int r)&#123;</div><div class="line">	<span class="keyword">if</span>(lazy[rt]!=-1)&#123;</div><div class="line">		lazy[rt&lt;&lt;1]=lazy[rt];</div><div class="line">		lazy[rt&lt;&lt;1|1]=lazy[rt];</div><div class="line">		<span class="keyword">if</span>(lazy[rt])&#123;</div><div class="line">			int mid=l+r&gt;&gt;1;</div><div class="line">			sum[rt&lt;&lt;1]=mid<span class="_">-l</span>+1;</div><div class="line">			sum[rt&lt;&lt;1|1]=r-mid;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> sum[rt&lt;&lt;1]=sum[rt&lt;&lt;1|1]=0;</div><div class="line">		lazy[rt]=-1;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">void build(int rt,int l,int r)&#123;</div><div class="line">	sum[rt]=0,lazy[rt]=-1;</div><div class="line">	<span class="keyword">if</span>(l==r) <span class="built_in">return</span>;</div><div class="line">	int mid=l+r&gt;&gt;1;</div><div class="line">	build(lson);</div><div class="line">	build(rson);</div><div class="line">&#125;</div><div class="line">void update(int rt,int l,int r,int L,int R,int val)&#123;</div><div class="line">	<span class="keyword">if</span>(l&gt;=L &amp;&amp; r&lt;=R)&#123;</div><div class="line">		lazy[rt]=val;</div><div class="line">		<span class="keyword">if</span>(val) sum[rt]=r<span class="_">-l</span>+1;</div><div class="line">		<span class="keyword">else</span> sum[rt]=0;</div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	push_down(rt,l,r);</div><div class="line">	int mid=l+r&gt;&gt;1;</div><div class="line">	<span class="keyword">if</span>(mid&gt;=L) update(lson,L,R,val);</div><div class="line">	<span class="keyword">if</span>(mid&lt;R) update(rson,L,R,val);</div><div class="line">	push_up(rt);</div><div class="line">&#125;</div><div class="line">int query(int rt,int l,int r,int L,int R)&#123;</div><div class="line">	<span class="keyword">if</span>(l&gt;=L &amp;&amp; r&lt;=R) <span class="built_in">return</span> sum[rt];</div><div class="line">	push_down(rt,l,r);</div><div class="line">	int mid=l+r&gt;&gt;1;</div><div class="line">	<span class="keyword">if</span>(mid&gt;=R) <span class="built_in">return</span> query(lson,L,R);</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(mid&lt;L) <span class="built_in">return</span> query(rson,L,R);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">return</span> query(lson,L,R)+query(rson,L,R);</div><div class="line">&#125;</div><div class="line">int bin(int st,int num)&#123;</div><div class="line">	int l=st,r=n;</div><div class="line">	int ans=-1;</div><div class="line">	<span class="keyword">while</span>(l&lt;=r)&#123;</div><div class="line">		int mid=l+r&gt;&gt;1;</div><div class="line">		int tmp=query(1,1,n,st,mid);</div><div class="line">		<span class="keyword">if</span>(mid-st+1-tmp&gt;=num) ans=mid,r=mid-1;</div><div class="line">		<span class="keyword">else</span> l=mid+1;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d"</span>,&amp;t);</div><div class="line">	<span class="keyword">while</span>(t--)&#123;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;q);</div><div class="line">		build(1,1,n);</div><div class="line">		<span class="keyword">while</span>(q--)&#123;</div><div class="line">			int op,x,y;</div><div class="line">			scanf(<span class="string">"%d%d%d"</span>,&amp;op,&amp;x,&amp;y);</div><div class="line">			<span class="keyword">if</span>(op==1)&#123;</div><div class="line">				x++;</div><div class="line">				int pos1=bin(x,1);</div><div class="line">				<span class="keyword">if</span>(pos1==-1) puts(<span class="string">"Can not put any one."</span>);</div><div class="line">				<span class="keyword">else</span>&#123;</div><div class="line">					int tmp=query(1,1,n,pos1,n);</div><div class="line">					tmp=n-pos1+1-tmp;</div><div class="line">					<span class="keyword">if</span>(tmp&lt;=y) y=tmp;</div><div class="line">					int pos2=bin(x,y);</div><div class="line">					<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,pos1-1,pos2-1);</div><div class="line">					update(1,1,n,pos1,pos2,1); </div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(op==2)&#123;</div><div class="line">				x++,y++;</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,query(1,1,n,x,y));</div><div class="line">				update(1,1,n,x,y,0);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		puts(<span class="string">""</span>);</div><div class="line">	&#125;	</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>线段树+二分查找<br>sum维护区间的花数量和 lazy表示该区间是否全部有花(lazy=1) 全部没有花(lazy=0)<br>因为区间是0到n-1 所以++ 输出的时候–<br>先找到在x位置开始放1朵花的位置 如果找不到这个位置输出Can not put any one.<br>否则找到的pos1就是起点 然后找出从pos1到n的所有空位置的数量(总位置-query有花的数量) 如果比y小 y=tmp 多余的花需要丢掉<br>再从pos1位置开始找到放b多花的终止位置 就是答案<br>注意1操作结束要把pos1到pos2位置全部变成1 2操作全部变成0<br>二分的具体操作：固定st起点 如果空位置≥num 区间向左移动缩小空位置数量 确保找到的位置最左 否则向右移动</p>
+
       
     </div>
     
@@ -352,17 +356,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/11/17/线段树代码仓库/">线段树代码仓库</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2017-11-17, 13:34:24</p>
-        <p><span>Updated:</span>2017-11-18, 17:06:46</p>
+        <p><span>本文标题:</span><a href="/2017/11/17/线段树代码仓库/">线段树代码仓库</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-11-17, 13:34:24</p>
+        <p><span>最后更新:</span>2017-11-20, 23:57:35</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/11/17/线段树代码仓库/" title="线段树代码仓库">http://xuboming8.github.io/2017/11/17/线段树代码仓库/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2017/11/17/线段树代码仓库/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/17/线段树代码仓库/" title="线段树代码仓库">http://xuboming8.github.io/2017/11/17/线段树代码仓库/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/11/17/线段树代码仓库/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -384,9 +388,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线段树代码仓库"><span class="toc-number">1.</span> <span class="toc-text">线段树代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#zoj-1610"><span class="toc-number">1.1.</span> <span class="toc-text">zoj 1610</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-2528"><span class="toc-number">1.2.</span> <span class="toc-text">poj 2528</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4027"><span class="toc-number">1.3.</span> <span class="toc-text">HDU 4027</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-3308"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 3308</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1540"><span class="toc-number">1.5.</span> <span class="toc-text">HDU 1540</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-1135"><span class="toc-number">1.6.</span> <span class="toc-text">bzoj 1135</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.6.1.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线段树代码仓库"><span class="toc-number">1.</span> <span class="toc-text">线段树代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#zoj-1610"><span class="toc-number">1.1.</span> <span class="toc-text">zoj 1610</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-2528"><span class="toc-number">1.2.</span> <span class="toc-text">poj 2528</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4027"><span class="toc-number">1.3.</span> <span class="toc-text">HDU 4027</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-3308"><span class="toc-number">1.4.</span> <span class="toc-text">HDU 3308</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-1540"><span class="toc-number">1.5.</span> <span class="toc-text">HDU 1540</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bzoj-1135"><span class="toc-number">1.6.</span> <span class="toc-text">bzoj 1135</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.6.1.</span> <span class="toc-text">参考AC代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDU-4614"><span class="toc-number">1.7.</span> <span class="toc-text">HDU 4614</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.7.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-5"><span class="toc-number">1.7.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.7.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -400,10 +404,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -456,13 +460,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/11/14/2017ccpc哈尔滨/" title="Next: 2017ccpc哈尔滨">
+            <a href="/2017/11/14/2017ccpc哈尔滨/" title="下一篇: 2017ccpc哈尔滨">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -485,14 +489,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -501,7 +505,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -534,9 +538,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
