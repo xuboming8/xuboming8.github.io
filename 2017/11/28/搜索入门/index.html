@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2017/11/28/搜索入门/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="kaungbin搜索入门poj 1321题目要求">
-<meta property="og:updated_time" content="2017-12-07T09:22:22.515Z">
+<meta property="og:updated_time" content="2017-12-08T03:50:34.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin搜索入门">
 <meta name="twitter:description" content="kaungbin搜索入门poj 1321题目要求">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>友情鏈接</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>關於我</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-搜索入门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -342,6 +342,9 @@
 <h2 id="poj-3279"><a href="#poj-3279" class="headerlink" title="poj 3279"></a>poj 3279</h2><h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>有一个01矩阵 目标是用最少的转换次数把它变成全0矩阵<br>转换方法：每次可以把一个位置的1变成0 0变成1 上下左右四个位置也要转置</p>
 <h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 20</span></div><div class="line">using namespace std;</div><div class="line">const int inf = 0x3f3f3f3f;</div><div class="line">const int dx[]=&#123;-1,0,1,0,0&#125;;</div><div class="line">const int dy[]=&#123;0,-1,0,1,0&#125;;</div><div class="line">int grid[maxn][maxn],state[maxn][maxn],tmp[maxn][maxn],rec[maxn][maxn];</div><div class="line">int n, m, ans;</div><div class="line">void flip(int x,int y)&#123;</div><div class="line">    tmp[x][y]=1;</div><div class="line">    int nx,ny;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;5;i++)&#123;</div><div class="line">        nx=x+dx[i];</div><div class="line">        ny=y+dy[i];</div><div class="line">        state[nx][ny]=!state[nx][ny];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">bool isEmpty(int n)&#123;</div><div class="line">    <span class="keyword">for</span>(int j=1;j&lt;=m;j++) &#123;</div><div class="line">        <span class="keyword">if</span>(state[n][j]) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line">void solve(int st)&#123;</div><div class="line">    memcpy(state,grid,sizeof(grid));</div><div class="line">    memset(tmp,0,sizeof(tmp));</div><div class="line">    int cnt=0;</div><div class="line">    <span class="keyword">for</span>(int j=0;j&lt;m;j++)&#123;</div><div class="line">        <span class="keyword">if</span>((st&gt;&gt;j)&amp;1) &#123;</div><div class="line">            flip(1,j+1);</div><div class="line">            cnt++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;</div><div class="line">            <span class="keyword">if</span>(state[i-1][j]==1)&#123;</div><div class="line">                flip(i,j);</div><div class="line">                cnt++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(isEmpty(n) &amp;&amp; cnt&lt;ans)&#123;</div><div class="line">        ans=cnt;</div><div class="line">        memcpy(rec,tmp,sizeof(tmp));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">    <span class="keyword">while</span>(scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)&#123;</div><div class="line">        <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(int j=1;j&lt;=m;j++) scanf(<span class="string">"%d"</span>,&amp;grid[i][j]);</div><div class="line">        &#125;</div><div class="line">        ans=inf;</div><div class="line">        int end=1&lt;&lt;m;</div><div class="line">        <span class="keyword">for</span>(int st=0;st&lt;end;st++) solve(st);</div><div class="line">        <span class="keyword">if</span>(ans==inf) puts(<span class="string">"IMPOSSIBLE"</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">            	<span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;</div><div class="line">            		<span class="keyword">if</span>(j==m) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,rec[i][j]);</div><div class="line">					<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,rec[i][j]); 	</div><div class="line">				&#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>跟uva11464(白书P15)类似 状压+枚举计算<br>由于n是15 所以可以用二进制枚举第一行的状态<br>然后通过题目的限制条件来计算下面每一行<br>如果上一行是1的话 那么下面一行肯定要翻转 因为只有下面一行能影响上面一行<br>最后判断一下 最后一行是不是都是0 如果都是 则维护最小的翻转次数</p>
+<h2 id="poj-1426"><a href="#poj-1426" class="headerlink" title="poj 1426"></a>poj 1426</h2><h3 id="题目要求-4"><a href="#题目要求-4" class="headerlink" title="题目要求"></a>题目要求</h3><p>给定一个小于200的正整数n 求出任意一个n的倍数 并且它的十进制表示法只由0和1组成</p>
+<h3 id="参考AC代码-4"><a href="#参考AC代码-4" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;cstdio&gt;</span></div><div class="line"><span class="comment">#include&lt;queue&gt;</span></div><div class="line"><span class="comment">#define LL long long</span></div><div class="line">using namespace std;</div><div class="line">int n;</div><div class="line">void <span class="function"><span class="title">bfs</span></span>()&#123;</div><div class="line">	queue&lt;LL&gt;Q;</div><div class="line">	Q.push(1);</div><div class="line">	<span class="keyword">while</span>(!Q.empty())&#123;</div><div class="line">		LL x=Q.front();</div><div class="line">		Q.pop();</div><div class="line">		<span class="keyword">if</span>(x%n==0)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,x);</div><div class="line">			<span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">		Q.push(x*10);</div><div class="line">		Q.push(x*10+1);</div><div class="line">	&#125;</div><div class="line">&#125; </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d"</span>,&amp;n)!=EOF)&#123;</div><div class="line">		<span class="keyword">if</span>(n==0) <span class="built_in">break</span>;</div><div class="line">		bfs();</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>本题有一个结论 小于200的倍数最多在18位内肯定存在 所以开LL即可不需要大数<br>也可以用dfs 给定一个位数的上限即可<br>bfs直接暴力搜×10 和×10+1</p>
 
       
     </div>
@@ -350,17 +353,17 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2017/11/28/搜索入门/">kuangbin搜索入门</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">Hippopmonkey</a></p>
-        <p><span>發布時間:</span>2017-11-28, 15:38:35</p>
-        <p><span>最後更新:</span>2017-12-07, 17:22:22</p>
+        <p><span>本文标题:</span><a href="/2017/11/28/搜索入门/">kuangbin搜索入门</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2017-11-28, 15:38:35</p>
+        <p><span>最后更新:</span>2017-12-08, 11:50:34</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2017/11/28/搜索入门/" title="kuangbin搜索入门">http://xuboming8.github.io/2017/11/28/搜索入门/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/11/28/搜索入门/　　作者: Hippopmonkey" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/28/搜索入门/" title="kuangbin搜索入门">http://xuboming8.github.io/2017/11/28/搜索入门/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2017/11/28/搜索入门/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -382,9 +385,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kaungbin搜索入门"><span class="toc-number">1.</span> <span class="toc-text">kaungbin搜索入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-1321"><span class="toc-number">1.1.</span> <span class="toc-text">poj 1321</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-2251"><span class="toc-number">1.2.</span> <span class="toc-text">poj 2251</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-3278"><span class="toc-number">1.3.</span> <span class="toc-text">poj 3278</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-3279"><span class="toc-number">1.4.</span> <span class="toc-text">poj 3279</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kaungbin搜索入门"><span class="toc-number">1.</span> <span class="toc-text">kaungbin搜索入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-1321"><span class="toc-number">1.1.</span> <span class="toc-text">poj 1321</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-2251"><span class="toc-number">1.2.</span> <span class="toc-text">poj 2251</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-3278"><span class="toc-number">1.3.</span> <span class="toc-text">poj 3278</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-3279"><span class="toc-number">1.4.</span> <span class="toc-text">poj 3279</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.3.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poj-1426"><span class="toc-number">1.5.</span> <span class="toc-text">poj 1426</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -398,10 +401,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -454,7 +457,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -483,14 +486,14 @@
                 2016-2017 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -499,7 +502,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -532,9 +535,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
