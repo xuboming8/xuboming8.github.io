@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2018/03/14/hihocoder编程练习赛50/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="hihocoder编程练习赛50A">
-<meta property="og:updated_time" content="2018-03-14T13:07:17.904Z">
+<meta property="og:updated_time" content="2018-03-14T13:13:50.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hihocoder编程练习赛50">
 <meta name="twitter:description" content="hihocoder编程练习赛50A">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-hihocoder编程练习赛50" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -349,7 +349,7 @@
 <p><strong>样例输入</strong><br>10 2 3<br>1 10</p>
 <p><strong>样例输出</strong><br>5<br>7<br>3</p>
 <h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line">using namespace std;</div><div class="line">int n,m,k;</div><div class="line">int a[maxn],l[maxn],r[maxn];</div><div class="line">struct node&#123;</div><div class="line">	int val,l,r;</div><div class="line">	node(int val,int l,int r):val(val),l(l),r(r)&#123;&#125;</div><div class="line">	bool operator &lt; (const node x) const&#123;</div><div class="line">		<span class="keyword">if</span>(min(l,r)!=min(x.l,x.r)) <span class="built_in">return</span> min(l,r)&gt;min(x.l,x.r);</div><div class="line">		<span class="keyword">if</span>(max(l,r)!=max(x.l,x.r)) <span class="built_in">return</span> max(l,r)&gt;max(x.l,x.r);</div><div class="line">		<span class="built_in">return</span> val&lt;x.val;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">set</span>&lt;node&gt;s;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k)!=EOF)&#123;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=m;i++)&#123;</div><div class="line">			int x;</div><div class="line">			scanf(<span class="string">"%d"</span>,&amp;x);</div><div class="line">			a[x]++;</div><div class="line">		&#125;</div><div class="line">		memset(l,0,sizeof(l));</div><div class="line">		memset(r,0,sizeof(r));</div><div class="line">		s.clear();</div><div class="line">		<span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(a[i]==0 &amp;&amp; a[i-1]==0) l[i]=l[i-1]+1;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=n-1;i&gt;=1;i--)&#123;</div><div class="line">			<span class="keyword">if</span>(a[i]==0 &amp;&amp; a[i+1]==0) r[i]=r[i+1]+1;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(a[i]==0)&#123;</div><div class="line">				s.insert(node(i,l[i],r[i]));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=k;i++)&#123;</div><div class="line">			node tmp=*s.begin();</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,tmp.val);</div><div class="line">			<span class="keyword">for</span>(int j=tmp.val-1;j&gt;=tmp.val-tmp.l;j--)&#123;</div><div class="line">				s.erase(node(j,l[j],r[j]));</div><div class="line">				r[j]-=tmp.r+1;</div><div class="line">				s.insert(node(j,l[j],r[j]));</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=tmp.val+1;j&lt;=tmp.val+tmp.r;j++)&#123;</div><div class="line">				s.erase(node(j,l[j],r[j]));</div><div class="line">				l[j]-=tmp.l+1;</div><div class="line">				s.insert(node(j,l[j],r[j]));</div><div class="line">			&#125;</div><div class="line">			s.erase(tmp);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>stl模拟优先级<br>原本用优先队列写的 结果发现优先队列里没有迭代器 所以在k个人依次选择到自己的位置后 不会更新l和r数组<br>参考了别人的代码发现用set即可 先删除原本的位置 再更新l和r数组 再insert回去<br>注意l和r数组的更新为：坐下位置的l或r值+1<br>注意set的begin返回的是一个迭代器指针类型 加上星号才能变成node类型</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>stl模拟优先级<br>原本用优先队列写的 结果发现优先队列里没有迭代器 所以在k个人依次选择到自己的位置后 不会更新l和r数组<br>参考了别人的代码发现用set即可 先删除原本的位置 再更新l和r数组 再insert回去<br>注意l和r数组的更新为：坐下位置的l或r值+1<br>注意set的begin返回的是一个迭代器指针类型 加上星号才能变成node类型<br><strong>补</strong>：题目的实质是找出最长区间 坐在中点位置 优先队列存放区间长度即可 维护一个l r和mid 每次弹出一个最长的区间 然后把该区间分成两半再push进去</p>
 <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>cf原题<br><a href="http://monkeyxu.cn/2017/08/06/2017%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F-cf-edu26-D/" target="_blank" rel="external">转跳连接</a></p>
 
       
@@ -359,17 +359,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/14/hihocoder编程练习赛50/">hihocoder编程练习赛50</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2018-03-14, 20:53:04</p>
-        <p><span>最后更新:</span>2018-03-14, 21:07:17</p>
+        <p><span>Title:</span><a href="/2018/03/14/hihocoder编程练习赛50/">hihocoder编程练习赛50</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2018-03-14, 20:53:04</p>
+        <p><span>Updated:</span>2018-03-14, 21:13:50</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/14/hihocoder编程练习赛50/" title="hihocoder编程练习赛50">http://xuboming8.github.io/2018/03/14/hihocoder编程练习赛50/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2018/03/14/hihocoder编程练习赛50/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2018/03/14/hihocoder编程练习赛50/" title="hihocoder编程练习赛50">http://xuboming8.github.io/2018/03/14/hihocoder编程练习赛50/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2018/03/14/hihocoder编程练习赛50/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -391,7 +391,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hihocoder编程练习赛50"><span class="toc-number">1.</span> <span class="toc-text">hihocoder编程练习赛50</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">1.1.</span> <span class="toc-text">A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">1.2.</span> <span class="toc-text">B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">1.3.</span> <span class="toc-text">C</span></a></li></ol></li></ol>
         
@@ -407,10 +407,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -463,13 +463,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/11/28/搜索入门/" title="下一篇: kuangbin搜索入门">
+            <a href="/2017/11/28/搜索入门/" title="Next: kuangbin搜索入门">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -492,14 +492,14 @@
                 2016-2018 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -508,7 +508,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -541,9 +541,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
