@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="A">
+<meta name="description" content="B描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hihocoder编程练习赛51">
 <meta property="og:url" content="http://xuboming8.github.io/2018/03/20/hihocoder编程练习赛51/index.html">
 <meta property="og:site_name" content="CorgiButt">
-<meta property="og:description" content="A">
-<meta property="og:updated_time" content="2018-03-20T15:08:51.539Z">
+<meta property="og:description" content="B描述">
+<meta property="og:updated_time" content="2018-03-26T12:37:49.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hihocoder编程练习赛51">
-<meta name="twitter:description" content="A">
+<meta name="twitter:description" content="B描述">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-hihocoder编程练习赛51" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -329,15 +329,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><a id="more"></a>
-<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p><strong>描述</strong><br>给定N个整数A1, A2, … AN，小Hi会询问你M个问题。<br>对于每个问题小Hi给出两个整数L和R(L ≤ R)，请你找出[AL, AL+1, AL+2, … AR]中最长的等差连续子数列，并输出其长度。<br>例如[2, 3, 5, 7, 9]中最长的等差连续子数列是[3, 5, 7, 9]长度为4。</p>
+        <h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><p><strong>描述</strong><br><a id="more"></a><br>恺撒密码是一种古老的加密方法。它将26个英文字母’A’-‘Z’向左循环移动K位，得到新的密码表。<br>例如K=2，有:<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>CDEFGHIJKLMNOPQRSTUVWXYZAB<br>则用’C’替代’A’，’D’替代’B’……<br>对于两个只包含大写字母的字符串A和B，如果A和B长度相同，并且A可以通过某种(某个K)恺撒加密得到B，我们就认为A和B是相似的。<br>例如”ABC”与”DEF”相似，”HI”与”ZA”相似。显然”相似”关系具有传递性和对称性。<br>给定N个字符串，请你将相似的字符串聚成一类，并输出最终有几个不同的类别。</p>
+<p><strong>输入</strong><br>第一行包含一个整数N。<br>以下N行每行包含一个字符串S。S只包含大写字母。<br>对于50%的数据，1 ≤ N ≤ 100，N个字符串总长度不超过10000。<br>对于100%的数据，1 ≤ N ≤ 100000，N个字符串总长度不超过1000000。</p>
+<p><strong>输出</strong><br>一个整数表示答案。</p>
+<p><strong>样例输入</strong><br>6<br>ABC<br>DEF<br>ZAB<br>HIHO<br>JKJQ<br>NONU</p>
+<p><strong>样例输出</strong><br>2</p>
+<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;</div><div class="line">int n;</div><div class="line"><span class="built_in">set</span>&lt;string&gt;ss;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	cin&gt;&gt;n;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</div><div class="line">		string s;</div><div class="line">		cin&gt;&gt;s;</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;s.length();j++) s[j]=(s[j]<span class="_">-s</span>[0]+26)%26+<span class="string">'A'</span>;</div><div class="line">		s[0]=<span class="string">'A'</span>;</div><div class="line">		ss.insert(s);</div><div class="line">	&#125;</div><div class="line">	cout&lt;&lt;ss.size()&lt;&lt;endl;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>把每个字符串的开头都移动到A 判断有多少个相等的字符串<br>放到set里 求size即可<br>注意s[0]要最后赋值 因为比较时每个字符要与原来的第一个字符算出差值 因为存在环 所以+26 mod 26</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p><strong>描述</strong><br>给定N个整数A1, A2, … AN，小Hi会询问你M个问题。<br>对于每个问题小Hi给出两个整数L和R(L ≤ R)，请你找出[AL, AL+1, AL+2, … AR]中最长的等差连续子数列，并输出其长度。<br>例如[2, 3, 5, 7, 9]中最长的等差连续子数列是[3, 5, 7, 9]长度为4。</p>
 <p><strong>输入</strong><br>第一行包含两个整数N和M。<br>第二行包含N个整数A1, A2, … AN。<br>以下M行每行包含两个整数L和R，代表一次询问。<br>对于30%的数据，1 ≤ N, M ≤ 1000<br>对于100%的数据，1 ≤ N, M ≤ 100000 0 ≤ Ai ≤ 10000000</p>
 <p><strong>输出</strong><br>依次对于每个询问输出一个整数，代表答案。</p>
 <p><strong>样例输入</strong><br>6 2<br>1 2 3 5 7 9<br>2 6<br>1 4</p>
 <p><strong>样例输出</strong><br>4<br>3</p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line">using namespace std;</div><div class="line">int n,m;</div><div class="line">int a[maxn],tmp[maxn];</div><div class="line">int dp1[maxn][18],dp2[maxn][18];   </div><div class="line">void makermq(int b[])&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++) dp1[i][0]=b[i];</div><div class="line">    <span class="keyword">for</span>(int j=1;(1&lt;&lt;j)&lt;=n;j++)&#123;</div><div class="line">    	<span class="keyword">for</span>(int i=0;i+(1&lt;&lt;j)-1&lt;n;i++) dp1[i][j]=max(dp1[i][j-1],dp1[i+(1&lt;&lt;(j-1))][j-1]);  </div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int rmq(int s,int v)&#123; </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> max(dp1[s][k],dp1[v-(1&lt;&lt;k)+1][k]);  </div><div class="line">&#125;</div><div class="line">void makeRmqIndex(int b[])&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++) dp2[i][0]=i;  </div><div class="line">    <span class="keyword">for</span>(int j=1;(1&lt;&lt;j)&lt;=n;j++)&#123;</div><div class="line">    	<span class="keyword">for</span>(int i=0;i+(1&lt;&lt;j)-1&lt;n;i++)  </div><div class="line">            dp2[i][j]=b[dp2[i][j-1]] &gt; b[dp2[i+(1&lt;&lt;(j-1))][j-1]]? dp2[i][j-1]:dp2[i+(1&lt;&lt;(j-1))][j-1];  </div><div class="line">	&#125;</div><div class="line">&#125;  </div><div class="line">int rmqIndex(int s,int v,int b[])&#123; </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> b[dp2[s][k]] &gt; b[dp2[v-(1&lt;&lt;k)+1][k]]? dp2[s][k]:dp2[v-(1&lt;&lt;k)+1][k];  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++) scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">	memset(tmp,0,sizeof tmp);</div><div class="line">	tmp[n-1]=1,tmp[n-2]=2;</div><div class="line">	<span class="keyword">for</span>(int i=n-3;i&gt;=0;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]<span class="_">-a</span>[i+1]==a[i+1]<span class="_">-a</span>[i+2]) tmp[i]=tmp[i+1]+1;</div><div class="line">		<span class="keyword">else</span> tmp[i]=2;</div><div class="line">	&#125;</div><div class="line">	makermq(tmp);</div><div class="line">	makeRmqIndex(tmp);</div><div class="line">	<span class="keyword">while</span>(m--)&#123;</div><div class="line">		int x,y;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">		x--,y--;</div><div class="line">		int num1=rmq(x,y),pos=rmqIndex(x,y,tmp);</div><div class="line">		<span class="keyword">if</span>(pos+num1&lt;=y) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,num1);</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span>(pos-1&gt;=x)&#123;</div><div class="line">				int num2=rmq(x,pos-1);</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max(num2,y-pos+1)); </div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,y-pos+1);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>on预处理出每个数字向右延伸最远的连续等差数列长度<br>每次在l到r的区间内找出长度的最大值len 用rmq 以及该最大值的位置pos<br>判断pos+len是否≤r 若满足说明符合条件 直接输出<br>否则说明len的长度超出了r的限制 这一部分的长度实际为r-pos+1 要与左侧剩下的x到pos-1的位置中的最大值(依然用rmq) 两者求max<br>所求就是答案</p>
-<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2>
+<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;bits/stdc++.h&gt;</span></div><div class="line"><span class="comment">#define maxn 100050</span></div><div class="line">using namespace std;</div><div class="line">int n,m;</div><div class="line">int a[maxn],tmp[maxn];</div><div class="line">int dp1[maxn][18],dp2[maxn][18];   </div><div class="line">void makermq(int b[])&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++) dp1[i][0]=b[i];</div><div class="line">    <span class="keyword">for</span>(int j=1;(1&lt;&lt;j)&lt;=n;j++)&#123;</div><div class="line">    	<span class="keyword">for</span>(int i=0;i+(1&lt;&lt;j)-1&lt;n;i++) dp1[i][j]=max(dp1[i][j-1],dp1[i+(1&lt;&lt;(j-1))][j-1]);  </div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int rmq(int s,int v)&#123; </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> max(dp1[s][k],dp1[v-(1&lt;&lt;k)+1][k]);  </div><div class="line">&#125;</div><div class="line">void makeRmqIndex(int b[])&#123;</div><div class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++) dp2[i][0]=i;  </div><div class="line">    <span class="keyword">for</span>(int j=1;(1&lt;&lt;j)&lt;=n;j++)&#123;</div><div class="line">    	<span class="keyword">for</span>(int i=0;i+(1&lt;&lt;j)-1&lt;n;i++)  </div><div class="line">            dp2[i][j]=b[dp2[i][j-1]] &gt; b[dp2[i+(1&lt;&lt;(j-1))][j-1]]? dp2[i][j-1]:dp2[i+(1&lt;&lt;(j-1))][j-1];  </div><div class="line">	&#125;</div><div class="line">&#125;  </div><div class="line">int rmqIndex(int s,int v,int b[])&#123; </div><div class="line">    int k=(int)(<span class="built_in">log</span>((v<span class="_">-s</span>+1)*1.0)/<span class="built_in">log</span>(2.0));  </div><div class="line">    <span class="built_in">return</span> b[dp2[s][k]] &gt; b[dp2[v-(1&lt;&lt;k)+1][k]]? dp2[s][k]:dp2[v-(1&lt;&lt;k)+1][k];  </div><div class="line">&#125;  </div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">//	freopen(<span class="string">"input.txt"</span>,<span class="string">"r"</span>,stdin);</div><div class="line">	scanf(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++) scanf(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">	memset(tmp,0,sizeof tmp);</div><div class="line">	tmp[n-1]=1,tmp[n-2]=2;</div><div class="line">	<span class="keyword">for</span>(int i=n-3;i&gt;=0;i--)&#123;</div><div class="line">		<span class="keyword">if</span>(a[i]<span class="_">-a</span>[i+1]==a[i+1]<span class="_">-a</span>[i+2]) tmp[i]=tmp[i+1]+1;</div><div class="line">		<span class="keyword">else</span> tmp[i]=2;</div><div class="line">	&#125;</div><div class="line">	makermq(tmp);</div><div class="line">	makeRmqIndex(tmp);</div><div class="line">	<span class="keyword">while</span>(m--)&#123;</div><div class="line">		int x,y;</div><div class="line">		scanf(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">		x--,y--;</div><div class="line">		int num1=rmq(x,y),pos=rmqIndex(x,y,tmp);</div><div class="line">		<span class="keyword">if</span>(pos+num1&lt;=y) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,num1);</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span>(pos-1&gt;=x)&#123;</div><div class="line">				int num2=rmq(x,pos-1);</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max(num2,y-pos+1)); </div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,y-pos+1);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>on预处理出每个数字向右延伸最远的连续等差数列长度<br>每次在l到r的区间内找出长度的最大值len 用rmq 以及该最大值的位置pos<br>判断pos+len是否≤r 若满足说明符合条件 直接输出<br>否则说明len的长度超出了r的限制 这一部分的长度实际为r-pos+1 要与左侧剩下的x到pos-1的位置中的最大值(依然用rmq) 两者求max<br>所求就是答案</p>
+
       
     </div>
     
@@ -345,17 +351,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/20/hihocoder编程练习赛51/">hihocoder编程练习赛51</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2018-03-20, 22:49:39</p>
-        <p><span>最后更新:</span>2018-03-20, 23:08:51</p>
+        <p><span>Title:</span><a href="/2018/03/20/hihocoder编程练习赛51/">hihocoder编程练习赛51</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2018-03-20, 22:49:39</p>
+        <p><span>Updated:</span>2018-03-26, 20:37:49</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/20/hihocoder编程练习赛51/" title="hihocoder编程练习赛51">http://xuboming8.github.io/2018/03/20/hihocoder编程练习赛51/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2018/03/20/hihocoder编程练习赛51/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2018/03/20/hihocoder编程练习赛51/" title="hihocoder编程练习赛51">http://xuboming8.github.io/2018/03/20/hihocoder编程练习赛51/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2018/03/20/hihocoder编程练习赛51/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -383,9 +389,9 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.</span> <span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">3.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">3.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.</span> <span class="toc-text">D</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">1.</span> <span class="toc-text">B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.2.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">2.</span> <span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">2.1.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">思路</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -399,10 +405,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -455,15 +461,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/25/hihocoder编程练习赛52/" title="上一篇: hihocoder编程练习赛52">
+            <a href="/2018/03/25/hihocoder编程练习赛52/" title="Pre: hihocoder编程练习赛52">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/03/20/hihocoder编程练习赛49/" title="下一篇: hihocoder编程练习赛49">
+            <a href="/2018/03/20/hihocoder编程练习赛49/" title="Next: hihocoder编程练习赛49">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -486,14 +492,14 @@
                 2016-2018 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -502,7 +508,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -535,9 +541,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
