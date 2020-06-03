@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdV2F0.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdVTm9.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdDIjU.png">
-<meta property="og:updated_time" content="2020-06-03T12:29:45.649Z">
+<meta property="og:updated_time" content="2020-06-03T12:34:41.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记-批正则化">
 <meta name="twitter:description" content="CNN学习笔记-批正则化(Batch Normalization)批正则化(Batch Normalization)解决Internal Covariate Shift问题IID：独立同分布（independently identically distribution），指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。然而网络层数的增加，每一层的输入分布就会改变，从而不符">
@@ -150,13 +150,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -278,7 +278,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-CNN学习笔记-批正则化" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -331,7 +331,7 @@
 <p>如人们以前常用的sigmod激活函数，可以看出两端的导数值接近于0，所以当分布偏移至两端时，就会发现梯度消失的现象。<br><img src="https://s1.ax1x.com/2020/06/01/tJgOnH.png" alt="image"></p>
 <p>BN的基本思想其实相当直观：因为深层神经网络在做非线性变换前的激活输入值。随着网络深度加深或者在训练过程中，其分布逐渐发生偏移或者变动，之所以训练收敛慢，一般是<strong>整体分布逐渐往非线性函数的取值区间的上下限两端靠近</strong>，导数接近于0，所以这导致反向传播时低层神经网络的梯度消失，这是训练深层神经网络收敛越来越慢的<strong>本质原因</strong>，而BN就是通过一定的规范化手段，把每层神经网络任意神经元这个<strong>输入值的分布强行拉回到均值为0方差为1的标准正态分布</strong>，其实就是把越来越偏的分布强制拉回比较标准的分布，这样使得激活输入值落在非线性函数对<strong>输入比较敏感</strong>的区域，这样输入的小变化就会导致损失函数较大的变化，梯度变大就避免梯度消失问题产生，而且梯度变大意味着学习收敛速度快，能大大加快训练速度。</p>
 <p>整个过程可以用下图表示：<br><img src="https://s1.ax1x.com/2020/06/03/tdV2F0.png" alt=""><br>每一层的输入数据先经过BN操作后，再传入激活函数中（Activation function）。</p>
-<h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><p>Batch Normalization是基于<strong>Mini-Batch</strong>的。<br><img src="https://s1.ax1x.com/2020/06/03/tdVTm9.png" alt=""><br>步骤4中的两个参数分别为<strong>scale</strong>和<strong>shift</strong>，分别代表<strong>缩放</strong>和<strong>偏移</strong>。<br><strong>为何要有步骤4：</strong><br>BN得到的正态分布未必是最能体现样本特征的分布，会在一定程度上削弱网络的表达能力。若\(\gamma\)和\(\beta\)初始化为\(\mu_B\)和\(\sigma_B\)时，数据就会从正态分布还原成原始分布。加上这两个系数后，使得正态分布从正中心像两边调整些，在标准正态分布和原始分布之间找到一个平衡，从而最能体现数据的分布规律。<br><strong>scale</strong>和<strong>shift</strong>是通过训练学习得到的，有一定的自适应性，增强了网络的表达能力。<br>同时在进行了BN操作的层中<strong>不需要bias偏置量</strong>了，因为在对数据进行BN后，bias的作用会被抵消，平移的功能交给β来实现。<br>整个训练过程的可视化如下图：<br><img src="https://s1.ax1x.com/2020/06/03/tdDIjU.png" alt=""><br>BN层种通常有三个系数：<strong>均值(mean)、方差(variance)、滑动平均衰减系数(moving average factor,通常取接近于1的数)</strong><br>BN作用于：</p>
+<h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><p>Batch Normalization是基于<strong>Mini-Batch</strong>的。<br><img src="https://s1.ax1x.com/2020/06/03/tdVTm9.png" alt=""><br>步骤3中\(\epsilon\)的作用是：避免方差为0引入的微小正数。<br>步骤4中的两个参数\(\gamma\)和\(\beta\)为<strong>scale</strong>和<strong>shift</strong>，分别代表<strong>缩放</strong>和<strong>偏移</strong>。<br><strong>为何要有步骤4：</strong><br>BN得到的正态分布未必是最能体现样本特征的分布，会在一定程度上削弱网络的表达能力。若\(\gamma\)和\(\beta\)初始化为\(\mu_B\)和\(\sigma_B\)时，数据就会从正态分布还原成原始分布。加上这两个系数后，使得正态分布从正中心像两边调整些，在标准正态分布和原始分布之间找到一个平衡，从而最能体现数据的分布规律。<br><strong>scale</strong>和<strong>shift</strong>是通过训练学习得到的，有一定的自适应性，增强了网络的表达能力。<br>同时在进行了BN操作的层中<strong>不需要bias偏置量</strong>了，因为在对数据进行BN后，bias的作用会被抵消，平移的功能交给β来实现。<br>整个训练过程的可视化如下图：<br><img src="https://s1.ax1x.com/2020/06/03/tdDIjU.png" alt=""><br>BN层种通常有三个系数：<strong>均值(mean)、方差(variance)、滑动平均衰减系数(moving average factor,通常取接近于1的数)</strong><br>BN作用于：</p>
 <ol>
 <li>全连接层，对<strong>Mini-Batch</strong>内的每个结点求均值和方差。</li>
 <li>卷积层，对<strong>feature map</strong>每一个结点的<strong>channel纬度</strong>做BN操作。</li>
@@ -351,17 +351,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2020/06/01/CNN学习笔记-批正则化/">CNN学习笔记-批正则化</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2020-06-01, 21:56:40</p>
-        <p><span>Updated:</span>2020-06-03, 20:29:45</p>
+        <p><span>本文标题:</span><a href="/2020/06/01/CNN学习笔记-批正则化/">CNN学习笔记-批正则化</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
+        <p><span>发布时间:</span>2020-06-01, 21:56:40</p>
+        <p><span>最后更新:</span>2020-06-03, 20:34:41</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2020/06/01/CNN学习笔记-批正则化/" title="CNN学习笔记-批正则化">http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/06/01/CNN学习笔记-批正则化/" title="CNN学习笔记-批正则化">http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -389,7 +389,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CNN学习笔记-批正则化-Batch-Normalization"><span class="toc-number">1.</span> <span class="toc-text">CNN学习笔记-批正则化(Batch Normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#批正则化-Batch-Normalization"><span class="toc-number">1.1.</span> <span class="toc-text">批正则化(Batch Normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决Internal-Covariate-Shift问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">解决Internal Covariate Shift问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心思想"><span class="toc-number">1.1.2.</span> <span class="toc-text">核心思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练细节"><span class="toc-number">1.1.3.</span> <span class="toc-text">训练细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预测细节"><span class="toc-number">1.1.4.</span> <span class="toc-text">预测细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.1.5.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用"><span class="toc-number">1.1.6.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></li></ol>
         
@@ -405,10 +405,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -461,15 +461,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/06/02/CNN学习笔记-计算量、参数量/" title="Pre: CNN学习笔记-模型衡量参数">
+            <a href="/2020/06/02/CNN学习笔记-计算量、参数量/" title="上一篇: CNN学习笔记-模型衡量参数">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/23/hihocoder编程练习赛56/" title="Next: hihocoder编程练习赛56">
+            <a href="/2018/04/23/hihocoder编程练习赛56/" title="下一篇: hihocoder编程练习赛56">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -492,14 +492,14 @@
                 2016-2020 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -508,7 +508,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -541,9 +541,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
