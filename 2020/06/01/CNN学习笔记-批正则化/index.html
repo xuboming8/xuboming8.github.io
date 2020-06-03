@@ -15,20 +15,20 @@
 
 
 
-<meta name="description" content="cnn学习笔记（Batch Normalization）Batch Normalization在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的，可以解决随着网络深度加深，训练起来越困难，收敛越来越慢的问题（relu激活函数，resnet都是用来解决这个问题的）
-BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能让每个隐层节点的激活输入分布">
+<meta name="description" content="CNN学习笔记-批正则化(Batch Normalization)批正则化(Batch Normalization)解决Internal Covariate Shift问题IID：独立同分布（independently identically distribution），指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。然而网络层数的增加，每一层的输入分布就会改变，从而不符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CNN学习笔记-批正则化">
 <meta property="og:url" content="http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/index.html">
 <meta property="og:site_name" content="CorgiButt">
-<meta property="og:description" content="cnn学习笔记（Batch Normalization）Batch Normalization在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的，可以解决随着网络深度加深，训练起来越困难，收敛越来越慢的问题（relu激活函数，resnet都是用来解决这个问题的）
-BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能让每个隐层节点的激活输入分布">
+<meta property="og:description" content="CNN学习笔记-批正则化(Batch Normalization)批正则化(Batch Normalization)解决Internal Covariate Shift问题IID：独立同分布（independently identically distribution），指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。然而网络层数的增加，每一层的输入分布就会改变，从而不符">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tJgOnH.png">
-<meta property="og:updated_time" content="2020-06-01T14:34:35.063Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdV2F0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdVTm9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/03/tdDIjU.png">
+<meta property="og:updated_time" content="2020-06-03T12:29:45.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记-批正则化">
-<meta name="twitter:description" content="cnn学习笔记（Batch Normalization）Batch Normalization在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的，可以解决随着网络深度加深，训练起来越困难，收敛越来越慢的问题（relu激活函数，resnet都是用来解决这个问题的）
-BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能让每个隐层节点的激活输入分布">
+<meta name="twitter:description" content="CNN学习笔记-批正则化(Batch Normalization)批正则化(Batch Normalization)解决Internal Covariate Shift问题IID：独立同分布（independently identically distribution），指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。然而网络层数的增加，每一层的输入分布就会改变，从而不符">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/06/01/tJgOnH.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -150,13 +150,13 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -278,7 +278,7 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-CNN学习笔记-批正则化" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -324,17 +324,25 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="cnn学习笔记（Batch-Normalization）"><a href="#cnn学习笔记（Batch-Normalization）" class="headerlink" title="cnn学习笔记（Batch Normalization）"></a>cnn学习笔记（Batch Normalization）</h1><h2 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h2><p>在深度神经网络训练过程中使得每一层神经网络的输入<strong>保持相同分布</strong>的，可以解决随着网络深度加深，训练起来越困难，收敛越来越慢的问题（relu激活函数，resnet都是用来解决这个问题的）</p>
-<p>BatchNorm是基于<strong>Mini-Batch SGD</strong>的<br>提出了BatchNorm的基本思想：能不能让<strong>每个隐层节点的激活输入分布</strong>固定下来<br><a id="more"></a></p>
-<p>BN不是凭空拍脑袋拍出来的好点子，它是有启发来源的：之前的研究表明如果在图像处理中对输入图像进行<strong>白化</strong>（Whiten）操作的话——所谓白化，就是<strong>对输入数据分布变换到0均值，单位方差的正态分布</strong>——那么神经网络会较快收敛，那么BN作者就开始推论了：图像是深度神经网络的输入层，做白化能加快收敛，那么其实对于深度网络来说，其中某个隐层的神经元是下一层的输入，意思是其实深度神经网络的每一个隐层都是输入层，不过是相对下一层来说而已，那么能不能对每个隐层都做白化呢？这就是启发BN产生的原初想法，而BN也确实就是这么做的，可以理解为对深层神经网络每个隐层神经元的激活值做简化版本的白化操作。</p>
-<p>BN的基本思想其实相当直观：因为深层神经网络在做非线性变换前的激活输入值。随着网络深度加深或者在训练过程中，其分布逐渐发生偏移或者变动，之所以训练收敛慢，一般是<strong>整体分布逐渐往非线性函数的取值区间的上下限两端靠近</strong>，导数接近于0，所以这导致反向传播时低层神经网络的梯度消失，这是训练深层神经网络收敛越来越慢的<strong>本质原因</strong>，而BN就是通过一定的规范化手段，把每层神经网络任意神经元这个<strong>输入值的分布强行拉回到均值为0方差为1的标准正态分布</strong>，其实就是把越来越偏的分布强制拉回比较标准的分布，这样使得激活输入值落在非线性函数对<strong>输入比较敏感</strong>的区域，这样输入的小变化就会导致损失函数较大的变化，意思是这样让梯度变大，避免梯度消失问题产生，而且梯度变大意味着学习收敛速度快，能大大加快训练速度。<br><img src="https://s1.ax1x.com/2020/06/01/tJgOnH.png" alt="image"></p>
-<p><strong>总结：对于每个隐层神经元，把逐渐向非线性函数映射后向取值区间极限饱和区靠拢的输入分布强制拉回到均值为0方差为1的比较标准的正态分布，使得非线性变换函数的输入值落入对输入比较敏感的区域，以此避免梯度消失问题。</strong></p>
-<p><strong>好处：</strong></p>
+        <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
+<h1 id="CNN学习笔记-批正则化-Batch-Normalization"><a href="#CNN学习笔记-批正则化-Batch-Normalization" class="headerlink" title="CNN学习笔记-批正则化(Batch Normalization)"></a>CNN学习笔记-批正则化(Batch Normalization)</h1><h2 id="批正则化-Batch-Normalization"><a href="#批正则化-Batch-Normalization" class="headerlink" title="批正则化(Batch Normalization)"></a>批正则化(Batch Normalization)</h2><h3 id="解决Internal-Covariate-Shift问题"><a href="#解决Internal-Covariate-Shift问题" class="headerlink" title="解决Internal Covariate Shift问题"></a>解决Internal Covariate Shift问题</h3><p><strong>IID：独立同分布（independently identically distribution）</strong>，指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。<br>然而网络层数的增加，每一层的输入分布就会改变，从而不符合IID假设，网络也很难学习到稳定的科学规律，因为每一层针对的都是新的数据分布，只能通过很小的学习速率和精调的初始化参数来解决这个问题。<br>由于现在的CNN通常包含很多的隐藏层，在训练过程中每一层的分布都会发现变化，因此CNN中的每一层网络都会发生<strong>协变量偏移(Covariate Shift)</strong>问题。由于是对中间隐藏层的分析，所以叫做<strong>内部协变量偏移(Internal Covariate Shift)</strong>。<br>为了使每一层的输入分布固定下来，提出了<strong>Batch Normalization</strong>。<br><a id="more"></a></p>
+<h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p>在深度神经网络训练过程中使得每一层神经网络的输入<strong>保持相同分布</strong>的，可以解决随着网络深度加深，训练起来越困难，收敛越来越慢的问题（relu激活函数，resnet都是用来解决这个问题的）</p>
+<p>BN是有启发来源的：之前的研究表明如果在图像处理中对输入图像进行<strong>白化</strong>（Whiten）操作的话——所谓白化，就是<strong>对输入数据分布变换到0均值，单位方差的正态分布</strong>——那么神经网络会较快收敛，那么BN作者就开始推论了：图像是深度神经网络的输入层，做白化能加快收敛，那么其实对于深度网络来说，其中某个隐层的神经元是下一层的输入，其实深度神经网络的每一个隐层都是输入层，不过是相对下一层来说而已，那么就可以对每个隐层都做白化。BN就可以理解为对深层神经网络每个隐层神经元的激活值做简化版本的白化操作。</p>
+<p>如人们以前常用的sigmod激活函数，可以看出两端的导数值接近于0，所以当分布偏移至两端时，就会发现梯度消失的现象。<br><img src="https://s1.ax1x.com/2020/06/01/tJgOnH.png" alt="image"></p>
+<p>BN的基本思想其实相当直观：因为深层神经网络在做非线性变换前的激活输入值。随着网络深度加深或者在训练过程中，其分布逐渐发生偏移或者变动，之所以训练收敛慢，一般是<strong>整体分布逐渐往非线性函数的取值区间的上下限两端靠近</strong>，导数接近于0，所以这导致反向传播时低层神经网络的梯度消失，这是训练深层神经网络收敛越来越慢的<strong>本质原因</strong>，而BN就是通过一定的规范化手段，把每层神经网络任意神经元这个<strong>输入值的分布强行拉回到均值为0方差为1的标准正态分布</strong>，其实就是把越来越偏的分布强制拉回比较标准的分布，这样使得激活输入值落在非线性函数对<strong>输入比较敏感</strong>的区域，这样输入的小变化就会导致损失函数较大的变化，梯度变大就避免梯度消失问题产生，而且梯度变大意味着学习收敛速度快，能大大加快训练速度。</p>
+<p>整个过程可以用下图表示：<br><img src="https://s1.ax1x.com/2020/06/03/tdV2F0.png" alt=""><br>每一层的输入数据先经过BN操作后，再传入激活函数中（Activation function）。</p>
+<h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><p>Batch Normalization是基于<strong>Mini-Batch</strong>的。<br><img src="https://s1.ax1x.com/2020/06/03/tdVTm9.png" alt=""><br>步骤4中的两个参数分别为<strong>scale</strong>和<strong>shift</strong>，分别代表<strong>缩放</strong>和<strong>偏移</strong>。<br><strong>为何要有步骤4：</strong><br>BN得到的正态分布未必是最能体现样本特征的分布，会在一定程度上削弱网络的表达能力。若\(\gamma\)和\(\beta\)初始化为\(\mu_B\)和\(\sigma_B\)时，数据就会从正态分布还原成原始分布。加上这两个系数后，使得正态分布从正中心像两边调整些，在标准正态分布和原始分布之间找到一个平衡，从而最能体现数据的分布规律。<br><strong>scale</strong>和<strong>shift</strong>是通过训练学习得到的，有一定的自适应性，增强了网络的表达能力。<br>同时在进行了BN操作的层中<strong>不需要bias偏置量</strong>了，因为在对数据进行BN后，bias的作用会被抵消，平移的功能交给β来实现。<br>整个训练过程的可视化如下图：<br><img src="https://s1.ax1x.com/2020/06/03/tdDIjU.png" alt=""><br>BN层种通常有三个系数：<strong>均值(mean)、方差(variance)、滑动平均衰减系数(moving average factor,通常取接近于1的数)</strong><br>BN作用于：</p>
 <ol>
-<li>不仅仅极大提升了训练速度，收敛过程大大加快；</li>
-<li>还能增加分类效果，一种解释是这是类似于Dropout的一种防止过拟合的正则化表达方式，所以不用Dropout也能达到相当的效果；</li>
-<li>另外调参过程也简单多了，对于初始化要求没那么高，而且可以使用大的学习率等。</li>
+<li>全连接层，对<strong>Mini-Batch</strong>内的每个结点求均值和方差。</li>
+<li>卷积层，对<strong>feature map</strong>每一个结点的<strong>channel纬度</strong>做BN操作。</li>
 </ol>
+<h3 id="预测细节"><a href="#预测细节" class="headerlink" title="预测细节"></a>预测细节</h3><p>在训练阶段中，我们可以对每个<strong>Mini-Batch</strong>求出均值和方差，作为BN调整的方向。<br>但在进行预测阶段时，预测实例只有一个，自然无法求出他的均值和方差。<br>为了解决这个问题，对于训练集中的每个<strong>Mini-Batch</strong>，记录下他的均值和方差。对所有<strong>Mini-Batch</strong>求得的均值和方差求数学期望，把这两个全局统计量作为预测阶段的<strong>scale</strong>和<strong>shift</strong>。<br>计算过程如下：<br>$$<br>E[x]\leftarrow E_B[\mu_B]<br>\\<br>Var[x]\leftarrow \frac{m}{m-1} E_B[\sigma_B^2]<br>$$<br>在最后预测阶段，使用的公式为：(在预测阶段中，每一层的\(\gamma\)和\(\beta\)已经确定）<br>$$<br>y = \gamma \frac{x-E(x)}{\sqrt{Var(x) + \epsilon}} + \beta= \frac{\gamma}{\sqrt{Var(x) + \epsilon}} x + ( \beta - \frac{\gamma E(x)}{\sqrt{Var(x) + \epsilon}} )<br>$$<br>然而在实际操作过程中，通常使用<strong>指数滑动平均(ExponentialMovingAverage,EMA)</strong>的方法代替求平均值。这是因为在所有<strong>Mini-Batch</strong>中求得的平均值，刚开始求的数据与最后训练完求得数据相差较大，单纯求平均值误差较大。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>避免了梯度消失的问题，不仅仅极大提升了训练速度，也使得收敛过程大大加快；</li>
+<li>增加正则化效果，由于是在<strong>Mini-Batch</strong>上而不是在整个数据集上计算均值和方差，并且在经过<strong>scale</strong>和<strong>shift</strong>会引入少许噪声，类似于Dropout减少神经元之类的依赖关系，可以看作是一种正则化手段，所以不用Dropout也能达到相当的效果；</li>
+<li>调参过程也简单多了，对于初始化要求没那么高，而且可以使用大的学习率等。</li>
+</ol>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1]<strong>Ioffe S , Szegedy C . Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift[J]. 2015.</strong></p>
 
       
     </div>
@@ -343,17 +351,17 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/06/01/CNN学习笔记-批正则化/">CNN学习笔记-批正则化</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2020-06-01, 21:56:40</p>
-        <p><span>最后更新:</span>2020-06-01, 22:34:35</p>
+        <p><span>Title:</span><a href="/2020/06/01/CNN学习笔记-批正则化/">CNN学习笔记-批正则化</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2020-06-01, 21:56:40</p>
+        <p><span>Updated:</span>2020-06-03, 20:29:45</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/06/01/CNN学习笔记-批正则化/" title="CNN学习笔记-批正则化">http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/06/01/CNN学习笔记-批正则化/" title="CNN学习笔记-批正则化">http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2020/06/01/CNN学习笔记-批正则化/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -381,9 +389,9 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cnn学习笔记（Batch-Normalization）"><span class="toc-number">1.</span> <span class="toc-text">cnn学习笔记（Batch Normalization）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">1.1.</span> <span class="toc-text">Batch Normalization</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CNN学习笔记-批正则化-Batch-Normalization"><span class="toc-number">1.</span> <span class="toc-text">CNN学习笔记-批正则化(Batch Normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#批正则化-Batch-Normalization"><span class="toc-number">1.1.</span> <span class="toc-text">批正则化(Batch Normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决Internal-Covariate-Shift问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">解决Internal Covariate Shift问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心思想"><span class="toc-number">1.1.2.</span> <span class="toc-text">核心思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练细节"><span class="toc-number">1.1.3.</span> <span class="toc-text">训练细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预测细节"><span class="toc-number">1.1.4.</span> <span class="toc-text">预测细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.1.5.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用"><span class="toc-number">1.1.6.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -397,10 +405,10 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -453,15 +461,15 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/06/02/CNN学习笔记-计算量、参数量/" title="上一篇: CNN学习笔记-模型衡量参数">
+            <a href="/2020/06/02/CNN学习笔记-计算量、参数量/" title="Pre: CNN学习笔记-模型衡量参数">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/23/hihocoder编程练习赛56/" title="下一篇: hihocoder编程练习赛56">
+            <a href="/2018/04/23/hihocoder编程练习赛56/" title="Next: hihocoder编程练习赛56">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -484,14 +492,14 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
                 2016-2020 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -500,7 +508,7 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -533,9 +541,9 @@ BatchNorm是基于Mini-Batch SGD的提出了BatchNorm的基本思想：能不能
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
