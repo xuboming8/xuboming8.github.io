@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://xuboming8.github.io/2020/06/04/局部连接-权值共享/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="CNN学习笔记-局部连接&amp;amp;权值共享局部连接局部连接（Sparse Connectivity）是CNN的一个重要特征。输出feature map中的每一个结点对应的不是前一层的全局信息，而是局部信息，这是通过CNN中的kernel滑动窗口实现，这个窗口也叫做感知野(receptive field)。因此CNN中低层网络识别的是低级局部特征，通过中层和高层网络再将局部特征逐步整合成全局特征。局">
-<meta property="og:updated_time" content="2020-06-04T03:43:40.455Z">
+<meta property="og:updated_time" content="2020-06-04T03:55:24.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记-局部连接&权值共享">
 <meta name="twitter:description" content="CNN学习笔记-局部连接&amp;amp;权值共享局部连接局部连接（Sparse Connectivity）是CNN的一个重要特征。输出feature map中的每一个结点对应的不是前一层的全局信息，而是局部信息，这是通过CNN中的kernel滑动窗口实现，这个窗口也叫做感知野(receptive field)。因此CNN中低层网络识别的是低级局部特征，通过中层和高层网络再将局部特征逐步整合成全局特征。局">
@@ -145,13 +145,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -273,7 +273,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-局部连接-权值共享" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -321,7 +321,7 @@
           
         <h1 id="CNN学习笔记-局部连接-amp-权值共享"><a href="#CNN学习笔记-局部连接-amp-权值共享" class="headerlink" title="CNN学习笔记-局部连接&amp;权值共享"></a>CNN学习笔记-局部连接&amp;权值共享</h1><h2 id="局部连接"><a href="#局部连接" class="headerlink" title="局部连接"></a>局部连接</h2><p><strong>局部连接（Sparse Connectivity）</strong>是CNN的一个重要特征。<br>输出feature map中的每一个结点对应的不是前一层的全局信息，而是局部信息，这是通过CNN中的kernel滑动窗口实现，这个窗口也叫做<strong>感知野(receptive field)</strong>。<br>因此CNN中低层网络识别的是低级局部特征，通过中层和高层网络再将局部特征逐步整合成全局特征。<br>局部连接启发于生物识别系统，这是因为对外界的感知是从局部到全局。<br>局部连接不仅有利于特征的整合，也大大减少了参数量。<br><a id="more"></a></p>
 <h2 id="权值共享"><a href="#权值共享" class="headerlink" title="权值共享"></a>权值共享</h2><p><strong>权值共享</strong>是CNN的另一个重要特征，也是通过kernel滑动窗口实现的。<br>不同窗口内的位置共享同一个kernel的权值，因此可以将整个图像中的某特征用该卷积核全部识别出来。<br>图像的局部统计特征在整幅图像上具有重复性（即位置无关性）。即如果图像中存在某个基本图形，该基本图形可能出现在任意位置，那么不同位置共享相同权值可实现在数据的不同位置检测相同的模式。</p>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>局部连接和权值共享使得<strong>CNN具有平移/缩放不变性</strong>。<br>用具体的人脸识别的例子来说，到高层网络时，CNN将浅层基础特征组成成更高级的特征，比如人的眼睛、鼻子等，直到全连接层将这种两个眼睛一个鼻子的组合识别为人脸。因此，即使对图像进行平移、缩放、旋转，由于局部连接和权值共享在浅层依旧能提取出点、线、边缘等基础特征，并且到高层就能将它们组合成眼睛鼻子，从而最终依旧能被识别为人脸。</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>局部连接和权值共享使得<strong>仿射不变性(平移、缩放等线性变换)</strong>。<br>用具体的人脸识别的例子来说，到高层网络时，CNN将浅层基础特征组成成更高级的特征，比如人的眼睛、鼻子等，直到全连接层将这种两个眼睛一个鼻子的组合识别为人脸。因此，即使对图像进行平移、缩放，由于局部连接和权值共享在浅层依旧能提取出点、线、边缘等基础特征，并且到高层就能将它们组合成眼睛鼻子，从而最终依旧能被识别为人脸。</p>
 
       
     </div>
@@ -330,17 +330,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/06/04/局部连接-权值共享/">CNN学习笔记-局部连接&amp;权值共享</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
-        <p><span>发布时间:</span>2020-06-04, 08:57:41</p>
-        <p><span>最后更新:</span>2020-06-04, 11:43:40</p>
+        <p><span>Title:</span><a href="/2020/06/04/局部连接-权值共享/">CNN学习笔记-局部连接&amp;权值共享</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
+        <p><span>Created:</span>2020-06-04, 08:57:41</p>
+        <p><span>Updated:</span>2020-06-04, 11:55:24</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/06/04/局部连接-权值共享/" title="CNN学习笔记-局部连接&amp;权值共享">http://xuboming8.github.io/2020/06/04/局部连接-权值共享/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2020/06/04/局部连接-权值共享/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/06/04/局部连接-权值共享/" title="CNN学习笔记-局部连接&amp;权值共享">http://xuboming8.github.io/2020/06/04/局部连接-权值共享/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2020/06/04/局部连接-权值共享/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -362,7 +362,7 @@
 
     
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CNN学习笔记-局部连接-amp-权值共享"><span class="toc-number">1.</span> <span class="toc-text">CNN学习笔记-局部连接&权值共享</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#局部连接"><span class="toc-number">1.1.</span> <span class="toc-text">局部连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权值共享"><span class="toc-number">1.2.</span> <span class="toc-text">权值共享</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用"><span class="toc-number">1.3.</span> <span class="toc-text">作用</span></a></li></ol></li></ol>
         
@@ -378,10 +378,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -434,13 +434,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/06/04/CNN学习笔记-过拟合-局部最优/" title="下一篇: CNN学习笔记-过拟合&amp;局部最优">
+            <a href="/2020/06/04/CNN学习笔记-过拟合-局部最优/" title="Next: CNN学习笔记-过拟合&amp;局部最优">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -463,14 +463,14 @@
                 2016-2020 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -479,7 +479,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -512,9 +512,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
