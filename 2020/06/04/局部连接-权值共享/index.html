@@ -15,44 +15,16 @@
 
 
 
-<meta name="description" content="HDOJ-ACM 1008-1012解答及思路1008Problem Description
-Input">
+<meta name="description" content="阅读 随笔 博客 日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ACM 1008-1012">
-<meta property="og:url" content="http://xuboming8.github.io/2016/08/30/ACM-1008-1012/index.html">
+<meta property="og:title" content="局部连接&权值共享">
+<meta property="og:url" content="http://xuboming8.github.io/2020/06/04/局部连接-权值共享/index.html">
 <meta property="og:site_name" content="CorgiButt">
-<meta property="og:description" content="HDOJ-ACM 1008-1012解答及思路1008Problem Description
-Input">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259674.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259723.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259757.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14692525979.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259831.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752542.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14692675259.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752628.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752661.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752698.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934165953.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166006.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14693416604.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14693416608.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166121.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166156.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199132.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199186.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199221.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199254.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199295.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754436.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754488.png">
-<meta property="og:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754522.png">
-<meta property="og:updated_time" content="2017-01-17T14:15:59.607Z">
+<meta property="og:description" content="阅读 随笔 博客 日记">
+<meta property="og:updated_time" content="2020-06-04T00:57:41.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ACM 1008-1012">
-<meta name="twitter:description" content="HDOJ-ACM 1008-1012解答及思路1008Problem Description
-Input">
-<meta name="twitter:image" content="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259674.png">
+<meta name="twitter:title" content="局部连接&权值共享">
+<meta name="twitter:description" content="阅读 随笔 博客 日记">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -84,7 +56,7 @@ Input">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ACM 1008-1012 | CorgiButt</title>
+<title>局部连接&amp;权值共享 | CorgiButt</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -303,11 +275,11 @@ Input">
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-ACM-1008-1012" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-局部连接-权值共享" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/30/ACM-1008-1012/" class="article-date">
-      <time datetime="2016-08-30T11:55:27.000Z" itemprop="datePublished">2016-08-30</time>
+      <a href="/2020/06/04/局部连接-权值共享/" class="article-date">
+      <time datetime="2020-06-04T00:57:41.000Z" itemprop="datePublished">2020-06-04</time>
 </a>
 
 
@@ -322,7 +294,7 @@ Input">
         
   
     <h1 class="article-title" itemprop="name">
-      ACM 1008-1012
+      局部连接&amp;权值共享
     </h1>
   
 
@@ -330,16 +302,8 @@ Input">
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -347,52 +311,7 @@ Input">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="HDOJ-ACM-1008-1012解答及思路"><a href="#HDOJ-ACM-1008-1012解答及思路" class="headerlink" title="HDOJ-ACM 1008-1012解答及思路"></a>HDOJ-ACM 1008-1012解答及思路</h1><h2 id="1008"><a href="#1008" class="headerlink" title="1008"></a>1008</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259674.png" alt=""></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259723.png" alt=""><br><a id="more"></a></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259757.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14692525979.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146925259831.png" alt=""></p>
-<h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><p>计算电梯的运行时间</p>
-<h3 id="参考AC代码"><a href="#参考AC代码" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">int upp(int a,int b)</div><div class="line">&#123;</div><div class="line">	int sum,diff;</div><div class="line">	diff=b<span class="_">-a</span>;</div><div class="line">	sum=6*diff+5;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">int down(int a,int b)</div><div class="line">&#123;</div><div class="line">	int sum,diff;</div><div class="line">	diff=a-b;</div><div class="line">	sum=4*diff+5;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int N,p[105]=&#123;0&#125;;</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;N&amp;&amp;(N!=0))</div><div class="line">	&#123;</div><div class="line">		int sum=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=N;i++)</div><div class="line">			cin&gt;&gt;p[i];</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;N;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(p[i]&lt;p[i+1])</div><div class="line">				sum+=upp(p[i],p[i+1]);</div><div class="line">			<span class="keyword">else</span></div><div class="line">				sum+=down(p[i],p[i+1]);</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;sum&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>把电梯上升和下降的情况分开考虑即可。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>电梯不是每一层都停，只有在起始和末尾位置才停5s。</p>
-<h2 id="1009"><a href="#1009" class="headerlink" title="1009"></a>1009</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752542.png" alt=""></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14692675259.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752628.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752661.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146926752698.png" alt=""></p>
-<h3 id="题目要求-1"><a href="#题目要求-1" class="headerlink" title="题目要求"></a>题目要求</h3><p>老鼠准备了M磅的猫食准备和N个房间的猫进行交换食物，N个房间中第i个房间存贮了J[i]磅的食物，需要F[i]磅的猫食才能交换，老鼠可以付出F[i]×a%磅的猫食即<br>可换回J[i]×a%磅的食物，求老鼠可以得到的最大食物量。</p>
-<h3 id="参考AC代码-1"><a href="#参考AC代码-1" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">struct Node</div><div class="line">&#123;</div><div class="line">	double j,f,p;</div><div class="line">&#125;a[1001];</div><div class="line">bool cmp(const Node a,const Node b)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">return</span> a.p&gt;b.p;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int M,N;</div><div class="line">	<span class="keyword">while</span>(scanf(<span class="string">"%d%d"</span>,&amp;M,&amp;N)!=EOF&amp;&amp;(M!=-1)&amp;&amp;(N!=-1))</div><div class="line">	&#123;</div><div class="line">		double sum=0.0;</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;N;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i].j&gt;&gt;a[i].f;</div><div class="line">			a[i].p=a[i].j/a[i].f;</div><div class="line">		&#125;</div><div class="line">		sort(a,a+N,cmp);</div><div class="line">		<span class="keyword">for</span>(int i=0;i&lt;N;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(a[i].f&lt;M)</div><div class="line">			&#123;</div><div class="line">				sum+=a[i].j;</div><div class="line">				M-=a[i].f;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">			&#123;</div><div class="line">				sum+=a[i].p*M;</div><div class="line">				<span class="built_in">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>,sum);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>运用贪心算法，先算出每个房间可以换取javabeen的性价比用sort按照降序排列，从性价比最高的开始交换，全部交换完之后到性价比次之的房间，如果剩余的猫食<br>不足以全部满足该仓库的需要的猫食，则交换出全部的猫食换取javabeen后结束循环。</p>
-<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><p>该代码在G++中超时，在C++中即可AC。算出性价比按照降序排列后从高到低依次交换是本题的关键。</p>
-<h2 id="1010"><a href="#1010" class="headerlink" title="1010"></a>1010</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934165953.png" alt=""></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166006.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14693416604.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/14693416608.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166121.png" alt=""></p>
-<h3 id="题目要求-2"><a href="#题目要求-2" class="headerlink" title="题目要求"></a>题目要求</h3><p>输入一个矩阵，“.”代表可以通过，“S”表示起点，“D”表示终点，“X”表示墙，只能横着走或者竖着走，一个地方只可以走一次，问在t时刻能否恰好逃出去</p>
-<h3 id="参考AC代码-2"><a href="#参考AC代码-2" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;math.h&gt;</span></div><div class="line">using namespace std;</div><div class="line">char map[9][9];               //地图最多不超过7行7列,又从(1,1)计算,所以开辟9,9 </div><div class="line">int M,N,T,di,dj;              //给定的三个量,以及终点位置  </div><div class="line">bool escape;                  //标识逃生成功 </div><div class="line">int Dir[4][2]=&#123;&#123;0,-1&#125;,&#123;0,1&#125;,&#123;1,0&#125;,&#123;-1,0&#125;&#125;;       //分别表示左、右、下、上四个方向</div><div class="line">void DFS(int si,int sj,int t)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(si==0||si&gt;N||sj==0||sj&gt;M)     //越出边界便不搜索  </div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	<span class="keyword">if</span>(si==di&amp;&amp;sj==dj&amp;&amp;T==t)</div><div class="line">	&#123;</div><div class="line">		escape=1;               //时间正好的时候才能逃生  </div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	&#125;</div><div class="line">	int temp=abs(T-t)-(abs(si-di)+abs(sj-dj));     //计算当前到终点的最短路与还需要的时间差,若小于0则路径剪枝 </div><div class="line">	<span class="keyword">if</span>(temp&lt;0||temp%2==1)           //temp如果是奇数的话也要剪枝  </div><div class="line">		<span class="built_in">return</span>;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;4;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(map[si+Dir[i][0]][sj+Dir[i][1]]!=<span class="string">'X'</span>)</div><div class="line">		&#123;</div><div class="line">			map[si+Dir[i][0]][sj+Dir[i][1]]=<span class="string">'X'</span>;       //把当前点刷为X </div><div class="line">			DFS(si+Dir[i][0],sj+Dir[i][1],t+1);        //搜索该点   </div><div class="line">			<span class="keyword">if</span>(escape)</div><div class="line">				<span class="built_in">return</span>;</div><div class="line">			 map[si+Dir[i][0]][sj+Dir[i][1]]=<span class="string">'.'</span>;       //如果搜索不到退出来了,则重新把该点刷为<span class="string">'.'</span></div><div class="line">		&#125;	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	int si,sj;</div><div class="line">	<span class="keyword">while</span>((cin&gt;&gt;N&gt;&gt;M&gt;&gt;T)&amp;&amp;!(N==0&amp;&amp;M==0&amp;&amp;T==0))</div><div class="line">	&#123;</div><div class="line">		int wall=0;</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=N;i++)</div><div class="line">			<span class="keyword">for</span>(int j=1;j&lt;=M;j++)</div><div class="line">			&#123;	</div><div class="line">				cin&gt;&gt;map[i][j];</div><div class="line">				<span class="keyword">if</span>(map[i][j]==<span class="string">'S'</span>)</div><div class="line">				&#123;</div><div class="line">					si=i,sj=j;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(map[i][j]==<span class="string">'D'</span>)</div><div class="line">				&#123;</div><div class="line">					di=i,dj=j;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(map[i][j]==<span class="string">'X'</span>)</div><div class="line">					wall++;</div><div class="line">			&#125;</div><div class="line">		<span class="keyword">if</span>(N*M-wall&lt;=T)                  //路径剪枝,当走完不含墙的迷宫都还不到T时间将不能逃生  </div><div class="line">		&#123;</div><div class="line">			cout&lt;&lt;<span class="string">"NO"</span>&lt;&lt;endl;</div><div class="line">			<span class="built_in">continue</span>;</div><div class="line">		&#125;</div><div class="line">		escape=0;</div><div class="line">		map[si][sj]=<span class="string">'X'</span>;           //记得刷为<span class="string">'X'</span>  </div><div class="line">		DFS(si,sj,0);</div><div class="line">		<span class="keyword">if</span>(escape)</div><div class="line">			cout&lt;&lt;<span class="string">"YES"</span>&lt;&lt;endl; </div><div class="line">		<span class="keyword">else</span></div><div class="line">			cout&lt;&lt;<span class="string">"NO"</span>&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>　　本题运用了深度搜索算法和剪枝算法。从（1，1）位置开始输入矩阵，记录下起点和终点的位置和墙的个数，如果走完所有没有的墙的位置后依旧小于时间T，那<br>么直接路径剪枝，把起点设为墙后进行深度搜素，如果越出边界那么不搜索结束函数，如果时间正好刚好的话escape返回值为1，再计算当前的最短路径如果小于需要<br>的时间差，那么路径剪枝，temp如果是奇数的话也要进行剪枝，草图如下</p>
-<p><div align="center"><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146934166156.png" alt=""><br></div><br>　　两种不同的走法，下面那一种可以控制时间刚好在T时刻。因为差出的是偶数，所以奇数的话要剪枝掉，省掉搜索时间。接下来进行该位置周围四个方向的前进，<br>如果不是墙的话进入循环，把当前点设为墙后搜索改点，如果成功后返回1，如果搜索不到退出来，那么重新把改点设为“.”。以此类推搜索完所有的点。</p>
-<h3 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h3><p>　　由于是向四个方面前进，所以map的输入要从（1，1）开始，数组要设置为9行9列，确保搜索数组的时候不会越界。本题也多处运用了剪枝，大大减少了运算时间。<br>起点要注意在出发后要设置为“X”，在搜索每一个点的时候该点都要设为“X”，搜索结束后重新变回原样。输出的“YES”和“NO”均为大写，本人因为错把NO的O写成了数字<br>0导致检查了2个多小时，所以注意在书写代码的时候不要粗心。</p>
-<h2 id="1011"><a href="#1011" class="headerlink" title="1011"></a>1011</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199132.png" alt=""></p>
-<p><strong>Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199186.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199221.png" alt=""></p>
-<p><strong>Sample Input</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199254.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146937199295.png" alt=""></p>
-<h3 id="题目要求-3"><a href="#题目要求-3" class="headerlink" title="题目要求"></a>题目要求</h3><p>一棵树，有n个结点，每个结点有v个bug，有w的brain。我从1号结点开始走，带着m个战士。1个战士可以消灭20个bugs，如果我把某个结点的所有bug都消灭了我就能<br>得到那个结点的brain。如果想攻击当前结点，那么必须先攻击了它的父结点（1号点除外）。其中当你攻占了当前结点，你可以分派人手，走向几个不同的子结点，<br>去攻占更多。也就是说，不是单一的路径。</p>
-<h3 id="参考AC代码-3"><a href="#参考AC代码-3" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line"><span class="comment">#include&lt;cstring&gt;</span></div><div class="line"><span class="comment">#include&lt;vector&gt;</span></div><div class="line"><span class="comment">#include&lt;algorithm&gt;</span></div><div class="line">using namespace std;</div><div class="line">int n,m;</div><div class="line">int bug[105],brain[105];</div><div class="line">int dp[105][105],vis[105];</div><div class="line">vector&lt;int&gt;e[105];</div><div class="line">void <span class="function"><span class="title">init</span></span>()</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++)</div><div class="line">		e[i].clear();</div><div class="line">	memset(dp,0,sizeof(dp));</div><div class="line">	memset(vis,0,sizeof(vis));</div><div class="line">&#125;</div><div class="line">void dfs(int root)</div><div class="line">&#123;</div><div class="line">	vis[root]=1;</div><div class="line">	int cost=(bug[root]+19)/20;   //上取整</div><div class="line">	<span class="keyword">for</span>(int i=cost;i&lt;=m;i++)      //只要士兵数&gt;=cost,所获宝藏是一样的，都是brain[root]</div><div class="line">		dp[root][i]=brain[root];</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[root].size();i++)</div><div class="line">	&#123;</div><div class="line">		int next=e[root][i];</div><div class="line">		<span class="keyword">if</span>(!vis[next])</div><div class="line">		&#123;</div><div class="line">			dfs(next);</div><div class="line">			<span class="keyword">for</span>(int k=m;k&gt;=cost;k--)    //派出去的士兵最多k-cost,因为至少要留下cost人在父节点</div><div class="line">				<span class="keyword">for</span>(int j=1;j&lt;=k-cost;j++)</div><div class="line">					dp[root][k]=max(dp[root][k],dp[root][k-j]+dp[next][j]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	<span class="keyword">while</span>(cin&gt;&gt;n&gt;&gt;m)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(n==-1&amp;&amp;m==-1)</div><div class="line">			<span class="built_in">break</span>;</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">			cin&gt;&gt;bug[i]&gt;&gt;brain[i];</div><div class="line">		<span class="keyword">for</span>(int i=1;i&lt;=n-1;i++)</div><div class="line">		&#123;</div><div class="line">			int a,b;</div><div class="line">			cin&gt;&gt;a&gt;&gt;b;</div><div class="line">			e[a].push_back(b);</div><div class="line">			e[b].push_back(a);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(m==0)</div><div class="line">		&#123;</div><div class="line">			cout&lt;&lt;<span class="string">"0"</span>&lt;&lt;endl;</div><div class="line">			<span class="built_in">continue</span>;</div><div class="line">		&#125;</div><div class="line">		dfs(1);</div><div class="line">		cout&lt;&lt;dp[1][m]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="第二种dfs-dp写法"><a href="#第二种dfs-dp写法" class="headerlink" title="第二种dfs+dp写法"></a>第二种dfs+dp写法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void dfs(int root)</div><div class="line">&#123;</div><div class="line">	vis[root]=1;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;e[root].size();i++)</div><div class="line">	&#123;</div><div class="line">		int next=e[root][i];</div><div class="line">		<span class="keyword">if</span>(!vis[next])</div><div class="line">		&#123;</div><div class="line">			dfs(next);</div><div class="line">			<span class="keyword">for</span>(int k=m;k&gt;=1;k--)    //派出去的士兵最多k-cost,因为至少要留下cost人在父节点</div><div class="line">				<span class="keyword">for</span>(int j=1;j&lt;=k;j++)</div><div class="line">					ans[root][k]=max(ans[root][k],ans[root][k-j]+dp[next][j]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	int t=(bug[root]+19)/20;</div><div class="line">	<span class="keyword">for</span>(int i=t;i&lt;=m;i++)</div><div class="line">		dp[root][i]=ans[root][i-t]+brain[root];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>树形dp问题，由于并未完全理解，所以未能提供思路，待更新。</p>
-<h3 id="注意事项-3"><a href="#注意事项-3" class="headerlink" title="注意事项"></a>注意事项</h3><p>待更新。</p>
-<h2 id="1012"><a href="#1012" class="headerlink" title="1012"></a>1012</h2><p><strong>Problem Description</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754436.png" alt=""></p>
-<p><strong>Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754488.png" alt=""></p>
-<p><strong>Sample Output</strong><br><img src="http://cfmfa.img48.wal8.com/img48/553098_20160720105230/146941754522.png" alt=""></p>
-<h3 id="题目要求-4"><a href="#题目要求-4" class="headerlink" title="题目要求"></a>题目要求</h3><p>按照公式输出n为0-9所求出的e</p>
-<h3 id="参考AC代码-4"><a href="#参考AC代码-4" class="headerlink" title="参考AC代码"></a>参考AC代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#include&lt;stdio.h&gt;</span></div><div class="line"><span class="comment">#include&lt;iostream&gt;</span></div><div class="line">using namespace std;</div><div class="line">int fun(int n)</div><div class="line">&#123;</div><div class="line">	int sum=1;</div><div class="line">	<span class="keyword">if</span>(n==0)</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	<span class="keyword">for</span>(int i=1;i&lt;=n;i++)</div><div class="line">		sum*=i;</div><div class="line">	<span class="built_in">return</span> sum;</div><div class="line">&#125;</div><div class="line">double fun2(int n)</div><div class="line">&#123;</div><div class="line">	double e=0.0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=n;i++)</div><div class="line">		e+=1.0/fun(i);</div><div class="line">	<span class="built_in">return</span> e;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">	cout&lt;&lt;<span class="string">"n e"</span>&lt;&lt;endl&lt;&lt;<span class="string">"- -----------"</span>&lt;&lt;endl;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;=9;i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(i&lt;=1)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d %.0lf\n"</span>,i,fun2(i));</div><div class="line">		<span class="keyword">if</span>(i==2)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d %.1lf\n"</span>,i,fun2(i));</div><div class="line">		<span class="keyword">if</span>(i&gt;2)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d %.9lf\n"</span>,i,fun2(i));</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>按照题目要求写出函数即可。</p>
-<h3 id="注意事项-4"><a href="#注意事项-4" class="headerlink" title="注意事项"></a>注意事项</h3><p>注意输出格式，如果对输出位数有苛刻的要求，请用printf输出而不要用iomanip中的setprecision。</p>
-
+        
       
     </div>
     
@@ -400,13 +319,13 @@ Input">
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/08/30/ACM-1008-1012/">ACM 1008-1012</a></p>
+        <p><span>Title:</span><a href="/2020/06/04/局部连接-权值共享/">局部连接&amp;权值共享</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Hippopmonkey</a></p>
-        <p><span>Created:</span>2016-08-30, 19:55:27</p>
-        <p><span>Updated:</span>2017-01-17, 22:15:59</p>
+        <p><span>Created:</span>2020-06-04, 08:57:41</p>
+        <p><span>Updated:</span>2020-06-04, 08:57:41</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/08/30/ACM-1008-1012/" title="ACM 1008-1012">http://xuboming8.github.io/2016/08/30/ACM-1008-1012/</a>
-            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2016/08/30/ACM-1008-1012/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2020/06/04/局部连接-权值共享/" title="局部连接&amp;权值共享">http://xuboming8.github.io/2020/06/04/局部连接-权值共享/</a>
+            <span class="copy-path" data-clipboard-text="From http://xuboming8.github.io/2020/06/04/局部连接-权值共享/　　By Hippopmonkey" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -418,16 +337,10 @@ Input">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/30/ACM-1013-1017/">
-                    ACM 1013-1017
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/30/ACM-1002-1007/">
-                    ACM 1002-1007
+                <a href="/2020/06/04/CNN学习笔记-过拟合-局部最优/">
+                    CNN学习笔记-过拟合&amp;局部最优
                 </a>
             </div>
         
@@ -440,7 +353,7 @@ Input">
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HDOJ-ACM-1008-1012解答及思路"><span class="toc-number">1.</span> <span class="toc-text">HDOJ-ACM 1008-1012解答及思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1008"><span class="toc-number">1.1.</span> <span class="toc-text">1008</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码"><span class="toc-number">1.1.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.1.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">1.1.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009"><span class="toc-number">1.2.</span> <span class="toc-text">1009</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010"><span class="toc-number">1.3.</span> <span class="toc-text">1010</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-2"><span class="toc-number">1.3.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1011"><span class="toc-number">1.4.</span> <span class="toc-text">1011</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种dfs-dp写法"><span class="toc-number">1.4.3.</span> <span class="toc-text">第二种dfs+dp写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">1.4.4.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-3"><span class="toc-number">1.4.5.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012"><span class="toc-number">1.5.</span> <span class="toc-text">1012</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目要求-4"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考AC代码-4"><span class="toc-number">1.5.2.</span> <span class="toc-text">参考AC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-4"><span class="toc-number">1.5.3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项-4"><span class="toc-number">1.5.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -476,7 +389,7 @@ Input">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ACM 1008-1012　| CorgiButt　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"局部连接&权值共享　| CorgiButt　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -510,15 +423,13 @@ Input">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/30/ACM-1013-1017/" title="Pre: ACM 1013-1017">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/30/ACM-1002-1007/" title="Next: ACM 1002-1007">
+            <a href="/2020/06/04/CNN学习笔记-过拟合-局部最优/" title="Next: CNN学习笔记-过拟合&amp;局部最优">
                 <i class="fa fa-angle-right"></i>
             </a>
         
