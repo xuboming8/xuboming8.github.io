@@ -149,13 +149,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -277,7 +277,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
   
@@ -335,6 +335,69 @@
       
         <p class="article-more-link">
           <a class="hidden" href="/2016/09/01/九大基础排序算法/#more">undefined >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Swapping-Autoencoder-for-Deep-Image-Manipulation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/" class="article-date">
+      <time datetime="2021-02-02T16:27:45.000Z" itemprop="datePublished">2021-02-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/">论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="论文阅读笔记-Swapping-Autoencoder-for-Deep-Image-Manipulation"><a href="#论文阅读笔记-Swapping-Autoencoder-for-Deep-Image-Manipulation" class="headerlink" title="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation"></a>论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="conditional-gan"><a href="#conditional-gan" class="headerlink" title="conditional gan"></a>conditional gan</h3><p><a href="https://blog.csdn.net/taoyafan/article/details/81229466">转跳链接</a><br><strong>条件GAN</strong>，生成网络还需要附加一定的条件<br>附加的条件可以是<strong>文字</strong>，也可以是<strong>图片</strong><br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/论文阅读笔记/">论文阅读笔记</a>
+    </div>
+
+
+      
+      
+        <p class="article-more-link">
+          <a class="hidden" href="/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/#more">undefined >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -896,74 +959,6 @@
 
 
   
-    <article id="post-CNN学习笔记-批正则化" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/06/01/CNN学习笔记-批正则化/" class="article-date">
-      <time datetime="2020-06-01T13:56:40.000Z" itemprop="datePublished">2020-06-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/01/CNN学习笔记-批正则化/">CNN学习笔记-批标准化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
-<h1 id="CNN学习笔记-批正则化-Batch-Normalization"><a href="#CNN学习笔记-批正则化-Batch-Normalization" class="headerlink" title="CNN学习笔记-批正则化(Batch Normalization)"></a>CNN学习笔记-批正则化(Batch Normalization)</h1><h2 id="批标准化-Batch-Normalization"><a href="#批标准化-Batch-Normalization" class="headerlink" title="批标准化(Batch Normalization)"></a>批标准化(Batch Normalization)</h2><h3 id="解决Internal-Covariate-Shift问题"><a href="#解决Internal-Covariate-Shift问题" class="headerlink" title="解决Internal Covariate Shift问题"></a>解决Internal Covariate Shift问题</h3><p><strong>IID：独立同分布（independently identically distribution）</strong>，指的是随机变量服从同一分布，并且互相独立，那么这些随机变量是独立同分布。<br>然而网络层数的增加，每一层的输入分布就会改变，从而不符合IID假设，网络也很难学习到稳定的科学规律，因为每一层针对的都是新的数据分布，只能通过很小的学习速率和精调的初始化参数来解决这个问题。<br>由于现在的CNN通常包含很多的隐藏层，在训练过程中每一层的分布都会发现变化，因此CNN中的每一层网络都会发生<strong>协变量偏移(Covariate Shift)</strong>问题。由于是对中间隐藏层的分析，所以叫做<strong>内部协变量偏移(Internal Covariate Shift)</strong>。<br>为了使每一层的输入分布固定下来，提出了<strong>Batch Normalization</strong>。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CNN/">CNN</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/批标准化/">批标准化</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a class="hidden" href="/2020/06/01/CNN学习笔记-批正则化/#more">undefined >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -975,17 +970,17 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2020 Hippopmonkey
+                2016-2021 Hippopmonkey
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -994,7 +989,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -1027,9 +1022,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
