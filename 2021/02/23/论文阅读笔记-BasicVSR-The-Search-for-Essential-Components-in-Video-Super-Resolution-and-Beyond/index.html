@@ -25,17 +25,15 @@
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLCeVP.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLCYV0.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLCrrR.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLiRjH.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFSU0.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFQ2D.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFGqA.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFsqs.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLF6Zn.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFWGT.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLF5M4.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFoL9.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLFOJK.png">
-<meta property="og:updated_time" content="2021-02-23T10:14:24.680Z">
+<meta property="og:updated_time" content="2021-02-23T10:36:59.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读笔记-BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond">
 <meta name="twitter:description" content="论文阅读笔记-BasicVSR: The Search for Essential Components in Video Super-Resolution概述Video super-resolution (VSR)相较于图像超分拥有更多的组成部分，也更为复杂，因为它们多了一个时间维度。本文系统的分析了一些VSR的基本方法，比较了它们之中的四个组成部分：Propagation, Alignmen">
@@ -344,12 +342,13 @@
 <h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p>对齐操作负责把高度相关但是未对齐的图像/特征对齐，这有利于之后的聚集操作。主要的对齐操作分为未对齐，图像对齐和特征对齐。</p>
 <p><strong>未对齐</strong>：从BasicVSR中去掉了空间对齐部分。在这种情况下，我们直接concat未对齐的特征进行复原。由于一些局部操作（例如卷积操作），拥有较小的感受野，在相应的位置聚集信息时效率低下，PSNR下降了1.19db。说明针对较远的空间位置，采用大的感受野去聚集信息更加重要。</p>
 <p><strong>图像对齐</strong>: 图像对齐在复原前，通过计算光流从而warp图像，以达到对齐效果。我们在BasicVSR上比较了图像warp和特征warp。由于光流估计的不精确性，warp后的图像不可避免地会出现模糊和不正确的情况，PSNR下降了0.17db。</p>
-<p><strong>特征对齐</strong>：采用光流估计后，warp特征而非图像，然后将对齐的特征传入的残差块中。<br><a href="https://imgchr.com/i/yLiRjH" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLiRjH.png" alt=""></a><br><strong>S：flow estimation</strong><br><strong>W：spatial warpping modules</strong><br><strong>stack of residual blocks</strong></p>
+<p><strong>特征对齐</strong>：采用光流估计后，warp特征而非图像，然后将对齐的特征传入的残差块中。<br>$$<br>s_i^{\{b,f\}} = S(x_i,x_{i\pm 1}) \\<br>\bar{h}_i^{\{b,f\}} = W(h_{i\pm 1}^{\{b,f\}},s_i^{\{b,f\}}) \\<br>h_i^{\{b,f\}} = R_{\{b,f\}}(x_i,\bar{h}_i^{\{b,f\}})<br>$$<br><strong>S：flow estimation</strong><br><strong>W：spatial warpping modules</strong><br><strong>stack of residual blocks</strong></p>
 <h3 id="聚集和上采样"><a href="#聚集和上采样" class="headerlink" title="聚集和上采样"></a>聚集和上采样</h3><p>BasicVSR采用基本的聚集和上采样。<br>聚集采用concat。<br>上采样采用若干个卷积操作和pixel-shuffle(U表示unsampling module)<br>$$<br>y_i = U(h_i^f,h_i^b)<br>$$</p>
 <h2 id="IconVSR"><a href="#IconVSR" class="headerlink" title="IconVSR"></a>IconVSR</h2><p>以BasicVSR为主干，引入了两个新的组件：信息填充机制和耦合传播，以减少传播过程中的错误积累，促进信息聚合。<br><a href="https://imgchr.com/i/yLFSU0" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLFSU0.png" alt=""></a></p>
 <h3 id="信息填充机制"><a href="#信息填充机制" class="headerlink" title="信息填充机制"></a>信息填充机制</h3><p>在封闭区域或图像边界，不正确的对齐可能会导致错误的积累，特别是在框架中采用长期传播的情况下。为了减轻这种错误特征引起的不理想的效果，提出了信息填充机制。</p>
-<p>使用一个额外的特征提取器用来提取输入帧、相邻帧的深度特征，然后将提取的特征和对齐的特征通过卷积操作融合。<br><a href="https://imgchr.com/i/yLFQ2D" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLFQ2D.png" alt=""></a><br><strong>E: feature extractor</strong><br><strong>C：convolution</strong><br><strong>\(I_{key}\)：所选关键帧的索引</strong></p>
-<p>调整后的特征接着输入残差结构进行进一步调整。<br><a href="https://imgchr.com/i/yLFGqA" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLFGqA.png" alt=""></a><br>注意：feature extractor和feature fusion仅针对空间稀疏选择的关键帧，因此计算负担并不是很大。并且这些由关键帧分隔的interval并不是独立的，而是相互连接，从而保持全局信息的传播。（详见耦合传播）</p>
+<p>使用一个额外的特征提取器用来提取输入帧、相邻帧的深度特征，然后将提取的特征和对齐的特征通过卷积操作融合。<br><a href="https://imgchr.com/i/yLFQ2D" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLFQ2D.png" alt=""></a></p>
+<p><strong>E: feature extractor</strong><br><strong>C：convolution</strong><br><strong>\(I_{key}\)：所选关键帧的索引</strong></p>
+<p>调整后的特征接着输入残差结构进行进一步调整。<br>$$<br>h_i^{\{b,f\}} = R_{\{b,f\}}(x_i,\hat{h}_i^{\{b,f\}})<br>$$<br>注意：feature extractor和feature fusion仅针对空间稀疏选择的关键帧，因此计算负担并不是很大。并且这些由关键帧分隔的interval并不是独立的，而是相互连接，从而保持全局信息的传播。（详见耦合传播）</p>
 <h3 id="耦合传播"><a href="#耦合传播" class="headerlink" title="耦合传播"></a>耦合传播</h3><p>在双向传播中，信息传播是沿着两个相反的方向独立传播的，每个传播分支中的特征都是由局部信息（相邻帧）计算得出的。<br>如上图b所示（紫线），在耦合传播中，将backward传播的中的特征h_i^b也作为正向传播模块的输入，从而使得传播模块在内部是相互连接的。<br>$$<br>h_i^b = F_b(x_i,x_{i+1},h_{i+1}^b) \\<br>h_i^f = F_f(x_i,x_{i-1},h_i^b,h_{i-1}^f) \\<br>y_i = U(h_i^f)<br>$$<br>通过耦合传播，forward分支接收来自过去和未来帧的信息，从而获得更高质量的特征。此外，由于耦合传播只需要改变分支的连接，因此可以在不引入计算开销的情况下获得性能增益。</p>
 <h2 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h2><p>flow estimator：SpyNet（该操作只针对关键帧）<br>feature extractor：EDVR-M<br>flow estimator和feature extractor与整个网络一起fine-tuned<br>每五帧选择一次关键帧<br>每一个传播branch里使用30个残差块</p>
 <p>模型大小：<br><a href="https://imgchr.com/i/yLFsqs" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLFsqs.png" alt=""></a></p>
@@ -370,7 +369,7 @@
         <p><span>本文标题:</span><a href="/2021/02/23/论文阅读笔记-BasicVSR-The-Search-for-Essential-Components-in-Video-Super-Resolution-and-Beyond/">论文阅读笔记-BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2021-02-23, 17:25:35</p>
-        <p><span>最后更新:</span>2021-02-23, 18:14:24</p>
+        <p><span>最后更新:</span>2021-02-23, 18:36:59</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/02/23/论文阅读笔记-BasicVSR-The-Search-for-Essential-Components-in-Video-Super-Resolution-and-Beyond/" title="论文阅读笔记-BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond">http://xuboming8.github.io/2021/02/23/论文阅读笔记-BasicVSR-The-Search-for-Essential-Components-in-Video-Super-Resolution-and-Beyond/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2021/02/23/论文阅读笔记-BasicVSR-The-Search-for-Essential-Components-in-Video-Super-Resolution-and-Beyond/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
