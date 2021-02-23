@@ -21,18 +21,18 @@
 <meta property="og:url" content="http://xuboming8.github.io/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/index.html">
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation预备知识conditional gan转跳链接条件GAN，生成网络还需要附加一定的条件附加的条件可以是文字，也可以是图片">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yKxByn.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLmmOU.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yKxhl9.jpg">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yMpkss.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yMpniT.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yMkfpV.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yMk46U.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/03/yMVqts.png">
-<meta property="og:updated_time" content="2021-02-03T06:56:52.218Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLmBtA.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLnN3q.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLnUg0.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLn9c6.png">
+<meta property="og:updated_time" content="2021-02-23T11:33:57.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation">
 <meta name="twitter:description" content="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation预备知识conditional gan转跳链接条件GAN，生成网络还需要附加一定的条件附加的条件可以是文字，也可以是图片">
-<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/03/yKxByn.png">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/23/yLmmOU.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -325,7 +325,7 @@
           
         <h1 id="论文阅读笔记-Swapping-Autoencoder-for-Deep-Image-Manipulation"><a href="#论文阅读笔记-Swapping-Autoencoder-for-Deep-Image-Manipulation" class="headerlink" title="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation"></a>论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="conditional-gan"><a href="#conditional-gan" class="headerlink" title="conditional gan"></a>conditional gan</h3><p><a href="https://blog.csdn.net/taoyafan/article/details/81229466" target="_blank" rel="external">转跳链接</a><br><strong>条件GAN</strong>，生成网络还需要附加一定的条件<br>附加的条件可以是<strong>文字</strong>，也可以是<strong>图片</strong><br><a id="more"></a></p>
 <h3 id="非饱和损失函数non-saturating-adversarial-loss"><a href="#非饱和损失函数non-saturating-adversarial-loss" class="headerlink" title="非饱和损失函数non-saturating adversarial loss"></a>非饱和损失函数non-saturating adversarial loss</h3><p><a href="https://crazyang.blog.csdn.net/article/details/112648606" target="_blank" rel="external">转跳链接</a><br>GAN discriminator loss:<strong>max log(D(x))+log(1-D(G(z))</strong><br>GAN generator Saturating loss:<strong>min log(1-D(G(z)))</strong><br>GAN generator Non-Saturating loss:<strong>max log(D(G(z)))</strong><br>非饱和损失函数能在训练早期提供更大的梯度</p>
-<h3 id="StyleGan-amp-StyleGan2"><a href="#StyleGan-amp-StyleGan2" class="headerlink" title="StyleGan &amp; StyleGan2"></a>StyleGan &amp; StyleGan2</h3><p><a href="https://www.sohu.com/a/389811293_823210" target="_blank" rel="external">转跳链接</a><br><a href="https://imgchr.com/i/yKxByn" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yKxByn.png" alt="StyleGan"></a><br><a href="https://imgchr.com/i/yKxhl9" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yKxhl9.jpg" alt="StyleGan2.jpg"></a></p>
+<h3 id="StyleGan-amp-StyleGan2"><a href="#StyleGan-amp-StyleGan2" class="headerlink" title="StyleGan &amp; StyleGan2"></a>StyleGan &amp; StyleGan2</h3><p><a href="https://www.sohu.com/a/389811293_823210" target="_blank" rel="external">转跳链接</a><br><a href="https://imgchr.com/i/yLmmOU" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLmmOU.png" alt="StyleGan.png"></a><br><a href="https://imgchr.com/i/yKxhl9" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yKxhl9.jpg" alt="StyleGan2.jpg"></a></p>
 <h2 id="Swapping-Autoencoder-for-Deep-Image-Manipulation"><a href="#Swapping-Autoencoder-for-Deep-Image-Manipulation" class="headerlink" title="Swapping Autoencoder for Deep Image Manipulation"></a>Swapping Autoencoder for Deep Image Manipulation</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ol>
 <li><p>本文提出了一些自动编码的交换策略，可以解决一系列的图像转换问题，包括纹理交换。<br>它通过把输入图像转换成latent code，分为structure code和texture code，通过交换这两部分实现合并成一张新的生成图片。<br><a href="https://imgchr.com/i/yMpkss" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yMpkss.png" alt=""></a></p>
 </li>
@@ -336,8 +336,8 @@
 <li><p>相比于其他使用条件gan的方法，本方法提出的框架即可以处理图像合成问题，也可以用于处理图像，这个框架在训练阶段时可以用过一个或者很小的样本得到。并且对比a single-image GAN，我们的模型在单一图片测试时即快又不需要很大的运算量。<br>相比与其他使用latent code的方法，本方法的code space是学习得到而不是从固定的分布中取样得到的，这就使得方法变得更灵活。<br>相比与将content和style分开的方法，本方法有三个优势：1.无监督，无需依赖于class label，pairwise image similarity，images pairs with same appearances，object locations等信息。2.从输入图像中提取的structure code和texture code代表着图像不同方面的信息，并且合并后可以生成更高品质的图片。3.无需ground truth domain labels。<br>相比于传统的style transfer方法，内容迁移使用perceptual distance，风格迁移使用texture statistics, e.g., a Gram matrix.只能转移低级的特征而无法转移更大尺度的语义特征，也有其他方法但只局限于局部的风格转变。我们的方法的可以转移语义上有用的信息，比如教堂的整体结构。</p>
 </li>
 </ol>
-<p>5.<br><a href="https://imgchr.com/i/yMpniT" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yMpniT.png" alt=""></a><br>The structure code is a tensor with spatial dimensions; the texture code is a 2048-dimensional vector.<br>the texture code must capture the texture distribution, while the structure code must capture location-specific information of the input images</p>
-<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><h3 id="网络细节"><a href="#网络细节" class="headerlink" title="网络细节"></a>网络细节</h3><p><a href="https://imgchr.com/i/yMkfpV" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yMkfpV.png" alt="yMkfpV.png"></a><br><a href="https://imgchr.com/i/yMk46U" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yMk46U.png" alt="yMk46U.png"></a><br><a href="https://imgchr.com/i/yMVqts" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/03/yMVqts.png" alt="yMVqts.png"></a><br>structure code：基于全卷积网络和感受野，提取的是空间的领域信息<br>texture code：在卷积层里用reflection padding或no padding，最后得到的是一维向量，排除了空间信息的干扰。</p>
+<p>5.<br><a href="https://imgchr.com/i/yLmBtA" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLmBtA.png" alt=""></a><br>The structure code is a tensor with spatial dimensions; the texture code is a 2048-dimensional vector.<br>the texture code must capture the texture distribution, while the structure code must capture location-specific information of the input images</p>
+<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><h3 id="网络细节"><a href="#网络细节" class="headerlink" title="网络细节"></a>网络细节</h3><p><a href="https://imgchr.com/i/yLnN3q" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLnN3q.png" alt=""></a><br><a href="https://imgchr.com/i/yLnUg0" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLnUg0.png" alt=""></a><br><a href="https://imgchr.com/i/yLn9c6" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLn9c6.png" alt=""></a><br>structure code：基于全卷积网络和感受野，提取的是空间的领域信息<br>texture code：在卷积层里用reflection padding或no padding，最后得到的是一维向量，排除了空间信息的干扰。</p>
 <h3 id="实验细节"><a href="#实验细节" class="headerlink" title="实验细节"></a>实验细节</h3><p>image reconstruction<br>image swapping<br>image editing<br>image translation<br>具体看word</p>
 
       
@@ -350,7 +350,7 @@
         <p><span>本文标题:</span><a href="/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/">论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2021-02-03, 00:27:45</p>
-        <p><span>最后更新:</span>2021-02-03, 14:56:52</p>
+        <p><span>最后更新:</span>2021-02-23, 19:33:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/" title="论文阅读笔记-Swapping Autoencoder for Deep Image Manipulation">http://xuboming8.github.io/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2021/02/03/Swapping-Autoencoder-for-Deep-Image-Manipulation/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

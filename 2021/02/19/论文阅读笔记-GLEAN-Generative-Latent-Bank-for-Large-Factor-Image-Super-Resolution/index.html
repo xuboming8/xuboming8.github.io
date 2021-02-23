@@ -22,11 +22,11 @@
 <meta property="og:site_name" content="CorgiButt">
 <meta property="og:description" content="论文阅读笔记-GLEAN Generative Latent Bank for Large-Factor Image Super-Resolution概述将大量先验知识封装在一个预训练的GAN里。运行时仅需要一次前向传递就可以生成upscaled image。整体网络架构为encoder-bank-decoder，其中包含多分辨率的skip connections，修改bank的先验可以处理不同">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/19/y4938K.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/19/y49vPx.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLuAMV.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/19/y4PNtI.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/02/19/y4Pw1f.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/19/y4P2hq.png">
-<meta property="og:updated_time" content="2021-02-19T15:21:01.711Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLnXKf.png">
+<meta property="og:updated_time" content="2021-02-23T11:39:43.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读笔记-GLEAN Generative Latent Bank for Large-Factor Image Super-Resolution">
 <meta name="twitter:description" content="论文阅读笔记-GLEAN Generative Latent Bank for Large-Factor Image Super-Resolution概述将大量先验知识封装在一个预训练的GAN里。运行时仅需要一次前向传递就可以生成upscaled image。整体网络架构为encoder-bank-decoder，其中包含多分辨率的skip connections，修改bank的先验可以处理不同">
@@ -332,7 +332,7 @@
 <li>第一种是利用辨别器去辨别生成器生成的图像进行对抗训练，这种方法的目标函数由保真项和对抗损失构成（fidelity term and an adversarial loss）。它的生成器既需要捕获图像的特征，也需要根据gt保证图像的保真度，这不可避免的限制了多样化逼近自然图像的能力，在output中会观察到artifacts。如ESRGAN所示，他恢复了正确的结构，但没有生成真实的纹理。</li>
 <li>第二种利用GAN inversion。他将低分辨率图像转换成latent space，从latent space中寻找最优的vector去重建图像。它解决了第一种方法的问题，由于latent code是低维信息，所以它限制了图像空间并且无法有效的引导存储的过程，导致生成的图片保真度较低。例如PULSE，它没有正确的根据gt还原纹理。另外它在运行时是迭代的方式，因此通常很费时。</li>
 </ol>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><a href="https://imgchr.com/i/y49vPx" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/19/y49vPx.png" alt=""></a></p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><a href="https://imgchr.com/i/yLuAMV" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLuAMV.png" alt=""></a></p>
 <h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><p>encoder提取出了latent vectors和多分辨率的卷积特征。它捕获了重要的高层线索以及LR图像的空间结构，这些线索用来决定latent bank。<br>使用RRDB（E0）提取LR图像的特征作为输入，然后逐渐减小图片的分辨率。<br>$$<br>f_i=E_i(f_{i-1})<br>$$<br>Ei表示一个步长为2的卷积和一个步长为1的卷积<br>最后的latent vectors C 由一个卷积和全连接层构成<br>$$<br>C=E_{N+1}(f_N)<br>$$<br>C是图像的压缩表示，给generative latent bank提供了高层的信息。<br>我们将多分辨率的特征也输入到latent bank中，以便近一步捕获LR图像的局部特征和结构的存储。</p>
 <h3 id="Generative-latent-bank"><a href="#Generative-latent-bank" class="headerlink" title="Generative latent bank"></a>Generative latent bank</h3><p>使用一个预训练的generator作为latent bank，例如stylegan，提供了纹理和细节的先验。<br>针对stylegan做了三点修改：</p>
 <ol>
@@ -342,7 +342,7 @@
 </ol>
 <h3 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h3><p>将encoder提取的特征和latent bank整合生成输出图片。<br>它将RRDBNet作为输入，逐步融合latent bank里的多分辨率特征。<br><a href="https://imgchr.com/i/y4Pw1f" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/19/y4Pw1f.png" alt=""></a><br>Di表示3×3的卷积。最后最后的output layer外，每一个卷积层后跟一个pixel shuffle操作。<br>这种encoder和decoder之间的跳跃连接，可以使得encoder提取的空间特征进一步加强，因此latent bank可以更专注于提取纹理细节。</p>
 <h2 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h2><p>保证latent bank的weights训练途中不变，微调权重并没有带来显著的效果提升，甚至会给训练的分布带来偏差。<br>它与ESRGAN的主要区别就在于他用一个预训练的生成器直接在网络里加入了先验。<br>为了进一步说明GLEAN效果的提升不是因为增加的参数，作者还比较了GLEAN和ESRGAN+</p>
-<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p><a href="https://imgchr.com/i/y4P2hq" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/19/y4P2hq.png" alt=""></a></p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p><a href="https://imgchr.com/i/yLnXKf" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLnXKf.png" alt=""></a></p>
 <h2 id="实验细节"><a href="#实验细节" class="headerlink" title="实验细节"></a>实验细节</h2><p>对比人脸数据集 其他数据集 大放大倍数，均有最好的效果<br>若GLEAN用的是对齐的人脸图像训练的，对一些非对齐的图片或非人脸图像具有鲁棒性。</p>
 <p>Ablation Studies（消融实验）</p>
 <ol>
@@ -363,7 +363,7 @@
         <p><span>本文标题:</span><a href="/2021/02/19/论文阅读笔记-GLEAN-Generative-Latent-Bank-for-Large-Factor-Image-Super-Resolution/">论文阅读笔记-GLEAN Generative Latent Bank for Large-Factor Image Super-Resolution</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2021-02-19, 22:51:41</p>
-        <p><span>最后更新:</span>2021-02-19, 23:21:01</p>
+        <p><span>最后更新:</span>2021-02-23, 19:39:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/02/19/论文阅读笔记-GLEAN-Generative-Latent-Bank-for-Large-Factor-Image-Super-Resolution/" title="论文阅读笔记-GLEAN Generative Latent Bank for Large-Factor Image Super-Resolution">http://xuboming8.github.io/2021/02/19/论文阅读笔记-GLEAN-Generative-Latent-Bank-for-Large-Factor-Image-Super-Resolution/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2021/02/19/论文阅读笔记-GLEAN-Generative-Latent-Bank-for-Large-Factor-Image-Super-Resolution/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

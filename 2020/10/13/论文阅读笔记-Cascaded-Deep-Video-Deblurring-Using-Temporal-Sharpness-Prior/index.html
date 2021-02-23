@@ -23,17 +23,17 @@
 <meta property="og:description" content="论文阅读笔记-Cascaded Deep Video Deblurring Using Temporal Sharpness Prior预备知识well-posed/ill-posedwell-posed:适定性问题1）    a solution exits         解存在2）    the solution is unique   解唯一3）    the solution’s beh">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fE0RU.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fVmy4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fVNOH.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fV5t0.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLubo4.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLuLFJ.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZe4P.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZn9f.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZY40.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZBDJ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZTUI.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fZL28.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLKZlt.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/23/yLKmOf.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0fe95q.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0femZ9.png">
-<meta property="og:updated_time" content="2020-10-13T04:42:49.197Z">
+<meta property="og:updated_time" content="2021-02-23T11:51:43.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读笔记-Cascaded Deep Video Deblurring Using Temporal Sharpness Prior">
 <meta name="twitter:description" content="论文阅读笔记-Cascaded Deep Video Deblurring Using Temporal Sharpness Prior预备知识well-posed/ill-posedwell-posed:适定性问题1）    a solution exits         解存在2）    the solution is unique   解唯一3）    the solution’s beh">
@@ -342,8 +342,8 @@
 <p><strong>光流可视化</strong>：光流场图片中每个像素的位移矢量都可以分解成x方向和y方向的矢量，所以光流估计后得到的图像是一个和原图像大小相等的双通道图像（分别代表x方向和y方向的运动方向和速度），颜色代表运动方向，深浅（亮度）代表运动速度。<br>光流和图像的映射关系：（用hsv图像表示）<br><img src="https://s1.ax1x.com/2020/10/13/0fVmy4.png" alt=""></p>
 <p><strong>稠密光流和稀疏光流</strong>：稠密光流需要将图像中所有像素的光流都计算出来。稀疏光流只针对图像中的若干个特征点，例如一些特征明显（梯度较大）的点进行光流估计和追踪。</p>
 <h2 id="optical-flow-estimation"><a href="#optical-flow-estimation" class="headerlink" title="optical flow estimation"></a>optical flow estimation</h2><p><strong>optical flow estimation</strong>:光流估计法模型</p>
-<h3 id="Lucas-Kanada：稀疏光流估计法"><a href="#Lucas-Kanada：稀疏光流估计法" class="headerlink" title="Lucas-Kanada：稀疏光流估计法"></a>Lucas-Kanada：稀疏光流估计法</h3><p>两个重要假设：<br><strong>(1) 亮度不变假设</strong><br>假设待估计光流的两帧图像的同一物体的亮度不变。这个假设通常是成立的，因为环境光照通常不会发生太大的变化。<br>假设在t时刻，位于(x,y)像素位置的物体，在t+Δt位于（x+u，y+v）位置，基于亮度不变假设，有：<br><img src="https://s1.ax1x.com/2020/10/13/0fVNOH.png" alt=""></p>
-<p><strong>(2) 领域光流相似假设</strong><br>假设领域内的所有像素点光流值一致。通常一个小的图像区域里像素移动的方向和大小基本是一致的，因此假设是合理的。<br>领域内的所有像素都有下式：<br><img src="https://s1.ax1x.com/2020/10/13/0fV5t0.png" alt=""></p>
+<h3 id="Lucas-Kanada：稀疏光流估计法"><a href="#Lucas-Kanada：稀疏光流估计法" class="headerlink" title="Lucas-Kanada：稀疏光流估计法"></a>Lucas-Kanada：稀疏光流估计法</h3><p>两个重要假设：<br><strong>(1) 亮度不变假设</strong><br>假设待估计光流的两帧图像的同一物体的亮度不变。这个假设通常是成立的，因为环境光照通常不会发生太大的变化。<br>假设在t时刻，位于(x,y)像素位置的物体，在t+Δt位于（x+u，y+v）位置，基于亮度不变假设，有：<br><a href="https://imgchr.com/i/yLubo4" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLubo4.png" alt=""></a></p>
+<p><strong>(2) 领域光流相似假设</strong><br>假设领域内的所有像素点光流值一致。通常一个小的图像区域里像素移动的方向和大小基本是一致的，因此假设是合理的。<br>领域内的所有像素都有下式：<br><a href="https://imgchr.com/i/yLuLFJ" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLuLFJ.png" alt=""></a></p>
 <p>所以LK算法求解的是一些亮度变化明显的角点（稀疏光流）的光流</p>
 <p><strong>(3) 时间间隔很小</strong><br>上述假设都基于短时间内的两帧，即随着时间的变化不会引起位置的剧烈变化，只有在小运动的情况下才可以用前后帧之间的灰度变化去近似灰度对位置的偏导数。</p>
 <h3 id="PWC-Net"><a href="#PWC-Net" class="headerlink" title="PWC-Net"></a>PWC-Net</h3><p><strong>整体框架</strong>：<br><img src="https://s1.ax1x.com/2020/10/13/0fZe4P.png" alt=""></p>
@@ -357,9 +357,9 @@
 <li>7层金字塔光流图只计算到第二层，然后直接上采样双线性插值到原尺寸。</li>
 <li>gt的光流图下采样了20倍（并没有在每一层下采样20倍），所以代码的estimate_flow需要×20</li>
 </ol>
-<h2 id="CDVD-TSP-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior"><a href="#CDVD-TSP-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior" class="headerlink" title="CDVD-TSP(Cascaded Deep Video Deblurring Using Temporal Sharpness Prior)"></a>CDVD-TSP(Cascaded Deep Video Deblurring Using Temporal Sharpness Prior)</h2><h3 id="Cascaded-串联训练"><a href="#Cascaded-串联训练" class="headerlink" title="Cascaded(串联训练)"></a>Cascaded(串联训练)</h3><p><strong>串联</strong>：利用五帧来预测清晰图片，确保optical flow是在较清晰的中间层latent frame上预测出来的，同时利用预测出来的光流图和restoration网络来生成deblur后的帧，随后在生成的清晰帧上再预测光流图，可以使得整个流程不停迭代下去。<br><img src="https://s1.ax1x.com/2020/10/13/0fZTUI.png" alt=""></p>
+<h2 id="CDVD-TSP-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior"><a href="#CDVD-TSP-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior" class="headerlink" title="CDVD-TSP(Cascaded Deep Video Deblurring Using Temporal Sharpness Prior)"></a>CDVD-TSP(Cascaded Deep Video Deblurring Using Temporal Sharpness Prior)</h2><h3 id="Cascaded-串联训练"><a href="#Cascaded-串联训练" class="headerlink" title="Cascaded(串联训练)"></a>Cascaded(串联训练)</h3><p><strong>串联</strong>：利用五帧来预测清晰图片，确保optical flow是在较清晰的中间层latent frame上预测出来的，同时利用预测出来的光流图和restoration网络来生成deblur后的帧，随后在生成的清晰帧上再预测光流图，可以使得整个流程不停迭代下去。<br><a href="https://imgchr.com/i/yLKZlt" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLKZlt.png" alt=""></a></p>
 <h3 id="optical-flow-estimation-1"><a href="#optical-flow-estimation-1" class="headerlink" title="optical flow estimation"></a>optical flow estimation</h3><p>PWC-Net</p>
-<h3 id="temporal-sharpness-prior"><a href="#temporal-sharpness-prior" class="headerlink" title="temporal sharpness prior"></a>temporal sharpness prior</h3><p><img src="https://s1.ax1x.com/2020/10/13/0fZL28.png" alt=""></p>
+<h3 id="temporal-sharpness-prior"><a href="#temporal-sharpness-prior" class="headerlink" title="temporal sharpness prior"></a>temporal sharpness prior</h3><p><a href="https://imgchr.com/i/yLKmOf" target="_blank" rel="external"><img src="https://s3.ax1x.com/2021/02/23/yLKmOf.png" alt=""></a></p>
 <h3 id="latent-frame-restoration"><a href="#latent-frame-restoration" class="headerlink" title="latent frame restoration"></a>latent frame restoration</h3><p>注：<br>input_channel:10（第i帧+第i-1帧warp后结果+第i+1帧warp后结果+tsp）<br>蓝色部分为三个残差块叠加在一起<br><img src="https://s1.ax1x.com/2020/10/13/0fe95q.png" alt=""></p>
 <h3 id="overview-of-the-proposed-method-at-one-stage"><a href="#overview-of-the-proposed-method-at-one-stage" class="headerlink" title="overview of the proposed method at one stage"></a>overview of the proposed method at one stage</h3><p><img src="https://s1.ax1x.com/2020/10/13/0femZ9.png" alt=""></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1．    避免由传统方法先验知识引起的复杂能量方程很难求解的问题。<br>2．    避免在blur image上预测的光流图不准。<br>3．    利用temporal sharpness prior的先验知识可以优化结果。<br>4．    Ablation实验结果表明optical flow，cascaded training，temporal sharpness prior缺一不可，缺少任何一步都会使结果降低。</p>
@@ -374,7 +374,7 @@
         <p><span>本文标题:</span><a href="/2020/10/13/论文阅读笔记-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior/">论文阅读笔记-Cascaded Deep Video Deblurring Using Temporal Sharpness Prior</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hippopmonkey</a></p>
         <p><span>发布时间:</span>2020-10-13, 12:37:42</p>
-        <p><span>最后更新:</span>2020-10-13, 12:42:49</p>
+        <p><span>最后更新:</span>2021-02-23, 19:51:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/10/13/论文阅读笔记-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior/" title="论文阅读笔记-Cascaded Deep Video Deblurring Using Temporal Sharpness Prior">http://xuboming8.github.io/2020/10/13/论文阅读笔记-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xuboming8.github.io/2020/10/13/论文阅读笔记-Cascaded-Deep-Video-Deblurring-Using-Temporal-Sharpness-Prior/　　作者: Hippopmonkey" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
