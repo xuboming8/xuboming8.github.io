@@ -281,6 +281,77 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-二分图总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/19/二分图总结/" class="article-date">
+      <time datetime="2017-08-19T06:47:24.000Z" itemprop="datePublished">2017-08-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/19/二分图总结/">二分图总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="二分图总结"><a href="#二分图总结" class="headerlink" title="二分图总结"></a>二分图总结</h1><h2 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h2><h3 id="hungary"><a href="#hungary" class="headerlink" title="hungary"></a>hungary</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">int g[maxn][maxn],linker[maxn];</div><div class="line">bool used[maxn];</div><div class="line">bool dfs(int u)&#123;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(g[u][i] &amp;&amp; !used[i])&#123;</div><div class="line">			used[i]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[i]==-1 || dfs(linker[i]))&#123;</div><div class="line">				linker[i]=u;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">hungary</span></span>()&#123;</div><div class="line">	int ans=0;</div><div class="line">	mm(linker,-1);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</div><div class="line">		mm(used,0);</div><div class="line">		<span class="keyword">if</span>(dfs(i)) ans++;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 n和m分别记录2个集合的点数</strong></p>
+<h3 id="km"><a href="#km" class="headerlink" title="km"></a>km</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">int nx,ny;</div><div class="line">int g[maxn][maxn];</div><div class="line">int linker[maxn],lx[maxn],ly[maxn];</div><div class="line">int slack[maxn];</div><div class="line">bool visx[maxn],visy[maxn];</div><div class="line">bool dfs(int x)&#123;</div><div class="line">	visx[x]=<span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span>(int y=0;y&lt;ny;y++)&#123;</div><div class="line">		<span class="keyword">if</span>(visy[y]) <span class="built_in">continue</span>;</div><div class="line">		int tmp=lx[x]+ly[y]-g[x][y];</div><div class="line">		<span class="keyword">if</span>(tmp==0)&#123;</div><div class="line">			visy[y]=<span class="literal">true</span>;</div><div class="line">			<span class="keyword">if</span>(linker[y]==-1 || dfs(linker[y]))&#123;</div><div class="line">				linker[y]=x;</div><div class="line">				<span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> slack[y]=min(slack[y],tmp);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">km</span></span>()&#123;</div><div class="line">	mm(linker,-1),mm(ly,0);</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		lx[i]=g[i][0];</div><div class="line">		<span class="keyword">for</span>(int j=1;j&lt;ny;j++) lx[i]=max(lx[i],g[i][j]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;nx;i++)&#123;</div><div class="line">		fill(slack,slack+ny,inf);</div><div class="line">		<span class="keyword">while</span>(1)&#123;</div><div class="line">			mm(visx,<span class="literal">false</span>),mm(visy,<span class="literal">false</span>);</div><div class="line">			<span class="keyword">if</span>(dfs(i)) <span class="built_in">break</span>;</div><div class="line">			int d=inf;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(!visy[j]) d=min(d,slack[j]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;nx;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visx[j]) lx[j]-=d;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(int j=0;j&lt;ny;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(visy[j]) ly[j]+=d;</div><div class="line">				<span class="keyword">else</span> slack[j]-=d;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	int ans=0;</div><div class="line">	<span class="keyword">for</span>(int i=0;i&lt;ny;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(linker[i]!=-1) ans+=g[linker[i]][i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>下标从0开始 nx和ny分别记录2个集合的点数</strong></p>
+<h2 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h2>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分图/">二分图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a class="hidden" href="/2017/08/19/二分图总结/#more">undefined >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-dfs序专题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -867,73 +938,6 @@
       
         <p class="article-more-link">
           <a class="hidden" href="/2017/08/11/muti多校-6/#more">undefined >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-背包组合数相关" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/10/背包组合数相关/" class="article-date">
-      <time datetime="2017-08-09T17:12:25.000Z" itemprop="datePublished">2017-08-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/背包组合数相关/">背包组合数相关</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="背包组合数相关"><a href="#背包组合数相关" class="headerlink" title="背包组合数相关"></a>背包组合数相关</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>背包组合问题通常用01背包dp解决<br>相关问题有数组中的数字求单次组合数和无限次组合数<br>前者用dp[i]表示i的组合数有dp[i]种 接着逆序遍历所有数字用dp[i]+=dp[i-k]更新<br>无限次更新通过hash和背包思想 通常问是否能组合某个数字或者所有数字<br>还可用bitset s|=s&#60;&#60;num[i]表示把第个数字压入bitset中 最后判断第i位的数字是否为1就代表是否能取到<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/自用笔记/">自用笔记</a><a class="article-category-link" href="/categories/自用笔记/算法/">算法</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/acm/">acm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包/">背包</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a class="hidden" href="/2017/08/10/背包组合数相关/#more">undefined >></a>
         </p>
       
       <div class="clearfix"></div>
